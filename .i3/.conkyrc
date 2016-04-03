@@ -1,0 +1,16 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+update_interval 5.0
+
+
+mpd_port 6600
+
+TEXT
+ [{ "full_text" : "CPU ${cpu}%", "color" : ${if_match ${cpu} < 50}"\#508bb0"${else}"\#ff3232"${endif}},
+ { "full_text" : "RAM ${memfree} free", "color" : ${if_match ${memperc} < 80}"\#03a5f5"
+						  ${else}"\#ff3232"${endif}},
+ { "full_text" : ${if_up enp9s0}"${addr enp9s0} @ ↑${upspeed enp9s0} ↓${downspeed enp9s0}", "color" : "\#45fa88"
+		 ${else}"Eth:☓", "color" : "\#ff3232"${endif}},
+ { "full_text" : "${time %d-%m-%Y  %T}", "color" : "\#bdbdbd"}],
