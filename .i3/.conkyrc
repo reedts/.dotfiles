@@ -11,8 +11,8 @@ TEXT
  { "full_text" : " ${fs_free}", "color" : ${if_match ${fs_free_perc} > 10}"\#508bb0" ${else} "\#ff3232" ${endif}},
  { "full_text" : " ${cpu}%", "color" : ${if_match ${cpu} < 80}"\#508bb0" ${else} "\#ff3232" ${endif}},
  { "full_text" : " ${memfree}", "color" : ${if_match ${memperc} < 80}"\#508bb0" ${else} "\#ff3232" ${endif}},
- { "full_text" : ${if_up wlp2s0} " ${wireless_link_qual_perc wlp2s0}% ${addr wlp2s0}", "color" : "\#45fa88" ${else} " ☓", "color" : "\#ff3232" ${endif}},
- { "full_text" : ${if_up enp0s25} " ${addr enp0s25}", "color" : "\#45fa88" ${else} " ☓", "color" : "\#ff3232"${endif}},
+ { "full_text" : ${if_up wlp2s0} " ${if_match ${addr wlp2s0}=="No Address"} ", "color" : "\#ff3232" ${else} ${wireless_link_qual_perc wlp2s0}% ${addr wlp2s0}", "color" : "\#45fa88"${endif} ${else} " ", "color" : "\#ff3232" ${endif}},
+ { "full_text" : ${if_up enp0s25} " ${if_match ${addr enp0s25}=="No Address"} ", "color" : "\#ff3232" ${else} ${addr enp0s25}", "color" : "\#45fa88"${endif} ${else} " ", "color" : "\#ff3232"${endif}},
  { "full_text" : " ${battery_percent}% @ $battery_time", "color" : "${if_match ${battery_percent} > 20}\#45fa88"
     ${else}\#ff3232"${endif}},
  { "full_text" : "${time %d-%m-%Y  %H:%M}", "color" : "\#bdbdbd"}],
