@@ -10,33 +10,74 @@ Xft.lcdfilter: lcddefault
 XTerm*Background: black
 XTerm*Foreground: white
 
-URxvt.background: black
-URxvt.foreground: white
 !URxvt.font: -misc-fixed-medium-r-normal--14-130-75-75-C-70-iso10646-1
 URxvt.font: xft:DejaVu Sans Mono:size=10
 URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
 
-URxvt*color0: black
-URxvt*color1: red3
-URxvt*color2: green3
-URxvt*color3: yellow3
-URxvt*color4: blue2
-URxvt*color5: magenta3
-URxvt*color6: cyan3
-URxvt*color7: gray90
-URxvt*color8: grey50
-URxvt*color9: red
-URxvt*color10: green
-URxvt*color11: yellow
-!URxvt*color12: blue
-URxvt*color12: rgb:5c/5c/ff
-URxvt*color13: magenta
-URxvt*color14: cyan
-URxvt*color15: white
+URxvt*depth: 32
+URxvt*antialias: true
 
-URxvt*.transparent: true
+! Molokai colorscheme
+#define Molokai_black        #121212
+#define Molokai_red          #F92672
+#define Molokai_red2         #FF0000
+#define Molokai_green        #A6E22E
+#define Molokai_brown        #C47F2C
+#define Molokai_blue         #30309B
+#define Molokai_purple       #AE81FF
+#define Molokai_cyan         #4699AF
+#define Molokai_light_grey   #9999AA
+#define Molokai_dark_grey    #808080
+#define Molokai_light_red    #F92672
+#define Molokai_light_green  #80FF00
+#define Molokai_yellow       #FFBA68
+#define Molokai_light_blue   #7070F0
+#define Molokai_light_purple #C5A5FF
+#define Molokai_light_cyan   #66D9EF
+#define Molokai_white        #F8F8F2
+
+URxvt*background  : Molokai_black
+URxvt*foreground  : Molokai_white
+URxvt*color0      : Molokai_black
+URxvt*color1      : Molokai_red
+URxvt*color2      : Molokai_green
+URxvt*color3      : Molokai_brown
+URxvt*color4      : Molokai_blue
+URxvt*color5      : Molokai_purple
+URxvt*color6      : Molokai_cyan
+URxvt*color7      : Molokai_light_grey
+URxvt*color8      : Molokai_dark_grey
+URxvt*color9      : Molokai_light_red
+URxvt*color10     : Molokai_light_green
+URxvt*color11     : Molokai_yellow
+URxvt*color12     : Molokai_light_blue
+URxvt*color13     : Molokai_light_purple
+URxvt*color14     : Molokai_light_cyan
+URxvt*color15     : Molokai_white
+
+
+! Standard colorscheme
+!URxvt*color0: black
+!URxvt*color1: red3
+!URxvt*color2: green3
+!URxvt*color3: yellow3
+!URxvt*color4: blue2
+!URxvt*color5: magenta3
+!URxvt*color6: cyan3
+!URxvt*color7: gray90
+!URxvt*color8: grey50
+!URxvt*color9: red
+!URxvt*color10: green
+!URxvt*color11: yellow
+!!URxvt*color12: blue
+!URxvt*color12: rgb:5c/5c/ff
+!URxvt*color13: magenta
+!URxvt*color14: cyan
+!URxvt*color15: white
+
+URxvt*.transparent: false
 URxvt*.shading: 10
 
 URxvt*perl-ext-common:	default,matcher,clipboard
