@@ -8,9 +8,11 @@ update_interval 5.0
 mpd_port 6600
 
 TEXT
- [{ "full_text" : "CPU ${cpu}%", "color" : ${if_match ${cpu} < 50}"\#508bb0"${else}"\#ff3232"${endif}},
- { "full_text" : "RAM ${memfree} free", "color" : ${if_match ${memperc} < 80}"\#03a5f5"
-						  ${else}"\#ff3232"${endif}},
- { "full_text" : ${if_up enp9s0}"${addr enp9s0} @ ↑${upspeed enp9s0} ↓${downspeed enp9s0}", "color" : "\#45fa88"
-		 ${else}"Eth:☓", "color" : "\#ff3232"${endif}},
- { "full_text" : "${time %d-%m-%Y  %T}", "color" : "\#bdbdbd"}],
+[
+ { "full_text" : " ${fs_free}", "color" : ${if_match ${fs_free_perc} > 90}"\#66D9EF"${else}"\#F92672"${endif}},
+ { "full_text" : " ${cpu}%", "color" : ${if_match ${cpu} < 50}"\#66D9EF"${else}"\#F92672"${endif}},
+ { "full_text" : " ${memfree}", "color" : ${if_match ${memperc} < 80}"\#66D9EF"
+						  ${else}"\#F92672"${endif}},
+ { "full_text" : ${if_up enp9s0}" ${addr enp9s0} @ ↑${upspeed enp9s0} ↓${downspeed enp9s0}", "color" : "\#A6E22E"
+		 ${else}" ", "color" : "\#F92672"${endif}},
+ { "full_text" : "${time %d-%m-%Y  %H:%M}", "color" : "\#F8F8F2"}],
