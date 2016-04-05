@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:DejaVu Sans Book 8
+font pango:DejaVu Sans Book, FontAwesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -93,29 +93,41 @@ no_focus [window_role="browser"]
 # enable workspac back and forth switching
 workspace_auto_back_and_forth yes
 
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8:
+set $ws9 9:
+set $ws10 10
+
+
 # switch to workspace
-bindsym $mod+1 workspace 1: sh
-bindsym $mod+2 workspace 2: web
-bindsym $mod+3 workspace 3: vim
-bindsym $mod+4 workspace 4: sh
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8: files
-bindsym $mod+9 workspace 9: msg
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: sh
-bindsym $mod+Shift+2 move container to workspace 2: web
-bindsym $mod+Shift+3 move container to workspace 3: vim
-bindsym $mod+Shift+4 move container to workspace 4: sh
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8: files
-bindsym $mod+Shift+9 move container to workspace 9: msg
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+z reload
@@ -150,17 +162,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $launch_mode 
 # Mode for quick launching applications
-mode "launch" {
+mode $launch_mode {
 	# Firefox
 	bindsym f exec firefox
-	# Pamac
-	bindsym p exec pamac-manager
-	# Xnoise
-	bindsym x exec xnoise
-	# Settings
-	bindsym s exec xfce4-settings-manager
-	# Thunar
+    # Thunar
 	bindsym t exec thunar
 	# Chromium
 	bindsym c exec chromium
@@ -168,10 +175,12 @@ mode "launch" {
 	# back to normal
 	bindsym Escape mode "default"
 }
-bindsym $mod+Shift+x mode "launch"
+bindsym $mod+Shift+x mode $launch_mode
 
 # Mode for moving a workspace between monitors
-mode "move" {
+
+set $move_mode 
+mode $move_mode {
     # Right
     bindsym Right move workspace to output right
     bindsym odiaeresis move workspace to output right
@@ -181,10 +190,10 @@ mode "move" {
 
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+w mode "move"
+bindsym $mod+Shift+w mode $move_mode
 
 # Mode for simple system tasks like reboot, logout, shutdown, suspend, hibernate
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system  (l) , (e)  , (s) , (h) , (r) , (Shift+s)  
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3exit lock, mode "default"
 	bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -204,15 +213,16 @@ hide_edge_borders both
 # finds out, if available)
 bar {
 	colors {
-		background	#383a3b
-		statusline	#bdbdbd
-		separator	#508bb0
+		background	#121212
+		statusline	#F8F8F2
+		separator	#808080
 
-		focused_workspace	#4d679a	#4d679a	#0fe1ff
-		active_workspace	#508bb0	#508bb0	#b3b3b3
-		inactive_workspace	#383a3b	#383a3b	#508bb0
-		urgent_workspace	#ff0000	#ff0000	#ffffff
+		focused_workspace	#F92672	#F92672	#121212
+		active_workspace	#121212	#121212	#D75F00
+		inactive_workspace	#121212	#121212	#66D9EF
+		urgent_workspace	#121212	#121212	#F92672
 	}
+    strip_workspace_numbers yes
 	output HDMI-0
 	position top 
 	tray_output HDMI-0
@@ -224,16 +234,16 @@ bar {
 # For second Monitor
 bar {
 	colors {
-               background      #383a3b
-               statusline      #bdbdbd
-               separator       #ffffff
+               background      #121212
+               statusline      #F8F8F2
+               separator       #808080
 
-		focused_workspace	#4d679a	#4d679a	#0fe1ff
-		active_workspace	#508bb0	#508bb0	#b3b3b3
-		inactive_workspace	#383a3b	#383a3b	#4d679a
-		urgent_workspace	#ff0000	#ff0000	#ffffff
-        }
-
+		focused_workspace	#F92672	#F92672	#121212
+		active_workspace	#121212	#121212	#D75F00
+		inactive_workspace	#121212	#121212	#66D9EF
+		urgent_workspace	#121212	#121212	#F92672
+    }
+    strip_workspace_numbers yes
 	output DVI-I-1
 	position top
 	font pango:DejaVu Sans Book 8
@@ -255,21 +265,21 @@ exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/blue-blurred.
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
-client.focused		    #4d679a #4d679a		#0fe1ff	#2e9ef4
-client.focused_inactive	#508bb0	#508bb0		#b3b3b3	#2e9ef4
-client.unfocused	    #4D679A	#4d679a		#b3b3b3	#676767
-client.urgent		    #ff0000	#ff0000		#ffffff	#000000
+client.focused		    #A6E22E #A6E22E 	#121212	#2e9ef4
+client.focused_inactive	#30309B	#7070F0		#F8F8F2	#2e9ef4
+client.unfocused	    #808080	#808080 	#F8F8F2	#676767
+client.urgent		    #F92672	#F92672		#121212	#000000
 
 #=================== Custom keybindings =============================================
 
 
 #=================== Custom Window workspace ========================================
 
-assign [class="^Firefox$"] "2: web"
+assign [class="^Firefox$"] $ws2
 
-assign [class="^Pidgin$"] "9: msg"
-assign [class="^skype$"] "9: msg"
-assign [class="^Thunderbird$"] "9: msg"
+assign [class="^Pidgin$"] $ws9
+assign [class="^skype$"] $ws9
+assign [class="^Thunderbird$"] $ws9
 
 #=================== Windows that should spawn in floating mode =====================
 # thunderbird floating windows
