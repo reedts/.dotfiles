@@ -1,0 +1,23 @@
+out_to_x no
+own_window no
+out_to_console yes
+times_in_seconds yes
+background no
+update_interval 2.0
+
+mpd_port 6600
+
+TEXT
+[
+ { "full_text" : " ${fs_free}", "color" : "${if_match ${fs_used_perc} < 90}\#508BB0"${else}\#ff3232"${endif}},
+ { "full_text" : " ${acpitemp} °C", "color" : "\#508bb0"},
+ { "full_text" : " ${cpu}%", "color" : ${if_match ${cpu} < 80}"\#508bb0"${else}"\#ff3232"${endif}},
+ { "full_text" : " ${memfree}", "color" : ${if_match ${memperc} < 80}"\#508bb0"
+						  ${else}"\#ff3232"${endif}},
+ { "full_text" : ${if_up wlp3s0}" ${if_match "${addr wlp3s0}"=="No Address"}"${else} ${wireless_link_qual_perc wlp3s0}%  ${addr wlp3s0}" ${endif}, "color" : "\#45fa88"
+		 ${else}" ", "color" : "\#ff3232"${endif}},
+ { "full_text" : ${if_up enp2s0f1}" ${if_match "${addr enp2s0f1}"=="No Address"}"${else} ${addr enp2s0f1}" ${endif}, "color" : "\#45fa88"
+		 ${else}" ", "color" : "\#ff3232"${endif}},
+ { "full_text" : "  ${battery_percent}% @ ${format_time $battery_time "\hh:\mm"}", "color" : "${if_match ${battery_percent} > 20}\#45fa88"
+	  ${else}\#ff3232"${endif}},
+ { "full_text" : "${time %d-%m-%Y  %H:%M}", "color" : "\#bdbdbd"}],
