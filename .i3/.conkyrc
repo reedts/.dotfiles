@@ -34,7 +34,7 @@ TEXT
        "color" : "\#A6E22E" ${else} " ", "color" : "\#F92672"${endif}
  },
 
- { "full_text" : "${if_match ${battery_percent}<=10} ${else}${if_match ${battery_percent} <= 25} ${else}${if_match ${battery_percent} <= 50} ${else}${if_match ${battery_percent} <= 75} ${else}${if_match ${battery_percent} <= 99} ${else}${if_match ${battery_percent}==100} ${endif}${endif}${endif}${endif}${endif}${endif} ${battery_percent}% (${format_time ${battery_time} "\h:\m"})",
+ { "full_text" : "${if_match "${acpiacadapter}"=="on-line"}${else}${if_match ${battery_percent}<=10} ${else}${if_match ${battery_percent} <= 25} ${else}${if_match ${battery_percent} <= 50} ${else}${if_match ${battery_percent} <= 75} ${else}${if_match ${battery_percent} <= 99} ${else}${if_match ${battery_percent}==100} ${endif}${endif}${endif}${endif}${endif}${endif}${endif} ${battery_percent}% (${format_time ${battery_time} "\h:\m"})",
        "color" : "${if_match ${battery_percent} > 20}\#A6E22E"${else}\#F92672"${endif}
  },
 
