@@ -242,7 +242,7 @@ exec lxsession
 exec compton -b --config ~/.compton.conf
 
 # Set Wallpaper
-exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/blue-blurred.png
+exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/blue-blurred.jpg
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
