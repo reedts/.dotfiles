@@ -223,7 +223,7 @@ bar {
 		urgent_workspace	#121212	#121212	#F92672
 	}
     strip_workspace_numbers yes
-	position top 
+	position bottom 
 	font pango:DejaVu Sans Book 8
         #status_command i3status --config /home/reedts/.i3/i3status.conf
 	status_command $HOME/.i3/conkywrapper
