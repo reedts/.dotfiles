@@ -24,6 +24,8 @@ filetype plugin on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 
+set colorcolumn=80
+
 if has('gui_running')
     "GVIM
     version 6.0
