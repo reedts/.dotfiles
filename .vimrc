@@ -24,7 +24,6 @@ filetype plugin on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 
-set colorcolumn=80
 
 if has('gui_running')
     "GVIM
@@ -57,10 +56,13 @@ if has('gui_running')
     set cpoptions=aAceFsB
     set expandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
-    set guifont=DejaVu\ Sans\ Mono\ 11
+    set guifont=DejaVu\ Sans\ Mono\ 10
     set guioptions=aegimrLt
     set guioptions-=m
     set helplang=en
+    set cursorline
+    set colorcolumn=80
+    hi ColorColumn guibg=darkgrey
     set number
     set mouse=a
     set ruler
@@ -74,7 +76,12 @@ if has('gui_running')
     set window=55
     " vim: set ft=vim :
 else
+    set t_Co=256
     colorscheme molokai 
+    set colorcolumn=80
+    hi ColorColumn ctermbg=darkgrey
+
+    nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
     set number
     set tabstop=4
     set softtabstop=4
