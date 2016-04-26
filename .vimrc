@@ -78,7 +78,6 @@ if has('gui_running')
 else
     set t_Co=256
     colorscheme molokai 
-    set cursorline
     set colorcolumn=80
     hi ColorColumn ctermbg=darkgrey
 
