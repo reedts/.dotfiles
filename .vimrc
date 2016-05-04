@@ -77,11 +77,12 @@ if has('gui_running')
     " vim: set ft=vim :
 else
     set t_Co=256
-    colorscheme molokai 
-    set colorcolumn=80
+    colorscheme molokai
+    au BufNewFile,BufRead *.tex set colorcolumn=80
     hi ColorColumn ctermbg=darkgrey
 
     nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
+    nmap <leader>nn :NERDTree<cr>
     set number
     set tabstop=4
     set softtabstop=4
