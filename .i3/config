@@ -170,7 +170,7 @@ mode $launch_mode {
     # Thunar
 	bindsym t exec thunar
 	# Chromium
-	bindsym c exec chromium
+	bindsym c exec google-chrome-stable
 
 	# back to normal
 	bindsym Escape mode "default"
