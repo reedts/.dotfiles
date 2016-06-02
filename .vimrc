@@ -11,6 +11,9 @@ au BufNewFile,BufRead *.cu set ft=cpp
 "OpenCL support
 au BufNewFile,BufRead *.cl set ft=opencl
 
+"only if LaTeX file use colorcolumn
+au BufNewFile,BufRead *.tex set colorcolumn=80
+
 "============================================================
 "youcompleteme
 "let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -77,7 +80,6 @@ if has('gui_running')
 else
     set t_Co=256
     colorscheme molokai 
-    set colorcolumn=80
     hi ColorColumn ctermbg=darkgrey
 
     nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
