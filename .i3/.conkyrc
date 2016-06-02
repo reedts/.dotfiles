@@ -10,7 +10,7 @@ mpd_port 6600
 
 TEXT
 [
- { "full_text" : " ${fs_free}",
+ { "full_text" : " ${fs_free}", 
        "color" : ${if_match ${fs_free_perc} > 10}"\#66D9EF" ${else} "\#F92672" ${endif}
  },
 
@@ -30,8 +30,8 @@ TEXT
        "color" : "\#A6E22E" ${else} " ", "color" : "\#F92672"${endif}
  },
 
- { "full_text" : "${if_match "${acpiacadapter}"=="on-line"} ${else}${if_match ${battery_percent}<=10} ${else}${if_match ${battery_percent} <= 25} ${else}${if_match ${battery_percent} <= 50} ${else}${if_match ${battery_percent} <= 75} ${else}${if_match ${battery_percent} <= 99} ${else}${if_match ${battery_percent}==100} ${endif}${endif}${endif}${endif}${endif}${endif}${endif}${battery_percent}% (${format_time ${battery_time} "\h:\m"})",
-       "color" : "${if_match ${battery_percent} > 20}\#A6E22E"${else}\#F92672"${endif}
+ { "full_text" : "${if_match "${acpiacadapter}"=="on-line"} ${else}${if_match ${smapi_bat_perc 0}<=10} ${else}${if_match ${smapi_bat_perc 0}<= 25} ${else}${if_match ${smapi_bat_perc 0}<= 40} ${else}${if_match ${smapi_bat_perc 0}<= 60} ${else}${if_match ${smapi_bat_perc 0}<= 79} ${else}${if_match ${smapi_bat_perc 0}==80} ${endif}${endif}${endif}${endif}${endif}${endif}${endif}${exec printf "%i" $(echo "$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)*1.25" | bc)}% ${format_time ${battery_time} "(\h:\m)"}",
+       "color" : "${if_match ${smapi_bat_perc 0}> 20}\#A6E22E"${else}\#F92672"${endif}
  },
 
  { "full_text" : "${time %d-%m-%Y  %H:%M}",
