@@ -240,6 +240,8 @@ exec lxsession
 # start compton for vsync and a bit of eyecandy :)
 exec compton -b --config ~/.compton.conf
 
+# second conky
+exec conky -c /home/reedts/.conkymain
 # Set Wallpaper
 exec feh --no-startup-id --bg-fill /home/reedts/Bilder/Wallpapers/no_mans_sky1.png
 #=================== Custom Colors ==================================================
