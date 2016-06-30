@@ -4,7 +4,7 @@ out_to_console yes
 background no
 update_interval 5.0
 times_in_seconds yes
-
+if_up_strictness address
 mpd_port 6600
 
 
@@ -18,11 +18,11 @@ TEXT
        "color" : ${if_match ${memperc} < 80}"\#66D9EF" ${else} "\#F92672" ${endif}
  },
 
- { "full_text" : ${if_up wlp2s0} ${if_match "${addr wlp2s0}"=="No Address"}" " ${else} " ${wireless_link_qual_perc wlp2s0}% ${addr wlp2s0}" ${endif},
+ { "full_text" : ${if_up wlp2s0} " ${wireless_link_qual_perc wlp2s0}%",
        "color" : "\#A6E22E" ${else} " ", "color" : "\#F92672" ${endif}
  },
 
- { "full_text" : ${if_up enp0s25} ${if_match "${addr enp0s25}"=="No Address"}" " ${else} " ${addr enp0s25}" ${endif},
+ { "full_text" : ${if_up enp0s25}"",
        "color" : "\#A6E22E" ${else} " ", "color" : "\#F92672"${endif}
  },
 
