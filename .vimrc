@@ -83,6 +83,7 @@ else
     hi ColorColumn ctermbg=darkgrey
 
     nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
+    nmap <leader>nn :NERDTree<cr>
     set number
     set tabstop=4
     set softtabstop=4
