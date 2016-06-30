@@ -224,7 +224,7 @@ bar {
 	}
     strip_workspace_numbers yes
 	position top 
-	font pango:DejaVu Sans Book 8
+	font pango:DejaVu Sans Bold 8
         #status_command i3status --config /home/reedts/.i3/i3status.conf
 	status_command $HOME/.i3/conkywrapper
 }
@@ -261,12 +261,14 @@ assign [class="^Firefox$"] $ws2
 
 assign [class="^Pidgin$"] $ws9
 assign [class="^skype$"] $ws9
-assign [class="^Thunderbird$"] $ws9
+#assign [class="^Thunderbird$"] $ws9
 
 #=================== Windows that should spawn in floating mode =====================
 # thunderbird floating windows
 for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
+
+for_window [class="^Pidgin$"] floating enable
 
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
