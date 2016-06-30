@@ -41,7 +41,7 @@ ${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}RAM ${font}${color}${hr 2}
 
 ${offset 8}Total:  ${mem}
 
-${offset 8}Used:   ${if_match ${memperc} > 90}${color #F92672}${endif}${memperc}%${alignr 2}${memwithbuffersbar 8,120}${color}
+${offset 8}Used:   ${if_match ${memperc} > 90}${color #F92672}${endif}${memperc}%${alignr 2}${membar 8,120}${color}
 
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}SSD ${font}${color}${hr 2}
 
@@ -78,6 +78,6 @@ ${endif}
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}BAT ${font}${color}${hr 2}
 
 ${offset 8}Temp:          ${smapi_bat_temp 0}°C
-${offset 8}Power:         ${smapi_bat_power 0}
+${offset 8}Power:         ${smapi_bat_power 0} mW
 ${offset 8}Cycle:         ${smapi bat 0 cycle_count}
 ${offset 8}Last full/max: ${smapi bat 0 last_full_capacity}/${smapi bat 0 design_capacity} mWh
