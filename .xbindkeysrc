@@ -77,6 +77,13 @@ XF86AudioLowerVolume
 "pactl set-sink-volume 0 +5%"
 XF86AudioRaiseVolume
 
+# enable/disable touchpad
+"touchpad_toggle"
+XF86TouchpadToggle
+
+# kill application immediately
+"xkill"
+Control + End
 ##################################
 # End of xbindkeys configuration #
 ##################################
