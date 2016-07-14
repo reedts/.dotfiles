@@ -12,10 +12,6 @@ lua_load ~/.i3/conky_format.lua
 
 TEXT
 [
- { "full_text" : " ${fs_free}",
-       "color" : ${if_match ${fs_free_perc} > 10}"\#66D9EF"${else}"\#F92672"${endif}
- },
-
  { "full_text" : " ${lua_parse format %3.0f ${cpu}}%",
        "color" : ${if_match ${cpu} < 50}"\#66D9EF"${else}"\#F92672"${endif}
  },
