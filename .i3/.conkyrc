@@ -10,11 +10,11 @@ mpd_port 6600
 
 TEXT
 [
- { "full_text" : " ${cpu}%",
+ { "full_text" : "${cpu}%",
        "color" : ${if_match ${cpu} < 80}"\#66D9EF" ${else} "\#F92672" ${endif}
  },
 
- { "full_text" : " ${memfree}",
+ { "full_text" : "${memfree}",
        "color" : ${if_match ${memperc} < 80}"\#66D9EF" ${else} "\#F92672" ${endif}
  },
 

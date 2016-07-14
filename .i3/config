@@ -94,7 +94,7 @@ no_focus [window_role="browser"]
 workspace_auto_back_and_forth yes
 
 set $ws1 1:
-set $ws2 2:
+set $ws2 2:
 set $ws3 3:
 set $ws4 4:
 set $ws5 5
@@ -269,6 +269,7 @@ for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
+for_window [class="^Gajim$"] floating enable
 
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
