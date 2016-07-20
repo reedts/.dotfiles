@@ -17,6 +17,7 @@ au BufNewFile,BufRead *.tex set colorcolumn=80
 "============================================================
 "youcompleteme
 "let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_filetype_whitelist = {'cpp' : 1}
 "Airline enable
 set laststatus=2
 "let g:molokai_original = 1
@@ -26,6 +27,12 @@ let g:rehash256 = 1
 filetype plugin on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
+au BufNewFile,BufRead *.tex set colorcolumn=80
+hi ColorColumn ctermbg=darkgrey
+
+nmap <leader>cl :set cursorline!<cr>
+nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
+nmap <leader>nn :NERDTreeToggle<cr>
 
 if has('gui_running')
     "GVIM
@@ -51,6 +58,10 @@ if has('gui_running')
     inoremap <expr>      pumvisible() ? "\" : "\    "
     let &cpo=s:cpo_save
     unlet s:cpo_save
+    hi iCursor guifg=white guibg=black
+    set guicursor=n-v-c:block-Cursor
+    set guicursor=n-v-c:blinkon0
+    set guicursor+=i:ver100-iCursor
     colorscheme molokai 
     set backspace=indent,eol,start
     set completefunc=youcompleteme#Complete
@@ -63,8 +74,6 @@ if has('gui_running')
     set guioptions-=m
     set helplang=en
     set cursorline
-    set colorcolumn=80
-    hi ColorColumn guibg=darkgrey
     set number
     set mouse=a
     set ruler
@@ -79,11 +88,8 @@ if has('gui_running')
     " vim: set ft=vim :
 else
     set t_Co=256
-    colorscheme molokai 
-    hi ColorColumn ctermbg=darkgrey
-
-    nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
-    nmap <leader>nn :NERDTree<cr>
+    colorscheme molokai
+    
     set number
     set tabstop=4
     set softtabstop=4
