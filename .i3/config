@@ -291,7 +291,7 @@ for_window [title="Address Book"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
 
-for_window [class="^Gajim$"] floating enable
+#for_window [class="^Gajim$"] floating enable
 
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
