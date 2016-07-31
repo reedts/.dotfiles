@@ -238,6 +238,9 @@ exec lxsession
 # sound applet pasystray from AUR
 # exec pasystray
 
+# second conky instance
+exec conky -c ~/.conkymain
+
 # start compton for vsync and a bit of eyecandy :)
 exec compton -b --config ~/.compton.conf
 
@@ -267,6 +270,7 @@ assign [class="^Thunderbird$"] $ws9
 for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
 
+for_window [class="^Pidgin$"] floating enable
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
 for_window [title="Moving *"] floating enable

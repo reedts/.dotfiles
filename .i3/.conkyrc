@@ -5,19 +5,13 @@ times_in_seconds yes
 background no
 update_interval 2.0
 
+if_up_strictness address
+
 mpd_port 6600
 
 
 TEXT
 [
- { "full_text" : " ${fs_free}",
-       "color" : "${if_match ${fs_used_perc} < 90}\#66D9EF"${else}\#F92672"${endif}
- },
-
- { "full_text" : " ${acpitemp} °C",
-       "color" : "\#66D9EF"
- },
-
  { "full_text" : " ${cpu}%",
        "color" : ${if_match ${cpu} < 80}"\#66D9EF"${else}"\#F92672"${endif}
  },
