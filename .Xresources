@@ -14,6 +14,8 @@ XTerm*Foreground: white
 URxvt.font: xft:DejaVu Sans Mono:size=10
 URxvt.letterSpace: -1
 
+URxvt.termName: xterm-256color
+
 URxvt.scrollBar: false
 
 URxvt*depth: 32
