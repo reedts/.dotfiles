@@ -89,8 +89,8 @@ else
     colorscheme molokai
     
     set number
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
+    set tabstop=8
+    set softtabstop=8
+    set shiftwidth=8
     set expandtab
 endif
