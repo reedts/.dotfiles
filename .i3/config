@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:DejaVu Sans Book, FontAwesome 8
+font pango:Cartella Regular, FontAwesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -226,9 +226,10 @@ bar {
 	}
     strip_workspace_numbers yes
 	output HDMI-0
+    separator_symbol "  "
 	position top 
 	tray_output HDMI-0
-	font pango:DejaVu Sans Book 8
+	font pango:Cartella Regular 8
         #status_command i3status --config /home/reedts/.i3/i3status.conf
 	status_command $HOME/.i3/conkywrapper
 }
@@ -248,7 +249,7 @@ bar {
     strip_workspace_numbers yes
 	output DVI-I-1
 	position top
-	font pango:DejaVu Sans Book 8
+	font pango:Cartella Regular 8
 	tray_output none
 }
 #=================== Services =======================================================
@@ -266,7 +267,7 @@ exec conky -c ~/.conkymain
 exec compton -b --config ~/.compton.conf
 
 # Set Wallpaper
-exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/firewatch.jpg
+exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/firewatch.png
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
