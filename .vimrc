@@ -75,11 +75,11 @@ if has('gui_running')
     set number
     set mouse=a
     set ruler
-    set shiftwidth=4
+    set shiftwidth=8
     set shortmess=filnxtToOc
-    set softtabstop=4
+    set softtabstop=8
     set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
-    set tabstop=4
+    set tabstop=8
     set termencoding=utf-8
     set updatetime=2000
     set window=55
