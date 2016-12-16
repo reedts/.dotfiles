@@ -30,6 +30,7 @@ hi ColorColumn ctermbg=darkgrey
 nmap <leader>cl :set cursorline!<cr>
 nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
 nmap <leader>nn :NERDTreeToggle<cr>
+nmap <leader>lb :set colorcolumn=80<cr>
 
 
 if has('gui_running')
