@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:DejaVu Sans Book, FontAwesome 8
+font pango:Cantarell, FontAwesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -172,7 +172,7 @@ mode $launch_mode {
     # Thunar
 	bindsym t exec thunar
 	# Chromium
-	bindsym c exec google-chrome-stable
+	bindsym c exec chromium 
 
 	# back to normal
 	bindsym Escape mode "default"
@@ -224,9 +224,10 @@ bar {
 		inactive_workspace	#121212	#121212	#808080
 		urgent_workspace	#121212	#121212	#F92672
 	}
-    strip_workspace_numbers yes
+        separator_symbol " "
+        strip_workspace_numbers yes
 	position top 
-	font pango:Cartella Regular 8
+	font pango:Droid Sans Mono 8
         #status_command i3status --config /home/reedts/.i3/i3status.conf
 	status_command $HOME/.i3/conkywrapper
 }
@@ -234,18 +235,22 @@ bar {
 #=================== Services =======================================================
 # services that cannot be started by systemctl go here
 
-# start lxsession authentication manager
-exec lxsession
+# start gnome session and authentication manager
+exec gnome-session
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 # sound applet pasystray from AUR
-# exec pasystray
+exec pa-applet
+exec nm-applet
+exec blueman-applet
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b --config ~/.compton.conf
+#exec compton -b --config ~/.compton.conf
 
 # second conky
 exec conky -c /home/reedts/.conkymain
 # Set Wallpaper
-exec feh --no-startup-id --bg-fill /home/reedts/Bilder/Wallpapers/chicago.png
+#exec feh --no-startup-id --bg-fill /home/reedts/Bilder/Wallpapers/firewatch.png
+exec feh --no-startup-id --bg-max /home/reedts/Pictures/Purzel/P1090401d.jpg
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
@@ -269,6 +274,8 @@ assign [class="^skype$"] $ws9
 # thunderbird floating windows
 for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
+
+for_window [window_role="^compose$"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
 #for_window [class="^Gajim$"] floating enable
