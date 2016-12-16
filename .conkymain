@@ -7,6 +7,7 @@ use_xft yes
 out_to_x yes
 own_window yes
 own_window_type override
+own_window_transparent no
 own_window_argb_visual yes
 own_window_argb_value 125
 xftfont DejaVu Sans Mono:size=8
