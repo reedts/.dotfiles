@@ -172,7 +172,7 @@ mode $launch_mode {
     # Thunar
 	bindsym t exec thunar
 	# Chromium
-	bindsym c exec google-chrome-stable
+	bindsym c exec chromium
 
 	# back to normal
 	bindsym Escape mode "default"
@@ -226,10 +226,10 @@ bar {
 	}
     strip_workspace_numbers yes
 	output HDMI-0
-    separator_symbol "  "
+    separator_symbol "  "
 	position top 
 	tray_output HDMI-0
-	font pango:Cartella Regular 8
+	font pango:Droid Sans Mono 8
         #status_command i3status --config /home/reedts/.i3/i3status.conf
 	status_command $HOME/.i3/conkywrapper
 }
@@ -255,10 +255,12 @@ bar {
 #=================== Services =======================================================
 # services that cannot be started by systemctl go here
 
-# start lxsession authentication manager
-exec lxsession
+exec gnome-session
+
+# start gnome-authenticator
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # sound applet pasystray from AUR
-# exec pasystray
+exec pa-applet
 
 # second conky for more informations
 exec conky -c ~/.conkymain
@@ -299,3 +301,4 @@ for_window [class="^Pidgin$"] floating enable
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
 for_window [title="Moving *"] floating enable
+
