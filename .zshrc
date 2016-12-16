@@ -3362,5 +3362,7 @@ assemble() {
 # Local variables:
 export PATH=/home/julian/Entwicklung/android/android-studio/bin:$PATH
 export PATH=/home/julian/Entwicklung/android/bin:$PATH
+
+cat .hotreddit/msg | cowsay -f tux
 # mode: sh
 # End:
