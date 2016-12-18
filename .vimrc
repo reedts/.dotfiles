@@ -30,6 +30,7 @@ hi ColorColumn ctermbg=darkgrey
 nmap <leader>cl :set cursorline!<cr>
 nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
 nmap <leader>nn :NERDTreeToggle<cr>
+nmap <leader>lb :set colorcolumn=80<cr>
 
 
 if has('gui_running')
@@ -75,11 +76,11 @@ if has('gui_running')
     set number
     set mouse=a
     set ruler
-    set shiftwidth=4
+    set shiftwidth=8
     set shortmess=filnxtToOc
-    set softtabstop=4
+    set softtabstop=8
     set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
-    set tabstop=4
+    set tabstop=8
     set termencoding=utf-8
     set updatetime=2000
     set window=55
@@ -89,8 +90,8 @@ else
     colorscheme molokai
     
     set number
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
+    set tabstop=8
+    set softtabstop=8
+    set shiftwidth=8
     set expandtab
 endif
