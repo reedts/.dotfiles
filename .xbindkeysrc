@@ -81,6 +81,12 @@ XF86AudioRaiseVolume
 "touchpad_toggle"
 XF86TouchpadToggle
 
+"xbacklight -dec 10"
+XF86MonBrightnessDown
+
+"xbacklight -inc 10"
+XF86MonBrightnessUp
+
 # kill application immediately
 "xkill"
 Control + End

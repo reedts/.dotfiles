@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:Cantarell, FontAwesome 8
+font pango:Droid Sans Mono, FontAwesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -242,6 +242,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec pa-applet
 exec nm-applet
 exec blueman-applet
+exec --no-startup-id xbindkeys
 
 # start compton for vsync and a bit of eyecandy :)
 #exec compton -b --config ~/.compton.conf
@@ -250,14 +251,14 @@ exec blueman-applet
 exec conky -c /home/reedts/.conkymain
 # Set Wallpaper
 #exec feh --no-startup-id --bg-fill /home/reedts/Bilder/Wallpapers/firewatch.png
-exec feh --no-startup-id --bg-max /home/reedts/Pictures/Purzel/P1090401d.jpg
+exec feh --no-startup-id --bg-fill /home/reedts/Pictures/forest.jpg
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
-client.focused		    #4699AF #4699AF 	#121212	#2e9ef4
-client.focused_inactive	#121212	#121212		#F8F8F2	#2e9ef4
-client.unfocused	    #121212	#121212 	#F8F8F2	#676767
-client.urgent		    #F92672	#F92672		#121212	#000000
+client.focused		        #4699AF #4699AF 	#F8F8F2 #2e9ef4
+client.focused_inactive	        #121212	#121212		#F8F8F2	#2e9ef4
+client.unfocused	        #121212	#121212 	#F8F8F2	#676767
+client.urgent		        #F92672	#F92672		#121212	#000000
 
 #=================== Custom keybindings =============================================
 
