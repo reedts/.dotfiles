@@ -11,7 +11,7 @@ XTerm*Background: black
 XTerm*Foreground: white
 
 !URxvt.font: -misc-fixed-medium-r-normal--14-130-75-75-C-70-iso10646-1
-URxvt.font: xft:DejaVu Sans Mono:size=10
+URxvt.font: xft:Droid Sans Mono:size=10
 URxvt.letterSpace: -1
 
 URxvt.termName: xterm-256color
