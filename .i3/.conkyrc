@@ -12,7 +12,7 @@ mpd_port 6600
 
 TEXT
 [
- { "full_text" : "${cpu}%",
+ { "full_text" : " ${cpu}% ",
        "color" : ${if_match ${cpu} < 80}"\#808080"${else}"\#F92672"${endif}
  },
 
@@ -20,19 +20,19 @@ TEXT
        "color" : ${if_match ${memperc} < 80}"\#808080"${else}"\#F92672"${endif}
  },
 
- { "full_text" : ${if_up wlp3s0} " ${wireless_link_qual_perc wlp3s0}%",
-       "color" : "\#86C00C" ${else} " ", "color" : "\#F92672" ${endif}
+ { "full_text" : ${if_up wlp3s0} "  ${wireless_link_qual_perc wlp3s0}%:  ${addr wlp3s0} ",
+       "color" : "\#86C00C" ${else} "   ", "color" : "\#F92672" ${endif}
  },
 
- { "full_text" : ${if_up enp2s0f1} "",
+ { "full_text" : ${if_up enp2s0f1} "  ${addr enp2s0f1} ",
        "color" : "\#86C00C" ${else} " ", "color" : "\#F92672"${endif}
  },
 
- { "full_text" : "${if_match "${acpiacadapter}"=="on-line"}${else}${if_match ${battery_percent}<=10} ${else}${if_match ${battery_percent} <= 25} ${else}${if_match ${battery_percent} <= 50} ${else}${if_match ${battery_percent} <= 75} ${else}${if_match ${battery_percent} <= 99} ${else}${if_match ${battery_percent}==100} ${endif}${endif}${endif}${endif}${endif}${endif}${endif} ${battery_percent}% (${format_time ${battery_time} "\h:\m"})",
+ { "full_text" : " ${if_match "${acpiacadapter}"=="on-line"}${else}${if_match ${battery_percent}<=10} ${else}${if_match ${battery_percent} <= 25} ${else}${if_match ${battery_percent} <= 50} ${else}${if_match ${battery_percent} <= 75} ${else}${if_match ${battery_percent} <= 99} ${else}${if_match ${battery_percent}==100} ${endif}${endif}${endif}${endif}${endif}${endif}${endif} ${battery_percent}% (${format_time ${battery_time} "\h:\m"}) ",
        "color" : "${if_match ${battery_percent} > 20}\#86C00C"${else}\#F92672"${endif}
  },
 
- { "full_text" : "${time %d-%m-%Y  %H:%M}",
+ { "full_text" : " ${time %d-%m-%Y  %H:%M} ",
        "color" : "\#808080"
  }
 ],
