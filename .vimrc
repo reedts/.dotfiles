@@ -2,6 +2,11 @@ syntax enable
 execute pathogen#infect()
 filetype plugin indent on
 
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
+
 "============================================================
 "Language supports
 
@@ -25,10 +30,14 @@ filetype plugin on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 au BufNewFile,BufRead *.tex set colorcolumn=80
+au BufNewFile,BufRead *.tex set shiftwidth=2
+au BufNewFile,BufRead *.tex set tabstop=2
+au BufNewFile,BufRead *.tex set softtabstop=2
 hi ColorColumn ctermbg=darkgrey
 
 nmap <leader>cl :set cursorline!<cr>
-nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
+nmap <leader>cc :w<cr>:silent call Tex_RunLaTeX()<cr>
+nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 
@@ -66,7 +75,7 @@ if has('gui_running')
     set completefunc=youcompleteme#Complete
     set completeopt=preview,menuone
     set cpoptions=aAceFsB
-    set expandtab
+    set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
     set guifont=DejaVu\ Sans\ Mono\ 10
     set guioptions=aegimrLt
@@ -76,11 +85,8 @@ if has('gui_running')
     set number
     set mouse=a
     set ruler
-    set shiftwidth=8
     set shortmess=filnxtToOc
-    set softtabstop=8
     set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
-    set tabstop=8
     set termencoding=utf-8
     set updatetime=2000
     set window=55
@@ -90,8 +96,4 @@ else
     colorscheme molokai
     
     set number
-    set tabstop=8
-    set softtabstop=8
-    set shiftwidth=8
-    set expandtab
 endif
