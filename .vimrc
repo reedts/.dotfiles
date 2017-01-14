@@ -36,7 +36,8 @@ au BufNewFile,BufRead *.tex set softtabstop=2
 hi ColorColumn ctermbg=darkgrey
 
 nmap <leader>cl :set cursorline!<cr>
-nmap <leader>c :w<cr>:silent call Tex_RunLaTeX()<cr>
+nmap <leader>cc :w<cr>:silent call Tex_RunLaTeX()<cr>
+nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 
