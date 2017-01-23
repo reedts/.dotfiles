@@ -80,4 +80,4 @@ URxvt*color15     : Molokai_white
 URxvt*.transparent: false
 URxvt*.shading: 10
 
-URxvt*perl-ext-common:	default,matcher,clipboard
+URxvt*perl-ext-common:	default,matcher,clipboard,selection-to-clipboard
