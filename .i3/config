@@ -243,9 +243,12 @@ exec pa-applet
 exec nm-applet
 exec blueman-applet
 exec --no-startup-id xbindkeys
+exec --no-startup-id parcellite
 
 # start compton for vsync and a bit of eyecandy :)
 #exec compton -b --config ~/.compton.conf
+exec --no-startup-id xscreensaver -nosplash &
+
 
 # second conky
 exec conky -c /home/reedts/.conkymain
