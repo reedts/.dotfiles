@@ -38,6 +38,7 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 new_window pixel 2
+new_float pixel 2
 
 # change focus
 bindsym $mod+j focus left
