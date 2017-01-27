@@ -72,6 +72,11 @@ let c_ansi_constants = 1
 let c_posix = 1
 let c_C99 = 1
 
+" C++ syntax plugin
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let c_no_curly_error = 1
 
 "============================================================
 "Language supports
