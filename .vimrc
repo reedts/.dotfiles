@@ -7,6 +7,7 @@ set tabstop=8
 set softtabstop=8
 set shiftwidth=8
 set noexpandtab
+set nofoldenable
 
 "Plugin settings
 "------------------------------------------------
@@ -56,9 +57,26 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
   
 
-"let g:molokai_original = 1
+let g:molokai_original = 1
 let g:rehash256 = 1
 
+" C syntax plugin
+let c_c_vim_compatible = 1
+let c_gnu = 1
+let c_cpp_comments = 1
+let c_comment_strings = 1
+let c_comment_numbers = 1
+let c_comment_types = 1
+let c_ansi_typedefs = 1
+let c_ansi_constants = 1
+let c_posix = 1
+let c_C99 = 1
+
+" C++ syntax plugin
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let c_no_curly_error = 1
 
 "============================================================
 "Language supports
