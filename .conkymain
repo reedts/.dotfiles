@@ -1,0 +1,70 @@
+background yes
+alignment middle_right
+gap_x -1920
+double_buffer yes
+use_spacer right
+gap_y 8
+use_xft yes
+out_to_x yes
+own_window yes
+own_window_type override
+own_window_argb_visual yes
+own_window_argb_value 125
+xftfont DejaVu Sans Mono:size=10
+format_human_readable yes
+minimum_size 300
+maximum_width 300 
+times_in_seconds yes
+update_interval 2.0
+
+if_up_strictness address
+
+TEXT
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}SYS ${font}${color}${hr 2}
+#${image /home/reedts/archlogo.png -p 8,60 -s 32x32}
+${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}${distribution}${font}${color}
+${offset 60}${color #7070F0}${uid_name 1000}${color}@${nodename}
+${offset 60}Arch:   ${machine} 
+${offset 60}Kernel: ${kernel}
+${offset 60}Up:     ${format_time ${uptime} "\h:\m"}
+
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}CPU ${font}${color}${hr 2}
+
+${offset 8}Temp: ${if_match ${acpitemp} > 60}${color #F92572}${endif}${acpitemp}°C${color}
+
+${offset 8}Core 1: ${if_match ${cpu cpu1} > 80}${color #F92672}${endif}${cpu cpu1}%${alignr 2}${cpubar cpu1 8,120}${color}
+${offset 8}Core 2: ${if_match ${cpu cpu2} > 80}${color #F92672}${endif}${cpu cpu2}%${alignr 2}${cpubar cpu2 8,120}${color}
+${offset 8}Core 3: ${if_match ${cpu cpu3} > 80}${color #F92672}${endif}${cpu cpu3}%${alignr 2}${cpubar cpu3 8,120}${color}
+${offset 8}Core 4: ${if_match ${cpu cpu4} > 80}${color #F92672}${endif}${cpu cpu4}%${alignr 2}${cpubar cpu4 8,120}${color}
+${offset 8}Core 5: ${if_match ${cpu cpu5} > 80}${color #F92672}${endif}${cpu cpu5}%${alignr 2}${cpubar cpu5 8,120}${color}
+${offset 8}Core 6: ${if_match ${cpu cpu6} > 80}${color #F92672}${endif}${cpu cpu6}%${alignr 2}${cpubar cpu6 8,120}${color}
+${offset 8}Core 7: ${if_match ${cpu cpu7} > 80}${color #F92672}${endif}${cpu cpu7}%${alignr 2}${cpubar cpu7 8,120}${color}
+${offset 8}Core 8: ${if_match ${cpu cpu8} > 80}${color #F92672}${endif}${cpu cpu8}%${alignr 2}${cpubar cpu8 8,120}${color}
+
+${offset 8}${cpugraph cpu0 40,290 66D9EF F92672 1 -t -l}
+
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}RAM ${font}${color}${hr 2}
+
+${offset 8}Total:  ${mem}
+
+${offset 8}Used:   ${if_match ${memperc} > 90}${color #F92672}${endif}${memperc}%${alignr 2}${memwithbuffersbar 8,120}${color}
+
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}SSD ${font}${color}${hr 2}
+
+${offset 8}Scheduler: ${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}${ioscheduler sda}${font}${color}
+${offset 8}read:      ${diskio_read /dev/sda}
+${offset 8}write:     ${diskio_write /dev/sda}
+
+${offset 8}Free: ${if_match ${fs_used_perc} > 80}${color #F92672}${endif}${fs_free}${alignr 2}${fs_bar 8,120}${color}
+
+${if_up enp9s0}${color #66D9EF}${else}${color F92672}${endif}${font DejaVu Sans Mono:bold:size=10}ETH ${font}${color}${hr 2} 
+${if_up enp9s0}
+${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}IPv4${color}${font}
+${offset 8}local:  ${addr enp9s0}
+${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
+
+${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}IPv6${color}${font}
+${offset 8}addr:   ${v6addrs -n enp9s0}
+
+${offset 8}Up: ${upspeed enp9s0}${alignr 2}Down: ${downspeed enp9s0}
+${endif}
