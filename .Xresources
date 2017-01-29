@@ -14,7 +14,7 @@ XTerm*Foreground: white
 URxvt.font: xft:Droid Sans Mono:size=10
 URxvt.letterSpace: -1
 
-URxvt.termName: xterm-256color
+!URxvt.termName: xterm-256color
 
 URxvt.scrollBar: false
 
@@ -82,4 +82,7 @@ URxvt*color15     : Molokai_white
 URxvt*.transparent: false
 URxvt*.shading: 10
 
-URxvt*perl-ext-common:	default,matcher,clipboard,selection-to-clipboard
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up 
+
+URxvt*perl-ext-common:	default,matcher,clipboard,selection-to-clipboard,resize-font
