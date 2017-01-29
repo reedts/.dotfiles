@@ -36,7 +36,7 @@ let g:ycm_filetype_whitelist = {'cpp' : 1}
 "Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'molokai'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
