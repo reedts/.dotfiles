@@ -1,11 +1,82 @@
 syntax enable
 execute pathogen#infect()
 filetype plugin indent on
-
+set encoding=utf-8
+"Settings for vim and gvim
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8
 set noexpandtab
+set nofoldenable
+
+"Plugin settings
+"------------------------------------------------
+"fugative settings
+set statusline+=%{fugitive#statusline()}
+
+"syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_c_gcc_args = "-Wall -Werror -pedantic-errors"
+
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"youcompleteme
+"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_filetype_whitelist = {'cpp' : 1}
+
+"Airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'molokai'
+
+if !exists('g:airline_symbols')
+	    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+  
+
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+" C syntax plugin
+let c_c_vim_compatible = 1
+let c_gnu = 1
+let c_cpp_comments = 1
+let c_comment_strings = 1
+let c_comment_numbers = 1
+let c_comment_types = 1
+let c_ansi_typedefs = 1
+let c_ansi_constants = 1
+let c_posix = 1
+let c_C99 = 1
+
+" C++ syntax plugin
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let c_no_curly_error = 1
 
 "============================================================
 "Language supports
@@ -17,13 +88,6 @@ au BufNewFile,BufRead *.cu set ft=cpp
 au BufNewFile,BufRead *.cl set ft=opencl
 
 "============================================================
-"youcompleteme
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_filetype_whitelist = {'cpp' : 1}
-"Airline enable
-set laststatus=2
-"let g:molokai_original = 1
-let g:rehash256 = 1
 
 "LaTeX-Suite
 filetype plugin on
@@ -44,6 +108,7 @@ nmap <leader>lb :set colorcolumn=80<cr>
 
 if has('gui_running')
     "GVIM
+    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline
     version 6.0
     if &cp | set nocp | endif
     let s:cpo_save=&cpo
@@ -77,7 +142,7 @@ if has('gui_running')
     set cpoptions=aAceFsB
     set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
-    set guifont=DejaVu\ Sans\ Mono\ 10
+    "set guifont=DejaVu\ Sans\ Mono\ 10
     set guioptions=aegimrLt
     set guioptions-=m
     set helplang=en
@@ -89,7 +154,16 @@ if has('gui_running')
     set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
     set termencoding=utf-8
     set updatetime=2000
-    set window=55
+    set window=55 
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+    " airline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
     " vim: set ft=vim :
 else
     set t_Co=256
