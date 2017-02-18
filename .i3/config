@@ -252,7 +252,7 @@ exec conky -c ~/.conkymain
 exec compton -b --config ~/.compton.conf
 
 # Set Wallpaper
-exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/forest.jpg
+exec feh --no-startup-id --bg-scale /home/reedts/Pictures/Wallpapers/forest.jpg
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
