@@ -11,27 +11,27 @@ use_spacer center
 
 TEXT
 [
- { "full_text" : " ${cpu}% ",
-       "color" : ${if_match ${cpu} < 80}"\#808080" ${else} "\#F92672" ${endif}
+ { "full_text" : "${cpu}%",
+       "color" : ${if_match ${cpu} < 80}"\#9999AA" ${else} "\#F92672" ${endif}
  },
 
- { "full_text" : " ${memfree} ",
-       "color" : ${if_match ${memperc} < 80}"\#808080" ${else} "\#F92672" ${endif}
+ { "full_text" : "${memfree}",
+       "color" : ${if_match ${memperc} < 80}"\#9999AA" ${else} "\#F92672" ${endif}
  },
 
- { "full_text" : ${if_up wlp2s0} "  ${wireless_link_qual_perc wlp2s0}%: ${addr wlp2s0} ",
+ { "full_text" : ${if_up wlp2s0} " ${wireless_link_qual_perc wlp2s0}%: ${addr wlp2s0}",
        "color" : "\#86C00C" ${else} "   ", "color" : "\#F92672" ${endif}
  },
 
- { "full_text" : ${if_up enp0s25}"  ${addr enp0s25} ",
+ { "full_text" : ${if_up enp0s25}" ${addr enp0s25}",
        "color" : "\#86C00C" ${else} "   ", "color" : "\#F92672"${endif}
  },
 
- { "full_text" : " ${if_match "${acpiacadapter}"=="on-line"} ${else}${if_match ${smapi_bat_perc 0}<=10} ${else}${if_match ${smapi_bat_perc 0}<= 25} ${else}${if_match ${smapi_bat_perc 0}<= 40} ${else}${if_match ${smapi_bat_perc 0}<= 60} ${else}${if_match ${smapi_bat_perc 0}<= 79} ${else}${if_match ${smapi_bat_perc 0}==80} ${endif}${endif}${endif}${endif}${endif}${endif}${endif}${exec printf "%i" $(echo "$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)*1.25" | bc)}% ${format_time ${battery_time} "\(\h:\m\)"}",
+ { "full_text" : "${if_match "${acpiacadapter}"=="on-line"} ${else}${if_match ${smapi_bat_perc 0}<=10} ${else}${if_match ${smapi_bat_perc 0}<= 25} ${else}${if_match ${smapi_bat_perc 0}<= 40} ${else}${if_match ${smapi_bat_perc 0}<= 60} ${else}${if_match ${smapi_bat_perc 0}<= 79} ${else}${if_match ${smapi_bat_perc 0}==80} ${endif}${endif}${endif}${endif}${endif}${endif}${endif}${exec printf "%i" $(echo "$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)*1.25" | bc)}% ${format_time ${battery_time} "\(\h:\m\)"}",
        "color" : "${if_match ${smapi_bat_perc 0}> 20}\#86C00C"${else}\#F92672"${endif}
  },
 
- { "full_text" : " ${time %d-%m-%Y  %H:%M} ",
-       "color" : "\#808080"
+ { "full_text" : "${time %d-%m-%Y  %H:%M}",
+       "color" : "\#9999AA"
  }
 ],

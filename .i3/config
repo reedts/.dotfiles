@@ -220,12 +220,12 @@ bar {
 		statusline	#F8F8F2
 		separator	#808080
     #   Element             first   second  indicator
-		focused_workspace	#4699AF	#4699AF	#121212
+		focused_workspace	#4699AF	#4699AF	#F8F8F2
 		active_workspace	#121212	#121212	#D75F00
-		inactive_workspace	#121212	#121212	#808080
+		inactive_workspace	#121212	#121212	#9999AA
 		urgent_workspace	#121212	#121212	#F92672
 	}
-        separator_symbol " "
+        separator_symbol "      "
         strip_workspace_numbers yes
 	position top 
 	font pango:Droid Sans Mono 8
@@ -255,7 +255,7 @@ exec --no-startup-id xscreensaver -nosplash &
 exec conky -c /home/reedts/.conkymain
 # Set Wallpaper
 #exec feh --no-startup-id --bg-fill /home/reedts/Bilder/Wallpapers/firewatch.png
-exec feh --no-startup-id --bg-fill /home/reedts/Pictures/forest.jpg
+exec feh --no-startup-id --bg-fill /home/reedts/Pictures/coast.jpg
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
