@@ -79,7 +79,7 @@ URxvt*color15     : Molokai_white
 !URxvt*color14: cyan
 !URxvt*color15: white
 
-URxvt*.transparent: false
+URxvt*.transparent: true
 URxvt*.shading: 10
 
 URxvt.resize-font.smaller: C-Down
