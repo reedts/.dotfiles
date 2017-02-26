@@ -7,24 +7,21 @@ update_interval 5.0
 
 mpd_port 6600
 
-lua_load ~/.i3/conky_format.lua
-
-
 TEXT
 [
- { "full_text" : "  ${lua_parse format %3.0f ${cpu}}% ",
-       "color" : ${if_match ${cpu} < 50}"\#808080"${else}"\#F92672"${endif}
+ { "full_text" : " ${cpu}%",
+       "color" : ${if_match ${cpu} < 50}"\#9999AA"${else}"\#F92672"${endif}
  },
 
- { "full_text" : "  ${memfree} ",
-       "color" : ${if_match ${memperc} < 80}"\#808080"${else}"\#F92672"${endif}
+ { "full_text" : " ${memfree}",
+       "color" : ${if_match ${memperc} < 80}"\#9999AA"${else}"\#F92672"${endif}
  },
 
- { "full_text" : ${if_up enp9s0}"  ${addr enp9s0} ",
+ { "full_text" : ${if_up enp9s0}" ${addr enp9s0}",
        "color" : "\#86C00C"${else}"   ", "color" : "\#F92672"${endif}
  },
 
- { "full_text" : " ${time %d-%m-%Y  %H:%M} ",
-       "color" : "\#808080"
+ { "full_text" : "${time %d-%m-%Y  %H:%M}",
+       "color" : "\#9999AA"
  }
 ],

@@ -217,49 +217,54 @@ gaps inner 5
 gaps outer 5 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	colors {
-		background	#121212
-		statusline	#F8F8F2
-		separator	#808080
-
-		focused_workspace	#4699AF	#4699AF	#121212
-		active_workspace	#121212	#121212	#D75F00
-		inactive_workspace	#121212	#121212	#808080
-		urgent_workspace	#121212	#121212	#F92672
-	}
-    strip_workspace_numbers yes
-	output HDMI-0
-    separator_symbol "  "
-	position top 
-	tray_output HDMI-0
-	font pango:Droid Sans Mono 8
-        #status_command i3status --config /home/reedts/.i3/i3status.conf
-	status_command $HOME/.i3/conkywrapper
-}
-
+#bar {
+#	colors {
+#		background	#121212
+#		statusline	#F8F8F2
+#		separator	#808080
+#
+#		focused_workspace	#4699AF	#4699AF	#F8F8F2
+#		active_workspace	#121212	#121212	#D75F00
+#		inactive_workspace	#121212	#121212	#9999AA
+#		urgent_workspace	#121212	#121212	#F92672
+#	}
+#	strip_workspace_numbers yes
+#	output HDMI-0
+#	separator_symbol "      "
+#	position top 
+#	tray_output HDMI-0
+#	font pango:Droid Sans Mono 8
+#       #status_command i3status --config /home/reedts/.i3/i3status.conf
+#	#status_command $HOME/.i3/conkywrapper
+#	status_command polybar primary
+#}
+#
 # For second Monitor
-bar {
-	colors {
-               background      #121212
-               statusline      #F8F8F2
-               separator       #808080
-
-		focused_workspace	#4699AF	#4699AF	#121212
-		active_workspace	#121212	#121212	#D75F00
-		inactive_workspace	#121212	#121212	#808080
-		urgent_workspace	#121212	#121212	#F92672
-    }
-    strip_workspace_numbers yes
-	output DVI-I-1
-	position top
-	font pango:Cartella Regular 8
-	tray_output none
-}
+#bar {
+#	colors {
+#              background      #121212
+#               statusline      #F8F8F2
+#               separator       #808080
+#
+#		focused_workspace	#4699AF	#4699AF	#F8F8F2
+#		active_workspace	#121212	#121212	#D75F00
+#		inactive_workspace	#121212	#121212	#9999AA
+#		urgent_workspace	#121212	#121212	#F92672
+#    }
+#    strip_workspace_numbers yes
+#	output DVI-I-1
+#	position top
+#	font pango:Cartella Regular 8
+#	tray_output none
+#}
 #=================== Services =======================================================
 # services that cannot be started by systemctl go here
 
 exec gnome-session
+
+#bars
+exec_always polybar primary&
+exec_always polybar secondary&
 
 # start gnome-authenticator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -273,7 +278,7 @@ exec conky -c ~/.conkymain
 exec compton -b --config ~/.compton.conf
 
 # Set Wallpaper
-exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/forest.jpg
+exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/mountains_dark.jpg
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text	indicator
@@ -305,4 +310,3 @@ for_window [class="^Pidgin$"] floating enable
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
 for_window [title="Moving *"] floating enable
-
