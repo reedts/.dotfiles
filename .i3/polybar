@@ -69,7 +69,6 @@ tray-background = #121212
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
