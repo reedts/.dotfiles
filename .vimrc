@@ -57,7 +57,7 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
   
 
-let g:molokai_original = 1
+"let g:molokai_original = 1
 let g:rehash256 = 1
 
 " C syntax plugin
