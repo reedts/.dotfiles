@@ -22,6 +22,7 @@ light_grey = #9999AA
 light_green = #80FF00
 blue = #4699AF
 red = #F92672
+orange = #D75F00
 
 [bar/primary]
 width = 100%
@@ -41,17 +42,17 @@ border-size = 0
 ;border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 1
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 1
 
 font-0 = Droid Sans Mono:size=8;1
 font-1 = FontAwesome:size=10;1
 
 modules-left = i3
-modules-center = mpd xwindow
-modules-right = cpu memory eth date powermenu
+modules-center = xwindow
+modules-right = wlan eth battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -72,7 +73,7 @@ tray-background = #121212
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-format-padding = 5
+format-padding = 2
 
 [module/i3]
 type = internal/i3
@@ -115,22 +116,6 @@ label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 
-[module/mpd]
-type = internal/mpd
-
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-format-online-padding = 3
-format-online-background = #eeFD971F
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 40
-label-song-ellipsis = true
-
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -150,38 +135,112 @@ label = %percentage_used%%
 
 [module/eth]
 type = internal/network
-interface = enp9s0
+interface = enp0s25
 interval = 3.0
 
-format-connected-padding = 2
-format-disconnected-padding = 2
+format-connected-padding = 1
 
-format-connected-background = ${colors.background-enable-trans}
-format-connected-underline = ${colors.light_green}
-;format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground}
+format-connected-prefix = " "
 label-connected = %local_ip%
+;format-connected-background = ${colors.background-enable-trans}
+format-connected-underline = ${colors.light_green}
+format-connected-prefix-foreground = ${colors.foreground}
 
-format-disconnected = ${colors.light_grey}
+;format-disconnected = ${colors.light_grey}
 ;format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.red}
-format-disconnected-background = ${colors.background-disable-trans}
+;format-disconnected-underline = ${colors.red}
+;format-disconnected-background = ${colors.background-disable-trans}
+;label-disconnected =
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected-padding = 1
+
+format-connected-prefix = "  "
+format-connected = <label-connected>
+;format-connected-background = ${colors.background-enable-trans}
+format-connected-foreground = ${colors.foreground}
+format-connected-underline = ${colors.light_green}
+label-connected = %essid%
+
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+
+;ramp-signal-0 = 
+;ramp-signal-1 = 
+;ramp-signal-2 = 
+;ramp-signal-3 = 
+;ramp-signal-4 = 
+;ramp-signal-foreground = ${colors.foreground}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 80
+
+time-format = %H:%M
+
+label-charging = %percentage%% (%time%)
+format-charging-padding = 1
+format-charging = <animation-charging> <label-charging>
+format-charging-prefix = " "
+format-charging-underline = ${colors.light_green}
+format-charging-background = ${colors.background-enable-trans}
+format-charging-foreground = ${colors.foreground}
+
+label-discharging = ${self.label-charging}
+label-discharging-alt = %percentage%% (%time%)
+format-discharging-padding = 1
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.light_cyan}
+;format-discharging-background = ${colors.background-enable-trans}
+format-discharging-foreground = ${self.format-charging-foreground}
+
+format-full-prefix = "  "
+format-full-padding = 1
+format-full-background = ${self.format-charging-background}
+format-full-foreground = ${colors.foreground}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+;ramp-capacity-1-foreground = ${colors.red}
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
 
 [module/date]
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
-date-alt = " %Y-%m-%d"
+date = "%Y-%m-%d"
+date-alt = "%Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+;format-prefix = 
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.light_cyan}
+format-underline = ${colors.blue}
 
 
 label = %date% %time%
@@ -191,6 +250,7 @@ label = %date% %time%
 type = custom/menu
 
 format-spacing = 1
+format-padding = 1
 
 label-open = 
 label-open-foreground = ${colors.blue}
