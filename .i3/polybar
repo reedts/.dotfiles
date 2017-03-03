@@ -164,19 +164,17 @@ type = internal/network
 interface = enp9s0
 interval = 3.0
 
-format-connected-padding = 2
-format-disconnected-padding = 2
 
-format-connected-background = ${colors.background-enable-trans}
+;format-connected-background = ${colors.background-enable-trans}
 format-connected-underline = ${colors.light_green}
-;format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
 
-format-disconnected = ${colors.light_grey}
+;format-disconnected = ${colors.light_grey}
 ;format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.red}
-format-disconnected-background = ${colors.background-disable-trans}
+;format-disconnected-underline = ${colors.red}
+;format-disconnected-background = ${colors.background-disable-trans}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -184,8 +182,8 @@ format-disconnected-background = ${colors.background-disable-trans}
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
-date-alt = " %Y-%m-%d"
+date = "%Y-%m-%d"
+date-alt = "%Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
