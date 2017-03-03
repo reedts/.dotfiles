@@ -8,21 +8,21 @@
 ;=====================================================
 
 [colors]
-background = #1d2021
-background-trans = #ee1d2021
-background-active-trans = #ee458588
-background-mode-trans = #eeb16286
-background-enable-trans = #ee98971a
-background-disable-trans = #eecc241d
-foreground = #ebdbb2
-foreground-inactive = #a89984
+background = #121212
+background-trans = #ee121212
+background-active-trans = #ee4699AF
+background-mode-trans = #eeF92672
+background-enable-trans = #ee84c00c
+background-disable-trans = #eeF92672
+foreground = #F8F8F2
+foreground-inactive = #9999AA
 
-light_cyan = #8ec07c
-light_grey = #a89984
-light_green = #b8bb26
-blue = #458588
-red = #cc241d
-orange = #d79921
+light_cyan = #66D9EF
+light_grey = #9999AA
+light_green = #80FF00
+blue = #4699AF
+red = #F92672
+orange = #D75F00
 
 [bar/primary]
 width = 100%
@@ -57,7 +57,7 @@ modules-right = wlan eth battery date powermenu github
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
-tray-background = ${colors.background}
+tray-background = #121212
 
 ;wm-restack = bspwm
 ;wm-restack = i3
