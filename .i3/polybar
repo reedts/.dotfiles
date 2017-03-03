@@ -52,7 +52,7 @@ font-1 = FontAwesome:size=10;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = wlan eth battery date powermenu
+modules-right = wlan eth battery date powermenu github
 
 tray-position = right
 tray-padding = 2
@@ -184,7 +184,7 @@ label-connected = %essid%
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 80
+full-at = 79
 
 time-format = %H:%M
 
@@ -245,6 +245,15 @@ format-underline = ${colors.blue}
 
 label = %date% %time%
 
+
+[module/github]
+type = internal/github
+
+token = ${file:/home/reedts/Entwicklung/git_access_token}
+
+label = " %notifications%"
+
+empty-notifications = true
 
 [module/powermenu]
 type = custom/menu
