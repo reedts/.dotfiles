@@ -9,9 +9,6 @@ set shiftwidth=8
 set noexpandtab
 set nofoldenable
 
-"for gruvbox
-set background=dark
-
 "Plugin settings
 "------------------------------------------------
 "fugative settings
@@ -39,7 +36,7 @@ let g:ycm_filetype_whitelist = {'cpp' : 1}
 "Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'molokai'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
@@ -140,7 +137,7 @@ if has('gui_running')
     set guicursor=n-v-c:block-Cursor
     set guicursor=n-v-c:blinkon0
     set guicursor+=i:ver100-iCursor
-    colorscheme gruvbox
+    colorscheme molokai 
     set backspace=indent,eol,start
     set completefunc=youcompleteme#Complete
     set completeopt=preview,menuone
@@ -172,7 +169,7 @@ if has('gui_running')
     " vim: set ft=vim :
 else
     set t_Co=256
-    colorscheme gruvbox
+    colorscheme molokai
     
     set number
 endif

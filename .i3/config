@@ -262,10 +262,10 @@ exec feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
-client.focused		        #458588 #458588 	#ebdbb2 #2e9ef4
-client.focused_inactive	        #458588	#458588 	#ebdbb2	#2e9ef4
-client.unfocused	        #928374	#928374 	#a89984	#676767
-client.urgent		        #cc241d	#cc241d		#ebdbb2	#000000
+client.focused		        #4699AF #4699AF 	#F8F8F2 #2e9ef4
+client.focused_inactive	        #121212	#121212		#F8F8F2	#2e9ef4
+client.unfocused	        #121212	#121212 	#F8F8F2	#676767
+client.urgent		        #F92672	#F92672		#121212	#000000
 
 #=================== Custom keybindings =============================================
 
