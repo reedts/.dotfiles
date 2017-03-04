@@ -8,20 +8,32 @@
 ;=====================================================
 
 [colors]
-background = #121212
-background-trans = #ee121212
-background-active-trans = #ee4699AF
-background-mode-trans = #eeF92672
-background-enable-trans = #ee84c00c
-background-disable-trans = #eeF92672
-foreground = #F8F8F2
+background = #2e3440
+background-trans = #ee2e3440
+background-active-trans = #ccbf616a
+background-mode-trans = #ccb48ead
+background-enable-trans = #cca3be8c
+background-disable-trans = #ccbf616a
+foreground = #d8dee9
 foreground-inactive = #9999AA
 
-light_cyan = #66D9EF
-light_grey = #9999AA
-light_green = #80FF00
-blue = #4699AF
-red = #F92672
+black       = #3b4252
+red         = #bf616a
+green       = #a3be8c
+yellow      = #ebcb8b
+blue        = #81a1c1
+purple      = #b48ead
+cyan        = #88c0d0
+light_grey  = #e5e9f0
+dark_grey   = #4c566a
+light_red   = #bf616a
+light_green = #a3be8c
+light_yellow= #ebcb8b
+light_blue  = #81a1c1
+light_purple= #a3be8c
+light_cyan  = #8fbcbb
+white       = #eceff4
+
 
 [bar/primary]
 monitor = HDMI-0
@@ -44,8 +56,8 @@ border-size = 0
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 0
 
 font-0 = Droid Sans Mono:size=8;1
 font-1 = FontAwesome:size=10;1
@@ -57,7 +69,7 @@ modules-right = cpu memory eth date powermenu
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
-tray-background = #121212
+tray-background = #2e3440
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -91,7 +103,7 @@ format = <label-state> <label-mode>
 
 label-focused = %name%
 label-focused-background = ${colors.background-active-trans}
-label-focused-underline= ${colors.light_cyan}
+label-focused-underline= ${colors.light_red}
 label-focused-padding = 2
 
 label-occupied = %name%
@@ -121,8 +133,8 @@ label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-background = ${colors.blue}
+label-visible-underline = ${colors.cyan}
 label-visible-padding = ${self.label-focused-padding}
 
 
@@ -145,17 +157,21 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
+format-padding = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.light_cyan}
+format-foreground = ${colors.background}
+format-background = ${colors.light_red}
+;format-underline = ${colors.light_cyan}
 label = %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 2
+format-padding = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.light_cyan}
+format-foreground = ${colors.background}
+format-background = ${colors.blue}
+;format-underline = ${colors.light_cyan}
 label = %percentage_used%%
 
 
@@ -164,11 +180,13 @@ type = internal/network
 interface = enp9s0
 interval = 3.0
 
+format-connected-padding = 2
 
 ;format-connected-background = ${colors.background-enable-trans}
-format-connected-underline = ${colors.light_green}
+;format-connected-underline = ${colors.light_green}
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground}
+format-connected-foreground = ${colors.background}
+format-connected-background = ${colors.light_green}
 label-connected = %local_ip%
 
 ;format-disconnected = ${colors.light_grey}
@@ -181,6 +199,7 @@ label-connected = %local_ip%
 [module/date]
 type = internal/date
 interval = 5
+format-padding = 2
 
 date = "%Y-%m-%d"
 date-alt = "%Y-%m-%d"
@@ -189,8 +208,8 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.light_cyan}
+format-foreground = ${colors.background}
+format-background = ${colors.purple}
 
 
 label = %date% %time%
@@ -200,6 +219,7 @@ label = %date% %time%
 type = custom/menu
 
 format-spacing = 1
+format-padding = 2
 
 label-open = 
 label-open-foreground = ${colors.blue}

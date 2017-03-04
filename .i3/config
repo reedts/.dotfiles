@@ -30,8 +30,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+c kill
 
+bindsym $mod+d exec rofi -show run
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -263,8 +264,8 @@ gaps outer 5
 exec gnome-session
 
 #bars
-exec_always polybar primary&
-exec_always polybar secondary&
+exec_always --no-startup-id polybar primary&
+exec_always --no-startup-id polybar secondary&
 
 # start gnome-authenticator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -282,10 +283,10 @@ exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/mountains_dar
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text	indicator
-client.focused		    #4699AF     #4699AF 	#F8F8F2	#2e9ef4
-client.focused_inactive	    #121212	#121212		#121212	#121212
-client.unfocused	    #121212	#121212 	#F8F8F2	#676767
-client.urgent		    #F92672	#F92672		#121212	#000000
+client.focused		    #a3be8c     #a3be8c 	#eceff4	#2e9ef4
+client.focused_inactive	    #2e3440	#2e3440		#d8dee9	#121212
+client.unfocused	    #2e3440	#2e3440 	#d8dee9	#676767
+client.urgent		    #bf616a	#bf616a 	#d8dee9	#000000
 
 #=================== Custom keybindings =============================================
 
