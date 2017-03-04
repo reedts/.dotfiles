@@ -57,7 +57,7 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 0
-module-margin-right = 0
+module-margin-right = 2
 
 font-0 = Droid Sans Mono:size=8;1
 font-1 = FontAwesome:size=10;1
@@ -157,21 +157,19 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-padding = 2
 format-prefix = " "
-format-foreground = ${colors.background}
-format-background = ${colors.light_red}
-;format-underline = ${colors.light_cyan}
+format-foreground = ${colors.foreground}
+;format-background = ${colors.light_red}
+format-underline = ${colors.light_red}
 label = %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-padding = 2
 format-prefix = " "
-format-foreground = ${colors.background}
-format-background = ${colors.blue}
-;format-underline = ${colors.light_cyan}
+format-foreground = ${colors.foreground}
+;format-background = ${colors.blue}
+format-underline = ${colors.blue}
 label = %percentage_used%%
 
 
@@ -180,13 +178,11 @@ type = internal/network
 interface = enp9s0
 interval = 3.0
 
-format-connected-padding = 2
-
 ;format-connected-background = ${colors.background-enable-trans}
 ;format-connected-underline = ${colors.light_green}
 format-connected-prefix = " "
-format-connected-foreground = ${colors.background}
-format-connected-background = ${colors.light_green}
+format-connected-foreground = ${colors.foreground}
+format-connected-underline = ${colors.light_green}
 label-connected = %local_ip%
 
 ;format-disconnected = ${colors.light_grey}
@@ -199,7 +195,6 @@ label-connected = %local_ip%
 [module/date]
 type = internal/date
 interval = 5
-format-padding = 2
 
 date = "%Y-%m-%d"
 date-alt = "%Y-%m-%d"
@@ -208,8 +203,8 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-foreground = ${colors.background}
-format-background = ${colors.purple}
+format-foreground = ${colors.foreground}
+format-underline = ${colors.purple}
 
 
 label = %date% %time%
@@ -219,7 +214,6 @@ label = %date% %time%
 type = custom/menu
 
 format-spacing = 1
-format-padding = 2
 
 label-open = 
 label-open-foreground = ${colors.blue}
