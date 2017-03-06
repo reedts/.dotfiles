@@ -36,7 +36,7 @@ let g:ycm_filetype_whitelist = {'cpp' : 1}
 "Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'nord'
+let g:airline_theme = 'molokai'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
@@ -137,7 +137,7 @@ if has('gui_running')
     set guicursor=n-v-c:block-Cursor
     set guicursor=n-v-c:blinkon0
     set guicursor+=i:ver100-iCursor
-    colorscheme nord
+    colorscheme molokai
     set backspace=indent,eol,start
     set completefunc=youcompleteme#Complete
     set completeopt=preview,menuone
@@ -169,7 +169,7 @@ if has('gui_running')
     " vim: set ft=vim :
 else
     set t_Co=256
-    colorscheme nord
+    colorscheme molokai
     
     set number
 endif

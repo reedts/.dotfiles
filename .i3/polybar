@@ -9,20 +9,31 @@
 
 [colors]
 background = #121212
-background-trans = #ee121212
-background-active-trans = #ee4699AF
-background-mode-trans = #eeF92672
-background-enable-trans = #ee84c00c
-background-disable-trans = #eeF92672
-foreground = #F8F8F2
+background-trans = #cc121212
+background-active-trans = #ccF92672
+background-mode-trans = #ccae81ff
+background-enable-trans = #cca3be8c
+background-disable-trans = #ccbf616a
+foreground = #d8dee9
 foreground-inactive = #9999AA
 
-light_cyan = #66D9EF
-light_grey = #9999AA
+black       = #121212
+red         = #F92672
+green       = #A6E22E
+yellow      = #C47F2C
+blue        = #30309B
+purple      = #AE81FF
+cyan        = #4699AF
+light_grey  = #9999AA
+dark_grey   = #808080
+light_red   = #F92672
 light_green = #80FF00
-blue = #4699AF
-red = #F92672
-orange = #D75F00
+light_yellow= #FFBA68
+light_blue  = #7070F0
+light_purple= #C5A5FF
+light_cyan  = #66D9EF
+white       = #F8F8F2
+
 
 [bar/primary]
 width = 100%
@@ -42,7 +53,7 @@ border-size = 0
 ;border-color = #00000000
 
 padding-left = 0
-padding-right = 1
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 1
@@ -57,7 +68,7 @@ modules-right = wlan eth battery date powermenu github
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
-tray-background = #121212
+tray-background = ${colors.background}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -81,7 +92,7 @@ format = <label-state> <label-mode>
 
 label-focused = %name%
 label-focused-background = ${colors.background-active-trans}
-label-focused-underline= ${colors.light_cyan}
+label-focused-underline= ${colors.light_red}
 label-focused-padding = 2
 
 label-occupied = %name%
