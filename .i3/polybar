@@ -10,11 +10,11 @@
 [colors]
 background = #121212
 background-trans = #cc121212
-background-active-trans = #ccF92672
+background-active-trans = #cc30309B
 background-mode-trans = #ccae81ff
-background-enable-trans = #cca3be8c
+background-enable-trans = #ccA6E22E
 background-disable-trans = #ccbf616a
-foreground = #d8dee9
+foreground = #F8F8F2
 foreground-inactive = #9999AA
 
 black       = #121212
@@ -56,7 +56,7 @@ padding-left = 0
 padding-right = 0
 
 module-margin-left = 0
-module-margin-right = 1
+module-margin-right = 2
 
 font-0 = Droid Sans Mono:size=8;1
 font-1 = FontAwesome:size=10;1
@@ -169,9 +169,7 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected-padding = 1
-
-format-connected-prefix = "  "
+format-connected-prefix = " "
 format-connected = <label-connected>
 ;format-connected-background = ${colors.background-enable-trans}
 format-connected-foreground = ${colors.foreground}
@@ -199,17 +197,17 @@ full-at = 79
 
 time-format = %H:%M
 
-label-charging = %percentage%% (%time%)
 format-charging-padding = 1
+label-charging = %percentage%% (%time%)
 format-charging = <animation-charging> <label-charging>
 format-charging-prefix = " "
 format-charging-underline = ${colors.light_green}
 format-charging-background = ${colors.background-enable-trans}
 format-charging-foreground = ${colors.foreground}
 
+format-discharging-padding = 0
 label-discharging = ${self.label-charging}
 label-discharging-alt = %percentage%% (%time%)
-format-discharging-padding = 1
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.light_cyan}
 ;format-discharging-background = ${colors.background-enable-trans}
@@ -251,7 +249,7 @@ time-alt = %H:%M:%S
 
 ;format-prefix = 
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.blue}
+format-underline = ${colors.light_purple}
 
 
 label = %date% %time%
