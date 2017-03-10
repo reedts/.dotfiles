@@ -1,0 +1,34 @@
+URxvt.font: xft:Droid Sans Mono:size=10
+URxvt.letterSpace: -1
+
+URxvt.scrollBar: false
+
+URxvt*depth: 32
+URxvt*antialias: true
+
+URxvt*foreground  : fg
+URxvt*background  : bg
+URxvt*color0      : black
+URxvt*color1      : red
+URxvt*color2      : green
+URxvt*color3      : yellow
+URxvt*color4      : blue
+URxvt*color5      : purple
+URxvt*color6      : cyan
+URxvt*color7      : light_grey
+URxvt*color8      : dark_grey
+URxvt*color9      : light_red
+URxvt*color10     : light_green
+URxvt*color11     : light_yellow
+URxvt*color12     : light_blue
+URxvt*color13     : light_purple
+URxvt*color14     : light_cyan
+URxvt*color15     : white
+
+!URxvt*.transparent: true
+!URxvt*.shading: 10
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up 
+
+URxvt*perl-ext-common:	default,matcher,clipboard,selection-to-clipboard,resize-font
