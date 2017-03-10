@@ -241,11 +241,12 @@ bar {
 
 # start lxsession authentication manager
 exec gnome-session
-exec /usr/lib/polkit-gnome/polkit-gnome-authentification-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # sound applet pasystray from AUR
 # exec pasystray
 exec nm-applet
 exec pa-applet
+exec parcellite
 # second conky instance
 exec conky -c ~/.conkymain
 
