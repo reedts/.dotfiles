@@ -79,10 +79,10 @@ XF86AudioRaiseVolume
 
 # multimedia keys for display brightness are not supported switching to
 # fallback solution
-"xbacklight -inc 10"
-control+mod1+k
-"xbacklight -dec 10"
-control+mod1+j
+"xbacklight -inc 5"
+XF86MonBrightnessUp
+"xbacklight -dec 5"
+XF86MonBrightnessDown
 ##################################
 # End of xbindkeys configuration #
 ##################################
