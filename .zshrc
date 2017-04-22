@@ -3360,8 +3360,7 @@ assemble() {
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:
-export PATH=/home/julian/Entwicklung/android/android-studio/bin:$PATH
-export PATH=/home/julian/Entwicklung/android/bin:$PATH
+export PATH=/usr/local/games:$PATH
 
 cat ~/.hotreddit/msg | cowsay -f tux
 # mode: sh
