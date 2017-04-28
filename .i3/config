@@ -21,6 +21,25 @@ set $mod Mod4
 # font pango:DejaVu Sans Mono 10
 font pango:Droid Sans Mono, FontAwesome 8
 
+# Getting xrdb color values as variables
+set_from_resource $black	black		#121212
+set_from_resource $red		red		#F92672
+set_from_resource $green	green		#A6E22E
+set_from_resource $yellow	yellow		#C47F2C
+set_from_resource $blue		blue		#30309B
+set_from_resource $purple	purple		#AE81FF
+set_from_resource $cyan		cyan		#4699AF
+set_from_resource $light_grey	light_grey	#9999AA
+set_from_resrouce $dark_grey	dark_grey	#808080
+set_from_resource $light_red	light_red	#F92672
+set_from_resource $light_green	light_green	#80FF00
+set_from_resource $light_yellow	light_yellow	#FFBA68
+set_from_resource $light_blue	light_blue	#7070F0
+set_from_resource $light_purple	light_purple	#C5A5FF
+set_from_resource $light_cyan	light_cyan	#66D9EF
+set_from_resource $white	white		#F8F8F2
+
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -30,9 +49,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+c kill
 
-bindsym $mod+d exec rofi -show run
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -42,10 +61,10 @@ new_window pixel 2
 new_float pixel 2
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -54,10 +73,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -66,7 +85,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -174,7 +193,7 @@ mode $launch_mode {
     # Thunar
 	bindsym t exec thunar
 	# Chromium
-	bindsym c exec chromium
+	bindsym c exec chromium 
 
 	# back to normal
 	bindsym Escape mode "default"
@@ -213,7 +232,6 @@ bindsym $mod+Shift+q mode "$mode_system"
 
 # hide edge borders
 hide_edge_borders vertical
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -221,71 +239,52 @@ hide_edge_borders vertical
 #		background	#121212
 #		statusline	#F8F8F2
 #		separator	#808080
-#
+#   #   Element             first   second  indicator
 #		focused_workspace	#4699AF	#4699AF	#F8F8F2
 #		active_workspace	#121212	#121212	#D75F00
 #		inactive_workspace	#121212	#121212	#9999AA
 #		urgent_workspace	#121212	#121212	#F92672
 #	}
-#	strip_workspace_numbers yes
-#	output HDMI-0
-#	separator_symbol "      "
+#       separator_symbol "      "
+#       strip_workspace_numbers yes
 #	position top 
-#	tray_output HDMI-0
 #	font pango:Droid Sans Mono 8
-#       #status_command i3status --config /home/reedts/.i3/i3status.conf
-#	#status_command $HOME/.i3/conkywrapper
-#	status_command polybar primary
-#}
-#
-# For second Monitor
-#bar {
-#	colors {
-#              background      #121212
-#               statusline      #F8F8F2
-#               separator       #808080
-#
-#		focused_workspace	#4699AF	#4699AF	#F8F8F2
-#		active_workspace	#121212	#121212	#D75F00
-#		inactive_workspace	#121212	#121212	#9999AA
-#		urgent_workspace	#121212	#121212	#F92672
-#    }
-#    strip_workspace_numbers yes
-#	output DVI-I-1
-#	position top
-#	font pango:Cartella Regular 8
-#	tray_output none
+#        #status_command i3status --config /home/reedts/.i3/i3status.conf
+#	status_command $HOME/.i3/conkywrapper
 #}
 #=================== Services =======================================================
 # services that cannot be started by systemctl go here
 
+# start gnome session and authentication manager
 exec gnome-session
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 
 #bars
-exec_always --no-startup-id polybar primary&
-exec_always --no-startup-id polybar secondary&
+exec_always polybar primary&
+exec_always polybar secondary&
 
-# start gnome-authenticator
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # sound applet pasystray from AUR
 exec pa-applet
-
-# second conky for more informations
-exec conky -c ~/.conkymain
+exec nm-applet
+exec --no-startup-id xbindkeys
+exec --no-startup-id parcellite
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b --config ~/.compton.conf
+#exec compton -b --config ~/.compton.conf
+exec --no-startup-id xscreensaver -nosplash &
+
+# second conky
+exec conky -c /home/reedts/.conkymain
 
 # Set Wallpaper
-exec feh --no-startup-id --bg-scale /home/reedts/Bilder/Wallpapers/mountains_dark.jpg
+exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
-# class			    border	backgr.		text	indicator
-client.focused		    #a3be8c     #a3be8c 	#eceff4	#2e9ef4
-client.focused_inactive	    #2e3440	#2e3440		#d8dee9	#121212
-client.unfocused	    #2e3440	#2e3440 	#d8dee9	#676767
-client.urgent		    #bf616a	#bf616a 	#d8dee9	#000000
-
+# class			        border	backgr.		text	indicator
+client.focused		    $green     	$green		$white  #2e9ef4
+client.focused_inactive	    $black	$black  	$white	#121212
+client.unfocused	    $black	$black		$light_grey	#676767
+client.urgent		    $red	$red    	$white	#000000
 #=================== Custom keybindings =============================================
 
 
@@ -295,15 +294,16 @@ assign [class="^Firefox$"] $ws2
 
 assign [class="^Pidgin$"] $ws9
 assign [class="^skype$"] $ws9
-assign [class="^Thunderbird$"] $ws9
+#assign [class="^Thunderbird$"] $ws9
 
 #=================== Windows that should spawn in floating mode =====================
 # thunderbird floating windows
 for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
 
-for_window [class="^Pidgin$"] floating enable
+for_window [window_role="^compose$"] floating enable
 
+for_window [class="^Pidgin$"] floating enable
 #for_window [class="^Gajim$"] floating enable
 
 # dolphin copy and move dialog
