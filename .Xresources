@@ -18,45 +18,45 @@
 !URxvt*color15: white
 
 ! Molokai colorscheme
-!#define fg           #F8F8F2
-!#define bg           #121212
-!#define black        #121212
-!#define red          #F92672
-!#define green        #A6E22E
-!#define yellow       #C47F2C
-!#define blue         #30309B
-!#define purple       #AE81FF
-!#define cyan         #4699AF
-!#define light_grey   #9999AA
-!#define dark_grey    #808080
-!#define light_red    #F92672
-!#define light_green  #80FF00
-!#define light_yellow #FFBA68
-!#define light_blue   #7070F0
-!#define light_purple #C5A5FF
-!#define light_cyan   #66D9EF
-!#define white        #F8F8F2
+#define fg           #F8F8F2
+#define bg           #121212
+#define black        #121212
+#define red          #F92672
+#define green        #A6E22E
+#define yellow       #C47F2C
+#define blue         #30309B
+#define purple       #AE81FF
+#define cyan         #4699AF
+#define light_grey   #9999AA
+#define dark_grey    #808080
+#define light_red    #F92672
+#define light_green  #80FF00
+#define light_yellow #FFBA68
+#define light_blue   #7070F0
+#define light_purple #C5A5FF
+#define light_cyan   #66D9EF
+#define white        #F8F8F2
 
 ! Nord colorscheme
-#define fg           #d8dee9
-#define bg           #2e3440
+!#define fg           #d8dee9
+!#define bg           #2e3440
 
-#define black        #3b4252
-#define red          #bf616a
-#define green        #a3be8c
-#define yellow       #ebcb8b
-#define blue         #81a1c1
-#define purple       #b48ead
-#define cyan         #88c0d0
-#define light_grey   #e5e9f0
-#define dark_grey    #4c566a
-#define light_red    #bf616a
-#define light_green  #a3be8c
-#define light_yellow #ebcb8b
-#define light_blue   #81a1c1
-#define light_purple #a3be8c
-#define light_cyan   #8fbcbb
-#define white        #eceff4
+!#define black        #3b4252
+!#define red          #bf616a
+!#define green        #a3be8c
+!#define yellow       #ebcb8b
+!#define blue         #81a1c1
+!#define purple       #b48ead
+!#define cyan         #88c0d0
+!#define light_grey   #e5e9f0
+!#define dark_grey    #4c566a
+!#define light_red    #bf616a
+!#define light_green  #a3be8c
+!#define light_yellow #ebcb8b
+!#define light_blue   #81a1c1
+!#define light_purple #a3be8c
+!#define light_cyan   #8fbcbb
+!#define white        #eceff4
 
 
 ! Settings regarding Xft
