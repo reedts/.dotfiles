@@ -166,7 +166,7 @@ format-connected-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp3s0
 interval = 3.0
 
 format-connected-prefix = " "
@@ -193,7 +193,7 @@ label-connected = %essid%
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 79
+full-at = 80
 
 time-format = %H:%M
 

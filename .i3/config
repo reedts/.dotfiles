@@ -270,7 +270,7 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id parcellite
 
 # start compton for vsync and a bit of eyecandy :)
-#exec compton -b --config ~/.compton.conf
+exec compton -b --config ~/.compton.conf
 exec --no-startup-id xscreensaver -nosplash &
 
 # second conky
@@ -281,7 +281,7 @@ exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
-client.focused		    $green     	$green		$white  #2e9ef4
+client.focused		    #6484a4    	#6484a4		$white  #2e9ef4
 client.focused_inactive	    $black	$black  	$white	#121212
 client.unfocused	    $black	$black		$light_grey	#676767
 client.urgent		    $red	$red    	$white	#000000
