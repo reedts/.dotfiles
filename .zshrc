@@ -3362,6 +3362,6 @@ assemble() {
 # Local variables:
 export PATH=/usr/local/games:$PATH
 
-cat ~/.hotreddit/msg | cowsay -f tux
+#cat ~/.hotreddit/msg | cowsay -f tux
 # mode: sh
 # End:
