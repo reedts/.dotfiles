@@ -1,0 +1,15 @@
+#!/bin/sh
+
+DEVICE=wlp3s0
+
+UP=$(cat /sys/class/net/$DEVICE/operstate)
+CONNECTED=$(cat /sys/class/net/$DEVICE/carrier)
+
+if [ "$UP" != "up" ] || [ $CONNECTED -eq 0 ]
+then
+	echo "/"
+	exit 33
+else
+	echo $(ifconfig 2>/dev/null | grep -A 1 $DEVICE | awk '/inet/ {print $2}')
+	exit 0
+fi
