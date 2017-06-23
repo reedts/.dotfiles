@@ -36,7 +36,7 @@ let g:ycm_filetype_whitelist = {'cpp' : 1}
 "Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'badwolf'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
@@ -103,6 +103,7 @@ au BufNewFile,BufRead *.tex set softtabstop=2
 hi ColorColumn ctermbg=darkgrey
 
 set listchars=tab:\|\ 
+set fillchars+=vert:\ 
 
 nmap <leader>cl :set cursorline!<cr>
 nmap <leader>cc :w<cr>:silent call Tex_RunLaTeX()<cr>
@@ -110,6 +111,7 @@ nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
 nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
+nmap <leader>tg :TagbarToggle<cr>
 
 if has('gui_running')
     "GVIM
