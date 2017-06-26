@@ -8,31 +8,31 @@
 ;=====================================================
 
 [colors]
-background = #2e3440
-background-trans = #ee2e3440
-background-active-trans = #ccbf616a
-background-mode-trans = #ccb48ead
-background-enable-trans = #cca3be8c
+background = #121212
+background-trans = #cc121212
+background-active-trans = #cc30309B
+background-mode-trans = #ccae81ff
+background-enable-trans = #ccA6E22E
 background-disable-trans = #ccbf616a
-foreground = #d8dee9
+foreground = #F8F8F2
 foreground-inactive = #9999AA
 
-black       = #3b4252
-red         = #bf616a
-green       = #a3be8c
-yellow      = #ebcb8b
-blue        = #81a1c1
-purple      = #b48ead
-cyan        = #88c0d0
-light_grey  = #e5e9f0
-dark_grey   = #4c566a
-light_red   = #bf616a
-light_green = #a3be8c
-light_yellow= #ebcb8b
-light_blue  = #81a1c1
-light_purple= #a3be8c
-light_cyan  = #8fbcbb
-white       = #eceff4
+black       = #121212
+red         = #F92672
+green       = #A6E22E
+yellow      = #C47F2C
+blue        = #30309B
+purple      = #AE81FF
+cyan        = #4699AF
+light_grey  = #9999AA
+dark_grey   = #808080
+light_red   = #F92672
+light_green = #80FF00
+light_yellow= #FFBA68
+light_blue  = #7070F0
+light_purple= #C5A5FF
+light_cyan  = #66D9EF
+white       = #F8F8F2
 
 
 [bar/primary]
@@ -63,13 +63,13 @@ font-0 = Droid Sans Mono:size=8;1
 font-1 = FontAwesome:size=10;1
 
 modules-left = i3
-modules-center = mpd xwindow
+modules-center = xwindow
 modules-right = cpu memory eth date powermenu
 
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
-tray-background = #2e3440
+tray-background = #121212
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -175,7 +175,7 @@ label = %percentage_used%%
 
 [module/eth]
 type = internal/network
-interface = enp9s0
+interface = enp0s25
 interval = 3.0
 
 ;format-connected-background = ${colors.background-enable-trans}
