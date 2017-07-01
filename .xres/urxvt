@@ -2,7 +2,7 @@ URxvt.font: xft:Droid Sans Mono:size=10
 URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
-
+URxvt.termName: xterm
 URxvt*depth: 32
 URxvt*antialias: true
 

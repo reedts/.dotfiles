@@ -8,32 +8,32 @@
 ;=====================================================
 
 [colors]
-background = #2e3440
-background-trans = #ee2e3440
-background-active-trans = #ccbf616a
-background-mode-trans = #ccb48ead
-background-enable-trans = #cca3be8c
-background-disable-trans = #ccbf616a
-foreground = #d8dee9
-foreground-inactive = #9999AA
 
-black       = #3b4252
-red         = #bf616a
-green       = #a3be8c
-yellow      = #ebcb8b
-blue        = #81a1c1
-purple      = #b48ead
-cyan        = #88c0d0
-light_grey  = #e5e9f0
-dark_grey   = #4c566a
-light_red   = #bf616a
-light_green = #a3be8c
-light_yellow= #ebcb8b
-light_blue  = #81a1c1
-light_purple= #a3be8c
-light_cyan  = #8fbcbb
-white       = #eceff4
+black       = ${xrdb:URxvt.color0:#3b4252}
+red         = ${xrdb:URxvt.color1:#bf616a}
+green       = ${xrdb:URxvt.color2:#a3be8c}
+yellow      = ${xrdb:URxvt.color3:#ebcb8b}
+blue        = ${xrdb:URxvt.color4:#81a1c1}
+purple      = ${xrdb:URxvt.color5:#b48ead}
+cyan        = ${xrdb:URxvt.color6:#88c0d0}
+light_grey  = ${xrdb:URxvt.color7:#e5e9f0}
+dark_grey   = ${xrdb:URxvt.color8:#4c566a}
+light_red   = ${xrdb:URxvt.color9:#bf616a}
+light_green = ${xrdb:URxvt.color10:#a3be8c}
+light_yellow= ${xrdb:URxvt.color11:#ebcb8b}
+light_blue  = ${xrdb:URxvt.color12:#81a1c1}
+light_purple= ${xrdb:URxvt.color13:#a3be8c}
+light_cyan  = ${xrdb:URxvt.color14:#8fbcbb}
+white       = ${xrdb:URxvt.color15:#eceff4}
 
+background = ${xrdb:URxvt.background:#121212}
+foreground = ${xrdb:URxvt.foreground:#F8F8F2}
+background-trans = #ee121212
+background-active-trans = #cc30309B
+background-mode-trans = #ccFFBA68
+background-enable-trans = #cc80FF00
+background-disable-trans = #ccF92672
+foreground-inactive = ${self.light_grey}
 
 [bar/primary]
 monitor = HDMI-0
@@ -69,7 +69,7 @@ modules-right = cpu memory eth date powermenu
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
-tray-background = #2e3440
+tray-background = 
 
 ;wm-restack = bspwm
 ;wm-restack = i3

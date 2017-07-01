@@ -12,10 +12,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 # setting cursor rate
 xset r rate 200 60
-# neo layout as scondary layout, qwertz as first
-setxkbmap -layout de,de -variant basic,neo -option -option grp:sclk_toggle -option grp_led:scroll
 # loading .Xresources
 xrdb -load ~/.Xresources &
+setxkbmap -layout de,de_lansi -variant basic,basic -option -option grp:sclk_toggle -option grp_led:scroll &
 # exec gnome-session
 # exec startkde
 # exec startxfce4
