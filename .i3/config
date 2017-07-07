@@ -249,6 +249,7 @@ bar {
 	}
 	separator_symbol "      "
 	strip_workspace_numbers yes
+	output HDMI-0
 	position top 
 	tray_output primary
 	font pango:Droid Sans Mono 10

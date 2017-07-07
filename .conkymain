@@ -32,14 +32,18 @@ ${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}CPU ${font}${color}${hr 2}
 
 ${offset 8}Temp: ${if_match ${acpitemp} > 60}${color #F92572}${endif}${acpitemp}°C${color}
 
-${offset 8}Core 1: ${if_match ${cpu cpu1} > 80}${color #F92672}${endif}${cpu cpu1}%${alignr 2}${cpubar cpu1 8,120}${color}
-${offset 8}Core 2: ${if_match ${cpu cpu2} > 80}${color #F92672}${endif}${cpu cpu2}%${alignr 2}${cpubar cpu2 8,120}${color}
-${offset 8}Core 3: ${if_match ${cpu cpu3} > 80}${color #F92672}${endif}${cpu cpu3}%${alignr 2}${cpubar cpu3 8,120}${color}
-${offset 8}Core 4: ${if_match ${cpu cpu4} > 80}${color #F92672}${endif}${cpu cpu4}%${alignr 2}${cpubar cpu4 8,120}${color}
-${offset 8}Core 5: ${if_match ${cpu cpu5} > 80}${color #F92672}${endif}${cpu cpu5}%${alignr 2}${cpubar cpu5 8,120}${color}
-${offset 8}Core 6: ${if_match ${cpu cpu6} > 80}${color #F92672}${endif}${cpu cpu6}%${alignr 2}${cpubar cpu6 8,120}${color}
-${offset 8}Core 7: ${if_match ${cpu cpu7} > 80}${color #F92672}${endif}${cpu cpu7}%${alignr 2}${cpubar cpu7 8,120}${color}
-${offset 8}Core 8: ${if_match ${cpu cpu8} > 80}${color #F92672}${endif}${cpu cpu8}%${alignr 2}${cpubar cpu8 8,120}${color}
+${offset 8}Core  1: ${if_match ${cpu cpu1} > 80}${color #F92672}${endif}${cpu cpu1}%${alignr 2}${cpubar cpu1 8,120}${color}
+${offset 8}Core  2: ${if_match ${cpu cpu2} > 80}${color #F92672}${endif}${cpu cpu2}%${alignr 2}${cpubar cpu2 8,120}${color}
+${offset 8}Core  3: ${if_match ${cpu cpu3} > 80}${color #F92672}${endif}${cpu cpu3}%${alignr 2}${cpubar cpu3 8,120}${color}
+${offset 8}Core  4: ${if_match ${cpu cpu4} > 80}${color #F92672}${endif}${cpu cpu4}%${alignr 2}${cpubar cpu4 8,120}${color}
+${offset 8}Core  5: ${if_match ${cpu cpu5} > 80}${color #F92672}${endif}${cpu cpu5}%${alignr 2}${cpubar cpu5 8,120}${color}
+${offset 8}Core  6: ${if_match ${cpu cpu6} > 80}${color #F92672}${endif}${cpu cpu6}%${alignr 2}${cpubar cpu6 8,120}${color}
+${offset 8}Core  7: ${if_match ${cpu cpu7} > 80}${color #F92672}${endif}${cpu cpu7}%${alignr 2}${cpubar cpu7 8,120}${color}
+${offset 8}Core  8: ${if_match ${cpu cpu8} > 80}${color #F92672}${endif}${cpu cpu8}%${alignr 2}${cpubar cpu8 8,120}${color}
+${offset 8}Core  9: ${if_match ${cpu cpu9} > 80}${color #F92672}${endif}${cpu cpu9}%${alignr 2}${cpubar cpu9 8,120}${color}
+${offset 8}Core 10: ${if_match ${cpu cpu10} > 80}${color #F92672}${endif}${cpu cpu10}%${alignr 2}${cpubar cpu10 8,120}${color}
+${offset 8}Core 11: ${if_match ${cpu cpu11} > 80}${color #F92672}${endif}${cpu cpu11}%${alignr 2}${cpubar cpu11 8,120}${color}
+${offset 8}Core 12: ${if_match ${cpu cpu12} > 80}${color #F92672}${endif}${cpu cpu12}%${alignr 2}${cpubar cpu12 8,120}${color}
 
 ${offset 8}${cpugraph cpu0 40,290 66D9EF F92672 1 -t -l}
 
@@ -57,14 +61,14 @@ ${offset 8}write:     ${diskio_write /dev/sda}
 
 ${offset 8}Free: ${if_match ${fs_used_perc} > 80}${color #F92672}${endif}${fs_free}${alignr 2}${fs_bar 8,120}${color}
 
-${if_up enp9s0}${color #66D9EF}${else}${color F92672}${endif}${font DejaVu Sans Mono:bold:size=10}ETH ${font}${color}${hr 2} 
-${if_up enp9s0}
+${if_up enp0s31f6}${color #66D9EF}${else}${color F92672}${endif}${font DejaVu Sans Mono:bold:size=10}ETH ${font}${color}${hr 2} 
+${if_up enp0s31f6}
 ${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}IPv4${color}${font}
-${offset 8}local:  ${addr enp9s0}
+${offset 8}local:  ${addr enp0s31f6}
 ${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
 
 ${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}IPv6${color}${font}
-${offset 8}addr:   ${v6addrs -n enp9s0}
+${offset 8}addr:   ${v6addrs -n enp0s31f6}
 
-${offset 8}Up: ${upspeed enp9s0}${alignr 2}Down: ${downspeed enp9s0}
+${offset 8}Up: ${upspeed enp0s31f6}${alignr 2}Down: ${downspeed enp0s31f6}
 ${endif}
