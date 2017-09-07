@@ -249,7 +249,7 @@ bar {
 	strip_workspace_numbers yes
 	position top 
 	tray_output primary
-	font pango:Droid Sans Mono 10
+	font pango:Droid Sans Mono 8
 	status_command i3blocks
 }
 #=================== Services =======================================================
@@ -262,6 +262,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # sound applet pasystray from AUR
 exec pa-applet
 exec nm-applet
+exec volnoti
 exec blueman-applet
 exec --no-startup-id xbindkeys
 exec --no-startup-id parcellite
@@ -274,7 +275,7 @@ exec --no-startup-id xscreensaver -nosplash &
 exec conky -c /home/reedts/.conkymain
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+exec_always feh --no-startup-id --bg-center /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
@@ -302,6 +303,7 @@ for_window [window_role="^compose$"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
 #for_window [class="^Gajim$"] floating enable
+for_window [class="^pinentry$"] floating enable
 
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
