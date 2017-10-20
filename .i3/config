@@ -33,7 +33,7 @@ set_from_resource $blue		URxvt.color4		#30309B
 set_from_resource $purple	URxvt.color5		#AE81FF
 set_from_resource $cyan		URxvt.color6		#4699AF
 set_from_resource $light_grey	URxvt.color7	#9999AA
-set_from_resrouce $dark_grey	URxvt.color8	#808080
+set_from_resource $dark_grey	URxvt.color8	#808080
 set_from_resource $light_red	URxvt.color9	#F92672
 set_from_resource $light_green	URxvt.color10	#80FF00
 set_from_resource $light_yellow	URxvt.color11	#FFBA68
@@ -232,8 +232,6 @@ bindsym $mod+Shift+q mode "$mode_system"
 # hide edge borders
 hide_edge_borders vertical
 
-gaps inner 5
-gaps outer 5 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
