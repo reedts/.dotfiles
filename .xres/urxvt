@@ -1,5 +1,5 @@
 URxvt.font: xft:Droid Sans Mono:size=10
-URxvt.letterSpace: -2
+URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
 
