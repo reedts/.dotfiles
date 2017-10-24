@@ -21,8 +21,8 @@ xrdb -load ~/.Xresources &
 # exec startxfce4
 # ...or the Window Manager of your choice
 
-case $1 in
-*)
-	exec i3
-	;;
-esac
+#case $1 in
+#*)
+#	exec i3
+#	;;
+#esac
