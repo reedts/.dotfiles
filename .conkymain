@@ -21,7 +21,7 @@ if_up_strictness address
 
 TEXT
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}SYS ${font}${color}${hr 2}
-${image /home/reedts/archlogo.png -p 8,60 -s 32x32}
+${image /home/reedts/logo.png -p 8,60 -s 32x32}
 ${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}${distribution}${font}${color}
 ${offset 60}${color #7070F0}${uid_name 1000}${color}@${nodename}
 ${offset 60}Arch:   ${machine} 
