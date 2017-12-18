@@ -115,7 +115,7 @@ nmap <leader>tg :TagbarToggle<cr>
 
 if has('gui_running')
     "GVIM
-    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline
+    set guifont=Droid\ Sans\ Mono
     version 6.0
     if &cp | set nocp | endif
     let s:cpo_save=&cpo
@@ -162,7 +162,6 @@ if has('gui_running')
     set termencoding=utf-8
     set updatetime=2000
     set window=55 
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
     " airline symbols
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
