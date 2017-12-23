@@ -56,9 +56,6 @@ bindsym $mod+d exec rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-new_window pixel 2
-new_float pixel 2
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -236,37 +233,37 @@ hide_edge_borders vertical
 # finds out, if available)
 bar {
 	colors {
-		background	#121212
-		statusline	#F8F8F2
-		separator	#808080
+		#background	#121212
+		#statusline	#F8F8F2
+		#separator	#808080
 		#   Element             first   second  indicator
-		focused_workspace	#4699AF	#4699AF	#F8F8F2
-		active_workspace	#121212	#121212	#D75F00
-		inactive_workspace	#121212	#121212	#9999AA
-		urgent_workspace	#121212	#121212	#F92672
+		#focused_workspace	#4699AF	#4699AF	#F8F8F2
+		#active_workspace	#121212	#121212	#D75F00
+		#inactive_workspace	#121212	#121212	#9999AA
+		#urgent_workspace	#121212	#121212	#F92672
 	}
 	separator_symbol "      "
 	strip_workspace_numbers yes
 	output HDMI-0
-	position top 
+	position bottom 
 	tray_output primary
 	font pango:Droid Sans Mono 10
 	status_command i3blocks
 }
 bar {
 	colors {
-               background      #121212
-               statusline      #F8F8F2
-               separator       #808080
+               #background      #121212
+               #statusline      #F8F8F2
+               #separator       #808080
 
-		focused_workspace	#4699AF	#4699AF	#F8F8F2
-		active_workspace	#121212	#121212	#D75F00
-		inactive_workspace	#121212	#121212	#9999AA
-		urgent_workspace	#121212	#121212	#F92672
+		#focused_workspace	#4699AF	#4699AF	#F8F8F2
+		#active_workspace	#121212	#121212	#D75F00
+		#inactive_workspace	#121212	#121212	#9999AA
+		#urgent_workspace	#121212	#121212	#F92672
     }
     strip_workspace_numbers yes
 	output DVI-I-1
-	position top
+	position bottom 
 	font pango:Droid Sans Mono 10
 	tray_output none
 }
@@ -289,14 +286,14 @@ exec conky -c ~/.conkymain
 exec compton -b --config ~/.compton.conf
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-scale /home/reedts/Pictures/Wallpapers/stairsinforest.jpg
+exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/Wallpapers/background.png
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text		indicator
-client.focused		    $green	$green		$black		#2e9ef4
-client.focused_inactive	    $black	$black		$light_grey	#2e9ef4
-client.unfocused	    $black	$black		$light_grey	#676767
-client.urgent		    $red	$red		$white		#000000
+#client.focused		    $green	$green		$black		#2e9ef4
+#client.focused_inactive	    $black	$black		$light_grey	#2e9ef4
+#client.unfocused	    $black	$black		$light_grey	#676767
+#client.urgent		    $red	$red		$white		#000000
 
 #=================== Custom keybindings =============================================
 
