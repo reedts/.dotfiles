@@ -240,14 +240,14 @@ hide_edge_borders vertical
 # finds out, if available)
 bar {
 	colors {
-		background	#121212
-		statusline	#F8F8F2
+		background	#101010
+		statusline	#FAFAFA
 		separator	#808080
 		#   Element             first	second		indicator
-		#focused_workspace	$blue	$light_blue	#F8F8F2
-		#active_workspace	#121212	#121212		#D75F00
-		#inactive_workspace	#121212	#121212		#9999AA
-		#rgent_workspace	#121212	#121212		#F92672
+		focused_workspace	#61538D #54487A		#FAFAFA
+		active_workspace	#5A3ABA #C0C0C0		#FAFAFA
+		inactive_workspace	#5A3ABA	#121212		#9999AA
+		urgent_workspace	#C02020 #982424		#FAFAFA
 	}
 	separator_symbol "      "
 	strip_workspace_numbers yes
@@ -259,13 +259,12 @@ bar {
 #=================== Services =======================================================
 # services that cannot be started by systemctl go here
 
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+exec /usr/libexec/polkit-gnome-authentication-agent-1 
 
 # sound applet pasystray from AUR
 exec pasystray
 exec nm-applet
 exec xbindkeys
-exec parcellite
 
 # start compton for vsync and a bit of eyecandy :)
 exec compton -b --config ~/.compton.conf
@@ -279,10 +278,10 @@ exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
-#client.focused		    $blue	$light_blue	$white  #2e9ef4
-#client.focused_inactive	    $black	$black  	$white	#121212
-#client.unfocused	    $black	$black		$light_grey	#676767
-#client.urgent		    $red	$red    	$white	#000000
+client.focused		    #5A3ABA	#54487A		#FAFAFA	#6E56AF
+client.focused_inactive	    #666666	#404040		#FAFAFA
+client.unfocused	    #666666	#404040		#FAFAFA	#676767
+client.urgent		    #C02020	#982424   	#FAFAFA	#000000
 #=================== Custom keybindings =============================================
 
 

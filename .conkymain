@@ -22,7 +22,7 @@ if_up_strictness address
 TEXT
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}SYS ${font}${color}${hr 2}
 ${image /home/reedts/logo.png -p 8,60 -s 32x32}
-${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}${distribution}${font}${color}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=10}${distribution}${font}${color}
 ${offset 60}${color #7070F0}${uid_name 1000}${color}@${nodename}
 ${offset 60}Arch:   ${machine} 
 ${offset 60}Kernel: ${kernel}
@@ -44,32 +44,32 @@ ${offset 8}Used:   ${if_match ${memperc} > 90}${color #F92672}${endif}${memperc}
 
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}SSD ${font}${color}${hr 2}
 
-${offset 8}Scheduler: ${color #A6E22E}${font DejaVu Sans Mono:bold:size=10}${ioscheduler sda}${font}${color}
+${offset 8}Scheduler: ${color #73D216}${font DejaVu Sans Mono:bold:size=10}${ioscheduler sda}${font}${color}
 ${offset 8}read:      ${diskio_read /dev/sda}
 ${offset 8}write:     ${diskio_write /dev/sda}
 
 ${offset 8}Free: ${if_match ${fs_used_perc} > 80}${color #F92672}${endif}${fs_free}${alignr 2}${fs_bar 8,120}${color}
 
-${if_up enp0s25}${color #66D9EF}${else}${color F92672}${endif}${font DejaVu Sans Mono:bold:size=8}ETH ${font}${color}${hr 2} 
+${if_up enp0s25}${color #66D9EF}${else}${color #C02020}${endif}${font DejaVu Sans Mono:bold:size=8}ETH ${font}${color}${hr 2} 
 ${if_up enp0s25}
-${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
 ${offset 8}local:  ${addr enp0s25}
 ${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
 
-${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
 ${offset 8}addr:   ${v6addrs -n enp0s25}
 
 ${offset 8}Up: ${upspeed enp0s25}${alignr 2}Down: ${downspeed enp0s25}
 ${endif}
-${if_up wlp3s0}${color #66D9EF}${else}${color #F92672}${endif}${font DejaVu Sans Mono:bold:size=8}WLAN ${font}${color}${hr 2} 
+${if_up wlp3s0}${color #66D9EF}${else}${color #C02020}${endif}${font DejaVu Sans Mono:bold:size=8}WLAN ${font}${color}${hr 2} 
 ${if_up wlp3s0}
-${offset 8}${wireless_essid wlp3s0} ${color #A6E22E}${font DejaVu Sans Mono:bold:size=8}(${wireless_bitrate wlp3s0})${color}${font}
+${offset 8}${wireless_essid wlp3s0} ${color #73D216}${font DejaVu Sans Mono:bold:size=8}(${wireless_bitrate wlp3s0})${color}${font}
 
-${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
 ${offset 8}local:  ${addr wlp3s0}
 ${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
 
-${offset 8}${color #A6E22E}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
 ${offset 8}addr:   ${v6addrs -n wlp2s0}
 
 ${offset 8}Up: ${upspeed wlp3s0}${alignr 2}Down: ${downspeed wlp3s0}
