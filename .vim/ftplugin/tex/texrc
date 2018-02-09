@@ -155,7 +155,7 @@ else
 		TexLet g:Tex_ViewRule_dvi = 'xdg-open'
 	else
 		TexLet g:Tex_ViewRule_ps = 'gv'
-		TexLet g:Tex_ViewRule_pdf = 'xpdf'
+		TexLet g:Tex_ViewRule_pdf = 'zathura'
 		TexLet g:Tex_ViewRule_dvi = 'xdvi'
 	endif
 	" the option below specifies an editor for the dvi viewer while starting
@@ -232,7 +232,7 @@ TexLet g:Tex_Flavor = 'latex'
 " specifies the BibTeX flavor and if necessary options. If you use $* in this
 " setting, it will be replaced by the *root* of the main file name, i.e, if
 " the main file is "thesis.tex", $* will be "thesis".
-TexLet g:Tex_BibtexFlavor = 'bibtex'
+TexLet g:Tex_BibtexFlavor = 'biblatex'
 
 " specifies the MakeIndedx flavor and if necessary options. $* will be
 " replaced by the *root* of the main file name. See above.
@@ -279,7 +279,7 @@ TexLet g:Tex_MainFileExpression = ''
 " place-holders. You can either completely disable placeholders (not
 " recommended) and/or you can change the place holder characters.
 
-TexLet g:Imap_UsePlaceHolders = 1 
+TexLet g:Imap_UsePlaceHolders = 0 
 TexLet g:Imap_PlaceHolderStart = '<+'
 TexLet g:Imap_PlaceHolderEnd = '+>'
 
@@ -293,7 +293,7 @@ TexLet g:Imap_DeleteEmptyPlaceHolders = 0
 " without deleting the current placeholder.
 " NOTE: This option _has_ to be set in the .vimrc. Setting this in a filetype
 "       plugin file such as ftplugin/tex.vim will not have any affect.
-TexLet g:Imap_StickyPlaceHolders = 1
+TexLet g:Imap_StickyPlaceHolders = 0
 
 
 " }}}
@@ -376,8 +376,8 @@ TexLet g:Tex_Leader2 = ','
 " 
 " these 2 options give finer control on which aspect of the macros you want
 " to enable.
-TexLet g:Tex_EnvironmentMaps  = 1
-TexLet g:Tex_EnvironmentMenus = 1
+TexLet g:Tex_EnvironmentMaps  = 0
+TexLet g:Tex_EnvironmentMenus = 0
 
 
 " }}}
@@ -399,8 +399,8 @@ TexLet g:Tex_EnvironmentMenus = 1
 "       line
 "       }
 " depending on character-wise or line-wise selection.
-TexLet g:Tex_FontMaps = 1
-TexLet g:Tex_FontMenus = 1
+TexLet g:Tex_FontMaps = 0
+TexLet g:Tex_FontMenus = 0
 
 " }}}
 " Section Macros: {{{
@@ -481,7 +481,7 @@ TexLet g:Tex_PromptedCommands =
 " treated as single characters for backspacing.
 " Setting this to zero will leave the <BS> key unmapped.
 " Default: 1 
-TexLet g:Tex_SmartKeyBS = 1
+TexLet g:Tex_SmartKeyBS = 0
 " The pattern used to detect whether the previous characters comprise a
 " diacritic character. This default pattern detects the standard LaTeX
 " diacritics
@@ -499,7 +499,7 @@ TexLet g:Tex_SmartBSPattern =
 " Pressing " (english double quote) will insert `` or '' by making an
 " intelligent guess about whether we intended to open or close a quote.
 " Default: 1 
-TexLet g:Tex_SmartKeyQuote = 1
+TexLet g:Tex_SmartKeyQuote = 0
 
 " Users of other languages might want to change the quote characters to suit
 " their locale.  These global values will be ignored if there are buffer-local
@@ -522,7 +522,7 @@ TexLet g:Tex_SmartKeySpace = 0
 "   to $1,\ldots,n$. The amsmath package actually provides a command \dots
 "   which does this. Maybe use that if amsmath is detected?
 " Default: 1
-TexLet g:Tex_SmartKeyDot = 1
+TexLet g:Tex_SmartKeyDot = 0
 
 " }}}
 " Advanced Math: {{{
