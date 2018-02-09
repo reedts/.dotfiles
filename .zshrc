@@ -3367,8 +3367,6 @@ autoload -U compinit promptinit
 compinit
 promptinit;
 
-cowsay "systemd-free since december 2017"
-
 # Completion caching
 zstyle ':completion::complete:*' use-cache 1
 #cat ~/.hotreddit/msg | cowsay -f tux

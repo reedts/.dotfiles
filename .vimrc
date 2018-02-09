@@ -100,6 +100,7 @@ au BufNewFile,BufRead *.tex set colorcolumn=80
 au BufNewFile,BufRead *.tex set shiftwidth=2
 au BufNewFile,BufRead *.tex set tabstop=2
 au BufNewFile,BufRead *.tex set softtabstop=2
+au BufNewFile,BufRead *.tex set tw=80
 hi ColorColumn ctermbg=darkgrey
 
 set listchars=tab:\|\ 
