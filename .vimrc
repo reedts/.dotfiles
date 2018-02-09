@@ -100,6 +100,7 @@ au BufNewFile,BufRead *.tex set colorcolumn=80
 au BufNewFile,BufRead *.tex set shiftwidth=2
 au BufNewFile,BufRead *.tex set tabstop=2
 au BufNewFile,BufRead *.tex set softtabstop=2
+au BufNewFile,BufRead *.tex set tw=80
 hi ColorColumn ctermbg=darkgrey
 
 set listchars=tab:\|\ 
@@ -120,11 +121,8 @@ if has('gui_running')
     if &cp | set nocp | endif
     let s:cpo_save=&cpo
     set cpo&vim
-    "inoremap <C-Space> 
     imap <Nul> <C-Space>
-    "inoremap <expr> <Up> pumvisible() ? "\" : "\<Up>"
     inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
-    "inoremap <expr> <Down> pumvisible() ? "\" : "\<Down>"
     imap <F5> <Plug>ToggleBackground
     map! <S-Insert> <MiddleMouse>
     nnoremap \d :YcmShowDetailedDiagnostic
@@ -149,7 +147,6 @@ if has('gui_running')
     set cpoptions=aAceFsB
     set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
-    "set guifont=DejaVu\ Sans\ Mono\ 10
     set guioptions=aegimrLt
     set guioptions-=m
     set helplang=en
@@ -171,7 +168,6 @@ if has('gui_running')
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ''
-    " vim: set ft=vim :
 else
     set t_Co=256
     colorscheme molokai
