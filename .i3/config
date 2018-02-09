@@ -233,14 +233,14 @@ hide_edge_borders vertical
 # finds out, if available)
 bar {
 	colors {
-		#background	#121212
-		#statusline	#F8F8F2
-		#separator	#808080
+		background	#101010
+		statusline	#FAFAFA
+		separator	#808080
 		#   Element             first   second  indicator
-		#focused_workspace	#4699AF	#4699AF	#F8F8F2
-		#active_workspace	#121212	#121212	#D75F00
-		#inactive_workspace	#121212	#121212	#9999AA
-		#urgent_workspace	#121212	#121212	#F92672
+		focused_workspace	#61548D	#54487A	#FAFAFA
+		active_workspace	#5A3ABA	#C0C0C0	#FAFAFA
+		inactive_workspace	#5A3ABA	#121212	#9999AA
+		urgent_workspace	#C02020	#982424 #FAFAFA
 	}
 	separator_symbol "      "
 	strip_workspace_numbers yes
@@ -252,14 +252,14 @@ bar {
 }
 bar {
 	colors {
-               #background      #121212
-               #statusline      #F8F8F2
-               #separator       #808080
-
-		#focused_workspace	#4699AF	#4699AF	#F8F8F2
-		#active_workspace	#121212	#121212	#D75F00
-		#inactive_workspace	#121212	#121212	#9999AA
-		#urgent_workspace	#121212	#121212	#F92672
+		background	#101010
+		statusline	#FAFAFA
+		separator	#808080
+		#   Element             first   second  indicator
+		focused_workspace	#61548D	#54487A	#FAFAFA
+		active_workspace	#5A3ABA	#C0C0C0	#FAFAFA
+		inactive_workspace	#5A3ABA	#121212	#9999AA
+		urgent_workspace	#C02020	#982424 #FAFAFA
     }
     strip_workspace_numbers yes
 	output DVI-I-1
@@ -274,10 +274,10 @@ bar {
 exec gnome-session
 
 # start gnome-authenticator
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 # sound applet pasystray from AUR
-exec pa-applet
+exec pasystray
 
 # second conky for more informations
 exec conky -c ~/.conkymain
@@ -286,14 +286,14 @@ exec conky -c ~/.conkymain
 exec compton -b --config ~/.compton.conf
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/Wallpapers/background.png
+exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text		indicator
-#client.focused		    $green	$green		$black		#2e9ef4
-#client.focused_inactive	    $black	$black		$light_grey	#2e9ef4
-#client.unfocused	    $black	$black		$light_grey	#676767
-#client.urgent		    $red	$red		$white		#000000
+client.focused		    #5A3ABA	#54487A		#FAFAFA 	#6E56AF
+client.focused_inactive	    #666666	#404040		#FAFAFA 	#2e9ef4
+client.unfocused	    #666666	#404040		#FAFAFA 	#676767
+client.urgent		    #C02020	#982424		#FAFAFA		#000000
 
 #=================== Custom keybindings =============================================
 
@@ -312,7 +312,7 @@ for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
-
+for_window [class="^TelegramDesktop$"] floating enable
 #for_window [class="^Gajim$"] floating enable
 
 # dolphin copy and move dialog
