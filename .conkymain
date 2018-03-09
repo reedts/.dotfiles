@@ -3,7 +3,7 @@ alignment middle_right
 gap_x -1920
 double_buffer yes
 use_spacer right
-gap_y 8
+gap_y 250
 use_xft yes
 out_to_x yes
 own_window yes

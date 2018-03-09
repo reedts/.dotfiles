@@ -246,9 +246,8 @@ bar {
 	strip_workspace_numbers yes
 	output HDMI-0
 	position bottom 
-	tray_output primary
+	tray_output none
 	font pango:Droid Sans Mono 10
-	status_command i3blocks
 }
 bar {
 	colors {
@@ -261,11 +260,12 @@ bar {
 		inactive_workspace	#5A3ABA	#121212	#9999AA
 		urgent_workspace	#C02020	#982424 #FAFAFA
     }
-    strip_workspace_numbers yes
-	output DVI-I-1
+	strip_workspace_numbers yes
+	output DP-4
 	position bottom 
 	font pango:Droid Sans Mono 10
-	tray_output none
+	tray_output primary 
+	status_command i3blocks
 }
 
 #=================== Services =======================================================
@@ -300,7 +300,6 @@ client.urgent		    #C02020	#982424		#FAFAFA		#000000
 
 #=================== Custom Window workspace ========================================
 
-assign [class="^Firefox$"] $ws2
 
 assign [class="^Pidgin$"] $ws9
 assign [class="^skype$"] $ws9
@@ -313,7 +312,9 @@ for_window [title="Address Book"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
 for_window [class="^TelegramDesktop$"] floating enable
-#for_window [class="^Gajim$"] floating enable
+for_window [class="^Gajim$"] floating enable
+for_window [class="^Slack$"] floating enable
+for_window [class="^Dino$"] floating enable
 
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
