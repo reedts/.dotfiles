@@ -234,6 +234,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+q mode "$mode_system"
 
+new_window pixel 2
 # hide edge borders
 hide_edge_borders vertical
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -301,7 +302,10 @@ for_window [title="Address Book"] floating enable
 for_window [window_role="^compose$"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
-#for_window [class="^Gajim$"] floating enable
+for_window [class="^Gajim$"] floating enable
+for_window [class="^Dino$"] floating enable
+for_window [class="^Slack$"] floating enable
+for_window [class="^TelegramDesktop$"] floating enable
 for_window [class="^pinentry$"] floating enable
 
 # dolphin copy and move dialog

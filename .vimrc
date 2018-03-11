@@ -116,7 +116,7 @@ nmap <leader>tg :TagbarToggle<cr>
 
 if has('gui_running')
     "GVIM
-    set guifont=Droid\ Sans\ Mono
+    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline
     version 6.0
     if &cp | set nocp | endif
     let s:cpo_save=&cpo
