@@ -1,8 +1,8 @@
-URxvt.font: xft:Droid Sans Mono:size=10
-URxvt.letterSpace: -2
+!URxvt.font: xft:Droid Sans Mono:size=10
+URxvt.font: xft:Droid Sans Mono Slashed for Powerline:size=10
+URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
-
 URxvt*depth: 32
 URxvt*antialias: true
 
