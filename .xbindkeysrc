@@ -57,7 +57,7 @@
 XF86AudioMute
 
 # mute mic
-"amixer set Capture toggle"
+"amixer set Mic toggle"
 XF86AudioMicMute
 
 # lower volume
