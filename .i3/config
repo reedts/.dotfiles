@@ -210,10 +210,16 @@ set $move_mode 
 mode $move_mode {
     # Right
     bindsym Right move workspace to output right
-    bindsym odiaeresis move workspace to output right
+    bindsym l move workspace to output right
     # Left
     bindsym Left move workspace to output left
-    bindsym j move workspace to output left
+    bindsym h move workspace to output left
+    # Up
+    bindsym Up move workspace to output up
+    bindsym k move workspace to output up
+    # Down
+    bindsym Down move workspace to output down
+    bindsym j move workspace to output down 
 
     bindsym Escape mode "default"
 }
@@ -250,11 +256,10 @@ bar {
 		inactive_workspace	#5A3ABA	#121212		#9999AA
 		urgent_workspace	#C02020 #982424		#FAFAFA
 	}
-	separator_symbol "      "
 	strip_workspace_numbers yes
 	position bottom 
+	tray_output primary
 	font pango:Droid Sans Mono 8
-	tray_output LVDS-1
 	status_command i3blocks
 }
 #=================== Services =======================================================
@@ -263,7 +268,6 @@ bar {
 exec /usr/libexec/polkit-gnome-authentication-agent-1 
 
 # sound applet pasystray from AUR
-exec pasystray
 exec nm-applet
 exec xbindkeys
 

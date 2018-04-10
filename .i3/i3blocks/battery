@@ -3,6 +3,8 @@
 STATUS=$( acpi -b | cut -d , -f 2-3 | sed s/,//g | awk '{print $1 " " ($2)}' | cut -d : -f 1-2 )
 PERCENT=${STATUS%\%*}
 
+printf " "
+
 if [ $PERCENT -ge 90 ]; then
 	printf " "
 elif [ $PERCENT -ge 75 ]; then
@@ -12,10 +14,11 @@ elif [ $PERCENT -ge 50 ]; then
 elif [ $PERCENT -ge 25 ]; then
 	printf " "
 else
-	printf "%s  %s" "" "$STATUS"
+	printf "%s  %s" "" "$STATUS "
 	exit 33
 fi
 
-printf " %s" "$STATUS"
+printf " %s" "$STATUS "
+
 exit 0
 
