@@ -1,5 +1,4 @@
 syntax enable
-execute pathogen#infect()
 filetype plugin indent on
 set encoding=utf-8
 "Settings for vim and gvim
