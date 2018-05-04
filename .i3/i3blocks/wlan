@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEVICE=wlp3s0
+DEVICE=wlp2s0
 
 UP=$(cat /sys/class/net/$DEVICE/operstate)
 CONNECTED=$(cat /sys/class/net/$DEVICE/carrier)

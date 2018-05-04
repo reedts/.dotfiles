@@ -63,10 +63,10 @@ ${offset 8}Up: ${upspeed enp0s25}${alignr 2}Down: ${downspeed enp0s25}
 ${endif}
 ${if_up wlp3s0}${color #66D9EF}${else}${color #C02020}${endif}${font DejaVu Sans Mono:bold:size=8}WLAN ${font}${color}${hr 2} 
 ${if_up wlp3s0}
-${offset 8}${wireless_essid wlp3s0} ${color #73D216}${font DejaVu Sans Mono:bold:size=8}(${wireless_bitrate wlp3s0})${color}${font}
+${offset 8}${wireless_essid wlp2s0} ${color #73D216}${font DejaVu Sans Mono:bold:size=8}(${wireless_bitrate wlp3s0})${color}${font}
 
 ${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
-${offset 8}local:  ${addr wlp3s0}
+${offset 8}local:  ${addr wlp2s0}
 ${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
 
 ${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
