@@ -65,5 +65,5 @@
 ! Settings for URxvt
 #include ".xres/urxvt"
 
-
-
+! Settings for rofi
+#include ".xres/rofi"
