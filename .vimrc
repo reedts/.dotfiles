@@ -1,10 +1,6 @@
 syntax enable
 filetype plugin indent on
 set encoding=utf-8
-"Settings for vim and gvim
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
 set noexpandtab
 set nofoldenable
 
@@ -175,6 +171,8 @@ else
     
     set number
 endif
+
+
 " THIS IS FOR PLUGGED PLUGINS
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
