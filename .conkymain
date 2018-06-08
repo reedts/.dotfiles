@@ -1,0 +1,82 @@
+background yes
+alignment middle_right
+double_buffer yes
+use_spacer right
+gap_y 8
+use_xft yes
+out_to_x yes
+own_window yes
+own_window_type override
+own_window_transparent no
+own_window_argb_visual yes
+own_window_argb_value 125
+xftfont DejaVu Sans Mono:size=8
+format_human_readable yes
+minimum_size 250
+maximum_width 250
+times_in_seconds yes
+update_interval 5.0
+
+if_up_strictness address
+
+TEXT
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}SYS ${font}${color}${hr 2}
+${image /home/reedts/logo.png -p 8,60 -s 32x32}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=10}${distribution}${font}${color}
+${offset 60}${color #7070F0}${uid_name 1000}${color}@${nodename}
+${offset 60}Arch:   ${machine} 
+${offset 60}Kernel: ${kernel}
+${offset 60}Up:     ${format_time ${uptime} "\h:\m"}
+
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}CPU ${font}${color}${hr 2}
+
+${offset 8}Core 1: ${if_match ${cpu cpu1} > 80}${color #F92672}${endif}${cpu cpu1}%${alignr 2}${cpubar cpu1 8,120}${color}
+${offset 8}Core 2: ${if_match ${cpu cpu2} > 80}${color #F92672}${endif}${cpu cpu2}%${alignr 2}${cpubar cpu2 8,120}${color}
+${offset 8}Core 3: ${if_match ${cpu cpu3} > 80}${color #F92672}${endif}${cpu cpu3}%${alignr 2}${cpubar cpu3 8,120}${color}
+${offset 8}Core 4: ${if_match ${cpu cpu4} > 80}${color #F92672}${endif}${cpu cpu4}%${alignr 2}${cpubar cpu4 8,120}${color}
+#${offset 8}${cpugraph cpu0 40,240 66D9EF F92672 1 -t -l}
+
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}RAM ${font}${color}${hr 2}
+
+${offset 8}Total:  ${mem}
+
+${offset 8}Used:   ${if_match ${memperc} > 90}${color #F92672}${endif}${memperc}%${alignr 2}${membar 8,120}${color}
+
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}SSD ${font}${color}${hr 2}
+
+${offset 8}Scheduler: ${color #73D216}${font DejaVu Sans Mono:bold:size=10}${ioscheduler sda}${font}${color}
+${offset 8}read:      ${diskio_read /dev/sda}
+${offset 8}write:     ${diskio_write /dev/sda}
+
+${offset 8}Free: ${if_match ${fs_used_perc} > 80}${color #F92672}${endif}${fs_free}${alignr 2}${fs_bar 8,120}${color}
+
+${if_up enp0s25}${color #66D9EF}${else}${color #C02020}${endif}${font DejaVu Sans Mono:bold:size=8}ETH ${font}${color}${hr 2} 
+${if_up enp0s25}
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
+${offset 8}local:  ${addr enp0s25}
+${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
+
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
+${offset 8}addr:   ${v6addrs -n enp0s25}
+
+${offset 8}Up: ${upspeed enp0s25}${alignr 2}Down: ${downspeed enp0s25}
+${endif}
+${if_up wlp3s0}${color #66D9EF}${else}${color #C02020}${endif}${font DejaVu Sans Mono:bold:size=8}WLAN ${font}${color}${hr 2} 
+${if_up wlp3s0}
+${offset 8}${wireless_essid wlp2s0} ${color #73D216}${font DejaVu Sans Mono:bold:size=8}(${wireless_bitrate wlp3s0})${color}${font}
+
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv4${color}${font}
+${offset 8}local:  ${addr wlp2s0}
+${offset 8}global: ${execi 3600 wget http://v4.ipv6-test.com/api/myip.php -q -O -}
+
+${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=8}IPv6${color}${font}
+${offset 8}addr:   ${v6addrs -n wlp2s0}
+
+${offset 8}Up: ${upspeed wlp3s0}${alignr 2}Down: ${downspeed wlp3s0}
+${endif}
+${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}BAT ${font}${color}${hr 2}
+
+${offset 8}Temp:          ${smapi_bat_temp 0}°C
+${offset 8}Power:         ${smapi_bat_power 0} mW
+${offset 8}Cycle:         ${smapi bat 0 cycle_count}
+${offset 8}Last full/max: ${smapi bat 0 last_full_capacity}/${smapi bat 0 design_capacity} mWh

@@ -156,7 +156,6 @@ if has('gui_running')
     set termencoding=utf-8
     set updatetime=2000
     set window=55 
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
     " airline symbols
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''

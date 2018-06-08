@@ -51,16 +51,36 @@
 ## Control + mouse button 2 release event starts rxvt
 #"rxvt"
 #  Control + b:2 + Release
-#
-"amixer set Master 2%+"
-XF86AudioRaiseVolume
 
-"amixer set Master 2%-"
-XF86AudioLowerVolume
-
+# mute audio
 "amixer set Master toggle"
 XF86AudioMute
 
+# mute mic
+"amixer set Capture toggle"
+XF86AudioMicMute
+
+# lower volume
+"amixer set Master 2%-"
+XF86AudioLowerVolume
+
+# increase volume
+"amixer set Master 2%+"
+XF86AudioRaiseVolume
+
+# enable/disable touchpad
+"touchpad_toggle"
+XF86TouchpadToggle
+
+"xbacklight -dec 10"
+XF86MonBrightnessDown
+
+"xbacklight -inc 10"
+XF86MonBrightnessUp
+
+# kill application immediately
+"xkill"
+Control + End
 ##################################
 # End of xbindkeys configuration #
 ##################################
