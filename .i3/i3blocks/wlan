@@ -10,6 +10,6 @@ then
 	echo "/"
 	exit 33
 else
-	echo $(ifconfig 2>/dev/null | grep -A 1 $DEVICE | awk '/inet/ {print $2}')
+	echo $(ifconfig 2>/dev/null | grep -A 1 $DEVICE | awk '/inet/ {print $2}' | cut -d ':' -f 2)
 	exit 0
 fi

@@ -18,45 +18,64 @@
 !URxvt*color15: white
 
 ! Molokai colorscheme
-#define fg           #F8F8F2
-#define bg           #121212
-#define black        #121212
-#define red          #F92672
-#define green        #A6E22E
-#define yellow       #C47F2C
-#define blue         #30309B
-#define purple       #AE81FF
-#define cyan         #4699AF
-#define light_grey   #9999AA
-#define dark_grey    #808080
-#define light_red    #F92672
-#define light_green  #80FF00
-#define light_yellow #FFBA68
-#define light_blue   #7070F0
-#define light_purple #C5A5FF
-#define light_cyan   #66D9EF
-#define white        #F8F8F2
+!#define fg           #F8F8F2
+!#define bg           #121212
+!#define black        #121212
+!#define red          #F92672
+!#define green        #A6E22E
+!#define yellow       #C47F2C
+!#define blue         #30309B
+!#define purple       #AE81FF
+!#define cyan         #4699AF
+!#define light_grey   #9999AA
+!#define dark_grey    #808080
+!#define light_red    #F92672
+!#define light_green  #80FF00
+!#define light_yellow #FFBA68
+!#define light_blue   #7070F0
+!#define light_purple #C5A5FF
+!#define light_cyan   #66D9EF
+!#define white        #F8F8F2
 
-! Nord colorscheme
-!#define fg           #d8dee9
-!#define bg           #2e3440
+! Dracula Xresources palette
+!#define fg:       #F8F8F2
+!#define bg:       #282A36
+!#define black:    #000000
+!#define red:      #4D4D4D
+!#define green:    #FF5555
+!#define yellow:   #FF6E67
+!#define blue:     #50FA7B
+!#define purple:   #5AF78E
+!#define cyan:     #F1FA8C
+!#define light_grey:     #F4F99D
+!#define dark_grey:      #BD93F9
+!#define light_red:      #CAA9FA
+!#define light_green:    #FF79C6
+!#define light_yellow:   #FF92D0
+!#define light_blue:     #8BE9FD
+!#define light_purple:   #9AEDFE
+!#define light_cyan:     #BFBFBF
+!#define white:          #E6E6E6
 
-!#define black        #3b4252
-!#define red          #bf616a
-!#define green        #a3be8c
-!#define yellow       #ebcb8b
-!#define blue         #81a1c1
-!#define purple       #b48ead
-!#define cyan         #88c0d0
-!#define light_grey   #e5e9f0
-!#define dark_grey    #4c566a
-!#define light_red    #bf616a
-!#define light_green  #a3be8c
-!#define light_yellow #ebcb8b
-!#define light_blue   #81a1c1
-!#define light_purple #a3be8c
-!#define light_cyan   #8fbcbb
-!#define white        #eceff4
+! Tomorrow Night colorscheme
+#define bg        	#1d1f21
+#define fg	     	#c5c8c6
+#define black		#000000
+#define red	     	#cc6666
+#define green	       	#b5bd68
+#define yellow     	#de935f
+#define blue	       	#81a2be
+#define purple		#b294bb
+#define cyan		#8abeb7
+#define light_grey     	#373b41
+#define dark_grey	#666666
+#define light_red	#ff3334
+#define light_green	#9ec400
+#define light_yellow	#f0c674
+#define light_blue   	#81a2be
+#define light_purple	#54ced6
+#define light_cyan	#54ced6
+#define white		#282a2e
 
 
 ! Settings regarding Xft

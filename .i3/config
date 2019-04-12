@@ -110,6 +110,10 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
+# scratchpad
+bindsym $mod+Shift+m move scratchpad
+bindsym $mod+m scratchpad show
+
 # update i3blocks when CAPS or NUMLOCK is pressed
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
@@ -238,7 +242,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+q mode "$mode_system"
 
-new_window pixel 2
+#new_window pixel 2
 # hide edge borders
 hide_edge_borders vertical
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -269,15 +273,16 @@ exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec pa-applet
 exec nm-applet
 exec xbindkeys
+exec blueman-applet
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b --config ~/.compton.conf
+exec compton -b
 
 # second conky
 exec conky -c /home/reedts/.conkymain
 
 # Set Wallpaper
-#exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 
 #=================== Custom Colors ==================================================
 
@@ -303,6 +308,8 @@ for_window [title="Write:*"] floating enable
 for_window [title="Address Book"] floating enable
 
 for_window [window_role="^compose$"] floating enable
+
+for_window [title="^image-*"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
 for_window [class="^Gajim$"] floating enable

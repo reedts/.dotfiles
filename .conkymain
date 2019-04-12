@@ -22,7 +22,6 @@ if_up_strictness address
 TEXT
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=10}SYS ${font}${color}${hr 2}
 ${image /home/reedts/logo.png -p 8,60 -s 32x32}
-${offset 8}${color #73D216}${font DejaVu Sans Mono:bold:size=10}${distribution}${font}${color}
 ${offset 60}${color #7070F0}${uid_name 1000}${color}@${nodename}
 ${offset 60}Arch:   ${machine} 
 ${offset 60}Kernel: ${kernel}
@@ -34,6 +33,10 @@ ${offset 8}Core 1: ${if_match ${cpu cpu1} > 80}${color #F92672}${endif}${cpu cpu
 ${offset 8}Core 2: ${if_match ${cpu cpu2} > 80}${color #F92672}${endif}${cpu cpu2}%${alignr 2}${cpubar cpu2 8,120}${color}
 ${offset 8}Core 3: ${if_match ${cpu cpu3} > 80}${color #F92672}${endif}${cpu cpu3}%${alignr 2}${cpubar cpu3 8,120}${color}
 ${offset 8}Core 4: ${if_match ${cpu cpu4} > 80}${color #F92672}${endif}${cpu cpu4}%${alignr 2}${cpubar cpu4 8,120}${color}
+${offset 8}Core 5: ${if_match ${cpu cpu5} > 80}${color #F92672}${endif}${cpu cpu5}%${alignr 2}${cpubar cpu5 8,120}${color}
+${offset 8}Core 6: ${if_match ${cpu cpu6} > 80}${color #F92672}${endif}${cpu cpu6}%${alignr 2}${cpubar cpu6 8,120}${color}
+${offset 8}Core 7: ${if_match ${cpu cpu7} > 80}${color #F92672}${endif}${cpu cpu7}%${alignr 2}${cpubar cpu7 8,120}${color}
+${offset 8}Core 8: ${if_match ${cpu cpu8} > 80}${color #F92672}${endif}${cpu cpu8}%${alignr 2}${cpubar cpu8 8,120}${color}
 #${offset 8}${cpugraph cpu0 40,240 66D9EF F92672 1 -t -l}
 
 ${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}RAM ${font}${color}${hr 2}
@@ -74,9 +77,3 @@ ${offset 8}addr:   ${v6addrs -n wlp2s0}
 
 ${offset 8}Up: ${upspeed wlp3s0}${alignr 2}Down: ${downspeed wlp3s0}
 ${endif}
-${color #66D9EF}${font DejaVu Sans Mono:bold:size=8}BAT ${font}${color}${hr 2}
-
-${offset 8}Temp:          ${smapi_bat_temp 0}°C
-${offset 8}Power:         ${smapi_bat_power 0} mW
-${offset 8}Cycle:         ${smapi bat 0 cycle_count}
-${offset 8}Last full/max: ${smapi bat 0 last_full_capacity}/${smapi bat 0 design_capacity} mWh
