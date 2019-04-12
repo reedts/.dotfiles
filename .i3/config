@@ -114,6 +114,9 @@ bindsym $mod+c focus child
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
+bindsym $mod+Shift+M move scratchpad
+bindsym $mod+m scratchpad show
+
 # disable focus switching for normal windows
 no_focus [window_role="browser"]
 
@@ -238,7 +241,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+q mode "$mode_system"
 
-new_window pixel 2
+#new_window pixel 2
 # hide edge borders
 hide_edge_borders vertical
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -249,9 +252,9 @@ bar {
 		statusline	#FAFAFA
 		separator	#808080
 		#   Element             first	second		indicator
-		focused_workspace	#61538D #54487A		#FAFAFA
-		active_workspace	#5A3ABA #C0C0C0		#FAFAFA
-		inactive_workspace	#5A3ABA	#121212		#9999AA
+		focused_workspace	#abc2ab	#478061		#FAFAFA
+		active_workspace	#abc2ab #C0C0C0		#FAFAFA
+		inactive_workspace	#abc2ab	#121212		#FAFAFA
 		urgent_workspace	#C02020 #982424		#FAFAFA
 	}
 	separator_symbol "      "
@@ -267,12 +270,13 @@ bar {
 exec /usr/libexec/polkit-gnome-authentication-agent-1 
 
 # sound applet pasystray from AUR
-exec pasystray
+exec pa-applet
 exec nm-applet
 exec xbindkeys
+exec blueman-applet
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b --config ~/.compton.conf
+exec compton -b
 
 # second conky
 exec conky -c /home/reedts/.conkymain
@@ -283,12 +287,11 @@ exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			        border	backgr.		text	indicator
-client.focused		    #5A3ABA	#54487A		#FAFAFA	#6E56AF
+#=================== Custom keybindings =============================================
+client.focused		    #abc2ab	#478061		#FAFAFA	#6E56AF
 client.focused_inactive	    #666666	#404040		#FAFAFA
 client.unfocused	    #666666	#404040		#FAFAFA	#676767
 client.urgent		    #C02020	#982424   	#FAFAFA	#000000
-#=================== Custom keybindings =============================================
-
 
 #=================== Custom Window workspace ========================================
 

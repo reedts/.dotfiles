@@ -1,10 +1,13 @@
 !URxvt.font: xft:Droid Sans Mono:size=10
 URxvt.font: xft:Droid Sans Mono Slashed for Powerline:size=10
-URxvt.letterSpace: -1
+!URxvt.letterSpace: -1
+!URxvt.font: 7x14 
 
 URxvt.scrollBar: false
 URxvt*depth: 32
 URxvt*antialias: true
+
+URxvt*geometry: 120x40
 
 URxvt*foreground  : fg
 URxvt*background  : bg
@@ -28,7 +31,7 @@ URxvt*color15     : white
 !URxvt*.transparent: true
 !URxvt*.shading: 10
 
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up 
+URxvt.keysym.C-Down:	font-size:increase
+URxvt.keysym.C-Up:	font-size:decrease
 
-URxvt*perl-ext-common:	default,matcher,clipboard,selection-to-clipboard,resize-font
+URxvt*perl-ext-common:	default,matcher,selection-to-clipboard,font-size

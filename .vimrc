@@ -1,5 +1,5 @@
 syntax enable
-execute pathogen#infect()
+"execute pathogen#infect()
 filetype plugin indent on
 set encoding=utf-8
 "Settings for vim and gvim
@@ -113,6 +113,14 @@ nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
+nn <silent> <M-d> :LspDefinition<cr>
+nn <silent> <M-r> :LspReferences<cr>
+nn <silent> <M-=> :LspDocumentFormat<cr>
+nn <f2> :LspRename<cr>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 if has('gui_running')
     "GVIM
@@ -172,4 +180,28 @@ else
     colorscheme molokai
     
     set number
+endif
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+if executable('cquery')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'cquery',
+      \ 'cmd': {server_info->['cquery']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
 endif
