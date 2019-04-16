@@ -3361,6 +3361,7 @@ assemble() {
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:
 export PATH=/usr/local/games:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Gentoo zsh completion (Portage etc.)
 autoload -U compinit promptinit

@@ -106,21 +106,36 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
+# scratchpad
+bindsym $mod+Shift+m move scratchpad
+bindsym $mod+m scratchpad show
+
 # disable focus switching for normal windows
 no_focus [window_role="browser"]
 
 # enable workspac back and forth switching
 workspace_auto_back_and_forth yes
 
-set $ws1 1:
-set $ws2 2:
-set $ws3 3:
-set $ws4 4:
+#set $ws1 1:
+#set $ws2 2:
+#set $ws3 3:
+#set $ws4 4:
+#set $ws5 5
+#set $ws6 6
+#set $ws7 7
+#set $ws8 8:
+#set $ws9 9:
+#set $ws10 10
+
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
-set $ws8 8:
-set $ws9 9:
+set $ws8 8
+set $ws9 9
 set $ws10 10
 
 
@@ -163,10 +178,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -202,10 +217,13 @@ set $move_mode 
 mode $move_mode {
     # Right
     bindsym Right move workspace to output right
-    bindsym odiaeresis move workspace to output right
+    bindsym l move workspace to output right
     # Left
     bindsym Left move workspace to output left
-    bindsym j move workspace to output left
+    bindsym h move workspace to output left
+
+    bindsym k move workspace to output up
+    bindsym j move workspace to output down
 
     bindsym Escape mode "default"
 }
@@ -226,7 +244,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+q mode "$mode_system"
 
-new_window pixel 2
+#new_window pixel 2
 
 # hide edge borders
 hide_edge_borders vertical
@@ -239,14 +257,33 @@ bar {
 		statusline	#FAFAFA
 		separator	#808080
 		#   Element             first   second  indicator
-		focused_workspace	#61548D	#54487A	#FAFAFA
-		active_workspace	#5A3ABA	#C0C0C0	#FAFAFA
-		inactive_workspace	#5A3ABA	#121212	#9999AA
+		focused_workspace	#abc2ab	#478061	#FAFAFA
+		active_workspace	#abc2ab	#C0C0C0	#101010
+		inactive_workspace	#abc2ab	#121212	#FAFAFA
 		urgent_workspace	#C02020	#982424 #FAFAFA
 	}
 	separator_symbol "      "
 	strip_workspace_numbers yes
 	output HDMI-0
+	position bottom 
+	tray_output none
+	font pango:Droid Sans Mono 10
+}
+
+bar {
+	colors {
+		background	#101010
+		statusline	#FAFAFA
+		separator	#808080
+		#   Element             first   second  indicator
+		focused_workspace	#abc2ab	#478061	#FAFAFA
+		active_workspace	#abc2ab	#C0C0C0	#101010
+		inactive_workspace	#abc2ab	#121212	#FAFAFA
+		urgent_workspace	#C02020	#982424 #FAFAFA
+	}
+	separator_symbol "      "
+	strip_workspace_numbers yes
+	output DVI-I-1
 	position bottom 
 	tray_output none
 	font pango:Droid Sans Mono 10
@@ -257,9 +294,9 @@ bar {
 		statusline	#FAFAFA
 		separator	#808080
 		#   Element             first   second  indicator
-		focused_workspace	#61548D	#54487A	#FAFAFA
-		active_workspace	#5A3ABA	#C0C0C0	#FAFAFA
-		inactive_workspace	#5A3ABA	#121212	#9999AA
+		focused_workspace	#abc2ab	#478061	#FAFAFA
+		active_workspace	#abc2ab	#C0C0C0	#101010
+		inactive_workspace	#abc2ab	#121212	#FAFAFA
 		urgent_workspace	#C02020	#982424 #FAFAFA
     }
 	strip_workspace_numbers yes
@@ -273,8 +310,6 @@ bar {
 #=================== Services =======================================================
 # services that cannot be started by systemctl go here
 
-exec gnome-session
-
 # start gnome-authenticator
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
@@ -285,14 +320,15 @@ exec pasystray
 exec conky -c ~/.conkymain
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b --config ~/.compton.conf
+exec compton -b
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+#exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+exec_always superpaper -s /home/reedts/Pictures/background1.png /home/reedts/Pictures/background2.png /home/reedts/Pictures/background3.png
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text		indicator
-client.focused		    #5A3ABA	#54487A		#FAFAFA 	#6E56AF
+client.focused		    #abc2ab	#478061		#FAFAFA 	#6E56AF
 client.focused_inactive	    #666666	#404040		#FAFAFA 	#2e9ef4
 client.unfocused	    #666666	#404040		#FAFAFA 	#676767
 client.urgent		    #C02020	#982424		#FAFAFA		#000000
@@ -302,15 +338,9 @@ client.urgent		    #C02020	#982424		#FAFAFA		#000000
 
 #=================== Custom Window workspace ========================================
 
-
-assign [class="^Pidgin$"] $ws9
-assign [class="^skype$"] $ws9
-assign [class="^Thunderbird$"] $ws9
-
 #=================== Windows that should spawn in floating mode =====================
 # thunderbird floating windows
-for_window [title="Write:*"] floating enable
-for_window [title="Address Book"] floating enable
+for_window [title="image-*"] floating enable
 
 for_window [class="^Pidgin$"] floating enable
 for_window [class="^TelegramDesktop$"] floating enable
@@ -318,6 +348,3 @@ for_window [class="^Gajim$"] floating enable
 for_window [class="^Slack$"] floating enable
 for_window [class="^Dino$"] floating enable
 
-# dolphin copy and move dialog
-for_window [title="Copying *"] floating enable
-for_window [title="Moving *"] floating enable
