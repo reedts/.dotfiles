@@ -58,24 +58,44 @@
 !#define white:          #E6E6E6
 
 ! Tomorrow Night colorscheme
-#define bg        	#1d1f21
-#define fg	     	#c5c8c6
-#define black		#000000
-#define red	     	#cc6666
-#define green	       	#b5bd68
-#define yellow     	#de935f
-#define blue	       	#81a2be
-#define purple		#b294bb
-#define cyan		#8abeb7
-#define light_grey     	#373b41
-#define dark_grey	#666666
-#define light_red	#ff3334
-#define light_green	#9ec400
-#define light_yellow	#f0c674
-#define light_blue   	#81a2be
-#define light_purple	#54ced6
-#define light_cyan	#54ced6
-#define white		#282a2e
+!#define bg        	#1d1f21
+!#define fg	     	#c5c8c6
+!#define black		#000000
+!#define red	     	#cc6666
+!#define green	       	#b5bd68
+!#define yellow     	#de935f
+!#define blue	       	#81a2be
+!#define purple		#b294bb
+!#define cyan		#8abeb7
+!#define light_grey     	#373b41
+!#define dark_grey	#666666
+!#define light_red	#ff3334
+!#define light_green	#9ec400
+!#define light_yellow	#f0c674
+!#define light_blue   	#81a2be
+!#define light_purple	#54ced6
+!#define light_cyan	#54ced6
+!#define white		#282a2e
+
+!Tomorrow Eighties colorscheme
+#define fg           #cccccc
+#define bg           #2d2d2d
+#define black        #000000
+#define red          #f2777a
+#define green        #99cc99
+#define yellow       #f99157
+#define blue         #6699cc
+#define purple       #cc99cc
+#define cyan         #66cccc
+#define light_grey   #515151
+#define dark_grey    #666666
+#define light_red    #ff3334
+#define light_green  #9ec400
+#define light_yellow #ffcc66
+#define light_blue   #6699cc
+#define light_purple #b777e0
+#define light_cyan   #54ced6
+#define white        #393939
 
 
 ! Settings regarding Xft

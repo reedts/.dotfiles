@@ -139,7 +139,7 @@ if has('gui_running')
     set guicursor=n-v-c:block-Cursor
     set guicursor=n-v-c:blinkon0
     set guicursor+=i:ver100-iCursor
-    colorscheme Tomorrow-Night
+    colorscheme Tomorrow-Night-Eighties
     set backspace=indent,eol,start
     set cpoptions=aAceFsB
     set noexpandtab
@@ -166,7 +166,7 @@ if has('gui_running')
     let g:airline_symbols.linenr = ''
 else
     set t_Co=256
-    colorscheme Tomorrow-Night
+    colorscheme Tomorrow-Night-Eighties
     
     set number
 endif
