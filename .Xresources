@@ -18,24 +18,24 @@
 !URxvt*color15: white
 
 ! Molokai colorscheme
-#define fg           #F8F8F2
-#define bg           #121212
-#define black        #121212
-#define red          #F92672
-#define green        #A6E22E
-#define yellow       #C47F2C
-#define blue         #30309B
-#define purple       #AE81FF
-#define cyan         #4699AF
-#define light_grey   #9999AA
-#define dark_grey    #808080
-#define light_red    #F92672
-#define light_green  #80FF00
-#define light_yellow #FFBA68
-#define light_blue   #7070F0
-#define light_purple #C5A5FF
-#define light_cyan   #66D9EF
-#define white        #F8F8F2
+!#define fg           #F8F8F2
+!#define bg           #121212
+!#define black        #121212
+!#define red          #F92672
+!#define green        #A6E22E
+!#define yellow       #C47F2C
+!#define blue         #30309B
+!#define purple       #AE81FF
+!#define cyan         #4699AF
+!#define light_grey   #9999AA
+!#define dark_grey    #808080
+!#define light_red    #F92672
+!#define light_green  #80FF00
+!#define light_yellow #FFBA68
+!#define light_blue   #7070F0
+!#define light_purple #C5A5FF
+!#define light_cyan   #66D9EF
+!#define white        #F8F8F2
 
 ! Nord colorscheme
 !#define fg           #d8dee9
@@ -57,6 +57,26 @@
 !#define light_purple #a3be8c
 !#define light_cyan   #8fbcbb
 !#define white        #eceff4
+
+!Tomorrow Eighties colorscheme
+#define fg           #cccccc
+#define bg           #2d2d2d
+#define black        #000000
+#define red          #f2777a
+#define green        #99cc99
+#define yellow       #f99157
+#define blue         #6699cc
+#define purple       #cc99cc
+#define cyan         #66cccc
+#define light_grey   #515151
+#define dark_grey    #666666
+#define light_red    #ff3334
+#define light_green  #9ec400
+#define light_yellow #ffcc66
+#define light_blue   #6699cc
+#define light_purple #b777e0
+#define light_cyan   #54ced6
+#define white        #393939
 
 
 ! Settings regarding Xft
