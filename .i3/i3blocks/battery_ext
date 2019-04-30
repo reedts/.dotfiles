@@ -12,7 +12,7 @@ elif [ $PERCENT -ge 50 ]; then
 elif [ $PERCENT -ge 25 ]; then
 	printf " "
 else
-	printf "%s  %s" "" "$STATUS"
+	printf " %s  %s " "" "$STATUS"
 	exit 33
 fi
 

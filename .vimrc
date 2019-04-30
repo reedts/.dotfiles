@@ -135,17 +135,15 @@ if has('gui_running')
     inoremap <expr>      pumvisible() ? "\" : "\    "
     let &cpo=s:cpo_save
     unlet s:cpo_save
-    hi iCursor guifg=white guibg=black
-    set guicursor=n-v-c:block-Cursor
-    set guicursor=n-v-c:blinkon0
-    set guicursor+=i:ver100-iCursor
+    "set guicursor=n-v-c:block-Cursor
+    "set guicursor=n-v-c:blinkon0
+    "set guicursor+=i:ver100-iCursor
     colorscheme Tomorrow-Night-Eighties
     set backspace=indent,eol,start
     set cpoptions=aAceFsB
     set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
     set guioptions=aegimrLt
-    set guioptions-=m
     set helplang=en
     set cursorline
     set number
