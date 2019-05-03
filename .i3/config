@@ -25,6 +25,8 @@ font pango:Droid Sans Mono, FontAwesome 8
 floating_modifier $mod
 
 # Getting xrdb color values as variables
+set_from_resource $fg		URxvt.foreground #FFFFFF
+set_from_resource $bg		URxvt.background #000000
 set_from_resource $black	URxvt.color0		#121212
 set_from_resource $red		URxvt.color1		#F92672
 set_from_resource $green	URxvt.color2		#A6E22E
@@ -253,16 +255,15 @@ hide_edge_borders vertical
 # finds out, if available)
 bar {
 	colors {
-		background	#101010
-		statusline	#FAFAFA
-		separator	#808080
-		#   Element             first   second  indicator
-		focused_workspace	#abc2ab	#478061	#FAFAFA
-		active_workspace	#abc2ab	#C0C0C0	#101010
-		inactive_workspace	#abc2ab	#121212	#FAFAFA
-		urgent_workspace	#C02020	#982424 #FAFAFA
+		background	$bg
+		statusline	$fg
+		separator	$light_grey
+		#   Element             first	second		indicator
+		focused_workspace	$green	$green		$bg	
+		active_workspace	$purple $purple		$bg
+		inactive_workspace	$dark_grey	$dark_grey	$fg	
+		urgent_workspace	$red 	$red		$bg
 	}
-	separator_symbol "      "
 	strip_workspace_numbers yes
 	output HDMI-0
 	position bottom 
@@ -272,16 +273,15 @@ bar {
 
 bar {
 	colors {
-		background	#101010
-		statusline	#FAFAFA
-		separator	#808080
-		#   Element             first   second  indicator
-		focused_workspace	#abc2ab	#478061	#FAFAFA
-		active_workspace	#abc2ab	#C0C0C0	#101010
-		inactive_workspace	#abc2ab	#121212	#FAFAFA
-		urgent_workspace	#C02020	#982424 #FAFAFA
+		background	$bg
+		statusline	$fg
+		separator	$light_grey
+		#   Element             first	second		indicator
+		focused_workspace	$green	$green		$bg	
+		active_workspace	$purple $purple		$bg
+		inactive_workspace	$dark_grey	$dark_grey	$fg	
+		urgent_workspace	$red 	$red		$bg
 	}
-	separator_symbol "      "
 	strip_workspace_numbers yes
 	output DVI-I-1
 	position bottom 
@@ -290,14 +290,14 @@ bar {
 }
 bar {
 	colors {
-		background	#101010
-		statusline	#FAFAFA
-		separator	#808080
-		#   Element             first   second  indicator
-		focused_workspace	#abc2ab	#478061	#FAFAFA
-		active_workspace	#abc2ab	#C0C0C0	#101010
-		inactive_workspace	#abc2ab	#121212	#FAFAFA
-		urgent_workspace	#C02020	#982424 #FAFAFA
+		background	$bg
+		statusline	$fg
+		separator	$light_grey
+		#   Element             first	second		indicator
+		focused_workspace	$green	$green		$bg	
+		active_workspace	$purple $purple		$bg
+		inactive_workspace	$dark_grey	$dark_grey	$fg	
+		urgent_workspace	$red 	$red		$bg
     }
 	strip_workspace_numbers yes
 	output DP-4
@@ -328,11 +328,10 @@ exec_always superpaper -s /home/reedts/Pictures/background1.png /home/reedts/Pic
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text		indicator
-client.focused		    #abc2ab	#478061		#FAFAFA 	#6E56AF
-client.focused_inactive	    #666666	#404040		#FAFAFA 	#2e9ef4
-client.unfocused	    #666666	#404040		#FAFAFA 	#676767
-client.urgent		    #C02020	#982424		#FAFAFA		#000000
-
+client.focused		    $green	$green		$bg	$purple
+client.focused_inactive	    $light_grey	$light_grey	$fg
+client.unfocused	    $dark_grey	$dark_grey	$fg	$light_purple
+client.urgent		    $red	$red	   	$bg	#000000
 #=================== Custom keybindings =============================================
 
 
