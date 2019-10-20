@@ -118,6 +118,12 @@ no_focus [window_role="browser"]
 # enable workspac back and forth switching
 workspace_auto_back_and_forth yes
 
+# i3gaps specific
+#gaps inner 10
+
+bindsym $mod+Shift+f gaps inner current set 0
+bindsym $mod+Shift+u gaps inner current set 10
+
 #set $ws1 1:
 #set $ws2 2:
 #set $ws3 3:
@@ -253,62 +259,65 @@ hide_edge_borders vertical
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	colors {
-		background	$bg
-		statusline	$fg
-		separator	$light_grey
-		#   Element             first	second		indicator
-		focused_workspace	$green	$green		$bg	
-		active_workspace	$purple $purple		$bg
-		inactive_workspace	$dark_grey	$dark_grey	$fg	
-		urgent_workspace	$red 	$red		$bg
-	}
-	strip_workspace_numbers yes
-	output HDMI-0
-	position bottom 
-	tray_output none
-	font pango:Droid Sans Mono 10
-}
-
-bar {
-	colors {
-		background	$bg
-		statusline	$fg
-		separator	$light_grey
-		#   Element             first	second		indicator
-		focused_workspace	$green	$green		$bg	
-		active_workspace	$purple $purple		$bg
-		inactive_workspace	$dark_grey	$dark_grey	$fg	
-		urgent_workspace	$red 	$red		$bg
-	}
-	strip_workspace_numbers yes
-	output DVI-I-1
-	position bottom 
-	tray_output none
-	font pango:Droid Sans Mono 10
-}
-bar {
-	colors {
-		background	$bg
-		statusline	$fg
-		separator	$light_grey
-		#   Element             first	second		indicator
-		focused_workspace	$green	$green		$bg	
-		active_workspace	$purple $purple		$bg
-		inactive_workspace	$dark_grey	$dark_grey	$fg	
-		urgent_workspace	$red 	$red		$bg
-    }
-	strip_workspace_numbers yes
-	output DP-4
-	position bottom 
-	font pango:Droid Sans Mono 10
-	tray_output primary 
-	status_command i3blocks
-}
+#bar {
+#	colors {
+#		background	$bg
+#		statusline	$fg
+#		separator	$light_grey
+#		#   Element             first	second		indicator
+#		focused_workspace	$green	$green		$bg	
+#		active_workspace	$purple $purple		$bg
+#		inactive_workspace	$dark_grey	$dark_grey	$fg	
+#		urgent_workspace	$red 	$red		$bg
+#	}
+#	strip_workspace_numbers yes
+#	output HDMI-0
+#	position bottom 
+#	tray_output none
+#	font pango:Droid Sans Mono 10
+#}
+#
+#bar {
+#	colors {
+#		background	$bg
+#		statusline	$fg
+#		separator	$light_grey
+#		#   Element             first	second		indicator
+#		focused_workspace	$green	$green		$bg	
+#		active_workspace	$purple $purple		$bg
+#		inactive_workspace	$dark_grey	$dark_grey	$fg	
+#		urgent_workspace	$red 	$red		$bg
+#	}
+#	strip_workspace_numbers yes
+#	output HDMI-1
+#	position bottom 
+#	tray_output none
+#	font pango:Droid Sans Mono 10
+#}
+#bar {
+#	colors {
+#		background	$bg
+#		statusline	$fg
+#		separator	$light_grey
+#		#   Element             first	second		indicator
+#		focused_workspace	$green	$green		$bg	
+#		active_workspace	$purple $purple		$bg
+#		inactive_workspace	$dark_grey	$dark_grey	$fg	
+#		urgent_workspace	$red 	$red		$bg
+#    }
+#	strip_workspace_numbers yes
+#	output DP-2
+#	position bottom 
+#	font pango:Droid Sans Mono 10
+#	tray_output primary 
+#	status_command i3blocks
+#}
 
 #=================== Services =======================================================
-# services that cannot be started by systemctl go here
+
+exec polybar primary
+exec polybar secondary
+exec polybar tertiary
 
 # start gnome-authenticator
 exec /usr/libexec/polkit-gnome-authentication-agent-1
@@ -323,8 +332,7 @@ exec conky -c ~/.conkymain
 exec compton -b
 
 # Set Wallpaper
-#exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
-exec_always superpaper -s /home/reedts/Pictures/background1.png /home/reedts/Pictures/background2.png /home/reedts/Pictures/background3.png
+exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text		indicator
