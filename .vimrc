@@ -1,11 +1,6 @@
 syntax enable
-execute pathogen#infect()
 filetype plugin indent on
 set encoding=utf-8
-"Settings for vim and gvim
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
 set noexpandtab
 set nofoldenable
 
@@ -28,10 +23,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-"youcompleteme
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_filetype_whitelist = {'cpp' : 1}
 
 "Airline
 set laststatus=2
@@ -58,7 +49,7 @@ let g:airline_symbols.whitespace = 'Ξ'
   
 
 "let g:molokai_original = 1
-let g:rehash256 = 1
+"let g:rehash256 = 1
 
 " C syntax plugin
 let c_c_vim_compatible = 1
@@ -114,6 +105,15 @@ nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+nn <silent> <M-d> :LspDefinition<cr>
+nn <silent> <M-r> :LspReferences<cr>
+nn <silent> <M-=> :LspDocumentFormat<cr>
+nn <f2> :LspRename<cr>
+
 if has('gui_running')
     "GVIM
     set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline
@@ -125,7 +125,6 @@ if has('gui_running')
     inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
     imap <F5> <Plug>ToggleBackground
     map! <S-Insert> <MiddleMouse>
-    nnoremap \d :YcmShowDetailedDiagnostic
     vmap gx <Plug>NetrwBrowseXVis
     nmap gx <Plug>NetrwBrowseX
     vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
@@ -136,14 +135,8 @@ if has('gui_running')
     inoremap <expr>      pumvisible() ? "\" : "\    "
     let &cpo=s:cpo_save
     unlet s:cpo_save
-    hi iCursor guifg=white guibg=black
-    set guicursor=n-v-c:block-Cursor
-    set guicursor=n-v-c:blinkon0
-    set guicursor+=i:ver100-iCursor
-    colorscheme molokai
+    colorscheme Tomorrow-Night-Eighties
     set backspace=indent,eol,start
-    set completefunc=youcompleteme#Complete
-    set completeopt=preview,menuone
     set cpoptions=aAceFsB
     set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
@@ -170,7 +163,39 @@ if has('gui_running')
     let g:airline_symbols.linenr = ''
 else
     set t_Co=256
-    colorscheme molokai
+    colorscheme Tomorrow-Night-Eighties
     
     set number
+endif
+
+
+" THIS IS FOR PLUGGED PLUGINS
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-latex/vim-latex'
+
+" Initialize plugin system
+call plug#end()
+
+if executable('cquery')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'cquery',
+      \ 'cmd': {server_info->['cquery']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
 endif

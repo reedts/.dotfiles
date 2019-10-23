@@ -1,0 +1,12 @@
+[submodule ".vim/plugged/vim-lsp"]
+	path = .vim/plugged/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule ".vim/plugged/asyncomplete.vim"]
+	path = .vim/plugged/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim
+[submodule ".vim/plugged/asyncomplete-lsp.vim"]
+	path = .vim/plugged/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
+[submodule ".vim/plugged/async.vim"]
+	path = .vim/plugged/async.vim
+	url = https://github.com/prabirshrestha/async.vim
