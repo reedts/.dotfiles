@@ -3362,6 +3362,7 @@ assemble() {
 # Local variables:
 export PATH=/usr/local/games:$PATH
 export PATH=$HOME/bin:$PATH
+source /bin/virtualenvwrapper_lazy.sh
 
 # Gentoo zsh completion (Portage etc.)
 autoload -U compinit promptinit

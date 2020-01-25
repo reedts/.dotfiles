@@ -8,6 +8,7 @@ set nofoldenable
 "------------------------------------------------
 "fugative settings
 set statusline+=%{fugitive#statusline()}
+set statusline^=%{coc#status()}
 
 "syntastic settings
 "set statusline+=%#warningmsg#
@@ -186,9 +187,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-latex/vim-latex'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'posva/vim-vue'
+Plug 'vim-python/python-syntax'
 
 " Initialize plugin system
 call plug#end()
+
+let g:python_highlight_all = 1
 
 if executable('cquery')
    au User lsp_setup call lsp#register_server({
