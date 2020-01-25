@@ -1,6 +1,11 @@
+set softtabstop=4
 syntax enable
 filetype plugin indent on
 set encoding=utf-8
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
 set noexpandtab
 set nofoldenable
 
@@ -8,6 +13,7 @@ set nofoldenable
 "------------------------------------------------
 "fugative settings
 set statusline+=%{fugitive#statusline()}
+set statusline^=${coc#status()}
 
 "syntastic settings
 "set statusline+=%#warningmsg#
@@ -27,25 +33,24 @@ let g:syntastic_check_on_wq = 0
 "Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'tomorrow'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
 endif
 
 " unicode symbols
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.dirty='⚡'
   
 
 "let g:molokai_original = 1
@@ -108,6 +113,8 @@ nmap <leader>tg :TagbarToggle<cr>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" Show buffer menu
+nnoremap <C-b> :CtrlPBuffer<CR>
 
 nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
@@ -123,14 +130,11 @@ if has('gui_running')
     set cpo&vim
     imap <Nul> <C-Space>
     inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
-    imap <F5> <Plug>ToggleBackground
     map! <S-Insert> <MiddleMouse>
     vmap gx <Plug>NetrwBrowseXVis
     nmap gx <Plug>NetrwBrowseX
     vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
     nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
-    vmap <F5> <Plug>ToggleBackground
-    nmap <F5> <Plug>ToggleBackground
     map <S-Insert> <MiddleMouse>
     inoremap <expr>      pumvisible() ? "\" : "\    "
     let &cpo=s:cpo_save
@@ -143,7 +147,7 @@ if has('gui_running')
     set cpoptions=aAceFsB
     set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
-    set guioptions=aegimrLt
+    set guioptions=aegirLt
     set helplang=en
     set cursorline
     set number
@@ -154,14 +158,6 @@ if has('gui_running')
     set termencoding=utf-8
     set updatetime=2000
     set window=55 
-    " airline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
 else
     set t_Co=256
     colorscheme Tomorrow-Night-Eighties
@@ -186,10 +182,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
+" Use release branch
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'posva/vim-vue'
+Plug 'vim-python/python-syntax'
+Plug 'majutsushi/tagbar'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
 
 " Initialize plugin system
 call plug#end()
+
+let g:python_highlight_all = 1
 
 if executable('cquery')
    au User lsp_setup call lsp#register_server({

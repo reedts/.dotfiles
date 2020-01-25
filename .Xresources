@@ -97,6 +97,7 @@
 #define light_cyan   #54ced6
 #define white        #393939
 
+#include ".xres/colors"
 
 ! Settings regarding Xft
 #include ".xres/xft"

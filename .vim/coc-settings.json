@@ -1,0 +1,8 @@
+{
+  "python.venvPath": "~/.virtualenvs",
+  "python.jediEnabled": true,
+  "python.linting.pylintEnabled":false,
+  "python.linting.flake8Args": ["--ignore=E501,F405"],
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "/bin/flake8"
+}

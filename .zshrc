@@ -3357,13 +3357,16 @@ assemble() {
 	ld -o $1 -m elf_i386 -e main $1.o
 }
 
+# Virtualenv
+function virtual_env_prompt () {
+        REPLY=${VIRTUAL_ENV+${VIRTUAL_ENV:t} }
+}
+grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
+source /bin/virtualenvwrapper_lazy.sh
 
-# Gentoo zsh completion (Portage etc.)
-autoload -U compinit promptinit
-compinit
-promptinit;
 
 # Completion caching
 zstyle ':completion::complete:*' use-cache 1
