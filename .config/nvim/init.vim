@@ -9,6 +9,12 @@ set softtabstop=-1
 set noexpandtab
 set nofoldenable
 
+colorscheme Tomorrow-Night-Eighties
+
+set number
+set scrolloff=10
+set cursorline
+
 "Plugin settings
 "------------------------------------------------
 "fugative settings
@@ -92,8 +98,7 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
 
-set listchars=tab:\|\ 
-set fillchars+=vert:\ 
+set fillchars+=vert:\│
 
 nmap <leader>cl :set cursorline!<cr>
 nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
@@ -106,56 +111,16 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
-nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <C-p> :FZF<CR>
+
+nmap <C-n> :bn<CR> "Switch to next buffer
+nmap <C-b> :bp<CR> " Switch to prev buffer
 
 nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
 nn <f2> :LspRename<cr>
 
-if has('gui_running')
-    "GVIM
-    set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline
-    version 6.0
-    if &cp | set nocp | endif
-    let s:cpo_save=&cpo
-    set cpo&vim
-    imap <Nul> <C-Space>
-    inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
-    map! <S-Insert> <MiddleMouse>
-    vmap gx <Plug>NetrwBrowseXVis
-    nmap gx <Plug>NetrwBrowseX
-    vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
-    nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
-    map <S-Insert> <MiddleMouse>
-    inoremap <expr>      pumvisible() ? "\" : "\    "
-    let &cpo=s:cpo_save
-    unlet s:cpo_save
-    "set guicursor=n-v-c:block-Cursor
-    "set guicursor=n-v-c:blinkon0
-    "set guicursor+=i:ver100-iCursor
-    colorscheme Tomorrow-Night-Eighties
-    set backspace=indent,eol,start
-    set cpoptions=aAceFsB
-    set noexpandtab
-    set fileencodings=ucs-bom,utf-8,default,latin1
-    set guioptions=aegirLt
-    set helplang=en
-    set cursorline
-    set number
-    set mouse=a
-    set ruler
-    set shortmess=filnxtToOc
-    set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
-    set termencoding=utf-8
-    set updatetime=2000
-    set window=55 
-else
-    set t_Co=256
-    colorscheme Tomorrow-Night-Eighties
-    
-    set number
-endif
 
 
 " THIS IS FOR PLUGGED PLUGINS
@@ -177,8 +142,10 @@ Plug 'posva/vim-vue'
 Plug 'vim-python/python-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
+Plug 'numirias/semshi'
+Plug 'junegunn/fzf'
+Plug 'chrisbra/Colorizer'
 
 " Initialize plugin system
 call plug#end()

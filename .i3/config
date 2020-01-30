@@ -46,7 +46,7 @@ set_from_resource $white	URxvt.color15	#F8F8F2
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -283,7 +283,7 @@ exec xbindkeys
 exec blueman-applet
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b --config ~/.compton.conf
+#exec picom -b
 
 # second conky
 #exec conky -c /home/reedts/.conkymain
