@@ -68,8 +68,8 @@
 #define blue         #6699cc
 #define purple       #cc99cc
 #define cyan         #66cccc
-#define light_grey   #515151
-#define dark_grey    #666666
+#define light_grey   #666666
+#define dark_grey    #515151
 #define light_red    #ff3334
 #define light_green  #9ec400
 #define light_yellow #ffcc66

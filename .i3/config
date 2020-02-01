@@ -45,7 +45,7 @@ set_from_resource $light_cyan	URxvt.color14	#66D9EF
 set_from_resource $white	URxvt.color15		#F8F8F2
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -329,7 +329,7 @@ exec pasystray
 exec conky -c ~/.conkymain
 
 # start compton for vsync and a bit of eyecandy :)
-exec compton -b
+#exec compton -b
 
 # Set Wallpaper
 exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
