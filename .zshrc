@@ -219,7 +219,7 @@ zstyle :prompt:pure:prompt:success color green
 zstyle :prompt:pure:prompt:continuation color magenta
 zstyle :prompt:pure:user color default
 zstyle :prompt:pure:virtualenv color yellow
-PURE_PROMPT_VICMD_SYMBOL=
+PURE_PROMPT_VICMD_SYMBOL=' '
 PURE_PREPEND_NEW_LINE=0
 
 zstyle ':completion:*' menu select
