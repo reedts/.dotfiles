@@ -13,6 +13,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 export EDITOR=nvim
 
+source ~/.cargo/env
+
 
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$PATH

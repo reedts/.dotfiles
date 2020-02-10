@@ -57,6 +57,17 @@ setopt noshwordsplit
 
 # don't error out when unset parameters are used
 setopt unset
+
+# enable shared dirstack
+DIRSTACKSIZE=15
+DIRSTACKFILE=~/.zdirs
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
 ####################################################
 #               END  Options                       #
 ####################################################                                           
@@ -107,7 +118,6 @@ alias lt='ls -ltr $LS_OPTIONS'
 ####################################################
 #                     Key Mappings                 #
 ####################################################                                           
-autoload zkbd
 [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY ]] && zkbd
 source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY
 
@@ -216,7 +226,7 @@ zstyle :prompt:pure:prompt:success color green
 zstyle :prompt:pure:prompt:continuation color magenta
 zstyle :prompt:pure:user color default
 zstyle :prompt:pure:virtualenv color yellow
-PURE_PROMPT_VICMD_SYMBOL=
+PURE_PROMPT_VICMD_SYMBOL=" "
 PURE_PREPEND_NEW_LINE=0
 
 zstyle ':completion:*' menu select

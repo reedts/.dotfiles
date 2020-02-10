@@ -46,6 +46,8 @@ set_from_resource $white	URxvt.color15		#F8F8F2
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty --class "floating"
+for_window [instance="floating"] floating enable
 
 # kill focused window
 bindsym $mod+Shift+c kill

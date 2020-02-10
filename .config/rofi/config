@@ -1,0 +1,16 @@
+rofi.modi:							run,ssh,window
+rofi.width:							30 
+rofi.lines:							15
+rofi.columns:						1
+rofi.font:							mono 10
+!									bg			fg			bgalt		hlbg		hlfg
+rofi.color-normal:					#2d2d2d,	#cccccc,	#2d2d2d,	#99cc99,	#2d2d2d
+rofi.color-urgent:					#f2777a,	#2d2d2d,	#f2777a,	#ff3334,	#2d2d2d
+rofi.color-active:					#6699cc,	#2d2d2d,	#6699cc,	#66cccc,	#2d2d2d
+rofi.color-window:					#2d2d2d,	#66cccc,	#515151
+
+rofi.matching:						fuzzy
+
+"Border width" Set from: Default
+rofi.bw:							1
+rofi.terminal:						alacritty

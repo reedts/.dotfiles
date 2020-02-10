@@ -1,4 +1,3 @@
-set softtabstop=4
 syntax enable
 filetype plugin indent on
 set encoding=utf-8
@@ -11,7 +10,7 @@ set nofoldenable
 
 colorscheme Tomorrow-Night-Eighties
 
-set number
+set number relativenumber
 set scrolloff=10
 set cursorline
 
@@ -107,20 +106,23 @@ nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
 
+" GitGutter
+let g:gitgutter_enabled = 0
+nmap <leader>gg :GitGutterToggle<CR>
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
 nnoremap <C-p> :FZF<CR>
 
-nmap <C-n> :bn<CR> "Switch to next buffer
-nmap <C-b> :bp<CR> " Switch to prev buffer
+nmap <C-n> :bn<CR>
+nmap <C-b> :bp<CR>
 
 nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
 nn <f2> :LspRename<cr>
-
 
 
 " THIS IS FOR PLUGGED PLUGINS
@@ -132,6 +134,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -143,7 +146,7 @@ Plug 'vim-python/python-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
-Plug 'numirias/semshi'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'chrisbra/Colorizer'
 
