@@ -15,7 +15,7 @@ Path ~/.mail/wwu/
 Inbox ~/.mail/wwu/INBOX
 Subfolders Verbatim
 
-Channel sync-wwu
+Channel wwu
 Master :wwu-remote:
 Slave :wwu-local:
 Create Both # Automatically create missing mailboxes, both locally and on the server
