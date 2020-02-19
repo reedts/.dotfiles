@@ -1,0 +1,17 @@
+##############
+# Configuration for GMail account
+#
+#
+set mbox_type = Maildir
+set spoolfile = +gmail/INBOX
+unset record
+set postponed = +gmail/Drafts
+
+set realname = "Julian Bigge"
+set from = "j.reedts@gmail.com"
+set my_user = j.reedts@gmail.com
+unset signature
+
+# SMTP
+set smtp_pass = `gpg2 --batch -q --decrypt ~/.neomutt/gmail.gpg`
+set smtp_url=smtps://$imap_user:$imap_pass@smtp.gmail.com

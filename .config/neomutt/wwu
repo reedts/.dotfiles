@@ -1,0 +1,21 @@
+############
+# Configuration for WWU account
+#
+#
+set mbox_type = Maildir
+set spoolfile = +wwu/INBOX
+set record = +wwu/Sent
+set postponed = +wwu/Drafts
+
+
+# Identity
+set realname = "Julian Bigge"
+set from = "julian.bigge@uni-muenster.de"
+set my_user = 'j_bigg01'
+set signature = "~/.config/neomutt/.wwu_signature"
+
+
+# SMTP
+set smtp_pass = `gpg2 --batch -q --decrypt ~/.neomutt/wwu.gpg`
+set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
+
