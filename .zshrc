@@ -211,6 +211,15 @@ zinit light sindresorhus/pure
 ####################################################
 #                    Prompt                        #
 ####################################################
+# load LS_COLORS
+if [[ -f ~/.dircolors ]]; then
+	eval $(dircolors -b ~/.dircolors)
+elif [[ -f /etc/DIR_COLORS ]] ; then
+	eval $(dircolors -b /etc/DIR_COLORS)
+fi
+
+autoload -U compinit && compinit
+
 precmd_pipestatus() {
 	RPROMPT="${(j.|.)pipestatus}"
 	if [[ ${(j.|.)pipestatus} = 0 ]]; then
@@ -229,17 +238,10 @@ zstyle :prompt:pure:virtualenv color yellow
 PURE_PROMPT_VICMD_SYMBOL=" "
 PURE_PREPEND_NEW_LINE=0
 
-zstyle ':completion:*' menu select
-
-# load LS_COLORS
-if [[ -f ~/.dircolors ]]; then
-	eval $(dircolors -b ~/.dircolors)
-elif [[ -f /etc/DIR_COLORS ]] ; then
-	eval $(dircolors -b /etc/DIR_COLORS)
-fi
+zstyle ':completion:*' menu select yes
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 ####################################################
 #                  END  Prompt                     #
 ####################################################                                           
 
-autoload -U compinit && compinit

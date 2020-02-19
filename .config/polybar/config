@@ -46,7 +46,7 @@ active-background = ${self.dark-grey}
 
 [bar/base]
 width = 100%
-height = 28
+height = 26
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -84,7 +84,7 @@ monitor = ${env:MONITOR:HDMI-0}
 inherit = bar/base
 monitor = ${env:MONITOR:DP-2}
 modules-center = date
-modules-right = temperature cpu memory eth pulseaudio
+modules-right = temperature cpu memory vpn eth pulseaudio
 
 tray-position = right
 tray-padding = 2
@@ -109,7 +109,7 @@ label-mode-background = ${colors.active-background}
 label-focused = %index%
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.primary}
-label-focused-padding = 4
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
@@ -180,6 +180,10 @@ bar-used-fill = ▐
 bar-used-empty-foreground = ${self.format-background}
 bar-used-indicator = 
 
+[module/vpn]
+type = custom/script
+exec = ~/.config/polybar/scripts/vpn-openvpn-isrunning.sh
+interval = 5
 
 [module/eth]
 type = internal/network
