@@ -4,9 +4,9 @@ set encoding=utf-8
 set autoindent
 set tabstop=4
 set shiftwidth=4
-set softtabstop=-1
+set softtabstop=0
 set noexpandtab
-set nofoldenable
+set foldenable
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -96,6 +96,9 @@ filetype plugin on
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_latexmk = {
+	\'build_dir': './build',
+	\}
 
 set fillchars+=vert:\│
 
@@ -124,6 +127,12 @@ nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
 nn <f2> :LspRename<cr>
 
+let g:fzf_layout = {'down': '~20%'}
+let g:fzf_action = {
+	\ 'ctrl-t': 'tab split',
+	\ 'ctrl-u': 'split',
+	\ 'ctrl-i': 'vsplit' }
+
 
 " THIS IS FOR PLUGGED PLUGINS
 " Specify a directory for plugins
@@ -148,6 +157,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
 
 " Initialize plugin system

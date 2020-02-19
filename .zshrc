@@ -6,6 +6,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt HIST_IGNORE_SPACE
 
 # setopts (taken from grml config)
 # save each command's beginning timestamp and the duration to the history file
@@ -111,6 +112,9 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls -alh $LS_OPTIONS'
 alias lt='ls -ltr $LS_OPTIONS'
 
+# sv
+alias svl="sudo sv status /var/service/*"
+
 ####################################################
 #                  END  Aliases                    #
 ####################################################                                           
@@ -149,6 +153,17 @@ function virtual_env_prompt () {
 ####################################################
 #                END  Virtualenv                   #
 ####################################################                                           
+
+####################################################
+#                 FZF                              #
+####################################################
+export FZF_COMPLETION_TRIGGER='~~'
+source /usr/share/doc/fzf/completion.zsh
+source /usr/share/doc/fzf/key-bindings.zsh
+
+####################################################
+#                 END FZF                          #
+####################################################
 
 ####################################################
 #                    zinit                         #
@@ -200,6 +215,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice pick'bd.zsh'
 zinit light Tarrasch/zsh-bd
 
+zinit ice pick'you-should-use.plugin.zsh'
+zinit light MichaelAquilina/zsh-you-should-use
+
 # Prompt
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
@@ -218,7 +236,6 @@ elif [[ -f /etc/DIR_COLORS ]] ; then
 	eval $(dircolors -b /etc/DIR_COLORS)
 fi
 
-autoload -U compinit && compinit
 
 precmd_pipestatus() {
 	RPROMPT="${(j.|.)pipestatus}"
@@ -227,6 +244,8 @@ precmd_pipestatus() {
     fi
 }
 add-zsh-hook precmd precmd_pipestatus
+
+setopt no_list_ambiguous
 
 zstyle :prompt:pure:git:branch color '#b777e0'
 zstyle :prompt:pure:git:action color '#54ced6'
@@ -240,6 +259,8 @@ PURE_PREPEND_NEW_LINE=0
 
 zstyle ':completion:*' menu select yes
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+
+autoload -U compinit && compinit
 
 ####################################################
 #                  END  Prompt                     #
