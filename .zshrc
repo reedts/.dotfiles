@@ -6,6 +6,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt HIST_IGNORE_SPACE
 
 # setopts (taken from grml config)
 # save each command's beginning timestamp and the duration to the history file
@@ -57,6 +58,20 @@ setopt noshwordsplit
 
 # don't error out when unset parameters are used
 setopt unset
+
+# Use menu completion
+setopt MENU_COMPLETE
+
+# enable dirstack
+DIRSTACKSIZE=15
+DIRSTACKFILE=~/.zdirs
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
 ####################################################
 #               END  Options                       #
 ####################################################                                           
@@ -100,6 +115,9 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls -alh $LS_OPTIONS'
 alias lt='ls -ltr $LS_OPTIONS'
 
+# sv
+alias svl='sudo sv status /var/service/*'
+
 ####################################################
 #                  END  Aliases                    #
 ####################################################                                           
@@ -107,7 +125,6 @@ alias lt='ls -ltr $LS_OPTIONS'
 ####################################################
 #                     Key Mappings                 #
 ####################################################                                           
-autoload zkbd
 [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY ]] && zkbd
 source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY
 
@@ -138,8 +155,19 @@ function virtual_env_prompt () {
 
 ####################################################
 #                END  Virtualenv                   #
-####################################################                                           
+####################################################
 
+####################################################
+#                 FZF                              #
+####################################################
+export FZF_COMPLETION_TRIGGER='~~'
+source /usr/share/doc/fzf/completion.zsh
+source /usr/share/doc/fzf/key-bindings.zsh
+
+####################################################
+#                 END FZF                          #
+####################################################
+#
 ####################################################
 #                    zinit                         #
 ####################################################                                           
@@ -212,6 +240,15 @@ precmd_pipestatus() {
 }
 add-zsh-hook precmd precmd_pipestatus
 
+# load LS_COLORS
+if [[ -f ~/.dircolors ]]; then
+	eval $(dircolors -b ~/.dircolors)
+elif [[ -f /etc/DIR_COLORS ]] ; then
+	eval $(dircolors -b /etc/DIR_COLORS)
+fi
+
+setopt no_list_ambiguous
+
 zstyle :prompt:pure:git:branch color '#b777e0'
 zstyle :prompt:pure:git:action color '#54ced6'
 zstyle :prompt:pure:host color blue
@@ -222,17 +259,12 @@ zstyle :prompt:pure:virtualenv color yellow
 PURE_PROMPT_VICMD_SYMBOL=' '
 PURE_PREPEND_NEW_LINE=0
 
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
-# load LS_COLORS
-if [[ -f ~/.dircolors ]]; then
-	eval $(dircolors -b ~/.dircolors)
-elif [[ -f /etc/DIR_COLORS ]] ; then
-	eval $(dircolors -b /etc/DIR_COLORS)
-fi
+autoload -U compinit && compinit
 
 ####################################################
 #                  END  Prompt                     #
 ####################################################                                           
 
-autoload -U compinit && compinit

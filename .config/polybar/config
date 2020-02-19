@@ -69,6 +69,7 @@ font-2 = unifont:fontformat=truetype:size=12:antialias=false;0
 font-3 = siji:pixelsize=12;1
 font-4 = fixed:pixelsize=12;1
 
+modules-center = date
 modules-left = i3
 
 [bar/secondary]
@@ -82,8 +83,7 @@ monitor = ${env:MONITOR:HDMI-2}
 [bar/primary]
 inherit = bar/base
 monitor = ${env:MONITOR:eDP-1}
-modules-center = date
-modules-right = backlight temperature cpu memory wlan eth internal_battery external_battery pulseaudio
+modules-right = backlight temperature cpu memory vpn wlan eth internal_battery external_battery
 
 tray-position = right
 tray-padding = 4
@@ -108,7 +108,7 @@ label-mode-background = ${colors.active-background}
 label-focused = %index%
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.primary}
-label-focused-padding = 4
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
@@ -124,6 +124,11 @@ label-visible-padding = 2
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
+[module/vpn]
+type = custom/script
+exec = ~/.config/polybar/scripts/vpn-openvpn-isrunning.sh
+interval = 5
 
 [module/backlight]
 type = internal/backlight
@@ -159,9 +164,9 @@ ramp-coreload-4-foreground = ${colors.yellow}
 ramp-coreload-5 = ▆
 ramp-coreload-5-foreground = ${colors.yellow}
 ramp-coreload-6 = ▇
-ramp-coreload-6-foreground = ${colors.light-red}
+ramp-coreload-6-foreground = ${colors.red}
 ramp-coreload-7 = █
-ramp-coreload-7-foreground = ${colors.red}
+ramp-coreload-7-foreground = ${colors.light-red}
 
 [module/memory]
 type = internal/memory
@@ -199,7 +204,7 @@ format-connected-padding = 2
 format-connected-foreground = ${colors.background}
 format-connected-background = ${colors.primary}
 format-connected-prefix = "%{T1} %{T-}"
-label-connected = "%local_ip%  %{T1}%{T-} %upspeed:10% %{T1}%{T-} %downspeed:10%"
+label-connected = "%local_ip%  %{T1}%{T-} %upspeed:8% %{T1}%{T-} %downspeed:8%"
 
 format-disconnected =
 label-disconnected = "%{T1} ${T-}"
@@ -214,7 +219,7 @@ format-connected-padding = 2
 format-connected-foreground = ${colors.background}
 format-connected-background = ${colors.primary}
 format-connected-prefix = "%{T1} %{T-}"
-label-connected = "%local_ip%  %{T1}%{T-} %upspeed:10% %{T1}%{T-} %downspeed:10%"
+label-connected = "%local_ip%  %{T1}%{T-} %upspeed:8% %{T1}%{T-} %downspeed:8%"
 
 format-disconnected =
 
@@ -249,8 +254,7 @@ ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
-ramp-capacity-1-foreground = ${colors.alert}
-ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-0-background = ${colors.alert}
 
 [module/internal_battery]
 inherit = module/battery_base

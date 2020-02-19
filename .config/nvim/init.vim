@@ -1,17 +1,15 @@
-set softtabstop=4
 syntax enable
 filetype plugin indent on
-set encoding=utf-8
 set autoindent
+set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
-set softtabstop=-1
 set noexpandtab
-set nofoldenable
+set foldenable
 
 colorscheme Tomorrow-Night-Eighties
 
-set number
+set number relativenumber
 set scrolloff=10
 set cursorline
 
@@ -78,6 +76,9 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let c_no_curly_error = 1
 
+" GitGutter
+let g:gitgutter_enabled = 0
+
 "============================================================
 "Language supports
 
@@ -97,6 +98,9 @@ filetype plugin on
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_latexmk = {
+	\'build_dir': './build',
+	\}
 
 set fillchars+=vert:\│
 
@@ -106,6 +110,7 @@ nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
+nmap <leader>gg :GitGutterToggle<cr>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -113,14 +118,20 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
 nnoremap <C-p> :FZF<CR>
 
-nmap <C-n> :bn<CR> "Switch to next buffer
-nmap <C-b> :bp<CR> " Switch to prev buffer
+nmap <C-n> :bn<CR>
+nmap <C-b> :bp<CR>
+nmap <C-o> :Buffer<CR>
 
 nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
 nn <f2> :LspRename<cr>
 
+let g:fzf_layout = {'down': '~20%'}
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-u': 'split',
+  \ 'ctrl-i': 'vsplit' }
 
 
 " THIS IS FOR PLUGGED PLUGINS
@@ -132,6 +143,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -145,6 +157,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'numirias/semshi'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
 
 " Initialize plugin system

@@ -13,8 +13,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 export EDITOR=nvim
 
-
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$PATH
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.5
+
+# Rust up
+source ~/.cargo/env
