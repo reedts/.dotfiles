@@ -15,3 +15,7 @@ unset signature
 # SMTP
 set smtp_pass = `gpg2 --batch -q --decrypt ~/.neomutt/gmail.gpg`
 set smtp_url=smtps://$imap_user:$imap_pass@smtp.gmail.com
+
+# This variable specifies the default Notmuch database in format:
+# notmuch://<absolute path>
+set nm_default_uri = "notmuch:///home/reedts/.mail/gmail"
