@@ -14,6 +14,8 @@ set number relativenumber
 set scrolloff=10
 set cursorline
 
+set foldmethod=syntax
+
 "Plugin settings
 "------------------------------------------------
 "fugative settings
