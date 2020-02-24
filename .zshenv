@@ -15,6 +15,7 @@ export EDITOR=nvim
 
 source ~/.cargo/env
 
+export HOMESHICK_DIR="$HOME/.zinit/plugins/andsens---homeshick/"
 
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$PATH

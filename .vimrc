@@ -205,3 +205,5 @@ if executable('cquery')
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
       \ })
 endif
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"

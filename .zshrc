@@ -218,6 +218,8 @@ zinit light Tarrasch/zsh-bd
 zinit ice pick'you-should-use.plugin.zsh'
 zinit light MichaelAquilina/zsh-you-should-use
 
+zinit light andsens/homeshick
+
 # Prompt
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
@@ -265,4 +267,3 @@ autoload -U compinit && compinit
 ####################################################
 #                  END  Prompt                     #
 ####################################################                                           
-
