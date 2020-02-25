@@ -91,6 +91,9 @@ au BufNewFile,BufRead *.cl set ft=opencl
 "only if LaTeX file use colorcolumn
 au BufNewFile,BufRead *.tex set colorcolumn=80
 
+
+autocmd FileType mail norm "}"
+
 "============================================================
 
 "LaTeX-Suite
@@ -130,8 +133,8 @@ nn <f2> :LspRename<cr>
 let g:fzf_layout = {'down': '~20%'}
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-u': 'split',
-  \ 'ctrl-i': 'vsplit' }
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 
 " THIS IS FOR PLUGGED PLUGINS

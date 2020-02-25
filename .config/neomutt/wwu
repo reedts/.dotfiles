@@ -13,6 +13,7 @@ set realname = "Julian Bigge"
 set from = "julian.bigge@uni-muenster.de"
 set my_user = 'j_bigg01'
 set signature = "~/.config/neomutt/.wwu_signature"
+set smime_default_key = "0x641F8B3A"
 
 
 # SMTP
@@ -22,3 +23,4 @@ set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
 # This variable specifies the default Notmuch database in format:
 # notmuch://<absolute path>
 set nm_default_uri = "notmuch:///home/reedts/.mail/wwu"
+set query_command = "notmuch-addrlookup --config=/home/reedts/.mail/wwu/.notmuch-config"

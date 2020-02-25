@@ -42,6 +42,12 @@ named-mailboxes "GMail------------------------------" +gmail/INBOX \
                 " └ Trash" +gmail/Trash
 
 ###############----------------------------------------------------------------
+# Lists
+#
+lists notifications@github.com
+
+
+###############----------------------------------------------------------------
 # Colors
 #
 color normal	default		default
@@ -122,7 +128,7 @@ bind pager gg top
 bind alias,index,browser,query,pager \CD next-page
 bind alias,index,browser,query,pager \CU previous-page
 
-macro index			\CI	"<shell-escape>mbsync -a<enter>" "Refresh from IMAP"
+macro index			\CI	"<shell-escape>mail_refresh<enter>" "Refresh from IMAP"
 
 
 ###############----------------------------------------------------------------
