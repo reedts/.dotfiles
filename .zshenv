@@ -13,6 +13,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 export EDITOR=nvim
 
+export HOMESHICK_DIR=$HOME/.zinit/plugins/andsens---homeshick/
+
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$PATH
 export QT_QPA_PLATFORMTHEME="qt5ct"
