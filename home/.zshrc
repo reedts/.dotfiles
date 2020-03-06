@@ -177,6 +177,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice pick'bd.zsh'
 zinit light Tarrasch/zsh-bd
 
+zinit light andsens/homeshick
+
 # Prompt
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
