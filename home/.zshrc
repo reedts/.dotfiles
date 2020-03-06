@@ -57,6 +57,9 @@ setopt noshwordsplit
 
 # don't error out when unset parameters are used
 setopt unset
+
+# use menu completion
+setopt MENU_COMPLETE
 ####################################################
 #               END  Options                       #
 ####################################################                                           
@@ -177,6 +180,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice pick'bd.zsh'
 zinit light Tarrasch/zsh-bd
 
+zinit ice pick'you-should-use.plugin.zsh'
+zinit light MichaelAquilina/zsh-you-should-use
+
 zinit light andsens/homeshick
 
 # Prompt
@@ -198,6 +204,13 @@ precmd_pipestatus() {
 }
 add-zsh-hook precmd precmd_pipestatus
 
+# load LS_COLORS
+if [[ -f ~/.dircolors ]]; then
+	eval $(dircolors -b ~/.dircolors)
+elif [[ -f /etc/DIR_COLORS ]] ; then
+	eval $(dircolors -b /etc/DIR_COLORS)
+fi
+
 zstyle :prompt:pure:git:branch color '#b777e0'
 zstyle :prompt:pure:git:action color '#54ced6'
 zstyle :prompt:pure:host color blue
@@ -208,17 +221,11 @@ zstyle :prompt:pure:virtualenv color yellow
 PURE_PROMPT_VICMD_SYMBOL=
 PURE_PREPEND_NEW_LINE=0
 
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
-# load LS_COLORS
-if [[ -f ~/.dircolors ]]; then
-	eval $(dircolors -b ~/.dircolors)
-elif [[ -f /etc/DIR_COLORS ]] ; then
-	eval $(dircolors -b /etc/DIR_COLORS)
-fi
+autoload -U compinit && compinit
 
 ####################################################
 #                  END  Prompt                     #
 ####################################################                                           
-
-autoload -U compinit && compinit
