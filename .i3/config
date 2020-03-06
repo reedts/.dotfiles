@@ -30,7 +30,7 @@ set_from_resource $blue		*.color4	#30309B
 set_from_resource $purple	*.color5	#AE81FF
 set_from_resource $cyan		*.color6	#4699AF
 set_from_resource $light_grey	*.color7	#9999AA
-set_from_resrouce $dark_grey	*.color8	#808080
+set_from_resource $dark_grey	*.color8	#808080
 set_from_resource $light_red	*.color9	#F92672
 set_from_resource $light_green	*.color10	#80FF00
 set_from_resource $light_yellow	*.color11	#FFBA68
@@ -101,11 +101,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-<<<<<<< HEAD
-bindsym $mod+b split h
-=======
 bindsym $mod+g split h
->>>>>>> origin/calanx
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -274,7 +270,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+q mode "$mode_system"
 
-#new_window pixel 2
+new_window pixel 1
 
 # hide edge borders
 hide_edge_borders vertical
@@ -305,6 +301,10 @@ hide_edge_borders vertical
 exec gnome-session
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 
+exec polybar primary
+exec polybar secondary
+exec polybar tertiary
+
 # sound applet pasystray from AUR
 exec pa-applet
 exec nm-applet
@@ -316,7 +316,7 @@ exec compton -b --config ~/.compton.conf
 
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/julian/Pictures/background.png
+exec_always feh --no-startup-id --bg-fill /home/julian/Pictures/background.jpg
 #=================== Custom Colors ==================================================
 
 # class			    border	backgr.		text		indicator
@@ -330,9 +330,6 @@ client.urgent		    $red	$red	   	$bg	#000000
 #=================== Custom Window workspace ========================================
 
 #=================== Windows that should spawn in floating mode =====================
-# thunderbird floating windows
-for_window [title="image-*"] floating enable
-
 for_window [class="^Pidgin$"] floating enable
 for_window [class="^TelegramDesktop$"] floating enable
 for_window [class="^Gajim$"] floating enable

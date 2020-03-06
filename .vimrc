@@ -1,8 +1,11 @@
 syntax enable
 filetype plugin indent on
 set encoding=utf-8
-set noexpandtab
 set nofoldenable
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
 
 "Plugin settings
 "------------------------------------------------
@@ -27,25 +30,24 @@ let g:syntastic_check_on_wq = 0
 "Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'tomorrow'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
 endif
 
 " unicode symbols
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = ''
+let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+let g:airline#extensions#tabline#buffer_nr_show = 1
   
 
 "let g:molokai_original = 1
@@ -109,6 +111,10 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
 nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
@@ -140,8 +146,8 @@ if has('gui_running')
     set cpoptions=aAceFsB
     set noexpandtab
     set fileencodings=ucs-bom,utf-8,default,latin1
-    set guioptions=aegimrLt
-    set guioptions-=m
+    set guioptions=aegi
+    set guioptions-=mrLT
     set helplang=en
     set cursorline
     set number
@@ -154,13 +160,6 @@ if has('gui_running')
     set window=55 
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
     " airline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
 else
     set t_Co=256
     colorscheme Tomorrow-Night-Eighties
@@ -186,6 +185,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-latex/vim-latex'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'pangloss/vim-javascript'
+Plug 'StanAngeloff/php.vim'
 
 " Initialize plugin system
 call plug#end()
