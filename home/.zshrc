@@ -6,6 +6,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt HIST_IGNORE_SPACE
 
 # setopts (taken from grml config)
 # save each command's beginning timestamp and the duration to the history file
