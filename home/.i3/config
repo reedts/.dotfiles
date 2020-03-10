@@ -317,18 +317,18 @@ client.urgent		    $red	$red	   	$bg	#000000
 
 #=================== Custom Window workspace ========================================
 
-#assign [class="^Firefox$"] $ws2
+assign [class="^Firefox$"] $ws2
 
-#assign [class="^Pidgin$"] $ws9
-#assign [class="^skype$"] $ws9
-#assign [class="^Thunderbird$"] $ws9
+assign [class="^Pcmanfm$"] $ws8
+
+assign [title="^reedts: neomutt"] $ws9 
+
+# Messenger
+assign [class="^Signal$"] $ws10
+assign [class="^TelegramDesktop$"] $ws10
+assign [class="^Slack$"] $ws10
 
 #=================== Windows that should spawn in floating mode =====================
-for_window [class="^Pidgin$"] floating enable
-for_window [class="^Gajim$"] floating enable
-for_window [class="^Dino$"] floating enable
-for_window [class="^Slack$"] floating enable
-for_window [class="^TelegramDesktop$"] floating enable
 for_window [class="^pinentry$"] floating enable
 
 # dolphin copy and move dialog
