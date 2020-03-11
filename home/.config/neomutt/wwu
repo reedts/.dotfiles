@@ -25,4 +25,4 @@ set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
 set nm_default_uri = "notmuch:///home/reedts/.mail/wwu"
 
 # Enable address-query
-set query_command = "notmuch-addrlookup --config=/home/reedts/.mail/wwu/.notmuch-config --mutt '%s'"
+set query_command = "neomutt-address-nm --config /home/reedts/.mail/wwu/.notmuch-config '%s'"

@@ -121,6 +121,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
 nnoremap <C-p> :FZF<CR>
 
+nnoremap <esc> :noh<CR>
+
 nmap <C-n> :bn<CR>
 nmap <C-b> :bp<CR>
 
@@ -145,6 +147,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'

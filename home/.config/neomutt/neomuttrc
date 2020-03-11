@@ -42,6 +42,16 @@ named-mailboxes "GMail------------------------------" +gmail/INBOX \
                 " └ Trash" +gmail/Trash
 
 ###############----------------------------------------------------------------
+# Lists
+#
+lists notifications@github.com
+
+###############----------------------------------------------------------------
+# Formats
+#
+set query_format = "%4c %t %-25.45a %-25.25n %?e?(%e)?"
+ 
+###############----------------------------------------------------------------
 # Colors
 #
 color normal	default		default
@@ -63,10 +73,13 @@ color index_size	color4		default
 # Flags
 color index_flags	color11		default		~g				# Signed
 color index_flags	color10		default		~G				# Encrypted
-color index_flags	color9		default		~N				# New mails
+color index_flags	bold		color2		default	~N		# New mails
+color index_flags	color9		default		~N
 color index_flags	color0		color14		~T				# Tagged
-color index		 	color0		color1		"~D"			# Deleted
-color index			color08		default		"~O"			# Old
+color index		 	color0		color1		~D				# Deleted
+color index_subject	bold		color9		default ~D		
+color index			color08		default		~O				# Old
+color index_subject bold		default		default	~O
 # Sidebar
 color sidebar_highlight	color236	color4
 color sidebar_indicator color236	color2
@@ -92,35 +105,51 @@ color body 					color0		color1		"Bad signature"
 # like VI
 #
 # Vi-like keybindings
+# Index
 unset wait_key
 bind  generic        l select-entry
-macro index          h '<change-folder>?'
+bind  index          B   bounce-message
+bind  index			 j next-entry
+bind  index			 k previous-entry
+bind  index          g noop
+bind  index,pager    \CB sidebar-prev
+bind  index,pager    \CN sidebar-next
+bind  index,pager    \CO sidebar-open
 bind  index,pager    H display-toggle-weed
+bind  index,pager    r group-reply
+bind  index,pager    R reply
+# open a different virtual folder
+bind  index,pager    X change-vfolder
+# read entire thread of the current message
+bind  index,pager    + entire-thread
+# generate virtual folder from query
+bind  index,pager    \CP vfolder-from-query
+# generate virtual folder from query with time window
+bind  index          < vfolder-window-backward
+bind  index          > vfolder-window-forward
+macro index          h '<change-folder>?'
+macro index			 \CI "<shell-escape>mail_refresh<enter>" "Refresh from IMAP"
+macro index,pager    b   '<enter-command>toggle sidebar_visible<enter>'
+macro index          L "<limit>all<enter><last-entry>"
+# Pager
 bind  pager          h exit
 bind  pager          j next-line
 bind  pager          k previous-line
 bind  pager          l view-attachments
+bind  pager          g noop
+bind  pager          G bottom
+# Editor
+bind  editor         <delete>  delete-char
+bind  editor         <Tab>     complete-query
+# Compose
+bind  compose        l view-attach
+# Attach
 bind  attach,compose l view-attach
 bind  attach         h exit
 bind  attach         H display-toggle-weed
-bind  compose        l view-attach
-# Sidebar
-bind  index,pager    \CB sidebar-prev
-bind  index,pager    \CN sidebar-next
-bind  index,pager    \CO sidebar-open
-macro index,pager    b   '<enter-command>toggle sidebar_visible<enter>'
-bind  index          B   bounce-message
+
 #other
-bind  editor         <delete>  delete-char
-macro index L "<limit>all<enter><last-entry>"
-
-bind  index,pager    r group-reply
-bind  index,pager    R reply
-
-bind index g noop
-bind pager g noop
 bind alias,index,browser,query G last-entry
-bind pager G bottom
 bind alias,index,browser,query gg first-entry
 bind pager gg top
 bind alias,index,browser,query,pager \CD next-page
@@ -171,7 +200,7 @@ set index_format = "[%Z] %{%F %H:%M} %-30.30L (%?l?%4l&%4c?) %s"
 set header_cache= "~/.cache/neomutt"
 set message_cachedir = "~/.cache/neomutt"
 
-ignore *
+ignore          *
 unignore from date subject to cc
 
 ###############----------------------------------------------------------------
@@ -251,26 +280,3 @@ set virtual_spoolfile = no
 # first setup the duration, and then the time unit of that duration
 # when set to 0 (the default) the search window feature is disabled
 set nm_query_window_duration=2
-set nm_query_window_timebase="week" # or "hour", "day", "week", "month", "year"
-# --------------------------------------------------------------------------
-# FUNCTIONS – shown with an example mapping
-# --------------------------------------------------------------------------
-# open a different virtual folder
-bind index,pager X change-vfolder
-# read entire thread of the current message
-bind index,pager + entire-thread
-# generate virtual folder from query
-bind index,pager \CP vfolder-from-query
-# generate virtual folder from query with time window
-bind index < vfolder-window-backward
-bind index > vfolder-window-forward
-# toggle between mailboxes and virtual mailboxes
-# bind index,pager ??? sidebar-toggle-virtual
-# --------------------------------------------------------------------------
-# COMMANDS – shown with an example
-# --------------------------------------------------------------------------
-# virtual-mailboxes description notmuch-URI { description notmuch-URI ...}
-# virtual-mailboxes "Climbing" "notmuch://?query=climbing"
-# unvirtual-mailboxes { * | mailbox ...}
-#
-# --------------------------------------------------------------------------
