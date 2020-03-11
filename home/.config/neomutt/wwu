@@ -13,6 +13,7 @@ set realname = "Julian Bigge"
 set from = "julian.bigge@uni-muenster.de"
 set my_user = 'j_bigg01'
 set signature = "~/.config/neomutt/.wwu_signature"
+set smime_default_key = "0x641F8B3A"
 
 
 # SMTP
