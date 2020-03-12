@@ -23,4 +23,4 @@ set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
 # This variable specifies the default Notmuch database in format:
 # notmuch://<absolute path>
 set nm_default_uri = "notmuch:///home/reedts/.mail/wwu"
-set query_command = "notmuch-addrlookup --config=/home/reedts/.mail/wwu/.notmuch-config"
+set query_command = "neomutt-address-nm --config /home/reedts/.mail/wwu/.notmuch-config '%s'"
