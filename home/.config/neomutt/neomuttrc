@@ -104,6 +104,7 @@ color body 					color0		color1		"Bad signature"
 # Vi-like keybindings
 # Index
 unset wait_key
+set abort_key = "<ESC>"
 bind  generic        l select-entry
 bind  index          B   bounce-message
 bind  index			 j next-entry
