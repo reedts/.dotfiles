@@ -74,9 +74,9 @@ color index_flags	color11		default		~g				# Signed
 color index_flags	color10		default		~G				# Encrypted
 color index_flags	bold		color2		default	~N		# New mails
 color index_subject	bold		color2		default	~N
+color index_subject	bold		default		default	~O		# Unread mails
 color index_flags	bold		color9		default ~D		# Deleted mails
 color index_subject	bold		color9		default ~D
-color index_subject	bold		default		default	~O		# Unread mails
 # Sidebar
 color sidebar_highlight	color236	color4
 color sidebar_indicator color236	color2
