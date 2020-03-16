@@ -6,7 +6,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=0
 set noexpandtab
-set foldenable
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -119,7 +118,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-r> :FZF<CR>
+nnoremap <C-p> :Buffer<CR>
 
 nnoremap <esc> :noh<CR>
 
@@ -134,8 +134,8 @@ nn <f2> :LspRename<cr>
 let g:fzf_layout = {'down': '~20%'}
 let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-u': 'split',
-	\ 'ctrl-i': 'vsplit' }
+	\ 'ctrl-x': 'split',
+	\ 'ctrl-v': 'vsplit' }
 
 
 " THIS IS FOR PLUGGED PLUGINS
