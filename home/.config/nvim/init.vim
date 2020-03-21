@@ -5,10 +5,6 @@ set nofoldenable
 
 set foldmethod=syntax
 
-set showmatch
-
-colorscheme Tomorrow-Night-Eighties
-
 set number relativenumber
 set scrolloff=10
 set cursorline
@@ -33,7 +29,7 @@ set statusline^=${coc#status()}
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'base16'
 
 if !exists('g:airline_symbols')
 	    let g:airline_symbols = {}
@@ -140,6 +136,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
@@ -158,8 +155,15 @@ Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
+Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
+"}}}
+
+" Colorscheme {{{
+let base16colorspace=256
+set termguicolors
+colorscheme base16-tomorrow-night-eighties
 "}}}
 " vim: fdm=marker
