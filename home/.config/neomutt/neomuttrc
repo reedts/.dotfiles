@@ -24,16 +24,21 @@ set sidebar_sort_method = 'path'
 #
 set folder = "~/.mail"
 
-# WWU
 source "~/.config/neomutt/wwu"
 folder-hook 'wwu/*' 'source ~/.config/neomutt/wwu'
 folder-hook 'gmail/*' 'source ~/.config/neomutt/gmail'
+folder-hook 'qubeto/*' 'source ~/.config/neomutt/qubeto'
 
 named-mailboxes "WWU--------------------------------" +wwu/INBOX \
 				" ├ Drafts" +wwu/Drafts \
 				" ├ Junk" +wwu/Junk \
 				" ├ Sent" +wwu/Sent \
 				" └ Sent Items" +"wwu/Sent Items"
+
+named-mailboxes "QuBeto--------------------------------" +qubeto/INBOX #\
+#				" ├ Drafts" +qubeto/Drafts \
+#				" ├ Junk" +qubeto/Junk \
+#				" └ Sent" +qubeto/Sent
 
 named-mailboxes "GMail------------------------------" +gmail/INBOX \
                 " ├ Archive" +gmail/Archive \
