@@ -109,3 +109,5 @@ Slave :qubeto-local:
 Create Both # Automatically create missing mailboxes, both locally and on the server
 Expunge Both
 SyncState *
+Sync All
+Pattern *

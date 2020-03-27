@@ -35,10 +35,12 @@ named-mailboxes "WWU--------------------------------" +wwu/INBOX \
 				" ├ Sent" +wwu/Sent \
 				" └ Sent Items" +"wwu/Sent Items"
 
-named-mailboxes "QuBeto--------------------------------" +qubeto/INBOX #\
-#				" ├ Drafts" +qubeto/Drafts \
-#				" ├ Junk" +qubeto/Junk \
-#				" └ Sent" +qubeto/Sent
+named-mailboxes "QuBeto--------------------------------" +qubeto/INBOX \
+				" ├ Archive" +qubeto/Archive \
+				" ├ Drafts" +qubeto/Drafts \
+				" ├ Junk" +qubeto/Spam \
+				" ├ Sent" +qubeto/Sent \
+				" └ Trash" +qubeto/Trash
 
 named-mailboxes "GMail------------------------------" +gmail/INBOX \
                 " ├ Archive" +gmail/Archive \
