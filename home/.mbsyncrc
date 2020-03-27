@@ -90,8 +90,7 @@ Channel sync-gmail-sent
 IMAPAccount qubeto
 Host w019c0bc.kasserver.com
 User m052cc73
-Pass "ihRM8cXgGSLzT6mwzBxkM_kDbEFIZh"
-#PassCmd "gpg2 --batch -q --decrypt ~/.neomutt/wwu.gpg"
+PassCmd "gpg2 --batch -q --decrypt ~/.neomutt/qubeto.gpg"
 SSLType IMAPS
 SSLVersions TLSv1
 SystemCertificates yes
