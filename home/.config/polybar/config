@@ -262,6 +262,7 @@ animation-charging-3 = 
 animation-charging-framerate = 1000
 
 ramp-capacity-foreground = ${self.format-charging-foreground}
+ramp-capacity-padding = 1
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
