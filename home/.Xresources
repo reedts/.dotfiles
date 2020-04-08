@@ -59,24 +59,44 @@
 !#define white        #eceff4
 
 !Tomorrow Eighties colorscheme
-#define fg           #cccccc
-#define bg           #2d2d2d
-#define black        #000000
-#define red          #f2777a
-#define green        #99cc99
-#define yellow       #f99157
-#define blue         #6699cc
-#define purple       #cc99cc
-#define cyan         #66cccc
-#define light_grey   #666666
-#define dark_grey    #515151
-#define light_red    #ff3334
-#define light_green  #9ec400
-#define light_yellow #ffcc66
-#define light_blue   #6699cc
-#define light_purple #b777e0
-#define light_cyan   #54ced6
-#define white        #393939
+!#define fg           #cccccc
+!#define bg           #2d2d2d
+!#define black        #000000
+!#define red          #f2777a
+!#define green        #99cc99
+!#define yellow       #f99157
+!#define blue         #6699cc
+!#define purple       #cc99cc
+!#define cyan         #66cccc
+!#define light_grey   #666666
+!#define dark_grey    #515151
+!#define light_red    #ff3334
+!#define light_green  #9ec400
+!#define light_yellow #ffcc66
+!#define light_blue   #6699cc
+!#define light_purple #b777e0
+!#define light_cyan   #54ced6
+!#define white        #393939
+
+! Base16 Tomorrow Night
+! Scheme: Chris Kempson (http://chriskempson.com)
+
+#define base00 #2d2d2d
+#define base01 #393939
+#define base02 #515151
+#define base03 #999999
+#define base04 #b4b7b4
+#define base05 #cccccc
+#define base06 #e0e0e0
+#define base07 #ffffff
+#define base08 #f2777a
+#define base09 #f99157
+#define base0A #ffcc66
+#define base0B #99cc99
+#define base0C #66cccc
+#define base0D #6699cc
+#define base0E #cc99cc
+#define base0F #a3685a
 
 #include ".xres/global_color"
 
@@ -85,6 +105,3 @@
 
 ! Settings for URxvt
 #include ".xres/urxvt"
-
-! Settings for rofi
-#include ".xres/rofi"

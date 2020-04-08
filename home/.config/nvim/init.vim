@@ -10,6 +10,7 @@ set scrolloff=10
 set cursorline
 
 set fillchars+=vert:\│
+
 "}}}
 
 " Indenting {{{
@@ -64,9 +65,13 @@ let c_C99 = 1
 
 " C++ syntax plugin {{{
 let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
-let c_no_curly_error = 1"}}}
+let c_no_curly_error = 1
+"}}}
 
 "Language supports {{{
 
@@ -156,14 +161,27 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'rust-lang/rust.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Initialize plugin system
 call plug#end()
 "}}}
 
+" CoC Settings {{{
+" clangd {{{
+nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
+" }}}
+" }}}
+
 " Colorscheme {{{
 let base16colorspace=256
 set termguicolors
 colorscheme base16-tomorrow-night-eighties
+"}}}
+
+" Directory specific settings {{{
+" if a .vimlocal is found in dir, load it
+" else ignore
+silent! so .vimlocal
 "}}}
 " vim: fdm=marker
