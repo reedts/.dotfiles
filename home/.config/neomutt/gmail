@@ -6,6 +6,7 @@ set mbox_type = Maildir
 set spoolfile = +gmail/INBOX
 unset record
 set postponed = +gmail/Drafts
+set trash = +gmail/Trash
 
 set realname = "Julian Bigge"
 set from = "j.reedts@gmail.com"
