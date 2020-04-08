@@ -130,7 +130,8 @@ label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = "%index% %icon%"
-label-visible-background = ${colors.light-grey}
+label-visible-background = ${colors.dark-grey}
+label-visible-foreground = ${colors.green}
 label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
@@ -162,9 +163,9 @@ ramp-coreload-4-foreground = ${colors.yellow}
 ramp-coreload-5 = ▆
 ramp-coreload-5-foreground = ${colors.yellow}
 ramp-coreload-6 = ▇
-ramp-coreload-6-foreground = ${colors.light-red}
+ramp-coreload-6-foreground = ${colors.red}
 ramp-coreload-7 = █
-ramp-coreload-7-foreground = ${colors.red}
+ramp-coreload-7-foreground = ${colors.light-red}
 
 [module/memory]
 type = internal/memory
@@ -216,7 +217,7 @@ format-disconnected-background = ${colors.alert}
 type = internal/date
 interval = 5
 format-foreground = ${colors.background}
-format-background = ${colors.yellow}
+format-background = ${colors.light-red}
 format-padding = 2
 format-prefix = "%{T1} %{T-}"
 

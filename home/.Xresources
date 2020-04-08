@@ -80,7 +80,6 @@
 
 ! Base16 Tomorrow Night
 ! Scheme: Chris Kempson (http://chriskempson.com)
-
 #define base00 #2d2d2d
 #define base01 #393939
 #define base02 #515151
