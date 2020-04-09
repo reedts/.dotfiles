@@ -340,8 +340,8 @@ exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 
 # class			    	border		backgr.		text	indicator
 client.focused		    $green		$green		$bg		$purple
-client.focused_inactive $light_grey	$light_grey	$fg
-client.unfocused	    $dark_grey	$dark_grey	$fg		$light_purple
+client.focused_inactive $light_grey	$light_grey	$bg
+client.unfocused	    $dark_grey	$dark_grey	$bg		$light_purple
 client.urgent		    $red		$red	   	$bg		#000000
 #=================== Custom keybindings =============================================
 
