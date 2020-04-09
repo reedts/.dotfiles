@@ -162,6 +162,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'rust-lang/rust.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tridactyl/vim-tridactyl'
 
 " Initialize plugin system
 call plug#end()
