@@ -95,11 +95,13 @@ set hintnames short
 set editorcmd alacritty -e nvim
 
 " Sane hinting mode
-$set hintfiltermode vimperator-reflow
+set hintfiltermode vimperator-reflow
 
 " Defaults to 300ms but I'm a 'move fast and close the wrong tabs' kinda chap
 set hintdelay 100
 
+set searchengine duckduckgo 
+set searchurls = {"google":"https://www.google.com/search?q=","scholar":"https://scholar.google.com/scholar?q=","duckduckgo":"https://duckduckgo.com/?q=", "wikipedia":"https://en.wikipedia.org/wiki/Special:Search/","youtube":"https://www.youtube.com/results?search_query=","amazon":"https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=", "startpage":"https://startpage.com/do/search?language=english&cat=web&query=","github":"https://github.com/search?utf8=✓&q="}
 " Add helper commands that Mozillians think make Firefox irredeemably
 " insecure. For details, read the comment at the top of this file.
 "command fixamo_quiet jsb tri.excmds.setpref("privacy.resistFingerprinting.block_mozAddonManager", "true").then(tri.excmds.setpref("extensions.webextensions.restrictedDomains", '""'))
