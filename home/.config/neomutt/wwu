@@ -6,6 +6,7 @@ set mbox_type = Maildir
 set spoolfile = +wwu/INBOX
 set record = +wwu/Sent
 set postponed = +wwu/Drafts
+set trash = +wwu/Trash
 
 
 # Identity
