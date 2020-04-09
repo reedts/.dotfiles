@@ -5,8 +5,7 @@
 # Read the manual, explore, and have fun!
 #
 
-###############-----------------------------------------------------------------
-# Sidebar
+## Sidebar ##----------------------------------------------------------------{{{
 #
 set sidebar_visible = yes
 set sidebar_divider_char = '│'
@@ -18,9 +17,9 @@ set sidebar_width = 25
 set sidebar_indent_string = '  ''
 set sidebar_format = "%B %* [%?N?%N / ?%S]"
 set sidebar_sort_method = 'path'
+# }}}
 
-###############----------------------------------------------------------------
-# Accounts
+## Accounts ##---------------------------------------------------------------{{{
 #
 set folder = "~/.mail"
 
@@ -33,7 +32,8 @@ named-mailboxes "WWU--------------------------------" +wwu/INBOX \
 				" ├ Drafts" +wwu/Drafts \
 				" ├ Junk" +wwu/Junk \
 				" ├ Sent" +wwu/Sent \
-				" └ Sent Items" +"wwu/Sent Items"
+				" ├ Sent Items" +"wwu/Sent Items" \
+				" └ Trash" +wwu/Trash
 
 named-mailboxes "QuBeto--------------------------------" +qubeto/INBOX \
 				" ├ Archive" +qubeto/Archive \
@@ -47,19 +47,19 @@ named-mailboxes "GMail------------------------------" +gmail/INBOX \
                 " ├ Drafts" +gmail/Drafts \
                 " ├ Sent" +gmail/Sent \
                 " └ Trash" +gmail/Trash
+# }}}
 
-###############----------------------------------------------------------------
-# Lists
+## Lists ##------------------------------------------------------------------{{{
 #
 lists notifications@github.com
+# }}}
 
-###############----------------------------------------------------------------
-# Formats
+## Formats ##----------------------------------------------------------------{{{
 #
 set query_format = "%4c %t %-25.45a %-25.25n %?e?(%e)?"
- 
-###############----------------------------------------------------------------
-# Colors
+# }}}
+
+## Colors ##-----------------------------------------------------------------{{{
 #
 color normal	default		default
 color error		color1		color236
@@ -104,8 +104,9 @@ color quoted3					color14		default
 color body underline		color3		default		"(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]"
 color body 					color0		color2		"Good signature"
 color body 					color0		color1		"Bad signature"
-###############----------------------------------------------------------------
-# Keybindings
+# }}}
+
+## Keybindings ##------------------------------------------------------------{{{
 # like VI
 #
 # Vi-like keybindings
@@ -164,10 +165,9 @@ macro index			\CI	"<shell-escape>mbsync -a<enter>" "Refresh from IMAP"
 
 # for completion of addresses
 bind editor <tab> complete-query
+# }}}
 
-
-###############----------------------------------------------------------------
-# Pager settings
+## Pager settings ##---------------------------------------------------------{{{
 #
 ignore *
 unignore From Message-ID Date To Cc Bcc Subject
@@ -188,12 +188,13 @@ mime_lookup application/octet-stream
 # This requires a ~/.mailcap entry with the copiousoutput flag, such as:
 # text/html; lynx -dump -width ${COLUMNS:-80} %s; nametemplate=%s.html; copiousoutput
 auto_view text/html
+# }}}
 
-###############----------------------------------------------------------------
-# Index settings
+## Index settings ##---------------------------------------------------------{{{
 #
-
-set new_mail_command = "notify-send '  New E-Mail' '%n new messages, %u unread.' &"
+# Print number if messages if new messages in current mailbox,
+# otherwise print number of mailboxes with new mails
+set new_mail_command = "notify-send '  New E-Mail' '%?n?%n new messages&New messages in %b mailboxes?' &"
 set check_new = yes
 set mail_check = 120
 set quit = ask-yes
@@ -207,9 +208,9 @@ set message_cachedir = "~/.cache/neomutt"
 
 ignore          *
 unignore from date subject to cc
+# }}}
 
-###############----------------------------------------------------------------
-# Message composition settings
+## Composition settings ##---------------------------------------------------{{{
 #
 set edit_headers
 
@@ -221,9 +222,9 @@ set mime_type_query_command = "xdg-mime query filetype"
 # lbdb is a versatile contact query tool.
 # Invoke via ctrl-t in an address prompt
 #set query_command = "/usr/bin/lbdbq"
+# }}}
 
-###############----------------------------------------------------------------
-# GnuPG
+## GnuPG ##------------------------------------------------------------------{{{
 #
 set crypt_use_gpgme = yes
 set pgp_default_key = "0x0F9C0ECE575A522E43C83E98B454329C87EBA7E0"
@@ -238,9 +239,9 @@ set crypt_autoencrypt = no # Always try to encrypt outgoing messages
 set crypt_autosmime = no   # ... for smime
 set crypt_autopgp = no      # ... but not for pgp
 set fcc_clear = yes			# Save sent message in plain text
+# }}}
 
-############-------------------------------------------------------------------
-# notmuch configuration
+## notmuch ##----------------------------------------------------------------{{{
 #
 # This variable specifies notmuch query limit.
 set nm_db_limit = 0
@@ -285,3 +286,6 @@ set virtual_spoolfile = no
 # first setup the duration, and then the time unit of that duration
 # when set to 0 (the default) the search window feature is disabled
 set nm_query_window_duration=2
+# }}}
+
+# vim: foldmethod=marker
