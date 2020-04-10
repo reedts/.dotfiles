@@ -30,7 +30,7 @@
 " NB: If you want "vim-like" behaviour where removing a line from
 " here makes the setting disappear, uncomment the line below.
 
-sanitise tridactyllocal tridactylsync
+"sanitise tridactyllocal tridactylsync
 
 "
 " Binds
@@ -100,7 +100,7 @@ bind gh hint -W exclaim_quiet mpv play
 " Misc settings
 "
 
-set smoothscroll true
+colorscheme base16-tomorrow-night
 
 " Find settings (experimental)
 bind / fillcmdline find
