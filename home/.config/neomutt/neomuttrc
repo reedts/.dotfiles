@@ -133,6 +133,10 @@ bind  index,pager    \CP vfolder-from-query
 # generate virtual folder from query with time window
 bind  index          < vfolder-window-backward
 bind  index          > vfolder-window-forward
+# shortcuts for various inboxes
+macro index          gw <change-folder>=wwu/INBOX<enter>
+macro index          gq <change-folder>=qubeto/INBOX<enter>
+macro index          gm <change-folder>=gmail/INBOX<enter>
 macro index          h '<change-folder>?'
 macro index			 \CI "<shell-escape>mail_refresh<enter>" "Refresh from IMAP"
 macro index,pager    b   '<enter-command>toggle sidebar_visible<enter>'
@@ -160,8 +164,6 @@ bind alias,index,browser,query gg first-entry
 bind pager gg top
 bind alias,index,browser,query,pager \CD next-page
 bind alias,index,browser,query,pager \CU previous-page
-
-macro index			\CI	"<shell-escape>mbsync -a<enter>" "Refresh from IMAP"
 
 # for completion of addresses
 bind editor <tab> complete-query
