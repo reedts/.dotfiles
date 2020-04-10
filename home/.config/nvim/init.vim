@@ -82,7 +82,7 @@ au BufNewFile,BufRead *.cu set ft=cpp
 au BufNewFile,BufRead *.cl set ft=opencl
 
 "only if LaTeX file use colorcolumn
-au BufNewFile,BufRead *.tex set colorcolumn=80
+au BufNewFile,BufRead *.tex set colorcolumn=80 textwidth=80
 "}}}
 
 "LaTeX-Suite {{{
