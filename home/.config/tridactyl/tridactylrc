@@ -36,6 +36,13 @@ sanitise tridactyllocal tridactylsync
 " Binds
 "
 
+" Also enable firefox' native search
+unbind <C-f>
+
+" Move up/down a bit slower
+bind j scrollline 5
+bind k scrollline -5
+
 " Comment toggler for Reddit and Hacker News
 bind ;c hint -c [class*="expand"],[class="togg"]
 
@@ -48,6 +55,9 @@ bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//
 " As above but execute it and open terminal in folder
 bind ,g js let uri = document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git"); tri.native.run("cd ~/projects; git clone " + uri + "; cd \"$(basename \"" + uri + "\" .git)\"; st")
 
+" bind 'gs' to search a duckduckgo term directly on startpage
+bindurl duckduckgo.com gs js let query = document.getElementById("search_form_input").value; document.location.href = "https://www.startpage.com/do/dsearch?query=" + query;
+
 " Make gu take you back to subreddit from comments
 bindurl reddit.com gu urlparent 4
 
@@ -57,6 +67,9 @@ bindurl www.google.com F hint -Jbc .rc>.r>a
 
 bindurl ^https://duckduckgo.com f hint -Jc [class=result__a]
 bindurl ^https://duckduckgo.com F hint -Jbc [class=result__a]
+
+bindurl ^https://www.startpage.com f hint -Jc [class=w-gl__result]
+bindurl ^https://www.startpage.com F hint -Jbc [class=w-gl__result]
 
 " Allow Ctrl-a to select all in the commandline
 unbind --mode=ex <C-a>
@@ -86,6 +99,15 @@ bind gh hint -W exclaim_quiet mpv play
 "
 " Misc settings
 "
+
+set smoothscroll true
+
+" Find settings (experimental)
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
 
 " Use characters for hintnames
 set hintnames short
