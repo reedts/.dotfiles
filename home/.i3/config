@@ -10,6 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -21,6 +23,7 @@ set $mod Mod4
 # font pango:DejaVu Sans Mono 10
 font pango:Droid Sans Mono, FontAwesome 8
 
+# Color definition {{{
 # Getting xrdb color values as variables
 set_from_resource $fg			i3wm.foreground	#FFFFFF
 set_from_resource $bg			i3wm.background	#000000
@@ -40,10 +43,8 @@ set_from_resource $light_blue	i3wm.color12	#7070F0
 set_from_resource $light_purple	i3wm.color13	#C5A5FF
 set_from_resource $light_cyan	i3wm.color14	#66D9EF
 set_from_resource $white		i3wm.color15	#F8F8F2
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
+# }}}
+# Keybindings {{{
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty --class "floating"
@@ -183,29 +184,30 @@ bindsym $mod+Shift+z reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
+# }}}
+# Modes {{{
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+	# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+	# Pressing left will shrink the window’s width.
+	# Pressing right will grow the window’s width.
+	# Pressing up will shrink the window’s height.
+	# Pressing down will grow the window’s height.
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym j resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Up resize grow height 10 px or 10 ppt
-        bindsym Down resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+	# same bindings, but for the arrow keys
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Up resize grow height 10 px or 10 ppt
+	bindsym Down resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -215,10 +217,10 @@ set $launch_mode 
 mode $launch_mode {
 	# Firefox
 	bindsym f exec firefox
-    # Thunar
+	# Thunar
 	bindsym t exec thunar
 	# Chromium
-	bindsym c exec chromium 
+	bindsym c exec chromium
 
 	# back to normal
 	bindsym Escape mode "default"
@@ -229,23 +231,21 @@ bindsym $mod+Shift+x mode $launch_mode
 
 set $move_mode 
 mode $move_mode {
-    # Right
-    bindsym Right move workspace to output right
-    bindsym l move workspace to output right
-    # Left
-    bindsym Left move workspace to output left
-    bindsym h move workspace to output left
+	# Right
+	bindsym Right move workspace to output right
+	bindsym l move workspace to output right
+	# Left
+	bindsym Left move workspace to output left
+	bindsym h move workspace to output left
+	bindsym j move workspace to output down
+	bindsym k move workspace to output up
 
-    bindsym j move workspace to output down
-
-    bindsym k move workspace to output up
-
-    bindsym Escape mode "default"
+	bindsym Escape mode "default"
 }
 bindsym $mod+Shift+w mode $move_mode
 
 # Mode for simple system tasks like reboot, logout, shutdown, suspend, hibernate
-set $mode_system  (l) , (e)  , (s) , (h) , (r) , (Shift+s)  
+set $mode_system  (l) , (e)  , (s) , (h) , (r) , (Shift+s) 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3exit lock, mode "default"
 	bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -258,30 +258,13 @@ mode "$mode_system" {
 	bindsym Escape mode "default"
 }
 bindsym $mod+Shift+q mode "$mode_system"
+# }}}
 
 #new_window pixel 2
 # hide edge borders
 hide_edge_borders vertical
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#	colors {
-#		background	$bg
-#		statusline	$fg
-#		separator	$light_grey
-#		#   Element             first	second		indicator
-#		focused_workspace	$green	$green		$bg	
-#		active_workspace	$purple $purple		$bg
-#		inactive_workspace	$dark_grey	$dark_grey	$fg	
-#		urgent_workspace	$red 	$red		$bg
-#	}
-#	strip_workspace_numbers yes
-#	position bottom 
-#	font pango:Droid Sans Mono 8
-#	tray_output eDP-1
-#	status_command i3blocks
-#}
-#=================== Services =======================================================
+
+#=================== Services ==============================================={{{
 # services that cannot be started by systemctl go here
 exec polybar primary
 
@@ -303,33 +286,34 @@ exec blueman-applet
 
 # Set Wallpaper
 exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
-
-#=================== Custom Colors ==================================================
+# }}}
+#=================== Custom Colors =========================================={{{
 
 # class			    	border		backgr.		text	indicator
 client.focused		    $green		$green		$bg		$purple
 client.focused_inactive $light_grey	$light_grey	$bg
 client.unfocused	    $dark_grey	$dark_grey	$bg		$light_purple
 client.urgent		    $red		$red	   	$bg		#000000
-#=================== Custom keybindings =============================================
-
-
-#=================== Custom Window workspace ========================================
+# }}}
+#=================== Window overrides ======================================={{{
 
 assign [class="^Firefox$"] $ws2
 
 assign [class="^Pcmanfm$"] $ws8
 
-assign [title="^reedts: neomutt"] $ws9 
+assign [title="^reedts: neomutt"] $ws9
 
 # Messenger
 assign [class="^Signal$"] $ws10
 assign [class="^TelegramDesktop$"] $ws10
 assign [class="^Slack$"] $ws10
-
-#=================== Windows that should spawn in floating mode =====================
+#============= Windows that should spawn in floating mode =====================
 for_window [class="^pinentry$"] floating enable
 
 # dolphin copy and move dialog
 for_window [title="Copying *"] floating enable
 for_window [title="Moving *"] floating enable
+
+# }}}
+
+# vim: fdm=marker
