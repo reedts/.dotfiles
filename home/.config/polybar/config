@@ -148,7 +148,7 @@ interval = 5
 type = internal/backlight
 card = intel_backlight
 format = <ramp>
-format-foreground = ${colors.light-yellow}
+format-foreground = ${colors.yellow}
 
 ramp-0 = 
 ramp-1 = 
@@ -252,7 +252,7 @@ format-discharging = <label-discharging> <ramp-capacity>
 
 format-discharging-padding = 2
 label-discharging = " %percentage:2%% (%time%)"
-format-discharging-background = ${colors.yellow}
+format-discharging-background = ${colors.light-red}
 format-discharging-foreground = ${colors.background}
 label-charging = " %percentage:2%% (%time%)"
 label-full = " "
