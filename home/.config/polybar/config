@@ -175,7 +175,7 @@ format = <label> <bar-used>
 format-background = ${colors.cyan}
 format-foreground = ${colors.background}
 format-padding = 2
-format-prefix = "RAM: "
+format-prefix = %{T2}  %{T-}
 format-underline = ${colors.primary}
 label = %percentage_used:3%%
 
