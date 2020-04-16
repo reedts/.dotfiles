@@ -83,6 +83,9 @@ au BufNewFile,BufRead *.cl set ft=opencl
 
 "only if LaTeX file use colorcolumn
 au BufNewFile,BufRead *.tex set colorcolumn=80 textwidth=80
+
+"Jump to first non-empty line for mails
+au FileType mail execute "normal }"
 "}}}
 
 "LaTeX-Suite {{{
@@ -102,6 +105,8 @@ nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
+
+nmap <C-u> :redo<CR>
 
 " GitGutter
 let g:gitgutter_enabled = 0
