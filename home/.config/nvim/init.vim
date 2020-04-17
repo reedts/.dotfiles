@@ -90,9 +90,10 @@ au FileType mail execute "normal }"
 
 "LaTeX-Suite {{{
 filetype plugin on
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_compiler_method = 'latexmk'
+"let g:vimtex_compiler_progname = 'nvr'
+"let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
+let g:tex_conceal = 'abdmg'
 let g:vimtex_compiler_latexmk = {
 	\'build_dir': './build',
 	\}
