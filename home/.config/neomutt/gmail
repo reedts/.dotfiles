@@ -3,10 +3,11 @@
 #
 #
 set mbox_type = Maildir
-set spoolfile = +gmail/INBOX
+set folder = "~/.mail/gmail"
+set spoolfile = +INBOX
 unset record
-set postponed = +gmail/Drafts
-set trash = +gmail/Trash
+set postponed = +Drafts
+set trash = +Trash
 
 set realname = "Julian Bigge"
 set from = "j.reedts@gmail.com"

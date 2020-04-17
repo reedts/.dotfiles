@@ -3,10 +3,12 @@
 #
 #
 set mbox_type = Maildir
-set spoolfile = +wwu/INBOX
-set record = +wwu/Sent
-set postponed = +wwu/Drafts
-set trash = +wwu/Trash
+set folder = "~/.mail/wwu"
+set spoolfile = +INBOX
+set my_archive = +Archive
+set record = +Sent
+set postponed = +Drafts
+set trash = +Trash
 
 
 # Identity
