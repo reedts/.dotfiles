@@ -100,7 +100,7 @@ bind gh hint -W exclaim_quiet mpv play
 " Misc settings
 "
 
-colorscheme base16-tomorrow-night
+colorscheme dark
 
 " Find settings (experimental)
 bind / fillcmdline find
