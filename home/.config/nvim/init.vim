@@ -169,6 +169,8 @@ Plug 'chrisbra/Colorizer'
 Plug 'rust-lang/rust.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tridactyl/vim-tridactyl'
+Plug 'tommcdo/vim-lion'
+Plug 'machakann/vim-highlightedyank'
 
 " Initialize plugin system
 call plug#end()
