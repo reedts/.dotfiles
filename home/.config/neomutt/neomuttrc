@@ -21,32 +21,32 @@ set sidebar_sort_method = 'path'
 
 ## Accounts ##---------------------------------------------------------------{{{
 #
-set folder = "~/.mail"
+set folder = "~/.mail/wwu"
 
 source "~/.config/neomutt/wwu"
 folder-hook 'wwu/*' 'source ~/.config/neomutt/wwu'
 folder-hook 'gmail/*' 'source ~/.config/neomutt/gmail'
 folder-hook 'qubeto/*' 'source ~/.config/neomutt/qubeto'
 
-named-mailboxes "WWU--------------------------------" +wwu/INBOX \
-				" ├ Drafts" +wwu/Drafts \
-				" ├ Junk" +wwu/Junk \
-				" ├ Sent" +wwu/Sent \
-				" ├ Sent Items" +"wwu/Sent Items" \
-				" └ Trash" +wwu/Trash
+named-mailboxes "WWU--------------------------------" +../wwu/INBOX \
+				" ├ Archive" +../wwu/Archive \
+				" ├ Drafts" +../wwu/Drafts \
+				" ├ Junk" +../wwu/Junk \
+				" ├ Sent" +../wwu/Sent \
+				" └ Trash" +../wwu/Trash
 
-named-mailboxes "QuBeto--------------------------------" +qubeto/INBOX \
-				" ├ Archive" +qubeto/Archive \
-				" ├ Drafts" +qubeto/Drafts \
-				" ├ Junk" +qubeto/Spam \
-				" ├ Sent" +qubeto/Sent \
-				" └ Trash" +qubeto/Trash
+named-mailboxes "QuBeto--------------------------------" +../qubeto/INBOX \
+				" ├ Archive" +../qubeto/Archive \
+				" ├ Drafts" +../qubeto/Drafts \
+				" ├ Junk" +../qubeto/Spam \
+				" ├ Sent" +../qubeto/Sent \
+				" └ Trash" +../qubeto/Trash
 
-named-mailboxes "GMail------------------------------" +gmail/INBOX \
-                " ├ Archive" +gmail/Archive \
-                " ├ Drafts" +gmail/Drafts \
-                " ├ Sent" +gmail/Sent \
-                " └ Trash" +gmail/Trash
+named-mailboxes "GMail------------------------------" +../gmail/INBOX \
+                " ├ Archive" +../gmail/Archive \
+                " ├ Drafts" +../gmail/Drafts \
+                " ├ Sent" +../gmail/Sent \
+                " └ Trash" +../gmail/Trash
 # }}}
 
 ## Lists ##------------------------------------------------------------------{{{
@@ -134,13 +134,19 @@ bind  index,pager    \CP vfolder-from-query
 bind  index          < vfolder-window-backward
 bind  index          > vfolder-window-forward
 # shortcuts for various inboxes
-macro index          gw <change-folder>=wwu/INBOX<enter>
-macro index          gq <change-folder>=qubeto/INBOX<enter>
-macro index          gm <change-folder>=gmail/INBOX<enter>
+macro index          gw <change-folder>=../wwu/INBOX<enter>
+macro index          gq <change-folder>=../qubeto/INBOX<enter>
+macro index          gm <change-folder>=../gmail/INBOX<enter>
+macro index          ga <change-folder>=Archive<enter>
+macro index          gd <change-folder>=Drafts<enter>
+macro index          gs <change-folder>=Sent<enter>
+macro index          gt <change-folder>=Trash<enter>
+macro index          gi <change-folder>=INBOX<enter>
 macro index          h '<change-folder>?'
 macro index			 \CI "<shell-escape>mail_refresh<enter>" "Refresh from IMAP"
 macro index,pager    b   '<enter-command>toggle sidebar_visible<enter>'
 macro index          L "<limit>all<enter><last-entry>"
+macro index,pager    A "<save-message>+Archive<enter>"
 # Pager
 bind  pager          h exit
 bind  pager          j next-line
