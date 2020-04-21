@@ -68,8 +68,8 @@ bindurl www.google.com F hint -Jbc .rc>.r>a
 bindurl ^https://duckduckgo.com f hint -Jc [class=result__a]
 bindurl ^https://duckduckgo.com F hint -Jbc [class=result__a]
 
-bindurl ^https://www.startpage.com f hint -Jc [class=w-gl__result]
-bindurl ^https://www.startpage.com F hint -Jbc [class=w-gl__result]
+bindurl ^https://www.startpage.com f hint -Jc [class=w-gl__result-title]
+bindurl ^https://www.startpage.com F hint -Jbc [class=w-gl__result-title]
 
 " Allow Ctrl-a to select all in the commandline
 unbind --mode=ex <C-a>
