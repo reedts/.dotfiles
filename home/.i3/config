@@ -23,8 +23,10 @@ floating_modifier $mod
 # font pango:DejaVu Sans Mono 10
 font pango:Droid Sans Mono, FontAwesome 8
 
-# Color definition {{{
-# Getting xrdb color values as variables
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# --- Custom Colors ---{{{
 set_from_resource $fg			i3wm.foreground	#FFFFFF
 set_from_resource $bg			i3wm.background	#000000
 set_from_resource $black		i3wm.color0		#121212
@@ -43,8 +45,15 @@ set_from_resource $light_blue	i3wm.color12	#7070F0
 set_from_resource $light_purple	i3wm.color13	#C5A5FF
 set_from_resource $light_cyan	i3wm.color14	#66D9EF
 set_from_resource $white		i3wm.color15	#F8F8F2
+
+# class			    	border		backgr.		text	indicator
+client.focused		    $green		$green		$bg		$purple
+client.focused_inactive $light_grey	$light_grey	$bg
+client.unfocused	    $dark_grey	$dark_grey	$bg		$light_purple
+client.urgent		    $red		$red	   	$bg		#000000
 # }}}
-# Keybindings {{{
+
+# --- Keybindings ---{{{
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty --class "floating"
@@ -185,7 +194,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # }}}
-# Modes {{{
+
+# --- Modes ---{{{
 # resize window (you can also use the mouse for that)
 mode "resize" {
 	# These bindings trigger as soon as you enter the resize mode
@@ -228,7 +238,6 @@ mode $launch_mode {
 bindsym $mod+Shift+x mode $launch_mode
 
 # Mode for moving a workspace between monitors
-
 set $move_mode 
 mode $move_mode {
 	# Right
@@ -260,12 +269,15 @@ mode "$mode_system" {
 bindsym $mod+Shift+q mode "$mode_system"
 # }}}
 
-#new_window pixel 2
+# --- Misc settings ---{{{
+new_window pixel 1
+
 # hide edge borders
 hide_edge_borders vertical
+# }}}
 
-#=================== Services ==============================================={{{
-# services that cannot be started by systemctl go here
+# --- Services ---{{{
+
 exec polybar primary
 
 exec i3-battery-popup -L 20 -n
@@ -287,33 +299,10 @@ exec blueman-applet
 # Set Wallpaper
 exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 # }}}
-#=================== Custom Colors =========================================={{{
 
-# class			    	border		backgr.		text	indicator
-client.focused		    $green		$green		$bg		$purple
-client.focused_inactive $light_grey	$light_grey	$bg
-client.unfocused	    $dark_grey	$dark_grey	$bg		$light_purple
-client.urgent		    $red		$red	   	$bg		#000000
-# }}}
-#=================== Window overrides ======================================={{{
-
-assign [class="^Firefox$"] $ws2
-
-assign [class="^Pcmanfm$"] $ws8
-
-assign [title="^reedts: neomutt"] $ws9
-
-# Messenger
-assign [class="^Signal$"] $ws10
-assign [class="^TelegramDesktop$"] $ws10
-assign [class="^Slack$"] $ws10
-#============= Windows that should spawn in floating mode =====================
+# --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
-
-# dolphin copy and move dialog
-for_window [title="Copying *"] floating enable
-for_window [title="Moving *"] floating enable
-
 # }}}
 
-# vim: fdm=marker
+
+# vim:fdm=marker
