@@ -82,7 +82,7 @@ au BufNewFile,BufRead *.cu set ft=cpp
 au BufNewFile,BufRead *.cl set ft=opencl
 
 "only if LaTeX file use colorcolumn
-au BufNewFile,BufRead *.tex set colorcolumn=80 textwidth=80
+au BufNewFile,BufRead *.tex set colorcolumn=80 textwidth=80 tabstop=2 shiftwidth=2
 
 "Jump to first non-empty line for mails
 au FileType mail execute "normal }"
@@ -93,9 +93,8 @@ filetype plugin on
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
-let g:tex_conceal = 'abdmg'
 let g:vimtex_compiler_latexmk = {
-	\'build_dir': './build',
+	\ 'build_dir' : './build'
 	\}
 "}}}
 
@@ -129,6 +128,10 @@ nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
 nn <f2> :LspRename<cr>
+
+" Enable ag search
+nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
+
 "}}}
 
 " FZF {{{
