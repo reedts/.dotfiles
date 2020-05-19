@@ -115,6 +115,9 @@ alias lt='ls -ltr $LS_OPTIONS'
 # sv
 alias svl="sudo sv status /var/service/*"
 
+# feh
+alias fehi='feh --keep-zoom-vp --info --auto-rotate'
+
 ####################################################
 #                  END  Aliases                    #
 ####################################################                                           
