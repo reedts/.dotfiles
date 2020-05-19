@@ -291,7 +291,8 @@ exec conky -c ~/.conkymain
 #exec compton -b
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+#exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+exec_always /home/reedts/bin/superpaper -s /home/reedts/Pictures/background0.jpg /home/reedts/Pictures/background1.png /home/reedts/Pictures/background2.png
 # }}}
 
 # --- Floats ---{{{
