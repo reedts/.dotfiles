@@ -257,6 +257,8 @@ format = <label> <ramp>
 format-warn = <label-warn> <ramp>
 format-warn-background = ${colors.red}
 format-warn-foreground = ${colors.background}
+format-padding = 2
+format-warn-padding = 2
 
 label = %temperature-c%
 label-warn = %temperature-c%
