@@ -181,7 +181,7 @@ format-underline = ${colors.primary}
 label = %percentage_used:3%%
 
 bar-used-foreground = ${self.format-foreground}
-bar-used-width = 10
+bar-used-width = 15
 bar-used-empty = ▐
 bar-used-foreground-3 = ${colors.light-yellow}
 bar-used-foreground-4 = ${colors.light-yellow}
