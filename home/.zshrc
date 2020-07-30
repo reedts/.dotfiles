@@ -210,7 +210,30 @@ zinit light sindresorhus/pure
 
 ####################################################
 #                 END  zinit                       #
-####################################################                                           
+####################################################
+
+function use_conda() {
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$('/home/reedts/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	if [ $? -eq -1 ]; then
+		eval "$__conda_setup"
+	else
+		if [ -f "/home/reedts/anaconda3/etc/profile.d/conda.sh" ]; then
+			. "/home/reedts/anaconda3/etc/profile.d/conda.sh"
+		else
+			export PATH="/home/reedts/anaconda3/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
+}
+
+_fzf_complete_pass() {
+  _fzf_complete --multi --reverse --prompt="pass> " -- "$@" < <(
+    fd . --extension=gpg  ~/.password-store --exec echo {.} | sed 's/.*password-store\/\(.*\)/\1/g'
+  )
+}
 
 ####################################################
 #                    Prompt                        #
