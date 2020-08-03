@@ -69,7 +69,7 @@ bindsym $mod+n exec rofi -show window
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # start rofi-pass
-bindsym $mod+g exec rofi-pass
+bindsym $mod+p exec rofi-pass
 
 # change focus
 bindsym $mod+h focus left
