@@ -326,6 +326,7 @@ click-right = "pavucontrol &"
 
 [module/temperature]
 type = internal/temperature
+thermal-zone = 5
 base-temperature = 20
 warn-temperature = 60
 
