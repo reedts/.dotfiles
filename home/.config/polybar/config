@@ -62,11 +62,12 @@ line-size = 0
 border-top-size = 1
 border-color = ${colors.dark-grey}
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = "RobotoMono:size=6;1"
-font-1 = FontAwesome5FreeSolid:size=8;1
+font-0 = "Roboto Mono for Powerline:style=Regular:size=6;1"
+font-1 = FontAwesome5FreeSolid:size=8;2
+font-2 = "unifont:size=6;2"
 
 dpi-x = 108
 dpi-y = 108
@@ -114,31 +115,31 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ; ws-icon-default = 
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-background = ${colors.active-background}
 
 ; focused = Active workspace on focused monitor
 label-focused = "%index% %icon%"
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = "%index% %icon%"
 label-unfocused-foreground = ${colors.secondary}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 2 
+label-unfocused-padding = 1 
 
 ; visible = Active workspace on unfocused monitor
 label-visible = "%index% %icon%"
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.green}
-label-visible-padding = 2
+label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = "%index% %icon%"
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 
 [module/cpu]
@@ -151,21 +152,27 @@ format-background = ${colors.blue}
 label = %percentage:3%%
 format-padding = 2
 
-; Spacing between individual per-core ramps
-ramp-coreload-spacing = 1
 ramp-coreload-foreground = ${self.format-foreground}
 ramp-coreload-0 = ▁
+ramp-coreload-0-font = 3
 ramp-coreload-1 = ▂
+ramp-coreload-1-font = 3
 ramp-coreload-2 = ▃
+ramp-coreload-2-font = 3
 ramp-coreload-3 = ▄
+ramp-coreload-3-font = 3
 ramp-coreload-3-foreground = ${colors.light-yellow}
 ramp-coreload-4 = ▅
+ramp-coreload-4-font = 3
 ramp-coreload-4-foreground = ${colors.yellow}
 ramp-coreload-5 = ▆
+ramp-coreload-5-font = 3
 ramp-coreload-5-foreground = ${colors.yellow}
 ramp-coreload-6 = ▇
+ramp-coreload-6-font = 3
 ramp-coreload-6-foreground = ${colors.light-red}
 ramp-coreload-7 = █
+ramp-coreload-7-font = 3
 ramp-coreload-7-foreground = ${colors.red}
 
 [module/memory]
@@ -180,8 +187,8 @@ format-underline = ${colors.primary}
 label = %percentage_used:3%%
 
 bar-used-foreground = ${self.format-foreground}
-bar-used-width = 15
-bar-used-empty = ▐
+bar-used-width = 20
+bar-used-empty = |
 bar-used-foreground-3 = ${colors.light-yellow}
 bar-used-foreground-4 = ${colors.light-yellow}
 bar-used-foreground-5 = ${colors.light-yellow}
@@ -190,7 +197,7 @@ bar-used-foreground-7 = ${colors.light-red}
 bar-used-foreground-8 = ${colors.light-red}
 bar-used-foreground-9 = ${colors.red}
 bar-used-foreground-10 = ${colors.red}
-bar-used-fill = ▐
+bar-used-fill = ▎
 bar-used-empty-foreground = ${self.format-background}
 bar-used-indicator = 
 
