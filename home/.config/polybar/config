@@ -83,7 +83,7 @@ monitor = ${env:MONITOR:HDMI-2}
 [bar/primary]
 inherit = bar/base
 monitor = ${env:MONITOR:eDP-1}
-modules-right = backlight temperature cpu memory vpn wlan eth internal_battery external_battery
+modules-right = backlight temperature cpu memory vpn wlan eth internal_battery external_battery mail
 
 tray-position = right
 tray-padding = 4
@@ -94,7 +94,7 @@ cursor-scroll = ns-resize
 [bar/snd_primary]
 inherit = bar/base
 monitor = ${env:MONITOR:DP-1}
-modules-right = backlight temperature cpu memory vpn wlan eth internal_battery external_battery
+modules-right = backlight temperature cpu memory vpn wlan eth internal_battery external_battery mail
 
 tray-position = right
 tray-padding = 4
@@ -341,6 +341,15 @@ label-warn = %temperature-c%
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
+
+[module/mail]
+type = custom/script
+exec = buzz
+tail = true
+format-prefix = "  "
+format-suffix = "  "
+format-foreground = ${colors.foreground}
+
 
 [settings]
 screenchange-reload = true
