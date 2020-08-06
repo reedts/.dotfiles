@@ -61,3 +61,8 @@ colors:
     - { index: 20, color: '0xb4b7b4' }
     - { index: 21, color: '0xe0e0e0' }
 
+key_bindings:
+    - { key: J,      mods: Alt,          action: ScrollLineDown   }
+    - { key: K,      mods: Alt,          action: ScrollLineUp     }
+    - { key: J,      mods: Alt|Shift,    action: ScrollPageDown   }
+    - { key: K,      mods: Alt|Shift,    action: ScrollPageUp     }

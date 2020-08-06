@@ -208,7 +208,7 @@ auto_view text/html
 #
 # Print number if messages if new messages in current mailbox,
 # otherwise print number of mailboxes with new mails
-set new_mail_command = "notify-send '  New E-Mail' '%?n?%n new messages&New messages in %b mailboxes?' &"
+#set new_mail_command = "notify-send '  New E-Mail' '%?n?%n new messages&New messages in %b mailboxes?' &"
 set check_new = yes
 set mail_check = 120
 set quit = ask-yes
