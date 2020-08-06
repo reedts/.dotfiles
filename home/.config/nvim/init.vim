@@ -90,6 +90,7 @@ au FileType mail execute "normal }"
 
 "LaTeX-Suite {{{
 filetype plugin on
+let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
@@ -182,7 +183,10 @@ call plug#end()
 " CoC Settings {{{
 " clangd {{{
 nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
-" }}}
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+command! -nargs=0 Fmt :call CocAction('format')
 " }}}
 
 " Colorscheme {{{
