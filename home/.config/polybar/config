@@ -57,7 +57,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
+line-size = 1
 
 border-top-size = 1
 border-color = ${colors.dark-grey}
@@ -65,12 +65,10 @@ border-color = ${colors.dark-grey}
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Roboto Mono for Powerline:style=Regular:size=6;1"
+font-0 = "Roboto:style=Regular:size=8;1"
 font-1 = FontAwesome5FreeSolid:size=8;2
-font-2 = "unifont:size=6;2"
-
-dpi-x = 108
-dpi-y = 108
+font-2 = "unifont:size=8;2"
+font-3 = "Roboto Mono for Powerline:style=Regular:size=8;1"
 
 modules-left = i3
 modules-center = date
@@ -86,6 +84,7 @@ monitor = ${env:MONITOR:HDMI-0}
 [bar/primary]
 inherit = bar/base
 monitor = ${env:MONITOR:DP-2}
+modules-left = i3 vpn
 modules-right = temperature cpu memory vpn eth pulseaudio mail
 
 tray-position = right
@@ -115,31 +114,32 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 ; ws-icon-default = 
 
-label-mode-padding = 1
-label-mode-background = ${colors.active-background}
+label-mode-padding = 2
+label-mode-foreground = ${colors.background}
+label-mode-background = ${colors.magenta}
 
 ; focused = Active workspace on focused monitor
-label-focused = "%index% %icon%"
+label-focused = "%index%  %icon%"
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.primary}
-label-focused-padding = 1
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = "%index% %icon%"
+label-unfocused = "%index%  %icon%"
 label-unfocused-foreground = ${colors.secondary}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 1 
+label-unfocused-padding = 2 
 
 ; visible = Active workspace on unfocused monitor
-label-visible = "%index% %icon%"
+label-visible = "%index%  %icon%"
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.green}
-label-visible-padding = 1
+label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
-label-urgent = "%index% %icon%"
+label-urgent = "%index%  %icon%"
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 
 [module/cpu]
@@ -147,10 +147,11 @@ type = internal/cpu
 interval = 2
 format = <label> <ramp-coreload>
 format-prefix = %{T2} %{T-}
-format-foreground = ${colors.background}
-format-background = ${colors.blue}
-label = %percentage:3%%
-format-padding = 2
+format-foreground = ${colors.foreground}
+format-underline = ${colors.blue}
+label = "%percentage:3%% "
+label-font = 4
+format-padding = 1
 
 ramp-coreload-foreground = ${self.format-foreground}
 ramp-coreload-0 = ▁
@@ -179,16 +180,16 @@ ramp-coreload-7-foreground = ${colors.red}
 type = internal/memory
 interval = 2
 format = <label> <bar-used>
-format-background = ${colors.cyan}
-format-foreground = ${colors.background}
-format-padding = 2
-format-prefix = %{T2}  %{T-}
-format-underline = ${colors.primary}
-label = %percentage_used:3%%
+format-underline = ${colors.blue}
+format-foreground = ${colors.foreground}
+format-padding = 1
+format-prefix = %{T2} %{T-}
+label = "%percentage_used:3%% "
+label-font = 4
 
 bar-used-foreground = ${self.format-foreground}
 bar-used-width = 20
-bar-used-empty = |
+bar-used-empty = ▎
 bar-used-foreground-3 = ${colors.light-yellow}
 bar-used-foreground-4 = ${colors.light-yellow}
 bar-used-foreground-5 = ${colors.light-yellow}
@@ -198,7 +199,7 @@ bar-used-foreground-8 = ${colors.light-red}
 bar-used-foreground-9 = ${colors.red}
 bar-used-foreground-10 = ${colors.red}
 bar-used-fill = ▎
-bar-used-empty-foreground = ${self.format-background}
+bar-used-empty-foreground = ${colors.black}
 bar-used-indicator = 
 
 [module/vpn]
@@ -211,11 +212,11 @@ type = internal/network
 interface = enp0s31f6
 interval = 3.0
 
-format-connected-padding = 2
-format-connected-foreground = ${colors.background}
-format-connected-background = ${colors.primary}
+format-connected-padding = 1
+format-connected-foreground = ${colors.foreground}
+format-connected-underline = ${colors.blue}
 format-connected-prefix = "%{T1} %{T-}"
-label-connected = "%local_ip%  %{T1}%{T-} %upspeed:10% %{T1}%{T-} %downspeed:10%"
+label-connected = "%local_ip%  %{T4}%upspeed:8%%{T-} %{T1}%{T-}%{T1}%{T-}%{T4}%downspeed:8%%{T-}"
 
 format-disconnected =
 label-disconnected = "%{T1} ${T-}"
@@ -224,9 +225,9 @@ format-disconnected-background = ${colors.alert}
 [module/date]
 type = internal/date
 interval = 5
-format-foreground = ${colors.background}
-format-background = ${colors.light-red}
-format-padding = 2
+format-foreground = ${colors.foreground}
+format-underline = ${colors.blue}
+format-padding = 1
 format-prefix = "%{T1} %{T-}"
 
 date = " %Y-%m-%d"
