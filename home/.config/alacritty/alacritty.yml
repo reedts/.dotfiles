@@ -66,3 +66,4 @@ key_bindings:
     - { key: K,      mods: Alt,          action: ScrollLineUp     }
     - { key: J,      mods: Alt|Shift,    action: ScrollPageDown   }
     - { key: K,      mods: Alt|Shift,    action: ScrollPageUp     }
+    - { key: T,      mods: Control|Shift,action: SpawnNewInstance }
