@@ -24,6 +24,7 @@ export PATH=$HOME/bin:$PATH
 xset r rate 200 60
 # loading .Xresources
 xrdb -load ~/.Xresources &
+/usr/libexec/polkit-gnome-authentication-agent-1 &
 # exec gnome-session
 # exec startkde
 # exec startxfce4
