@@ -215,14 +215,14 @@ zinit light sindresorhus/pure
 function use_conda() {
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/home/reedts/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	__conda_setup="$('/home/reedts/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq -1 ]; then
 		eval "$__conda_setup"
 	else
-		if [ -f "/home/reedts/anaconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/reedts/anaconda3/etc/profile.d/conda.sh"
+		if [ -f "/home/reedts/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "/home/reedts/miniconda3/etc/profile.d/conda.sh"
 		else
-			export PATH="/home/reedts/anaconda3/bin:$PATH"
+			export PATH="/home/reedts/miniconda3/bin:$PATH"
 		fi
 	fi
 	unset __conda_setup
