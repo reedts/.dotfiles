@@ -175,6 +175,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'tommcdo/vim-lion'
 Plug 'machakann/vim-highlightedyank'
+Plug 'frazrepo/vim-rainbow'
 
 " Initialize plugin system
 call plug#end()
@@ -187,6 +188,13 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 command! -nargs=0 Fmt :call CocAction('format')
+" }}}
+" }}}
+
+" VIM rainbow {{{
+let g:rainbow_active = 1
+"let g:rainbow_ctermfgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#ffcc66']
+let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '#ffcc66']
 " }}}
 
 " Colorscheme {{{
