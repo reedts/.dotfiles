@@ -24,6 +24,18 @@ set softtabstop=0
 set smarttab
 "}}}
 
+" Functions {{{
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+" }}}
+
+" Commands {{{
+command! TrimWhitespace call TrimWhitespace()
+" }}}
+
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
 set statusline^=${coc#status()}
@@ -81,9 +93,6 @@ au BufNewFile,BufRead *.cu set ft=cpp
 "OpenCL support
 au BufNewFile,BufRead *.cl set ft=opencl
 
-"only if LaTeX file use colorcolumn
-au BufNewFile,BufRead *.tex set colorcolumn=80 textwidth=80
-
 "Jump to first non-empty line for mails
 au FileType mail execute "normal }"
 "}}}
@@ -106,6 +115,7 @@ nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
+noremap <leader>w :call TrimWhitespace()<cr>
 
 nmap <C-u> :redo<CR>
 
@@ -171,6 +181,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'tommcdo/vim-lion'
 Plug 'machakann/vim-highlightedyank'
+Plug 'frazrepo/vim-rainbow'
 
 " Initialize plugin system
 call plug#end()
@@ -183,6 +194,13 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 command! -nargs=0 Fmt :call CocAction('format')
+" }}}
+" }}}
+
+" VIM rainbow {{{
+let g:rainbow_active = 1
+"let g:rainbow_ctermfgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#ffcc66']
+let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '#ffcc66']
 " }}}
 
 " Colorscheme {{{
