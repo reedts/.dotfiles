@@ -116,7 +116,7 @@ alias lt='ls -ltr $LS_OPTIONS'
 alias svl="sudo sv status /var/service/*"
 
 # feh
-alias fehi='feh --keep-zoom-vp --info --auto-rotate'
+alias fehi='feh -. -d --keep-zoom-vp --info --auto-rotate'
 
 # rsync
 alias copy='rsync -az --info=progress2'

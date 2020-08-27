@@ -81,9 +81,6 @@ au BufNewFile,BufRead *.cu set ft=cpp
 "OpenCL support
 au BufNewFile,BufRead *.cl set ft=opencl
 
-"only if LaTeX file use colorcolumn
-au BufNewFile,BufRead *.tex set colorcolumn=80 textwidth=80 tabstop=2 shiftwidth=2
-
 "Jump to first non-empty line for mails
 au FileType mail execute "normal }"
 "}}}

@@ -299,6 +299,7 @@ exec_always /home/reedts/bin/superpaper -s /home/reedts/Pictures/background0.jpg
 
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
+for_window [class="^Zeal$'"] floating enable
 # }}}
 
 
