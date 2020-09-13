@@ -93,7 +93,7 @@ cursor-scroll = ns-resize
 
 [bar/snd_primary]
 inherit = bar/base
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:HDMI-2}
 modules-left = i3 vpn
 modules-right = backlight temperature cpu memory wlan eth internal_battery external_battery mail
 
