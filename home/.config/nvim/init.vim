@@ -166,7 +166,7 @@ Plug 'tpope/vim-surround'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/Colorizer'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'rust-lang/rust.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tridactyl/vim-tridactyl'
@@ -192,13 +192,24 @@ command! -nargs=0 Fmt :call CocAction('format')
 let g:rainbow_active = 1
 "let g:rainbow_ctermfgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#ffcc66']
 let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '#ffcc66']
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
 " }}}
+
 
 " Colorscheme {{{
 let base16colorspace=256
 set termguicolors
 colorscheme base16-tomorrow-night-eighties
 "}}}
+
+" Colorizer LUA {{{
+lua require'colorizer'.setup()
+" }}}
 
 " Directory specific settings {{{
 " if a .vimlocal is found in dir, load it
