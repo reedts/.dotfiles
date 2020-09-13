@@ -24,6 +24,18 @@ set softtabstop=0
 set smarttab
 "}}}
 
+" Functions {{{
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+" }}}
+
+" Commands {{{
+command! TrimWhitespace call TrimWhitespace()
+" }}}
+
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
 set statusline^=${coc#status()}
@@ -103,6 +115,7 @@ nmap <leader>nn :NERDTreeToggle<cr>
 nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
+noremap <leader>w :call TrimWhitespace()<cr>
 
 nmap <C-u> :redo<CR>
 
@@ -199,7 +212,6 @@ let g:rainbow_load_separately = [
     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
     \ ]
 " }}}
-
 
 " Colorscheme {{{
 let base16colorspace=256
