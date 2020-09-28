@@ -61,7 +61,7 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.dirty='⚡'
 "}}}
-  
+
 " C syntax plugin {{{
 let c_c_vim_compatible = 1
 let c_gnu = 1
@@ -142,7 +142,7 @@ nn <f2> :LspRename<cr>
 let g:fzf_layout = {'down': '~20%'}
 let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-x': 'split',
+	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit' }
 "}}}
 " Plug {{{
@@ -187,6 +187,10 @@ call plug#end()
 " CoC Settings {{{
 " clangd {{{
 nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gs :sp<CR><Plug>(coc-definition)
+nmap <silent> <leader>gv :vsp<CR><Plug>(coc-definition)
+
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
