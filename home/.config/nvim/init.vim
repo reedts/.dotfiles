@@ -132,9 +132,6 @@ nnoremap <C-p> :Buffer<CR>
 
 nnoremap <esc> :noh<CR>
 
-nmap <C-n> :bn<CR>
-nmap <C-b> :bp<CR>
-
 nn <silent> <M-d> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <silent> <M-=> :LspDocumentFormat<cr>
