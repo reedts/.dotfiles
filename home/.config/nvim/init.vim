@@ -127,7 +127,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
-nnoremap <C-r> :FZF<CR>
+nnoremap <C-z> :FZF<CR>
 nnoremap <C-p> :Buffer<CR>
 
 nnoremap <esc> :noh<CR>
@@ -174,7 +174,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'rust-lang/rust.vim'
@@ -183,6 +183,7 @@ Plug 'tridactyl/vim-tridactyl'
 Plug 'tommcdo/vim-lion'
 Plug 'machakann/vim-highlightedyank'
 Plug 'frazrepo/vim-rainbow'
+Plug 'eugen0329/vim-esearch'
 
 " Initialize plugin system
 call plug#end()
