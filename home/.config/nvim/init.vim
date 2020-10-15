@@ -36,6 +36,47 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 " }}}
 
+" Plug {{{
+" THIS IS FOR PLUGGED PLUGINS
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'lervag/vimtex'
+" Use release branch
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'posva/vim-vue'
+Plug 'vim-python/python-syntax'
+Plug 'majutsushi/tagbar'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-surround'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/Colorizer'
+Plug 'rust-lang/rust.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tridactyl/vim-tridactyl'
+Plug 'tommcdo/vim-lion'
+Plug 'machakann/vim-highlightedyank'
+Plug 'frazrepo/vim-rainbow'
+Plug 'kshenoy/vim-signature'
+Plug 'eugen0329/vim-esearch'
+
+" Initialize plugin system
+call plug#end()
+"}}}
+
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
 set statusline^=${coc#status()}
@@ -45,7 +86,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'base16'
 
 if !exists('g:airline_symbols')
-	    let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -59,7 +100,7 @@ let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.dirty='⚡'
+let g:airline_symbols.dirty = '⚡'
 "}}}
 
 " C syntax plugin {{{
@@ -104,11 +145,11 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
-	\'build_dir': './build',
-	\}
+    \'build_dir': './build',
+\}
 "}}}
 
-" Key bindings {{{
+" Keybindings {{{
 nmap <leader>cl :set cursorline!<cr>
 nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
 nmap <leader>nn :NERDTreeToggle<cr>
@@ -117,71 +158,29 @@ nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
 noremap <leader>w :call TrimWhitespace()<cr>
 
-nmap <C-u> :redo<CR>
-
 " GitGutter
 let g:gitgutter_enabled = 0
 nmap <leader>gg :GitGutterToggle<CR>
+
+" Signature
+nmap <leader>sm :SignatureToggle<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Show buffer menu
-nnoremap <C-r> :FZF<CR>
+nnoremap <C-z> :FZF<CR>
 nnoremap <C-p> :Buffer<CR>
 
 nnoremap <esc> :noh<CR>
-
-nn <silent> <M-d> :LspDefinition<cr>
-nn <silent> <M-r> :LspReferences<cr>
-nn <silent> <M-=> :LspDocumentFormat<cr>
-nn <f2> :LspRename<cr>
 "}}}
 
 " FZF {{{
 let g:fzf_layout = {'down': '~20%'}
 let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit' }
-"}}}
-" Plug {{{
-" THIS IS FOR PLUGGED PLUGINS
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.local/share/nvim/plugged')
-
-" Make sure you use single quotes
-
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'lervag/vimtex'
-" Use release branch
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'posva/vim-vue'
-Plug 'vim-python/python-syntax'
-Plug 'majutsushi/tagbar'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-surround'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/Colorizer'
-Plug 'rust-lang/rust.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tridactyl/vim-tridactyl'
-Plug 'tommcdo/vim-lion'
-Plug 'machakann/vim-highlightedyank'
-Plug 'frazrepo/vim-rainbow'
-
-" Initialize plugin system
-call plug#end()
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit' }
 "}}}
 
 " CoC Settings {{{
@@ -190,6 +189,9 @@ nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gs :sp<CR><Plug>(coc-definition)
 nmap <silent> <leader>gv :vsp<CR><Plug>(coc-definition)
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
@@ -200,7 +202,6 @@ command! -nargs=0 Fmt :call CocAction('format')
 
 " VIM rainbow {{{
 let g:rainbow_active = 1
-"let g:rainbow_ctermfgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#ffcc66']
 let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '#ffcc66']
 " }}}
 
