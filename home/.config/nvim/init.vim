@@ -54,7 +54,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'
 " Use release branch
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'posva/vim-vue'
 Plug 'vim-python/python-syntax'
 Plug 'majutsushi/tagbar'
@@ -79,10 +84,17 @@ call plug#end()
 
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
-set statusline^=${coc#status()}
+"set statusline^=${coc#status()}
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#lsp#enabled = 1
+"lsp show_line_numbers
+let airline#extensions#lsp#show_line_numbers = 1
+" lsp error_symbol
+let airline#extensions#lsp#error_symbol = 'E:'
+" lsp warning
+let airline#extensions#lsp#warning_symbol = 'W:'
 let g:airline_theme = 'base16'
 
 if !exists('g:airline_symbols')
@@ -182,21 +194,72 @@ let g:fzf_action = {
     \ 'ctrl-s': 'split',
     \ 'ctrl-v': 'vsplit' }
 "}}}
+" LSP Settings {{{
+let g:lsp_diagnostics_echo_cursor=1
+let g:lsp_highlight_references_enabled=1
+let g:lsp_signs_enabled=1
+let g:lsp_text_edit_enabled=0
+let g:lsp_virtual_text_prefix = " ‣ "
 
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> <Leader>gd <plug>(lsp-definition)
+    nmap <buffer> <Leader>gr <plug>(lsp-references)
+    nmap <buffer> <Leader>gi <plug>(lsp-implementation)
+    nmap <buffer> <Leader>gt <plug>(lsp-type-definition)
+    nmap <buffer> <Leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    nmap <buffer> <Leader>lh <plug>(lsp-hover)
+
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'priority': -1,
+    \ }))
+" File & directory names
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 0,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+" C/C++ LSP
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+		\ 'priority' : 10
+        \ })
+endif
+" }}}
 " CoC Settings {{{
 " clangd {{{
-nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gs :sp<CR><Plug>(coc-definition)
-nmap <silent> <leader>gv :vsp<CR><Plug>(coc-definition)
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-command! -nargs=0 Fmt :call CocAction('format')
+" nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
+" nmap <silent> <leader>gd <Plug>(coc-definition)
+" nmap <silent> <leader>gs :sp<CR><Plug>(coc-definition)
+" nmap <silent> <leader>gv :vsp<CR><Plug>(coc-definition)
+"
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+"
+" command! -nargs=0 Fmt :call CocAction('format')
 " }}}
 " }}}
 
