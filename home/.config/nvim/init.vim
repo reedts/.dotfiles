@@ -42,6 +42,7 @@ set statusline^=${coc#status()}
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#alt_sep = 1
 let g:airline_theme = 'base16'
 
 if !exists('g:airline_symbols')
