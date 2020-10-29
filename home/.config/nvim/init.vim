@@ -194,6 +194,7 @@ let g:fzf_action = {
     \ 'ctrl-s': 'split',
     \ 'ctrl-v': 'vsplit' }
 "}}}
+
 " LSP Settings {{{
 let g:lsp_diagnostics_echo_cursor=1
 let g:lsp_highlight_references_enabled=1
@@ -217,6 +218,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
     nmap <buffer> <Leader>lh <plug>(lsp-hover)
+    nmap <buffer> <Leader>lf <plug>(lsp-document-format)
 
     " refer to doc to add more commands
 endfunction
@@ -250,6 +252,7 @@ if executable('clangd')
         \ })
 endif
 " }}}
+
 " CoC Settings {{{
 " clangd {{{
 " nnoremap <C-h> :CocCommand clangd.switchSourceHeader<cr>
