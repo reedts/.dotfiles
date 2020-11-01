@@ -211,6 +211,10 @@ let g:lsp_signs_enabled=1
 let g:lsp_text_edit_enabled=0
 let g:lsp_virtual_text_prefix = " ‣ "
 
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'test': ''}
+let g:lsp_signs_hint = {'text': ''}
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
@@ -223,6 +227,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
     nmap <buffer> <Leader>lh <plug>(lsp-hover)
+    nmap <buffer> <Leader>lf <plug>(lsp-document-format)
 
     " refer to doc to add more commands
 endfunction
