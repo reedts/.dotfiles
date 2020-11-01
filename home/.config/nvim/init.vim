@@ -65,10 +65,10 @@ Plug 'vim-python/python-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/Colorizer'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'rust-lang/rust.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tridactyl/vim-tridactyl'
@@ -246,6 +246,10 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'priority': 0,
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
+
+" Rust autocompletion (requires "Racer")
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#racer#get_source_options())
+
 " C/C++ LSP
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
@@ -253,6 +257,15 @@ if executable('clangd')
         \ 'cmd': {server_info->['clangd']},
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
 		\ 'priority' : 10
+        \ })
+endif
+" Rust
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
         \ })
 endif
 " }}}
