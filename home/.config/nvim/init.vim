@@ -252,9 +252,6 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
 
-" Rust autocompletion (requires "Racer")
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#racer#get_source_options())
-
 " C/C++ LSP
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
