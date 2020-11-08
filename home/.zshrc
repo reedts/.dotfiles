@@ -119,7 +119,7 @@ alias lt='ls -ltr $LS_OPTIONS'
 alias svl='sudo sv status /var/service/*'
 
 # feh
-alias f='feh --keep-zoom-vp -d'
+alias f='feh -. -d --keep-zoom-vp --auto-rotate'
 # zathura
 alias z='zathura'
 # nvim
