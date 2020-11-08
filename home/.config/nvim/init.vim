@@ -66,7 +66,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'rust-lang/rust.vim'
@@ -196,7 +196,9 @@ let g:fzf_action = {
 "}}}
 
 " LSP Settings {{{
-let g:lsp_diagnostics_echo_cursor=1
+let g:lsp_diagnostics_echo_cursor=0
+let g:lsp_diagnostics_float_cursor=1
+let g:lsp_diagnostics_float_delay= 1000
 let g:lsp_highlight_references_enabled=1
 let g:lsp_signs_enabled=1
 let g:lsp_text_edit_enabled=0
