@@ -89,6 +89,8 @@ key_bindings:
     - { key: J,      mods: Alt|Shift,    action: ScrollPageDown   }
     - { key: K,      mods: Alt|Shift,    action: ScrollPageUp     }
     - { key: T,      mods: Control|Shift,action: SpawnNewInstance }
+    - { key: Minus,  mods: Control,      action: DecreaseFontSize }
+    - { key: Add,    mods: Control,      action: IncreaseFontSize }
 
 font:
     size: 10
