@@ -93,4 +93,4 @@ key_bindings:
     - { key: Add,    mods: Control,      action: IncreaseFontSize }
 
 font:
-    size: 10
+    size: 9

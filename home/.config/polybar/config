@@ -45,7 +45,7 @@ active-background = ${self.dark-grey}
 
 [bar/base]
 width = 100%
-height = 26
+height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -82,7 +82,7 @@ monitor = ${env:MONITOR:HDMI-2}
 [bar/primary]
 inherit = bar/base
 monitor = ${env:MONITOR:eDP-1}
-modules-left = i3 vpn
+modules-left = i3 vpn player
 modules-right = backlight temperature cpu memory wlan eth internal_battery external_battery mail
 
 tray-position = right
@@ -94,7 +94,7 @@ cursor-scroll = ns-resize
 [bar/snd_primary]
 inherit = bar/base
 monitor = ${env:MONITOR:HDMI-2}
-modules-left = i3 vpn
+modules-left = i3 vpn player
 modules-right = backlight temperature cpu memory wlan eth internal_battery external_battery mail
 
 tray-position = right
@@ -336,12 +336,18 @@ ramp-volume-2 = 
 
 click-right = "pavucontrol &"
 
+[module/player]
+type = custom/script
+exec = ~/.config/polybar/scripts/player-mpris-tail.py -f '{icon} {artist} - {title}'
+tail = true
+format-foreground = ${colors.yellow}
+
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 5
 base-temperature = 20
-warn-temperature = 60
+warn-temperature = 70
 
 format = <label> <ramp>
 format-warn = <label-warn> <ramp>
