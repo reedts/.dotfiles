@@ -20,7 +20,7 @@ export HOMESHICK_DIR="$HOME/.zinit/plugins/andsens---homeshick/"
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$PATH
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export QT_AUTO_SCREEN_SCALE_FACTOR=1.5
+export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
