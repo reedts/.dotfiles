@@ -238,12 +238,12 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ 'priority': -1,
-    \ }))
+"call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+"    \ 'name': 'buffer',
+"    \ 'whitelist': ['*'],
+"    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+"    \ 'priority': -1,
+"    \ }))
 " File & directory names
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
     \ 'name': 'file',
@@ -261,11 +261,12 @@ if executable('clangd')
 		\ 'priority' : 10
         \ })
 endif
+
 " Rust
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
         \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
         \ 'whitelist': ['rust'],
         \ })
