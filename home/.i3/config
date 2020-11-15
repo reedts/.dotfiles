@@ -19,7 +19,8 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:Droid Sans Mono, FontAwesome 8
+font pango:Droid Sans Mono 7
+font pango:FontAwesome 7
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -124,9 +125,6 @@ bindsym $mod+c focus child
 # scratchpad
 bindsym $mod+Shift+m move scratchpad
 bindsym $mod+m scratchpad show
-
-# disable focus switching for normal windows
-no_focus [window_role="browser"]
 
 # enable workspac back and forth switching
 workspace_auto_back_and_forth yes

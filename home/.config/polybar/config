@@ -83,6 +83,7 @@ monitor = ${env:MONITOR:HDMI-0}
 
 [bar/primary]
 inherit = bar/base
+<<<<<<< HEAD
 monitor = ${env:MONITOR:DP-2}
 modules-left = i3 vpn
 modules-right = temperature cpu memory vpn eth pulseaudio mail
@@ -257,11 +258,17 @@ ramp-volume-2 = 
 
 click-right = "pavucontrol &"
 
+[module/player]
+type = custom/script
+exec = ~/.config/polybar/scripts/player-mpris-tail.py -f '{icon} {artist} - {title}'
+tail = true
+format-foreground = ${colors.yellow}
+
 
 [module/temperature]
 type = internal/temperature
 base-temperature = 20
-warn-temperature = 60
+warn-temperature = 70
 
 format = <label> <ramp>
 format-warn = <label-warn> <ramp>
