@@ -137,8 +137,6 @@ alias xq='sudo xbps-query'
 ####################################################
 #                     Key Mappings                 #
 ####################################################                                           
-[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY ]] && zkbd
-source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY
 
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode

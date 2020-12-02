@@ -274,26 +274,33 @@ hide_edge_borders vertical
 
 # --- Services ---{{{
 
-exec polybar primary
-exec polybar secondary
-exec polybar tertiary
+#exec polybar primary
+#exec polybar secondary
+#exec polybar tertiary
 
 # start gnome-authenticator
-exec /usr/libexec/polkit-gnome-authentication-agent-1
+#exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 # sound applet pasystray from AUR
-exec pasystray
+#exec pasystray
+
+#exec pipewire
+#exec pipewire-pulse
 
 # second conky for more informations
-exec conky -c ~/.conkymain
+#exec conky -c ~/.conkymain
 
 # start compton for vsync and a bit of eyecandy :)
 #exec compton -b
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+#exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 #exec_always /home/reedts/bin/superpaper -s /home/reedts/Pictures/background0.jpg /home/reedts/Pictures/background1.png /home/reedts/Pictures/background2.png
 # }}}
+
+exec sv start ~/service/polybar
+exec sv start ~/service/background
+exec sv start ~/service/polkit-gnome
 
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable

@@ -83,9 +83,8 @@ monitor = ${env:MONITOR:HDMI-0}
 
 [bar/primary]
 inherit = bar/base
-<<<<<<< HEAD
 monitor = ${env:MONITOR:DP-2}
-modules-left = i3 vpn
+modules-left = i3 vpn player
 modules-right = temperature cpu memory vpn eth pulseaudio mail
 
 tray-position = right
