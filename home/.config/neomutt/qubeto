@@ -14,6 +14,7 @@ set trash = +Trash
 set realname = "Julian Bigge"
 set from = "bigge@qubeto.de"
 set my_user = 'm052cc73'
+set signature = "~/.config/neomutt/.qubeto_signature"
 
 
 # SMTP
