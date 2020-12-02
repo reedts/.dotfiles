@@ -276,29 +276,8 @@ new_window pixel 1
 hide_edge_borders vertical
 # }}}
 
-# --- Services ---{{{
-
-exec polybar primary
-
-exec i3-battery-popup -L 20 -n
-
-
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-
-exec pa-applet
-exec nm-applet
-exec xbindkeys
-exec blueman-applet
-
-# start compton for vsync and a bit of eyecandy :)
-#exec picom -b
-
-# second conky
-#exec conky -c /home/reedts/.conkymain
-
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
-# }}}
+exec_always --no-startup-id feh --bg-fill /home/reedts/Pictures/background.png
 
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
