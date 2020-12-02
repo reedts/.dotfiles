@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pgrep NetworkManager > /dev/null || exit 1
+exec nm-applet

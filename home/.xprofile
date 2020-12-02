@@ -24,5 +24,4 @@ export SVDIR=$HOME/etc/runit/runsvdir/graphical
 xset r rate 200 60
 # loading .Xresources
 xrdb -load ~/.Xresources &
-xbindkeys
 runsvdir ~/etc/runit/runsvdir/graphical "log: .........................................................................." &

@@ -275,10 +275,6 @@ hide_edge_borders vertical
 # Set Wallpaper
 exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 
-exec sv start ~/service/polybar
-exec sv start ~/service/background
-exec sv start ~/service/polkit-gnome
-
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
 for_window [class="^Zeal$'"] floating enable

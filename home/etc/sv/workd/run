@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sv stop ~/graphical/polybar || exit 1
+
+sh ~/.screenlayout/work.sh
+
+sv start ~/graphical/polybar-snd
+exec polybar snd_primary
