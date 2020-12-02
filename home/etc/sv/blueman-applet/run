@@ -1,4 +1,0 @@
-#!/bin/sh
-
-pgrep bluetoothd > /dev/null || exit 1
-exec blueman-applet

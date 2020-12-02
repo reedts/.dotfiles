@@ -1,4 +1,0 @@
-#!/bin/sh
-
-sv start ~/graphical/pipewire-pulse || exit 1
-exec pa-applet
