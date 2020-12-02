@@ -17,20 +17,12 @@ if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
 fi
 
 export PATH=$HOME/bin:$PATH
+export SVDIR=$HOME/etc/runit/runsvdir/graphical
 
 
 # setting cursor rate
 xset r rate 200 60
 # loading .Xresources
 xrdb -load ~/.Xresources &
-/usr/libexec/polkit-gnome-authentication-agent-1 &
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
-
-#case $1 in
-#*)
-#	exec i3
-#	;;
-#esac
+xbindkeys
+runsvdir ~/etc/runit/runsvdir/graphical "log: .........................................................................." &
