@@ -17,12 +17,12 @@ set my_user = 'm052cc73'
 
 
 # SMTP
-set smtp_pass = `gpg2 --batch -q --decrypt ~/.neomutt/qubeto.gpg`
+set smtp_pass = `pass qubeto/mail/m052cc73 | head -n1`
 set smtp_url = "smtps://$my_user:$smtp_pass@w019c0bc.kasserver.com:465"
 
 # This variable specifies the default Notmuch database in format:
 # notmuch://<absolute path>
-set nm_default_uri = "notmuch:///home/reedts/.mail/qubeto"
+set nm_default_uri = "notmuch:///home/julian/.mail/qubeto"
 
 # Enable address-query
-set query_command = "neomutt-address-nm --config /home/reedts/.mail/qubeto/.notmuch-config '%s'"
+set query_command = "neomutt-address-nm --config /home/julian/.mail/qubeto/.notmuch-config '%s'"

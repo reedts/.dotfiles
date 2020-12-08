@@ -77,15 +77,11 @@ modules-center = date
 inherit = bar/base
 monitor = ${env:MONITOR:HDMI-1}
 
-[bar/tertiary]
-inherit = bar/base
-monitor = ${env:MONITOR:HDMI-0}
-
 [bar/primary]
 inherit = bar/base
-monitor = ${env:MONITOR:DP-2}
-modules-left = i3 vpn player
-modules-right = temperature cpu memory vpn eth pulseaudio mail
+monitor = ${env:MONITOR:DP-1}
+modules-left = i3 player
+modules-right = temperature cpu memory eth pulseaudio mail
 
 tray-position = right
 tray-padding = 2
@@ -212,7 +208,7 @@ interval = 5
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = enp40s0
 interval = 3.0
 
 format-connected-padding = 1

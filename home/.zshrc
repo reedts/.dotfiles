@@ -143,11 +143,11 @@ alias xq='sudo xbps-query'
 # }}}           END  Key Mappings
 
 # {{{           Virtualenv
-# Make virtualenv name appear in shell
-source /bin/virtualenvwrapper_lazy.sh
-function virtual_env_prompt () {
-	REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
-}
+## Make virtualenv name appear in shell
+#source /bin/virtualenvwrapper_lazy.sh
+#function virtual_env_prompt () {
+#	REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+#}
 
 # }}}           END  Virtualenv
 
