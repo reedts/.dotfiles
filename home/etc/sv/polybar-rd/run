@@ -1,4 +1,5 @@
 #!/bin/sh
 
-pgrep i3 > /dev/null || exit 1
-exec polybar tertiary
+[ -S "${XDG_RUNTIME_DIR}"/i3/ipc-socket.* ] || exit 1
+
+exec polybar tertiary 2>&1
