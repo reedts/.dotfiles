@@ -182,12 +182,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+Shift+e [urgent="oldest"] focus
+
 # reload the configuration file
 bindsym $mod+Shift+z reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # }}}
 
 # --- Modes ---{{{
@@ -273,7 +275,7 @@ hide_edge_borders vertical
 # }}}
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
+exec_always feh --no-startup-id --bg-fill /home/julian/Pictures/background.png
 
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
