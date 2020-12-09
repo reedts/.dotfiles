@@ -1,4 +1,4 @@
 #!/bin/sh
 
-[ -z "${I3SOCK}" ] || exit 1
+[ -S "${XDG_RUNTIME_DIR}"/i3/ipc-socket.* ] || exit 1
 exec polybar secondary 2>&1
