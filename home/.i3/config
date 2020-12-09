@@ -275,7 +275,7 @@ hide_edge_borders vertical
 # }}}
 
 # Set Wallpaper
-exec_always feh --no-startup-id --bg-fill /home/julian/Pictures/background.png
+exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
