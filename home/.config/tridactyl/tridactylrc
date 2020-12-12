@@ -123,7 +123,16 @@ set hintfiltermode vimperator-reflow
 set hintdelay 100
 
 set searchengine duckduckgo 
-set searchurls = {"google":"https://www.google.com/search?q=","scholar":"https://scholar.google.com/scholar?q=","duckduckgo":"https://duckduckgo.com/?q=", "wikipedia":"https://en.wikipedia.org/wiki/Special:Search/","youtube":"https://www.youtube.com/results?search_query=","amazon":"https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=", "startpage":"https://startpage.com/do/search?language=english&cat=web&query=","github":"https://github.com/search?utf8=✓&q="}
+
+set searchurls.g  https://www.google.com/search?q=
+set searchurls.sc https://scholar.google.com/scholar?q=
+set searchurls.dd https://duckduckgo.com/?q=
+set searchurls.wk https://en.wikipedia.org/wiki/Special:Search/
+set searchurls.y  https://www.youtube.com/results?search_query=
+set searchurls.am https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=
+set searchurls.sp https://startpage.com/do/search?language=english&cat=web&query=
+set searchurls.gi https://github.com/search?utf8=%E2%9C%93&q=
+
 " Add helper commands that Mozillians think make Firefox irredeemably
 " insecure. For details, read the comment at the top of this file.
 "command fixamo_quiet jsb tri.excmds.setpref("privacy.resistFingerprinting.block_mozAddonManager", "true").then(tri.excmds.setpref("extensions.webextensions.restrictedDomains", '""'))
