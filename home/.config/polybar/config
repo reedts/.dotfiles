@@ -75,11 +75,11 @@ modules-center = date
 
 [bar/secondary]
 inherit = bar/base
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:DP-2}
 
 [bar/primary]
 inherit = bar/base
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:DP-0}
 modules-left = i3 player
 modules-right = temperature cpu memory eth pulseaudio mail
 
