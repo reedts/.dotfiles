@@ -25,10 +25,10 @@ _image_viewer () {
 
 # If for some reason, you cannot do this, you can set the command here.
 # and set fix_layout to true
-fix_layout=false
+fix_layout=true
 
 layout_cmd () {
-  setxkbmap de-latin1-nodeadkeys
+  setxkbmap de
 }
 
 # fields to be used
@@ -65,7 +65,7 @@ help_color="#4872FF"
 
 # Clipboard settings
 # Possible options: primary, clipboard, both
-clip=primary
+clip=clipboard
 
 # Seconds before clearing pass from clipboard 
 clip_clear=45
