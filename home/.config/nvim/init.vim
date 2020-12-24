@@ -77,6 +77,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'frazrepo/vim-rainbow'
 Plug 'kshenoy/vim-signature'
 Plug 'eugen0329/vim-esearch'
+Plug 'tpope/vim-commentary'
 
 " Initialize plugin system
 call plug#end()
