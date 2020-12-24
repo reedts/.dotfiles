@@ -181,12 +181,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# i3 gaps specific
-#gaps inner 10
-
-bindsym $mod+Shift+f gaps inner current set 0
-bindsym $mod+Shift+u gaps inner current set 10
-
 # reload the configuration file
 bindsym $mod+Shift+z reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -272,8 +266,6 @@ bindsym $mod+Shift+q mode "$mode_system"
 # --- Misc settings ---{{{
 new_window pixel 1
 
-# hide edge borders
-hide_edge_borders vertical
 # }}}
 
 # Set Wallpaper
