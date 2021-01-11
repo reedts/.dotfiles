@@ -27,6 +27,7 @@ source "~/.config/neomutt/wwu"
 folder-hook 'wwu/*' 'source ~/.config/neomutt/wwu'
 folder-hook 'gmail/*' 'source ~/.config/neomutt/gmail'
 folder-hook 'qubeto/*' 'source ~/.config/neomutt/qubeto'
+folder-hook 'qubeto_info/*' 'source ~/.config/neomutt/qubeto_info'
 
 named-mailboxes "WWU--------------------------------" +../wwu/INBOX \
 				" ├ Archive" +../wwu/Archive \
@@ -41,6 +42,8 @@ named-mailboxes "QuBeto--------------------------------" +../qubeto/INBOX \
 				" ├ Junk" +../qubeto/Spam \
 				" ├ Sent" +../qubeto/Sent \
 				" └ Trash" +../qubeto/Trash
+
+named-mailboxes "QuBeto-Info---------------------------" +../qubeto_info/INBOX
 
 named-mailboxes "GMail------------------------------" +../gmail/INBOX \
                 " ├ Archive" +../gmail/Archive \
