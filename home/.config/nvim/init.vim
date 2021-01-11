@@ -187,11 +187,6 @@ nnoremap <C-p> :Buffer<CR>
 
 nnoremap <esc> :noh<CR>
 
-nn <silent> <M-d> :LspDefinition<cr>
-nn <silent> <M-r> :LspReferences<cr>
-nn <silent> <M-=> :LspDocumentFormat<cr>
-nn <f2> :LspRename<cr>
-
 " Enable ag search
 nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
 
@@ -221,6 +216,7 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> <Leader>gd <plug>(lsp-definition)
+    nmap <buffer> <Leader>ld <plug>(lsp-peek-definition)
     nmap <buffer> <Leader>gr <plug>(lsp-references)
     nmap <buffer> <Leader>gi <plug>(lsp-implementation)
     nmap <buffer> <Leader>gt <plug>(lsp-type-definition)
@@ -271,6 +267,7 @@ if executable('rls')
         \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
         \ 'whitelist': ['rust'],
         \ })
+	au FileType rust nmap <buffer> <Leader>lf :RustFmt<cr>
 endif
 " }}}
 
