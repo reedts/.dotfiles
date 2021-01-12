@@ -125,6 +125,10 @@ alias xin='sudo xbps-install'
 alias xrm='sudo xbps-remove'
 alias xq='sudo xbps-query'
 
+# neomutt
+alias nm='neomutt'
+alias nmq='neomutt -F $HOME/.config/neomutt/neomuttrc_qubeto'
+
 # }}}           END  Aliases
 
 # {{{           Key Mappings
