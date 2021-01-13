@@ -51,6 +51,9 @@ setopt pushd_ignore_dups
 # * shouldn't match dotfiles. ever.
 setopt noglobdots
 
+# enable null_glob
+setopt null_glob
+
 # use zsh style word splitting
 setopt noshwordsplit
 
@@ -127,7 +130,9 @@ alias xq='sudo xbps-query'
 
 # neomutt
 alias nm='neomutt'
-alias nmq='neomutt -F $HOME/.config/neomutt/neomuttrc_qubeto'
+
+# matterhorn
+alias mh='matterhorn'
 
 # }}}           END  Aliases
 
@@ -220,6 +225,19 @@ zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
 # }}}          END  zinit
+
+# {{{           Profile
+
+if [ -d $HOME/.zprofile.d/ ]; then
+	if [ .(NF) ]; then
+		for f in $HOME/.zprofile.d/*.zsh; do
+			[ -r "$f" ] && . "$f"
+		done
+		unset f
+	fi
+fi
+
+# }}}
 
 # {{{          functions
 function use_conda() {
