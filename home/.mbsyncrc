@@ -86,28 +86,3 @@ Channel sync-gmail-inbox
 Channel sync-gmail-drafts
 Channel sync-gmail-sent
 
-# QuBeto Account
-IMAPAccount qubeto
-Host w019c0bc.kasserver.com
-User m052cc73
-PassCmd "pass qubeto/mail/m052cc73 | head -n1"
-SSLType IMAPS
-SSLVersions TLSv1
-SystemCertificates yes
-
-IMAPStore qubeto-remote
-Account qubeto
-
-MaildirStore qubeto-local
-Path ~/.mail/qubeto/
-Inbox ~/.mail/qubeto/INBOX
-Subfolders Verbatim
-
-Channel qubeto
-Master :qubeto-remote:
-Slave :qubeto-local:
-Create Both # Automatically create missing mailboxes, both locally and on the server
-Expunge Both
-SyncState *
-Sync All
-Pattern *
