@@ -3,7 +3,7 @@
 #
 #
 set mbox_type = Maildir
-set folder = "~/.mail/gmail"
+set folder = "~/.mail/private/gmail"
 set spoolfile = +INBOX
 unset record
 set postponed = +Drafts
@@ -21,5 +21,5 @@ set smtp_url=smtps://$my_user@smtp.gmail.com
 
 # This variable specifies the default Notmuch database in format:
 # notmuch://<absolute path>
-set nm_default_uri = "notmuch:///home/reedts/.mail/gmail"
-set query_command = "neomutt-address-nm --config /home/reedts/.mail/gmail/.notmuch-config '%s'"
+set nm_default_uri = "notmuch:///home/reedts/.mail/private//gmail"
+set query_command = "neomutt-address-nm --config /home/reedts/.mail/private/gmail/.notmuch-config '%s'"

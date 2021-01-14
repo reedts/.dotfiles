@@ -3,7 +3,7 @@
 #
 #
 set mbox_type = Maildir
-set folder = "~/.mail/wwu"
+set folder = "~/.mail/private/wwu"
 set spoolfile = +INBOX
 set my_archive = +Archive
 set record = +Sent
@@ -25,7 +25,7 @@ set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
 
 # This variable specifies the default Notmuch database in format:
 # notmuch://<absolute path>
-set nm_default_uri = "notmuch:///home/reedts/.mail/wwu"
+set nm_default_uri = "notmuch:///home/reedts/.mail/private/wwu"
 
 # Enable address-query
-set query_command = "neomutt-address-nm --config /home/reedts/.mail/wwu/.notmuch-config '%s'"
+set query_command = "neomutt-address-nm --config /home/reedts/.mail/private/wwu/.notmuch-config '%s'"
