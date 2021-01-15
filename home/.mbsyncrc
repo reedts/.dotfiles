@@ -11,8 +11,8 @@ IMAPStore wwu-remote
 Account wwu
 
 MaildirStore wwu-local
-Path ~/.mail/wwu/
-Inbox ~/.mail/wwu/INBOX
+Path ~/.mail/private/wwu/
+Inbox ~/.mail/private/wwu/INBOX
 Subfolders Verbatim
 
 Channel wwu
@@ -35,8 +35,8 @@ IMAPStore gmail-remote
 Account gmail
 
 MaildirStore gmail-local
-Path ~/.mail/gmail/
-Inbox ~/.mail/gmail/INBOX
+Path ~/.mail/private/gmail/
+Inbox ~/.mail/private/gmail/INBOX
 
 Channel sync-gmail-archive
 Master ":gmail-remote:[Gmail]/Alle Nachrichten"

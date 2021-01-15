@@ -21,32 +21,32 @@ set sidebar_sort_method = 'path'
 
 ## Accounts ##---------------------------------------------------------------{{{
 #
-set folder = "~/.mail/wwu"
+set folder = "~/.mail/private/wwu"
 
 source "~/.config/neomutt/wwu"
 folder-hook 'wwu/*' 'source ~/.config/neomutt/wwu'
 folder-hook 'gmail/*' 'source ~/.config/neomutt/gmail'
 folder-hook 'qubeto/*' 'source ~/.config/neomutt/qubeto'
 
-named-mailboxes "WWU--------------------------------" +../wwu/INBOX \
-				" ├ Archive" +../wwu/Archive \
-				" ├ Drafts" +../wwu/Drafts \
-				" ├ Junk" +../wwu/Junk \
-				" ├ Sent" +../wwu/Sent \
-				" └ Trash" +../wwu/Trash
+named-mailboxes "WWU--------------------------------" +../../private/wwu/INBOX \
+				" ├ Archive" +../../private/wwu/Archive \
+				" ├ Drafts" +../../private/wwu/Drafts \
+				" ├ Junk" +../../private/wwu/Junk \
+				" ├ Sent" +../../private/wwu/Sent \
+				" └ Trash" +../../private/wwu/Trash
 
-named-mailboxes "QuBeto--------------------------------" +../qubeto/INBOX \
-				" ├ Archive" +../qubeto/Archive \
-				" ├ Drafts" +../qubeto/Drafts \
-				" ├ Junk" +../qubeto/Spam \
-				" ├ Sent" +../qubeto/Sent \
-				" └ Trash" +../qubeto/Trash
+named-mailboxes "QuBeto--------------------------------" +../../qubeto/qubeto/INBOX \
+				" ├ Archive" +../../qubeto/qubeto/Archive \
+				" ├ Drafts" +../../qubeto/qubeto/Drafts \
+				" ├ Junk" +../../qubeto/qubeto/Spam \
+				" ├ Sent" +../../qubeto/qubeto/Sent \
+				" └ Trash" +../../qubeto/qubeto/Trash
 
-named-mailboxes "GMail------------------------------" +../gmail/INBOX \
-                " ├ Archive" +../gmail/Archive \
-                " ├ Drafts" +../gmail/Drafts \
-                " ├ Sent" +../gmail/Sent \
-                " └ Trash" +../gmail/Trash
+named-mailboxes "GMail------------------------------" +../../private/gmail/INBOX \
+                " ├ Archive" +../../private/gmail/Archive \
+                " ├ Drafts" +../../private/gmail/Drafts \
+                " ├ Sent" +../../private/gmail/Sent \
+                " └ Trash" +../../private/gmail/Trash
 
 # disable sorting in mailbox list view
 set sort_browser = "unsorted"
@@ -138,9 +138,9 @@ bind  index,pager    \CP vfolder-from-query
 bind  index          < vfolder-window-backward
 bind  index          > vfolder-window-forward
 # shortcuts for various inboxes
-macro index          gw <change-folder>=../wwu/INBOX<enter>
-macro index          gq <change-folder>=../qubeto/INBOX<enter>
-macro index          gm <change-folder>=../gmail/INBOX<enter>
+macro index          gw <change-folder>=../../private/wwu/INBOX<enter>
+macro index          gq <change-folder>=../../qubeto/qubeto/INBOX<enter>
+macro index          gm <change-folder>=../../privategmail/INBOX<enter>
 macro index          ga <change-folder>=Archive<enter>
 macro index          gd <change-folder>=Drafts<enter>
 macro index          gs <change-folder>=Sent<enter>
