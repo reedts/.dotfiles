@@ -11,8 +11,8 @@ IMAPStore wwu-remote
 Account wwu
 
 MaildirStore wwu-local
-Path ~/.mail/wwu/
-Inbox ~/.mail/wwu/INBOX
+Path ~/.mail/private/wwu/
+Inbox ~/.mail/private/wwu/INBOX
 Subfolders Verbatim
 
 Channel wwu
@@ -35,8 +35,8 @@ IMAPStore gmail-remote
 Account gmail
 
 MaildirStore gmail-local
-Path ~/.mail/gmail/
-Inbox ~/.mail/gmail/INBOX
+Path ~/.mail/private/gmail/
+Inbox ~/.mail/private/gmail/INBOX
 
 Channel sync-gmail-archive
 Master ":gmail-remote:[Gmail]/Alle Nachrichten"
@@ -85,29 +85,3 @@ Channel sync-gmail-trash
 Channel sync-gmail-inbox
 Channel sync-gmail-drafts
 Channel sync-gmail-sent
-
-# QuBeto Account
-IMAPAccount qubeto
-Host w019c0bc.kasserver.com
-User m052cc73
-PassCmd "gpg2 --batch -q --decrypt ~/.neomutt/qubeto.gpg"
-SSLType IMAPS
-SSLVersions TLSv1
-SystemCertificates yes
-
-IMAPStore qubeto-remote
-Account qubeto
-
-MaildirStore qubeto-local
-Path ~/.mail/qubeto/
-Inbox ~/.mail/qubeto/INBOX
-Subfolders Verbatim
-
-Channel qubeto
-Master :qubeto-remote:
-Slave :qubeto-local:
-Create Both # Automatically create missing mailboxes, both locally and on the server
-Expunge Both
-SyncState *
-Sync All
-Pattern *
