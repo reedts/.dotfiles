@@ -119,6 +119,7 @@ alias f='feh -. -d --keep-zoom-vp --auto-rotate'
 alias z='zathura'
 # nvim
 alias v='nvim'
+alias vd='nvim -d'
 
 # rsync
 alias copy='rsync -az --info=progress2'
