@@ -122,6 +122,7 @@ alias f='feh -. -d --keep-zoom-vp --auto-rotate'
 alias z='zathura'
 # nvim
 alias v='nvim'
+alias vd='nvim -d'
 
 #xbps aliases
 alias xin='sudo xbps-install'

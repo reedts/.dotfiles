@@ -1,4 +1,0 @@
-#!/bin/sh
-
-pgrep polkitd > /dev/null || exit 1
-exec /usr/libexec/polkit-gnome-authentication-agent-1

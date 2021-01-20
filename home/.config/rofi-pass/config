@@ -28,7 +28,7 @@ _image_viewer () {
 fix_layout=true
 
 layout_cmd () {
-  setxkbmap de
+  setxkbmap de nodeadkeys
 }
 
 # fields to be used
