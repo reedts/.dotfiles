@@ -17,7 +17,7 @@ else
 	done
 	
 	for dir in `fd -t d -d 1 . ${MAILDIRS[2]}`; do
-		mbsync -c $HOME/.mbsynrc_qubeto -a `basename "$dir"`
+		mbsync -c $HOME/.mbsyncrc_qubeto -a `basename "$dir"`
 		notmuch --config="$dir/.notmuch-config" new
 	done
 fi
