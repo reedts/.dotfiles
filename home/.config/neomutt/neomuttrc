@@ -140,7 +140,7 @@ bind  index          > vfolder-window-forward
 # shortcuts for various inboxes
 macro index          gw <change-folder>=../../private/wwu/INBOX<enter>
 macro index          gq <change-folder>=../../qubeto/qubeto/INBOX<enter>
-macro index          gm <change-folder>=../../privategmail/INBOX<enter>
+macro index          gm <change-folder>=../../private/gmail/INBOX<enter>
 macro index          ga <change-folder>=Archive<enter>
 macro index          gd <change-folder>=Drafts<enter>
 macro index          gs <change-folder>=Sent<enter>
