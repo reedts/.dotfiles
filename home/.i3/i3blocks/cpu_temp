@@ -1,7 +1,0 @@
-#!/bin/sh
-
-TEMP=$(sensors | grep 'Core 0' | awk '{print $3}' | cut -d . -f 1 | sed s/+//)
-MAX_TEMP=$(sensors | grep 'Core 0' | awk '{print $6}' | cut -d . -f 1 | sed s/[+,]//g)
-echo $TEMP°C
-
-[ $TEMP -lt $MAX_TEMP ] && exit 0 || exit 33
