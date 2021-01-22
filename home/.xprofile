@@ -16,7 +16,7 @@ if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
 	echo "D-Bus per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
 fi
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export SVDIR=$HOME/etc/runit/runsvdir/graphical
 
 
