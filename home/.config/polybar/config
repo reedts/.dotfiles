@@ -299,7 +299,7 @@ battery = BAT0
 
 [module/external_battery]
 inherit = module/battery_base
-full-at = 79
+full-at = 99
 battery = BAT1
 
 
