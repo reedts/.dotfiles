@@ -27,4 +27,4 @@ set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
 # notmuch://<absolute path>
 set nm_default_uri = "notmuch:///home/julian/.mail/private/wwu"
 # Enable address-query
-set query_command = "neomutt-address-nm --config /home/julian/.mail/wwu/private/.notmuch-config '%s'"
+set query_command = "neomutt-address-nm --config /home/julian/.mail/private/wwu/.notmuch-config '%s'"
