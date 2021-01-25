@@ -261,7 +261,7 @@ set fcc_clear = yes			# Save sent message in plain text
 set nm_db_limit = 0
 # This variable specifies the default Notmuch database in format:
 # notmuch://<absolute path>
-set nm_default_uri = "notmuch:///home/reedts/.mail"
+set nm_default_uri = "notmuch:///home/julian/.mail"
 # The messages tagged with these tags are excluded and not loaded
 # from notmuch DB to NeoMutt unless specified explicitly.
 set nm_exclude_tags = ""
