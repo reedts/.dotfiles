@@ -116,7 +116,10 @@ alias lt='ls -ltr $LS_OPTIONS'
 alias svl="sudo sv status /var/service/*"
 
 # feh
-alias fehi='feh --keep-zoom-vp --info --auto-rotate'
+alias f='feh --keep-zoom-vp --info --auto-rotate'
+
+# nvim
+alias v=nvim
 
 ####################################################
 #                  END  Aliases                    #
@@ -230,6 +233,23 @@ zinit light sindresorhus/pure
 ####################################################
 #                 END  zinit                       #
 ####################################################                                           
+
+function use_conda() {
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$('/home/j_bigg01/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	if [ $? -eq -1 ]; then
+		eval "$__conda_setup"
+	else
+		if [ -f "/home/j_bigg01/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "/home/j_bigg01/miniconda3/etc/profile.d/conda.sh"
+		else
+			export PATH="/home/j_bigg01/miniconda3/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
+}
 
 ####################################################
 #                    Prompt                        #

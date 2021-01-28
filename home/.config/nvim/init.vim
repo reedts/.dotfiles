@@ -26,7 +26,7 @@ set smarttab
 
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
-set statusline^=${coc#status()}
+"set statusline^=${coc#status()}
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -89,13 +89,13 @@ au FileType mail execute "normal }"
 "}}}
 
 "LaTeX-Suite {{{
-filetype plugin on
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_compiler_method = 'latexmk'
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : './build'
-	\}
+"filetype plugin on
+"let g:vimtex_compiler_progname = 'nvr'
+"let g:vimtex_compiler_method = 'latexmk'
+"let g:vimtex_view_method = 'zathura'
+"let g:vimtex_compiler_latexmk = {
+"	\ 'build_dir' : './build'
+"	\}
 "}}}
 
 " Key bindings {{{
@@ -157,15 +157,15 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 " Use release branch
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'posva/vim-vue'
 Plug 'vim-python/python-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/Colorizer'
