@@ -1,6 +1,4 @@
-####################################################
-#                    Options                       #
-####################################################                                           
+# {{{                   Options
 # history settings
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -53,6 +51,9 @@ setopt pushd_ignore_dups
 # * shouldn't match dotfiles. ever.
 setopt noglobdots
 
+# enable null_glob
+setopt null_glob
+
 # use zsh style word splitting
 setopt noshwordsplit
 
@@ -63,19 +64,15 @@ setopt unset
 DIRSTACKSIZE=15
 DIRSTACKFILE=~/.zdirs
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+	dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+	[[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
 fi
 chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+	print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
-####################################################
-#               END  Options                       #
-####################################################                                           
+# }}}              END  Options
 
-####################################################
-#                     Aliases                      #
-####################################################                                           
+# {{{              Aliases
 # aliases (taken from grml-config)
 #a2# Execute \kbd{ls -lSrah}
 alias dir="command ls -lSrah"
@@ -113,74 +110,71 @@ alias ll='ls -alh $LS_OPTIONS'
 alias lt='ls -ltr $LS_OPTIONS'
 
 # sv
-alias svl="sudo sv status /var/service/*"
+alias svl='sudo sv status /var/service/*'
+alias svgl='sv status ~/graphical/*'
 
 # feh
-alias f='feh --keep-zoom-vp --info --auto-rotate'
-
+alias f='feh -. -d --keep-zoom-vp --auto-rotate'
+# zathura
+alias z='zathura'
 # nvim
-alias v=nvim
+alias v='nvim'
+alias vd='nvim -d'
 
-####################################################
-#                  END  Aliases                    #
-####################################################                                           
+# rsync
+alias copy='rsync -az --info=progress2'
 
-####################################################
-#                     Key Mappings                 #
-####################################################                                           
-[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY ]] && zkbd
-source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$DISPLAY
+#xbps aliases
+alias xin='sudo xbps-install'
+alias xrm='sudo xbps-remove'
+alias xq='sudo xbps-query'
 
+# neomutt
+alias nm='neomutt'
+
+# matterhorn
+alias mh='matterhorn'
+
+# }}}           END  Aliases
+
+# {{{           Key Mappings
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
-[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
-[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
-[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
-[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
-[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
-[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
-[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
-[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
-[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
-[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+[[ -n ${key[Insert]} ]]    && bindkey "${key[Insert]}" overwrite-mode
+[[ -n ${key[Home]} ]]      && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[PageUp]} ]]    && bindkey "${key[PageUp]}" up-line-or-history
+[[ -n ${key[Delete]} ]]    && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[End]} ]]       && bindkey "${key[End]}" end-of-line
+[[ -n ${key[PageDown]} ]]  && bindkey "${key[PageDown]}" down-line-or-history
+[[ -n ${key[Up]} ]]        && bindkey "${key[Up]}" up-line-or-search
+[[ -n ${key[Left]} ]]      && bindkey "${key[Left]}" backward-char
+[[ -n ${key[Down]} ]]      && bindkey "${key[Down]}" down-line-or-search
+[[ -n ${key[Right]} ]]     && bindkey "${key[Right]}" forward-char
 
-####################################################
-#                  END  Key Mappings               #
-####################################################                                           
+# }}}           END  Key Mappings
 
-####################################################
-#                    Virtualenv                    #
-####################################################                                           
-# Make virtualenv name appear in shell
-source /bin/virtualenvwrapper_lazy.sh
-function virtual_env_prompt () {
-    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
-}
+# {{{           Virtualenv
+## Make virtualenv name appear in shell
+#source /bin/virtualenvwrapper_lazy.sh
+#function virtual_env_prompt () {
+#	REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+#}
 
-####################################################
-#                END  Virtualenv                   #
-####################################################                                           
+# }}}           END  Virtualenv
 
-####################################################
-#                 FZF                              #
-####################################################
+# {{{           FZF
 export FZF_COMPLETION_TRIGGER='~~'
-source /usr/share/doc/fzf/completion.zsh
-source /usr/share/doc/fzf/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-####################################################
-#                 END FZF                          #
-####################################################
+# }}}           END FZF
 
-####################################################
-#                    zinit                         #
-####################################################                                           
+# {{{           zinit
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f"
+	print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+	command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+	command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+		print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
+		print -P "%F{160}▓▒░ The clone has failed.%f"
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
@@ -230,30 +224,54 @@ zinit light andsens/homeshick
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-####################################################
-#                 END  zinit                       #
-####################################################                                           
+# }}}          END  zinit
 
+# {{{           Profile
+
+if [ -d $HOME/.zprofile.d/ ]; then
+	if [ .(NF) ]; then
+		for f in $HOME/.zprofile.d/*.zsh; do
+			[ -r "$f" ] && . "$f"
+		done
+		unset f
+	fi
+fi
+
+# }}}
+
+# {{{          functions
 function use_conda() {
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/home/j_bigg01/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	__conda_setup="$('/home/julian/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq -1 ]; then
 		eval "$__conda_setup"
 	else
-		if [ -f "/home/j_bigg01/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/j_bigg01/miniconda3/etc/profile.d/conda.sh"
+		if [ -f "/home/julian/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "/home/julian/miniconda3/etc/profile.d/conda.sh"
 		else
-			export PATH="/home/j_bigg01/miniconda3/bin:$PATH"
+			export PATH="/home/julian/miniconda3/bin:$PATH"
 		fi
 	fi
 	unset __conda_setup
 	# <<< conda initialize <<<
 }
 
-####################################################
-#                    Prompt                        #
-####################################################
+_fzf_complete_pass() {
+	_fzf_complete --multi --reverse --prompt="pass> " -- "$@" < <(
+	fd . --extension=gpg  ~/.password-store --exec echo {.} | sed 's/.*password-store\/\(.*\)/\1/g'
+)
+}
+
+# Runit related user functions
+function svg() {
+	sv "$1" $HOME/graphical/"$2"
+}
+
+# }}}       END functions
+
+# {{{       Prompt
+
 # load LS_COLORS
 if [[ -f ~/.dircolors ]]; then
 	eval $(dircolors -b ~/.dircolors)
@@ -261,12 +279,11 @@ elif [[ -f /etc/DIR_COLORS ]] ; then
 	eval $(dircolors -b /etc/DIR_COLORS)
 fi
 
-
 precmd_pipestatus() {
 	RPROMPT="${(j.|.)pipestatus}"
 	if [[ ${(j.|.)pipestatus} = 0 ]]; then
-          RPROMPT=""
-    fi
+		RPROMPT=""
+	fi
 }
 add-zsh-hook precmd precmd_pipestatus
 
@@ -285,8 +302,9 @@ PURE_PREPEND_NEW_LINE=0
 zstyle ':completion:*' menu select yes
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
-####################################################
-#                  END  Prompt                     #
-####################################################                                           
+# }}}             END  Prompt
+
+# vim: fdm=marker
+
