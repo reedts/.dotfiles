@@ -121,6 +121,9 @@ alias z='zathura'
 alias v='nvim'
 alias vd='nvim -d'
 
+# xdg-open
+alias xo='xdg-open'
+
 # rsync
 alias copy='rsync -az --info=progress2'
 
