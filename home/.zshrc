@@ -122,6 +122,9 @@ alias v='nvim'
 # xdg-open
 alias xo='xdg-open'
 
+# xdg-open
+alias xo='xdg-open'
+
 # rsync
 alias copy='rsync -az --info=progress2'
 

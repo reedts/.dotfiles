@@ -9,6 +9,8 @@ set number relativenumber
 set scrolloff=10
 set cursorline
 
+set undofile
+
 set fillchars+=vert:\│
 
 "}}}
