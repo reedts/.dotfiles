@@ -49,7 +49,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Use release branch
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
@@ -208,13 +208,15 @@ let g:fzf_action = {
 " LSP Settings {{{
 let g:lsp_diagnostics_echo_cursor=1
 let g:lsp_highlight_references_enabled=1
-let g:lsp_signs_enabled=1
+let g:lsp_diagnostics_signs_enabled=1
 let g:lsp_text_edit_enabled=0
 let g:lsp_virtual_text_prefix = " ‣ "
+let g:lsp_diagnostics_echo_delay=1000
+let g:lsp_diagnostics_float_delay=1000
 
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': ' '}
-let g:lsp_signs_hint = {'text': ''}
+let g:lsp_diagnostics_signs_error = {'text': '✗'}
+let g:lsp_diagnostics_signs_warning = {'text': ' '}
+let g:lsp_diagnostics_signs_hint = {'text': ''}
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
@@ -286,6 +288,15 @@ if executable('cmake-language-server')
 		\   'buildDirectory': 'build',
 		\ }
 	\})
+endif
+
+" Python
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
 endif
 " }}}
 
