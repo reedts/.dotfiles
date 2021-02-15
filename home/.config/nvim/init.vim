@@ -143,6 +143,10 @@ let g:cpp_concepts_highlight = 1
 let c_no_curly_error = 1
 "}}}
 
+" Python semantic plugin {{{
+let g:semshi#error_sign = v:false
+"}}}
+
 "Language supports {{{
 
 "CUDA support
@@ -206,13 +210,20 @@ let g:fzf_action = {
 "}}}
 
 " LSP Settings {{{
-let g:lsp_diagnostics_echo_cursor=1
-let g:lsp_highlight_references_enabled=1
-let g:lsp_diagnostics_signs_enabled=1
-let g:lsp_text_edit_enabled=0
-let g:lsp_virtual_text_prefix = " ‣ "
-let g:lsp_diagnostics_echo_delay=1000
-let g:lsp_diagnostics_float_delay=1000
+let g:lsp_highlight_references_enabled = 1
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_text_edit_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_virtual_text_prefix = " ‣ "
+
+let g:lsp_diagnostics_echo_delay = 1500
+let g:lsp_diagnostics_float_delay = 1500
+let g:lsp_diagnostics_highlights_delay = 1500
+let g:lsp_diagnostics_signs_delay = 1500
+let g:lsp_diagnostics_virtual_text_delay = 1500
+
+let g:lsp_document_highlight_enabled = 1
+let g:lsp_document_highlight_delay = 1000
 
 let g:lsp_diagnostics_signs_error = {'text': '✗'}
 let g:lsp_diagnostics_signs_warning = {'text': ' '}
