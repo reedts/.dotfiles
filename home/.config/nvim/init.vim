@@ -45,39 +45,40 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'lervag/vimtex'
 " Use release branch
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'eugen0329/vim-esearch'
+Plug 'frazrepo/vim-rainbow'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'lervag/vimtex'
+Plug 'machakann/vim-highlightedyank'
+Plug 'majutsushi/tagbar'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'posva/vim-vue'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'posva/vim-vue'
-Plug 'vim-python/python-syntax'
-Plug 'majutsushi/tagbar'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-surround'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/Colorizer'
 Plug 'rust-lang/rust.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tridactyl/vim-tridactyl'
+Plug 'scrooloose/nerdtree'
 Plug 'tommcdo/vim-lion'
-Plug 'machakann/vim-highlightedyank'
-Plug 'frazrepo/vim-rainbow'
-Plug 'kshenoy/vim-signature'
-Plug 'eugen0329/vim-esearch'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tridactyl/vim-tridactyl'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-python/python-syntax'
 
 " Initialize plugin system
 call plug#end()
@@ -190,6 +191,8 @@ nmap <leader>lb :set colorcolumn=80<cr>
 nmap <leader>ig :set list!<cr>
 nmap <leader>tg :TagbarToggle<cr>
 noremap <leader>w :call TrimWhitespace()<cr>
+" fucking word sorting!
+vnoremap <leader>s d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 " GitGutter
 let g:gitgutter_enabled = 0
@@ -283,6 +286,19 @@ if executable('rls')
         \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
         \ 'whitelist': ['rust'],
         \ })
+endif
+
+" CMake
+if executable('cmake-language-server')
+	au User lsp_setup call lsp#register_server({
+		\ 'name': 'cmake',
+		\ 'cmd': {server_info->['cmake-language-server']},
+		\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'build/'))},
+		\ 'whitelist': ['cmake'],
+		\ 'initialization_options': {
+		\   'buildDirectory': 'build',
+		\ }
+	\})
 endif
 " }}}
 
