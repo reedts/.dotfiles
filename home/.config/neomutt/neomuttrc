@@ -147,7 +147,7 @@ macro index          gs <change-folder>=Sent<enter>
 macro index          gt <change-folder>=Trash<enter>
 macro index          gi <change-folder>=INBOX<enter>
 macro index          h '<change-folder>?'
-macro index			 \CI "<shell-escape>mail_refresh private<enter>" "Refresh from IMAP"
+macro index			 \CI "<shell-escape>mail_refresh<enter>" "Refresh from IMAP"
 macro index,pager    b   '<enter-command>toggle sidebar_visible<enter>'
 macro index          L "<limit>all<enter><last-entry>"
 macro index,pager    A "<save-message>+Archive<enter>"
