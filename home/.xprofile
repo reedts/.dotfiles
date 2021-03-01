@@ -23,6 +23,8 @@ export SVDIR=$HOME/etc/runit/runsvdir/graphical
 
 # setting cursor rate
 xset r rate 200 60
+# load xkb variant for rofi-pass
+setxkbmap -variant nodeadkeys
 # loading .Xresources
 xrdb -load ~/.Xresources &
 xbindkeys
