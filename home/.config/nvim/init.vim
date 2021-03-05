@@ -260,15 +260,25 @@ function! s:on_lsp_buffer_enabled() abort
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> <Leader>gd <plug>(lsp-definition)
     nmap <buffer> <Leader>gD :leftabove LspDefinition<CR>
-    nmap <buffer> <Leader>gr <plug>(lsp-references)
     nmap <buffer> <Leader>gi <plug>(lsp-implementation)
     nmap <buffer> <Leader>gI :leftabove LspImplementation<CR>
+    nmap <buffer> <Leader>gc <plug>(lsp-declaration)
+    nmap <buffer> <Leader>gC :leftabove LspDeclaration<CR>
+    nmap <buffer> <Leader>gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>gT :leftabove LspTypeDefinition<CR>
+    nmap <buffer> <Leader>gr <plug>(lsp-references)
     nmap <buffer> <Leader>gt <plug>(lsp-type-definition)
     nmap <buffer> <Leader>rn <plug>(lsp-rename)
     nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
     nmap <buffer> <Leader>lh <plug>(lsp-hover)
     nmap <buffer> <Leader>lf <plug>(lsp-document-format)
+    nmap <buffer> <Leader>ld <plug>(lsp-document-diagnostics)
+    nmap <buffer> <Leader>lq :LspCodeAction quickfix<CR>
+    nmap <buffer> <Leader>lC <plug>(lsp-peek-declaration)
+    nmap <buffer> <Leader>lD <plug>(lsp-peek-definition)
+    nmap <buffer> <Leader>lI <plug>(lsp-peek-implementation)
+    nmap <buffer> <Leader>lT <plug>(lsp-peek-type-definition)
 
     " refer to doc to add more commands
 endfunction
