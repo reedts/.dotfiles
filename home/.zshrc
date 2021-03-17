@@ -140,6 +140,8 @@ alias nm='neomutt'
 # matterhorn
 alias mh='matterhorn'
 
+alias mm='micromamba'
+
 # }}}           END  Aliases
 
 # {{{           Key Mappings
@@ -165,6 +167,25 @@ function virtual_env_prompt () {
 }
 
 # }}}           END  Virtualenv
+
+# {{{			Micromamba
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/home/julian/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/julian/.mamba";
+__mamba_setup="$('/home/julian/bin/micromamba' shell hook --shell zsh --prefix '/home/julian/.mamba' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/julian/.mamba/etc/profile.d/mamba.sh" ]; then
+        . "/home/julian/.mamba/etc/profile.d/mamba.sh"
+    else
+        export PATH="/home/julian/.mamba/bin:$PATH"
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+# }}}			END Micromamba
 
 # {{{           FZF
 export FZF_COMPLETION_TRIGGER='~~'
@@ -246,22 +267,6 @@ fi
 # }}}
 
 # {{{          functions
-function use_conda() {
-	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/home/reedts/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq -1 ]; then
-		eval "$__conda_setup"
-	else
-		if [ -f "/home/reedts/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/reedts/miniconda3/etc/profile.d/conda.sh"
-		else
-			export PATH="/home/reedts/miniconda3/bin:$PATH"
-		fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
-}
 
 _fzf_complete_pass() {
 	_fzf_complete --multi --reverse --prompt="pass> " -- "$@" < <(
@@ -313,3 +318,4 @@ autoload -Uz compinit && compinit
 # }}}             END  Prompt
 
 # vim: fdm=marker
+
