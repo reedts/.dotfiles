@@ -135,6 +135,8 @@ alias nm='neomutt'
 # matterhorn
 alias mh='matterhorn'
 
+alias mm='micromamba'
+
 # }}}           END  Aliases
 
 # {{{           Key Mappings
