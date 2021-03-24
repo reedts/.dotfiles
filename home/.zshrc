@@ -159,6 +159,23 @@ alias mh='matterhorn'
 #	REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 #}
 
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/home/j_bigg01/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/j_bigg01/.mamba";
+__mamba_setup="$('/home/j_bigg01/.local/bin/micromamba' shell hook --shell zsh --prefix '/home/j_bigg01/.mamba' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/j_bigg01/.mamba/etc/profile.d/mamba.sh" ]; then
+        . "/home/j_bigg01/.mamba/etc/profile.d/mamba.sh"
+    else
+        export PATH="/home/j_bigg01/.mamba/bin:$PATH"
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
 # }}}           END  Virtualenv
 
 # {{{           FZF
@@ -307,4 +324,5 @@ autoload -Uz compinit && compinit
 # }}}             END  Prompt
 
 # vim: fdm=marker
+
 
