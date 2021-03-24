@@ -80,7 +80,6 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'kshenoy/vim-signature'
 Plug 'eugen0329/vim-esearch'
 Plug 'tpope/vim-commentary'
-Plug 'ryanolsonx/vim-lsp-python'
 
 " Initialize plugin system
 call plug#end()
@@ -293,6 +292,15 @@ if executable('rls')
         \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
         \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
         \ 'whitelist': ['rust'],
+        \ })
+endif
+
+" Python
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
         \ })
 endif
 " }}}
