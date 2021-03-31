@@ -13,13 +13,12 @@ end
 local on_attach = function(client, bufnr)
 	-- Enable access to needed functions from vim api
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-	-- Setup completion
-	require'completion'.on_attach(client, bufnr)
 end
 
 -- Dynamically load lspservers after installation
 local function setup_servers()
+
+	-- Register servers automatically installed with lspinstall
 	require'lspinstall'.setup()
 	local servers = require'lspinstall'.installed_servers()
 	for _, server in pairs(servers) do
@@ -45,6 +44,9 @@ local function setup_servers()
 			require'lspconfig'[server].setup({on_attach = on_attach})
 		end
 	end
+
+	-- Servers manually installed are registered here
+	require'lspconfig'.pyls.setup({on_attach = on_attach})
 end
 
 setup_servers()

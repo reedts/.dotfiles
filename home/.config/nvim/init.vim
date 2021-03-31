@@ -47,38 +47,53 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
-" Use release branch
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'pboettch/vim-cmake-syntax'
-Plug 'eugen0329/vim-esearch'
-Plug 'frazrepo/vim-rainbow'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'lervag/vimtex'
-Plug 'machakann/vim-highlightedyank'
-Plug 'majutsushi/tagbar'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'rust-lang/rust.vim'
+" Navigation
 Plug 'scrooloose/nerdtree'
-Plug 'tommcdo/vim-lion'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'eugen0329/vim-esearch'
+Plug 'majutsushi/tagbar'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'nvim-lua/completion-nvim'
+Plug 'lervag/vimtex'
+
+" Treesitter
+Plug 'nvim-treesitter/completion-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Languages
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'rust-lang/rust.vim'
+Plug 'tridactyl/vim-tridactyl'
+Plug 'vim-python/python-syntax'
+
+" Pope
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tridactyl/vim-tridactyl'
+
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-python/python-syntax'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/completion-treesitter'
-Plug 'kabouzeid/nvim-lspinstall'
+
+" Utils
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'kshenoy/vim-signature'
+Plug 'machakann/vim-highlightedyank'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'tommcdo/vim-lion'
 
 " Initialize plugin system
 call plug#end()
@@ -97,56 +112,17 @@ set statusline+=%{fugitive#statusline()}
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#alt_sep = 1
-let g:airline#extensions#lsp#enabled = 1
+let g:airline#extensions#nvimlsp#enabled = 1
 "lsp show_line_numbers
-let airline#extensions#lsp#show_line_numbers = 1
+let airline#extensions#nvimlsp#show_line_numbers = 1
 " lsp error_symbol
-let airline#extensions#lsp#error_symbol = '✗:'
+let airline#extensions#nvimlsp#error_symbol = '✗:'
 " lsp warning
-let airline#extensions#lsp#warning_symbol = ':'
+let airline#extensions#nvimlsp#warning_symbol = ':'
 let g:airline_theme = 'base16'
 
 let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰ '
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-"}}}
-
-" Python semantic plugin {{{
-let g:semshi#error_sign = v:false
-"}}}
+" }}}
 
 "Language supports {{{
 
@@ -177,15 +153,13 @@ let g:vimtex_compiler_latexmk = {
 nnoremap <space> <nop>
 let mapleader = " "
 
-nmap <leader>cl :set cursorline!<cr>
-nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
-nmap <leader>nn :NERDTreeToggle<cr>
-nmap <leader>lb :set colorcolumn=80<cr>
-nmap <leader>ig :set list!<cr>
-nmap <leader>tg :TagbarToggle<cr>
-noremap <leader>w :call TrimWhitespace()<cr>
+nmap     <leader>cl <cmd>set cursorline!<cr>
+nmap     <leader>nn <cmd>NERDTreeToggle<cr>
+nmap     <leader>lb <cmd>set colorcolumn=80<cr>
+nmap     <leader>tg <cmd>TagbarToggle<cr>
+noremap  <leader>w  <cmd>call TrimWhitespace()<cr>
 " fucking word sorting!
-vnoremap <leader>s d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+vnoremap <leader>s  d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 nmap <C-u> :redo<CR>
 
@@ -195,20 +169,13 @@ nmap <leader>gg :GitGutterToggle<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Show buffer menu
 nnoremap <C-z> :FZF<CR>
 nnoremap <C-p> :Buffer<CR>
 
-nnoremap <esc> :noh<CR>
+nnoremap <silent> <esc> :noh<CR>
 
-"}}}
-
-" FZF {{{
-let g:fzf_layout = {'down': '~20%'}
-let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit' }
 "}}}
 
 " LSP Settings {{{
@@ -233,7 +200,15 @@ nnoremap <silent> <Leader>ld <cmd>lua vim.lsp.buf.diagnostics.get_all()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
-"  Colours
+" Colour
+hi! link LspDiagnosticsDefaultError       ErrorMsg
+hi! link LspDiagnosticsDefaultWarning     vimMark
+hi       LspDiagnosticsDefaultInformation gui=italic guifg=#ffcc66
+hi       LspdiagnosticsDefaultHint        gui=italic guifg=#999999
+
+hi LspDiagnosticsUnderlineInformation cterm=NONE gui=NONE
+hi LspDiagnosticsUnderlineHint        cterm=NONE gui=NONE
+
 hi LspDiagnosticsSignWarning     gui=NONE guifg=#f99157 guibg=#393939
 hi LspDiagnosticsSignError       gui=bold guifg=#f2777a guibg=#393939
 hi LspDiagnosticsSignInformation gui=NONE guifg=#ffcc66 guibg=#393939
@@ -245,38 +220,92 @@ sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInfo
 sign define LspDiagnosticsSignHint        text=H texthl=LspDiagnosticsSignHint        linehl= numhl=
 
 " Completion
+autocmd BufEnter * lua require'completion'.on_attach()
+
 set completeopt=menuone,noinsert,noselect
 let g:completion_chain_complete_list = {
 	\'default' : {
 	\		'default' : [
 	\			{'complete_items' : ['lsp', 'snippet']},
+	\			{'complete_items' : ['path']},
+	\			{'mode': 'spel'},
+	\			{'mode': '<c-p>'},
+	\			{'mode': '<c-n>'}
 	\		],
 	\},
 	\'vim' : [
-	\	{'complete_items': ['snippet']}
+	\	{'complete_items': ['lsp', 'snippet']},
+	\	{'complete_items': ['path']},
+	\	{'mode': '<c-p>'},
+	\	{'mode': '<c-n>'}
 	\],
 	\'c' : [
-	\	{'complete_items': ['ts', 'lsp']}
+	\	{'complete_items': ['ts']},
+	\	{'complete_items': ['lsp', 'snippet']},
+	\	{'complete_items': ['path']},
+	\	{'mode': '<c-p>'},
+	\	{'mode': '<c-n>'}
 	\],
 	\'cpp' : [
-	\	{'complete_items': ['ts', 'lsp']}
+	\	{'complete_items': ['ts']},
+	\	{'complete_items': ['lsp', 'snippet']},
+	\	{'complete_items': ['path']},
+	\	{'mode': '<c-p>'},
+	\	{'mode': '<c-n>'}
 	\],
 	\'lua' : [
-	\	{'complete_items': ['ts', 'lsp']}
+	\	{'complete_items': ['ts']},
+	\	{'complete_items': ['lsp', 'snippet']},
+	\	{'complete_items': ['path']},
+	\	{'mode': '<c-p>'},
+	\	{'mode': '<c-n>'}
 	\],
 	\'rust' : [
-	\	{'complete_items': ['ts', 'lsp']}
+	\	{'complete_items': ['ts']},
+	\	{'complete_items': ['lsp', 'snippet']},
+	\	{'complete_items': ['path']},
+	\	{'mode': '<c-p>'},
+	\	{'mode': '<c-n>'}
 	\],
 	\'python' : [
-	\	{'complete_items': ['ts', 'lsp']}
+	\	{'complete_items': ['ts']},
+	\	{'complete_items': ['lsp', 'snippet']},
+	\	{'complete_items': ['path']},
+	\	{'mode': '<c-p>'},
+	\	{'mode': '<c-n>'}
 	\],
-	\}
+\}
+
+let g:completion_auto_change_source = 1
+imap <c-j> <plug>(completion_next_source)
+imap <c-k> <plug>(completion_prev_source)
 " }}}
 
 " {{{ Treesitter
 
 lua require("treesitter_config")
 
+" }}}
+
+" {{{ Telescope
+
+lua require("telescope_config")
+
+nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <silent> <leader>fi <cmd>lua require('telescope.builtin').git_files()<CR>
+nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').grep_string()<CR>
+nnoremap <silent> <leader>fl <cmd>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers()<CR>
+
+" lsp specific
+nnoremap <silent> <leader>flr  <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <silent> <leader>fls  <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+nnoremap <silent> <leader>flS  <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
+nnoremap <silent> <leader>fla  <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
+nnoremap <silent> <leader>flA  <cmd>lua require('telescope.builtin').lsp_range_code_actions()<CR>
+nnoremap <silent> <leader>fle  <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>
+nnoremap <silent> <leader>flE  <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
+nnoremap <silent> <leader>fld  <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
 " }}}
 
 " VIM rainbow {{{
