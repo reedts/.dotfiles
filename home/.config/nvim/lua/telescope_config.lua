@@ -6,6 +6,12 @@ require'telescope'.setup {
 		mappings = {
 			i = {
 				["<C-q>"] = actions.send_to_qflist,
+				["<C-s>"] = actions.select_horizontal,
+				["<C-v>"] = actions.select_vertical
+			},
+			n = {
+				["<C-s>"] = actions.select_horizontal,
+				["<C-v>"] = actions.select_vertical
 			}
 		}
 	},

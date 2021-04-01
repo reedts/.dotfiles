@@ -153,10 +153,9 @@ let g:vimtex_compiler_latexmk = {
 nnoremap <space> <nop>
 let mapleader = " "
 
-nmap     <leader>cl <cmd>set cursorline!<cr>
 nmap     <leader>nn <cmd>NERDTreeToggle<cr>
-nmap     <leader>lb <cmd>set colorcolumn=80<cr>
 nmap     <leader>tg <cmd>TagbarToggle<cr>
+nmap 	 <leader>ee <plug>(esearch)
 noremap  <leader>w  <cmd>call TrimWhitespace()<cr>
 " fucking word sorting!
 vnoremap <leader>s  d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
@@ -171,7 +170,6 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Show buffer menu
-nnoremap <C-z> :FZF<CR>
 nnoremap <C-p> :Buffer<CR>
 
 nnoremap <silent> <esc> :noh<CR>
@@ -196,13 +194,13 @@ nnoremap <silent> <Leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>lh <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <Leader>lf <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> <Leader>ld <cmd>lua vim.lsp.buf.diagnostics.get_all()<CR>
+nnoremap <silent> <Leader>ld <cmd>lua vim.lsp.diagnostic.get_all()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
 " Colour
 hi! link LspDiagnosticsDefaultError       ErrorMsg
-hi! link LspDiagnosticsDefaultWarning     vimMark
+hi       LspDiagnosticsDefaultWarning     gui=NONE   guifg=#f99157
 hi       LspDiagnosticsDefaultInformation gui=italic guifg=#ffcc66
 hi       LspdiagnosticsDefaultHint        gui=italic guifg=#999999
 
@@ -228,7 +226,6 @@ let g:completion_chain_complete_list = {
 	\		'default' : [
 	\			{'complete_items' : ['lsp', 'snippet']},
 	\			{'complete_items' : ['path']},
-	\			{'mode': 'spel'},
 	\			{'mode': '<c-p>'},
 	\			{'mode': '<c-n>'}
 	\		],
@@ -306,6 +303,7 @@ nnoremap <silent> <leader>flA  <cmd>lua require('telescope.builtin').lsp_range_c
 nnoremap <silent> <leader>fle  <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>
 nnoremap <silent> <leader>flE  <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
 nnoremap <silent> <leader>fld  <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
+
 " }}}
 
 " VIM rainbow {{{
