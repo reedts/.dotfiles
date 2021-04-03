@@ -28,4 +28,4 @@ setxkbmap -variant nodeadkeys
 # loading .Xresources
 xrdb -load ~/.Xresources &
 xbindkeys
-runsvdir ~/etc/runit/runsvdir/graphical "log: .........................................................................." &
+runsvdir ~/graphical "log: .........................................................................." &
