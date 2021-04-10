@@ -55,7 +55,7 @@ Plug 'majutsushi/tagbar'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'kabouzeid/nvim-lspinstall', {'branch': 'main'}
 Plug 'nvim-lua/completion-nvim'
 Plug 'lervag/vimtex'
 
@@ -195,6 +195,8 @@ nnoremap <silent> <Leader>lh <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <Leader>lf <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> <Leader>ld <cmd>lua vim.lsp.diagnostic.get_all()<CR>
+nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
