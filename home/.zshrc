@@ -171,9 +171,9 @@ function virtual_env_prompt () {
 # {{{			Micromamba
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/home/reedts/bin/micromamba";
+export MAMBA_EXE="/home/reedts/.local/bin/micromamba";
 export MAMBA_ROOT_PREFIX="/home/reedts/.mamba";
-__mamba_setup="$('/home/reedts/bin/micromamba' shell hook --shell zsh --prefix '/home/reedts/.mamba' 2> /dev/null)"
+__mamba_setup="$('/home/reedts/.local/bin/micromamba' shell hook --shell zsh --prefix '/home/reedts/.mamba' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
