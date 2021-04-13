@@ -16,6 +16,7 @@
 ;
 ;==========================================================
 
+; {{{ Colors
 [colors]
 background = ${xrdb:background:2d2d2d}
 background-alt = #cccccc
@@ -43,7 +44,10 @@ primary = ${self.green}
 secondary = ${self.blue}
 alert = ${self.red}
 active-background = ${self.dark-grey}
+; }}}
 
+
+; {{{ Base bar
 [bar/base]
 width = 100%
 height = 20
@@ -66,33 +70,38 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "Roboto:style=Regular:size=8;1"
-font-1 = FontAwesome5FreeSolid:size=8;2
-font-2 = "unifont:size=8;2"
-font-3 = "Roboto Mono for Powerline:style=Regular:size=8;1"
+font-1 = "Symbols Nerd Font:size=10;2"
+font-2 = "unifont:size=8;1"
+font-3 = "DejaVuSansMono Nerd Font:size=8;1"
 
 modules-left = i3
 modules-center = date
+; }}}
 
+
+; {{{ Second bar
 [bar/secondary]
 inherit = bar/base
 monitor = ${env:MONITOR:DP-0}
+; }}}
 
-[bar/tertiary]
-inherit = bar/base
-monitor = ${env:MONITOR:HDMI-0}
 
+; {{{ Primary bar
 [bar/primary]
 inherit = bar/base
 monitor = ${env:MONITOR:DP-2}
 modules-left = i3 vpn player
-modules-right = temperature cpu memory vpn eth pulseaudio mail
+modules-right = xkeyboard temperature cpu memory vpn eth pulseaudio mail
 
 tray-position = right
 tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+; }}}
 
+
+; {{{ Module i3
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -103,7 +112,7 @@ wrapping-scroll = false
 pin-workspaces = true
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
@@ -112,7 +121,7 @@ ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
-; ws-icon-default = 
+; ws-icon-default =
 
 label-mode-padding = 2
 label-mode-foreground = ${colors.background}
@@ -128,7 +137,7 @@ label-focused-padding = 2
 label-unfocused = "%index%  %icon%"
 label-unfocused-foreground = ${colors.secondary}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 2 
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = "%index%  %icon%"
@@ -140,45 +149,43 @@ label-visible-padding = 2
 label-urgent = "%index%  %icon%"
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+; }}}
 
 
+; {{{ Module CPU
 [module/cpu]
 type = internal/cpu
 interval = 2
 format = <label> <ramp-coreload>
-format-prefix = %{T2} %{T-}
+format-prefix = ""
 format-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
 label = "%percentage:3%% "
-label-font = 4
+label-font = 1
 format-padding = 1
 
+ramp-coreload-font = 2
 ramp-coreload-foreground = ${self.format-foreground}
 ramp-coreload-0 = ▁
-ramp-coreload-0-font = 3
 ramp-coreload-0-foreground = ${self.format-foreground}
 ramp-coreload-1 = ▂
-ramp-coreload-1-font = 3
 ramp-coreload-1-foreground = ${self.format-foreground}
 ramp-coreload-2 = ▃
-ramp-coreload-2-font = 3
 ramp-coreload-2-foreground = ${self.format-foreground}
 ramp-coreload-3 = ▄
-ramp-coreload-3-font = 3
 ramp-coreload-3-foreground = ${colors.light-yellow}
 ramp-coreload-4 = ▅
-ramp-coreload-4-font = 3
 ramp-coreload-4-foreground = ${colors.yellow}
 ramp-coreload-5 = ▆
-ramp-coreload-5-font = 3
 ramp-coreload-5-foreground = ${colors.yellow}
 ramp-coreload-6 = ▇
-ramp-coreload-6-font = 3
 ramp-coreload-6-foreground = ${colors.light-red}
 ramp-coreload-7 = █
-ramp-coreload-7-font = 3
 ramp-coreload-7-foreground = ${colors.red}
+; }}}
 
+
+; {{{ Module RAM
 [module/memory]
 type = internal/memory
 interval = 2
@@ -186,9 +193,9 @@ format = <label> <bar-used>
 format-underline = ${colors.blue}
 format-foreground = ${colors.foreground}
 format-padding = 1
-format-prefix = %{T2} %{T-}
+format-prefix = ""
 label = "%percentage_used:3%% "
-label-font = 4
+label-font = 1
 
 bar-used-foreground = ${self.format-foreground}
 bar-used-width = 20
@@ -203,13 +210,19 @@ bar-used-foreground-9 = ${colors.red}
 bar-used-foreground-10 = ${colors.red}
 bar-used-fill = ▎
 bar-used-empty-foreground = ${colors.black}
-bar-used-indicator = 
+bar-used-indicator =
+; }}}
 
+
+; {{{ Module VPN
 [module/vpn]
 type = custom/script
 exec = ~/.config/polybar/scripts/vpn-openvpn-isrunning.sh
 interval = 5
+; }}}
 
+
+; {{{ Module eth
 [module/eth]
 type = internal/network
 interface = enp0s31f6
@@ -218,30 +231,35 @@ interval = 3.0
 format-connected-padding = 1
 format-connected-foreground = ${colors.foreground}
 format-connected-underline = ${colors.blue}
-format-connected-prefix = "%{T1} %{T-}"
-label-connected = "%local_ip%  %{T4}%upspeed:10%%{T-} %{T1}%{T-}%{T1}%{T-} %{T4}%downspeed:10%%{T-}"
+format-connected-prefix = ""
+label-connected = "%local_ip%  %{T4}%upspeed:10%%{T-}  %{T4}%downspeed:10%%{T-}"
 
-format-disconnected =
-label-disconnected = "%{T1} ${T-}"
+label-disconnected = ""
+format-disconnected-padding = 1
 format-disconnected-background = ${colors.alert}
+; }}}
 
+
+; {{{ Module date
 [module/date]
 type = internal/date
 interval = 5
 format-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
 format-padding = 1
-format-prefix = "%{T1} %{T-}"
+format-prefix = ""
 
 date = " %Y-%m-%d"
 date-alt = " %Y-%m-%d"
 
-time = %H:%M
-time-alt = %H:%M:%S
-
+time = "%H:%M"
+time-alt = "%H:%M:%S"
 
 label = %date% %time%
+; }}}
 
+
+; {{{ Module pulseaudio
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -249,21 +267,44 @@ format-volume = <ramp-volume> <label-volume>
 format-padding = 2
 format-foreground = ${colors.foreground}
 
-label-muted = 
+label-muted = ﱝ
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
 click-right = "pavucontrol &"
+; }}}
 
+
+; {{{ Module keyboard
+[module/xkeyboard]
+type = internal/xkeyboard
+
+format = <label-indicator>
+label-indicator-on-padding = 2
+label-indicator-on-foreground = ${colors.yellow}
+
+indicator-icon-0 = num lock;;
+indicator-icon-1 = caps lock;;
+
+label-indicator-on = %icon%
+; }}}
+
+
+; {{{ Module player
 [module/player]
 type = custom/script
 exec = ~/.config/polybar/scripts/player-mpris-tail.py -f '{icon} {artist} - {title}'
 tail = true
 format-foreground = ${colors.yellow}
+click-left = ~/.config/polybar/scripts/player-mpris-tail.py play-pause &
+click-right = ~/.config/polybar/scripts/player-mpris-tail.py next &
+click-middle = ~/.config/polybar/scripts/player-mpris-tail.py previous &
+; }}}
 
 
+; {{{ Module temperature
 [module/temperature]
 type = internal/temperature
 base-temperature = 20
@@ -282,7 +323,10 @@ label-warn = %temperature-c%
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
+; }}}
 
+
+; {{{ Module mail
 [module/mail]
 type = custom/script
 exec = buzz
@@ -290,8 +334,10 @@ tail = true
 format-prefix = "  "
 format-suffix = "  "
 format-foreground = ${colors.foreground}
+; }}}
 
 
+; {{{ Other settings
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -302,5 +348,6 @@ screenchange-reload = true
 
 [global/wm]
 margin-bottom = 0
+; }}}
 
-; vim:ft=dosini
+; vim:ft=dosini:fdm=marker

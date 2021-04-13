@@ -9,15 +9,6 @@ env:
 
 font:
   size: 9
-  normal:
-    family: DejaVu Sans Mono for Powerline
-    style: Regular
-
-  bold:
-    family: DejaVu Sans Mono for Powerline
-
-  italic:
-    family: DejaVu Sans Mono for Powerline
 
 # Base16 Tomorrow Night 256 - alacritty color config
 # Chris Kempson (http://chriskempson.com)
