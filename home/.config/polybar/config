@@ -83,7 +83,6 @@ modules-center = date
 [bar/secondary]
 inherit = bar/base
 monitor = ${env:MONITOR:DP-2}
-monitor = ${env:MONITOR:DP-0}
 ; }}}
 
 
