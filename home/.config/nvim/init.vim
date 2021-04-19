@@ -68,6 +68,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'kyazdani42/nvim-web-devicons'				" for symbols
 
 " Languages
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -107,7 +108,6 @@ colorscheme base16-tomorrow-night-eighties
 
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
-"set statusline^=${coc#status()}
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -119,9 +119,19 @@ let airline#extensions#nvimlsp#show_line_numbers = 1
 let airline#extensions#nvimlsp#error_symbol = '✗:'
 " lsp warning
 let airline#extensions#nvimlsp#warning_symbol = ':'
+
 let g:airline_theme = 'base16'
 
 let g:airline_powerline_fonts = 1
+
+" overwriting some symbols
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.branch = ''
+let g:airline_symbols.dirty = ' '
+
 " }}}
 
 "Language supports {{{
@@ -169,9 +179,6 @@ nmap <leader>gg :GitGutterToggle<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Show buffer menu
-nnoremap <C-p> :Buffer<CR>
-
 nnoremap <silent> <esc> :noh<CR>
 
 "}}}
@@ -217,7 +224,7 @@ hi LspDiagnosticsSignHint        gui=NONE guifg=#999999 guibg=#393939
 sign define LspDiagnosticsSignError       text=✗ texthl=LspDiagnosticsSignError       linehl= numhl=
 sign define LspDiagnosticsSignWarning     text= texthl=LspDiagnosticsSignWarning     linehl= numhl=
 sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint        text=H texthl=LspDiagnosticsSignHint        linehl= numhl=
+sign define LspDiagnosticsSignHint        text= texthl=LspDiagnosticsSignHint        linehl= numhl=
 
 " Completion
 autocmd BufEnter * lua require'completion'.on_attach()
@@ -294,23 +301,26 @@ nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<
 nnoremap <silent> <leader>fi <cmd>lua require('telescope.builtin').git_files()<CR>
 nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').grep_string()<CR>
 nnoremap <silent> <leader>fl <cmd>lua require('telescope.builtin').live_grep()<CR>
-nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers()<CR>
+nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers({ show_all_buffers = true })<CR>
 
 " lsp specific
-nnoremap <silent> <leader>flr  <cmd>lua require('telescope.builtin').lsp_references()<CR>
-nnoremap <silent> <leader>fls  <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
-nnoremap <silent> <leader>flS  <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
-nnoremap <silent> <leader>fla  <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
-nnoremap <silent> <leader>flA  <cmd>lua require('telescope.builtin').lsp_range_code_actions()<CR>
-nnoremap <silent> <leader>fle  <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>
-nnoremap <silent> <leader>flE  <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
-nnoremap <silent> <leader>fld  <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
+nnoremap <silent> <leader>flr <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <silent> <leader>fls <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+nnoremap <silent> <leader>flS <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
+nnoremap <silent> <leader>fla <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
+nnoremap <silent> <leader>flA <cmd>lua require('telescope.builtin').lsp_range_code_actions()<CR>
+nnoremap <silent> <leader>fle <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>
+nnoremap <silent> <leader>flE <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
+nnoremap <silent> <leader>fld <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
+
+" custom searches
+nnoremap <silent> <leader>fhs <cmd>lua require('telescope_config').search_dotfiles()<CR>
+nnoremap <silent> <leader>fcf <cmd>lua require('telescope_config').search_config()<CR>
 
 " }}}
 
 " VIM rainbow {{{
 let g:rainbow_active = 1
-"let g:rainbow_ctermfgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#ffcc66']
 let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '#ffcc66']
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
