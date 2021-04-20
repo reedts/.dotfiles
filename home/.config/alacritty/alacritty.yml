@@ -8,14 +8,6 @@ env:
   TERM: xterm-256color
 font:
   size: 9
-  # normal:
-  #   family: DejaVu Sans Mono for Powerline
-
-  # bold:
-  #   family: DejaVu Sans Mono for Powerline
-
-  # italic:
-  #   family: DejaVu Sans Mono for Powerline
 
 # Base16 Tomorrow Night 256 - alacritty color config
 # Chris Kempson (http://chriskempson.com)
@@ -67,5 +59,3 @@ key_bindings:
     - { key: K,      mods: Alt|Shift,    action: ScrollPageUp     }
     - { key: T,      mods: Control|Shift,action: SpawnNewInstance }
 
-font:
-    size: 9
