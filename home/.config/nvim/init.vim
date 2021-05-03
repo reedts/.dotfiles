@@ -274,7 +274,6 @@ let g:completion_chain_complete_list = {
 	\	{'mode': '<c-n>'}
 	\],
 	\'python' : [
-	\	{'complete_items': ['ts']},
 	\	{'complete_items': ['lsp', 'snippet']},
 	\	{'complete_items': ['path']},
 	\	{'mode': '<c-p>'},
