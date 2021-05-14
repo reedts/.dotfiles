@@ -7,7 +7,7 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 font:
-  size: 9
+  size: 8
 
 # Base16 Tomorrow Night 256 - alacritty color config
 # Chris Kempson (http://chriskempson.com)

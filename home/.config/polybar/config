@@ -165,11 +165,8 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 ; }}}
 
-[module/vpn]
-type = custom/script
-exec = ~/.config/polybar/scripts/vpn-openvpn-isrunning.sh
-interval = 5
 
+; {{{ Module Backlight
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
@@ -179,6 +176,7 @@ format-foreground = ${colors.yellow}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
+; }}}
 
 
 ; {{{ Module CPU
