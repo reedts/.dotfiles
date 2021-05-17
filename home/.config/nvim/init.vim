@@ -114,6 +114,8 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#alt_sep = 1
 let g:airline#extensions#nvimlsp#enabled = 1
+let g:airline#extensions#scrollbar#enabled = 0
+
 "lsp show_line_numbers
 let airline#extensions#nvimlsp#show_line_numbers = 1
 " lsp error_symbol
