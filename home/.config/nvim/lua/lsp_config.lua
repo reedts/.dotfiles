@@ -15,6 +15,15 @@ local on_attach = function(client, bufnr)
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 end
 
+local on_attach_cpp = function(client, bufnr)
+	on_attach(client, bufnr)
+	-- Register keymaps for clangd
+	local opts = { noremap=true, silent=true}
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lS', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lvS', '<cmd>ClangdSwitchSourceHeaderVSplit<CR>', opts)
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lhS', '<cmd>ClangdSwitchSourceHeaderSplit<CR>', opts)
+end
+
 -- Dynamically load lspservers after installation
 local function setup_servers()
 
@@ -23,7 +32,7 @@ local function setup_servers()
 	local servers = require'lspinstall'.installed_servers()
 	for _, server in pairs(servers) do
 		if server == "cpp" then
-			require'lspconfig'[server].setup({on_attach = on_attach,
+			require'lspconfig'[server].setup({on_attach = on_attach_cpp,
 				commands = {
 					ClangdSwitchSourceHeader = {
 						function() switch_source_header_splitcmd(0, "edit") end;
