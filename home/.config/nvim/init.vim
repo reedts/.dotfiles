@@ -93,6 +93,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'machakann/vim-highlightedyank'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tommcdo/vim-lion'
+Plug 'Yggdroot/indentLine'
 
 " Initialize plugin system
 call plug#end()
@@ -188,7 +189,7 @@ lua require("lsp_config")
 
 " Keymaps
 nnoremap <silent> <Leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <Leader>gD <cmd>leftabove vim.lsp.buf.definition()<CR>
+nnoremap <silent> <Leader>gD <cmd>leftabove lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <Leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <Leader>gI <cmd>leftabove lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <Leader>gc <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -325,6 +326,13 @@ let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '
 
 " Colorizer LUA {{{
 lua require'colorizer'.setup()
+" }}}
+
+" {{{ IndentLines
+
+let g:indentLine_color_gui = '#515151'
+
+let g:indentLine_char_list = ['┆']
 " }}}
 
 " Directory specific settings {{{
