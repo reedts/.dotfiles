@@ -8,8 +8,9 @@ MB_CONFIG=${2:-$HOME/.mbsyncrc}
 
 mbsync -c "$MB_CONFIG" -a `basename "$MAILDIR"`
 
-if [ -e "$MAILDIR" ]; then
-	notmuch --config="$MAILDIR/.notmuch-config" new
+if [ -n "$MAILDIR" ]; then
+	dir=$HOME/.mail/"$MAILDIR"
+	notmuch --config="$dir/.notmuch-config" new
 else
 	for dir in `fd -t d -d 1 . ${MAILDIRS[1]}`; do
 		mbsync -a `basename "$dir"`

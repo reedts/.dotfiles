@@ -3,19 +3,19 @@ server = "imap.gmail.com"
 port = 993
 username = "j.reedts@gmail.com"
 pwcmd = "pass email/gmail/buzz"
-notificationcmd = "notify-send '  New E-Mail in GMail'; mail_refresh /home/reedts/.mail/private/gmail"
+notificationcmd = "mail_refresh private/gmail"
 
 [wwu]
 server = "imap.uni-muenster.de"
 port = 993
 username = "j_bigg01"
 pwcmd = "pass uni/mail/julian.bigge"
-notificationcmd = "notify-send '  New E-Mail in WWU'; mail_refresh /home/reedts/.mail/private/wwu"
+notificationcmd = "mail_refresh private/wwu"
 
 [qubeto]
 server = "w019c0bc.kasserver.com"
 port = 993
 username = "m052cc73"
 pwcmd = "pass qubeto/mail/bigge@qubeto.de | head -n 1"
-notificationcmd = "notify-send '  New E-Mail in Qubeto'; mail_refresh /home/reedts/.mail/qubeto/qubeto /home/reedts/.mbsyncrc_qubeto"
+notificationcmd = "mail_refresh qubeto/qubeto /home/reedts/.mbsyncrc_qubeto"
 
