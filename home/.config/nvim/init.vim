@@ -82,6 +82,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -283,6 +284,7 @@ let g:completion_chain_complete_list = {
 	\	{'mode': '<c-p>'},
 	\	{'mode': '<c-n>'}
 	\],
+	\'TelescopePrompt' : []
 \}
 
 let g:completion_auto_change_source = 1
