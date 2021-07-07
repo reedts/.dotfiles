@@ -16,8 +16,8 @@ Inbox ~/.mail/private/wwu/INBOX
 Subfolders Verbatim
 
 Channel wwu
-Master :wwu-remote:
-Slave :wwu-local:
+Far :wwu-remote:
+Near :wwu-local:
 Create Both # Automatically create missing mailboxes, both locally and on the server
 Expunge Both
 SyncState *
@@ -39,42 +39,42 @@ Path ~/.mail/private/gmail/
 Inbox ~/.mail/private/gmail/INBOX
 
 Channel sync-gmail-archive
-Master ":gmail-remote:[Gmail]/Alle Nachrichten"
-Slave :gmail-local:Archive
-Create Slave
+Far ":gmail-remote:[Gmail]/Alle Nachrichten"
+Near :gmail-local:Archive
+Create Near
 SyncState *
 Sync All
 MaxMessages 300
 
 Channel sync-gmail-trash
-Master ":gmail-remote:[Gmail]/Papierkorb"
-Slave :gmail-local:Trash
-Create Slave
+Far ":gmail-remote:[Gmail]/Papierkorb"
+Near :gmail-local:Trash
+Create Near
 SyncState *
 Sync All
 
 Channel sync-gmail-drafts
-Master ":gmail-remote:[Gmail]/Entw&APw-rfe"
-Slave :gmail-local:Drafts
-Create Slave
+Far ":gmail-remote:[Gmail]/Entw&APw-rfe"
+Near :gmail-local:Drafts
+Create Near
 SyncState *
 Sync All
 Expunge Both
 
 Channel sync-gmail-sent
-Master ":gmail-remote:[Gmail]/Gesendet"
-Slave :gmail-local:Sent
-Create Slave
+Far ":gmail-remote:[Gmail]/Gesendet"
+Near :gmail-local:Sent
+Create Near
 SyncState *
 Sync All
 Expunge Both
 MaxMessages 300
 
 Channel sync-gmail-inbox
-Master ":gmail-remote:INBOX"
-Slave ":gmail-local:INBOX"
+Far ":gmail-remote:INBOX"
+Near ":gmail-local:INBOX"
 SyncState *
-Create Slave
+Create Near
 Sync All
 Expunge Both
 MaxMessages 2000
