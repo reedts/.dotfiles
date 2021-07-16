@@ -59,7 +59,7 @@ local function setup_servers()
 	-- Servers manually installed are registered here
 	require'lspconfig'.pylsp.setup({
 		on_attach = on_attach,
-		cmd = { "/home/julian/.mamba/envs/nvim/bin/pylsp" },
+		cmd = { "/home/reedts/.mamba/envs/nvim/bin/pylsp" },
 	})
 end
 
