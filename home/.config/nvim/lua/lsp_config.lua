@@ -15,6 +15,8 @@ local on_attach = function(client, bufnr)
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 end
 
+-- Customized on_attach for cpp language-server to enable
+-- custom clangd bindings
 local on_attach_cpp = function(client, bufnr)
 	on_attach(client, bufnr)
 	-- Register keymaps for clangd
@@ -49,13 +51,16 @@ local function setup_servers()
 				}
 			})
 		else
-			-- Use our on_attach function
+			-- Use customized on_attach function
 			require'lspconfig'[server].setup({on_attach = on_attach})
 		end
 	end
 
 	-- Servers manually installed are registered here
-	require'lspconfig'.pyls.setup({on_attach = on_attach})
+	require'lspconfig'.pylsp.setup({
+		on_attach = on_attach,
+		cmd = { "/home/julian/.mamba/envs/nvim/bin/pylsp" },
+	})
 end
 
 setup_servers()
