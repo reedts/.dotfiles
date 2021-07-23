@@ -236,53 +236,13 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_chain_complete_list = {
 	\'default' : {
 	\		'default' : [
-	\			{'complete_items' : ['lsp', 'snippet']},
 	\			{'complete_items' : ['path']},
+	\			{'complete_items' : ['ts']},
+	\			{'complete_items' : ['lsp', 'snippet']},
 	\			{'mode': '<c-p>'},
 	\			{'mode': '<c-n>'}
 	\		],
 	\},
-	\'vim' : [
-	\	{'complete_items': ['lsp', 'snippet']},
-	\	{'complete_items': ['path']},
-	\	{'mode': '<c-p>'},
-	\	{'mode': '<c-n>'}
-	\],
-	\'c' : [
-	\	{'complete_items': ['ts']},
-	\	{'complete_items': ['lsp', 'snippet']},
-	\	{'complete_items': ['path']},
-	\	{'mode': '<c-p>'},
-	\	{'mode': '<c-n>'}
-	\],
-	\'cpp' : [
-	\	{'complete_items': ['ts']},
-	\	{'complete_items': ['lsp', 'snippet']},
-	\	{'complete_items': ['path']},
-	\	{'mode': '<c-p>'},
-	\	{'mode': '<c-n>'}
-	\],
-	\'lua' : [
-	\	{'complete_items': ['ts']},
-	\	{'complete_items': ['lsp', 'snippet']},
-	\	{'complete_items': ['path']},
-	\	{'mode': '<c-p>'},
-	\	{'mode': '<c-n>'}
-	\],
-	\'rust' : [
-	\	{'complete_items': ['ts']},
-	\	{'complete_items': ['lsp', 'snippet']},
-	\	{'complete_items': ['path']},
-	\	{'mode': '<c-p>'},
-	\	{'mode': '<c-n>'}
-	\],
-	\'python' : [
-	\	{'complete_items': ['ts']},
-	\	{'complete_items': ['lsp', 'snippet']},
-	\	{'complete_items': ['path']},
-	\	{'mode': '<c-p>'},
-	\	{'mode': '<c-n>'}
-	\],
 	\'TelescopePrompt' : []
 \}
 
