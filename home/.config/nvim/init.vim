@@ -56,7 +56,7 @@ Plug 'majutsushi/tagbar'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall', {'branch': 'main'}
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 Plug 'lervag/vimtex'
 
 " Treesitter
@@ -228,27 +228,12 @@ sign define LspDiagnosticsSignError       text=✗ texthl=LspDiagnosticsSignErro
 sign define LspDiagnosticsSignWarning     text= texthl=LspDiagnosticsSignWarning     linehl= numhl=
 sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
 sign define LspDiagnosticsSignHint        text= texthl=LspDiagnosticsSignHint        linehl= numhl=
+" }}}
 
-" Completion
-autocmd BufEnter * lua require'completion'.on_attach()
+" Completion {{{
 
-set completeopt=menuone,noinsert,noselect
-let g:completion_chain_complete_list = {
-	\'default' : {
-	\		'default' : [
-	\			{'complete_items' : ['path']},
-	\			{'complete_items' : ['ts']},
-	\			{'complete_items' : ['lsp', 'snippet']},
-	\			{'mode': '<c-p>'},
-	\			{'mode': '<c-n>'}
-	\		],
-	\},
-	\'TelescopePrompt' : []
-\}
+lua require("completion_config")
 
-let g:completion_auto_change_source = 1
-imap <c-j> <plug>(completion_next_source)
-imap <c-k> <plug>(completion_prev_source)
 " }}}
 
 " {{{ Treesitter
