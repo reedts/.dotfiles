@@ -240,7 +240,7 @@ set mime_type_query_command = "xdg-mime query filetype"
 ## GnuPG ##------------------------------------------------------------------{{{
 #
 set crypt_use_gpgme = yes
-set pgp_default_key = "0x0F9C0ECE575A522E43C83E98B454329C87EBA7E0"
+set pgp_default_key = "0xBE34AB83BEA2EF28C8D04353DD73B5CF122FECBF"
 set crypt_autosign = yes
 set crypt_replyencrypt = yes
 set crypt_replysign = yes

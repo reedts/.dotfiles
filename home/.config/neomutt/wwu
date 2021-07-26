@@ -29,3 +29,4 @@ set nm_default_uri = "notmuch:///home/reedts/.mail/private/wwu"
 
 # Enable address-query
 set query_command = "neomutt-address-nm --config /home/reedts/.mail/private/wwu/.notmuch-config '%s'"
+set pgp_default_key = "0x311E6C3E77553602245ED035B4B45B35BAEF0532"
