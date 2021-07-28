@@ -2,9 +2,8 @@
 IMAPAccount wwu
 Host imap.uni-muenster.de
 User j_bigg01
-PassCmd "gpg2 --batch -q --decrypt ~/.neomutt/wwu.gpg"
+PassCmd "pass uni/mail/julian.bigge | head -n1"
 SSLType IMAPS
-SSLVersions TLSv1
 SystemCertificates yes
 
 IMAPStore wwu-remote
@@ -27,7 +26,7 @@ Patterns * !Kontakte !Notizen !Aufgaben !Journal !Entw*rfe !Junk-E-Mail !Kalende
 IMAPAccount gmail
 Host imap.gmail.com
 user j.reedts@gmail.com
-PassCmd "gpg2 --batch -q --decrypt ~/.neomutt/gmail.gpg"
+PassCmd "pass email/gmail/earlrussell/neomutt | head -n1"
 SSLType IMAPS
 SystemCertificates yes
 
@@ -85,3 +84,4 @@ Channel sync-gmail-trash
 Channel sync-gmail-inbox
 Channel sync-gmail-drafts
 Channel sync-gmail-sent
+
