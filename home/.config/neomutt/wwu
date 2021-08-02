@@ -20,7 +20,7 @@ set smime_default_key = "0x641F8B3A"
 
 
 # SMTP
-set smtp_pass = `gpg2 --batch -q --decrypt ~/.neomutt/wwu.gpg`
+set smtp_pass = `pass uni/mail/julian.bigge | head -n1`
 set smtp_url = "smtp://$my_user@secmail.uni-muenster.de:587"
 
 # This variable specifies the default Notmuch database in format:
