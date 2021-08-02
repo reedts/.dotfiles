@@ -231,8 +231,12 @@ sign define LspDiagnosticsSignHint        text= texthl=LspDiagnosticsSignHint
 " }}}
 
 " Completion {{{
-
+set completeopt=menuone,noselect
 lua require("completion_config")
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 
 " }}}
 
