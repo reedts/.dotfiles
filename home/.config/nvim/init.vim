@@ -96,6 +96,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tommcdo/vim-lion'
 Plug 'Yggdroot/indentLine'
+Plug 'RRethy/vim-illuminate'
 
 " Initialize plugin system
 call plug#end()
@@ -216,6 +217,10 @@ hi       LspDiagnosticsDefaultWarning     gui=NONE   guifg=#f99157
 hi       LspDiagnosticsDefaultInformation gui=italic guifg=#ffcc66
 hi       LspdiagnosticsDefaultHint        gui=italic guifg=#999999
 
+hi! link LspReferenceText	Visual
+hi! link LspReferenceRead	Visual
+hi! link LspReferenceWrite	Visual
+
 hi LspDiagnosticsUnderlineInformation cterm=NONE gui=NONE
 hi LspDiagnosticsUnderlineHint        cterm=NONE gui=NONE
 
@@ -292,6 +297,10 @@ lua require'colorizer'.setup()
 let g:indentLine_color_gui = '#515151'
 
 let g:indentLine_char_list = ['┆']
+" }}}
+
+" Illuminate {{{
+let g:Illuminate_delay = 1000
 " }}}
 
 " Directory specific settings {{{
