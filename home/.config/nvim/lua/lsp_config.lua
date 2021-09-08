@@ -66,6 +66,16 @@ local function setup_servers()
 	require'lspconfig'.pylsp.setup({
 		on_attach = on_attach,
 		cmd = { "/home/reedts/.mamba/envs/nvim/bin/pylsp" },
+		settings = {
+			plugins = {
+				yapf = {
+					enabled = true
+				},
+				autopep8 = {
+					enabled = false
+				},
+			}
+		}
 	})
 end
 
