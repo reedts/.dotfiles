@@ -65,13 +65,13 @@ bindurl reddit.com gu urlparent 4
 bindurl www.google.com f hint -Jc .rc > .r > a
 bindurl www.google.com F hint -Jbc .rc>.r>a
 
+bindurl duckduckgo.com f hint -Jc [class*=result__a],[class*=zcm__link],[class*=result--more__btn],[id=search_form_input]
+bindurl duckduckgo.com F hint -Jbc [class*=result__a],[class*=zcm__link],[class*=result--more__btn],[id=search_form_input]
 bindurl duckduckgo.com i js document.getElementById("search_form_input").select()
-bindurl duckduckgo.com f hint -Jc [class=result__a],button
-bindurl duckduckgo.com F hint -Jbc [class=result__a],button
 
+bindurl startpage.com f hint -Jc [class*=result-title],[id=q],button
+bindurl startpage.com F hint -Jbc [class*=result-title],[id=q],button
 bindurl startpage.com i js document.getElementById("q").select()
-bindurl startpage.com f hint -Jc [class*="w-gl__result-title"],button
-bindurl startpage.com F hint -Jbc [class*="w-gl__result-title"],button
 
 " Allow Ctrl-a to select all in the commandline
 unbind --mode=ex <C-a>
