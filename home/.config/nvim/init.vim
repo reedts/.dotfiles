@@ -13,6 +13,8 @@ set undofile
 
 set fillchars+=vert:\│
 
+let g:python3_host_prog = '/usr/bin/python3'
+
 "}}}
 
 " Indenting {{{
@@ -58,6 +60,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall', {'branch': 'main'}
 Plug 'hrsh7th/nvim-compe'
 Plug 'lervag/vimtex'
+Plug 'ftilde/vim-ugdb'
 
 " Treesitter
 Plug 'nvim-treesitter/completion-treesitter'
@@ -75,7 +78,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'tridactyl/vim-tridactyl'
-Plug 'vim-python/python-syntax'
 
 " Pope
 Plug 'tpope/vim-commentary'
