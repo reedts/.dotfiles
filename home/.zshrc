@@ -123,8 +123,8 @@ alias vd='nvim -d'
 # xdg-open
 alias xo='xdg-open'
 
-# xdg-open
-alias xo='xdg-open'
+# handlr (xdg-open deprecated)
+alias xo='handlr open'
 
 # rsync
 alias copy='rsync -az --info=progress2'
