@@ -247,6 +247,12 @@ zinit light MichaelAquilina/zsh-you-should-use
 
 zinit light andsens/homeshick
 
+# for dircolors
+zinit ice atclone"dircolors -b ~/.dircolors > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light zdharma/null
+
 # Prompt
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
@@ -284,11 +290,11 @@ function svg() {
 # {{{       Prompt
 
 # load LS_COLORS
-if [[ -f ~/.dircolors ]]; then
-	eval $(dircolors -b ~/.dircolors)
-elif [[ -f /etc/DIR_COLORS ]] ; then
-	eval $(dircolors -b /etc/DIR_COLORS)
-fi
+# if [[ -f ~/.dircolors ]]; then
+# 	eval $(dircolors -b ~/.dircolors)
+# elif [[ -f /etc/DIR_COLORS ]] ; then
+# 	eval $(dircolors -b /etc/DIR_COLORS)
+# fi
 
 precmd_pipestatus() {
 	RPROMPT="${(j.|.)pipestatus}"
@@ -311,7 +317,7 @@ PURE_PROMPT_VICMD_SYMBOL=" "
 PURE_PREPEND_NEW_LINE=0
 
 zstyle ':completion:*' menu select yes
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 autoload -Uz compinit && compinit
 
