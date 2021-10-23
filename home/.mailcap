@@ -1,3 +1,4 @@
 text/html; elinks -dump ; copiousoutput
 text/markdown; mdcat -p ; copiousoutput
 application/pdf; zathura %s ; copiousoutput
+image/*; feh %s ;
