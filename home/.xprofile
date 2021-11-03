@@ -1,8 +1,6 @@
 #!/bin/sh
 #
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
+# Executed by lightdm on session start	
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -20,10 +18,8 @@ export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export SVDIR=$HOME/etc/runit/runsvdir/graphical
 
 
-# setting cursor rate
 xset r rate 200 60
 # load xkb variant one time for rofi-pass
 setxkbmap -variant nodeadkeys
-# loading .Xresources
-xrdb -load ~/.Xresources &
-runsvdir ~/.local/etc/runit/runsvdir/graphical "log: .........................................................................." &
+
+runsvdir ~/graphical "log: .........................................................................." &
