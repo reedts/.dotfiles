@@ -189,8 +189,8 @@ unset __mamba_setup
 
 # {{{           FZF
 export FZF_COMPLETION_TRIGGER='~~'
-source /usr/share/doc/fzf/completion.zsh
-source /usr/share/doc/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 # }}}           END FZF
 
