@@ -50,8 +50,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 " Navigation
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'eugen0329/vim-esearch'
 Plug 'majutsushi/tagbar'
 
