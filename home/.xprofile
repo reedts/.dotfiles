@@ -19,7 +19,5 @@ export SVDIR=$HOME/etc/runit/runsvdir/graphical
 
 
 xset r rate 200 60
-# load xkb variant one time for rofi-pass
-setxkbmap -variant nodeadkeys
 
 runsvdir ~/graphical "log: .........................................................................." &
