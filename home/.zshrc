@@ -141,6 +141,8 @@ alias nm='neomutt'
 alias mh='matterhorn'
 
 alias mm='micromamba'
+alias t='task'
+alias tw='task project:work'
 
 # }}}           END  Aliases
 
