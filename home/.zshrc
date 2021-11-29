@@ -143,6 +143,7 @@ alias mh='matterhorn'
 alias mm='micromamba'
 alias t='task'
 alias tw='task project:work'
+alias tq='task project:qubeto'
 
 # }}}           END  Aliases
 
@@ -263,7 +264,7 @@ zinit light andsens/homeshick
 zinit ice atclone"dircolors -b ~/.dircolors > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zinit light zdharma/null
+zinit light zdharma-continuum/null
 
 # Prompt
 zinit ice pick"async.zsh" src"pure.zsh"
