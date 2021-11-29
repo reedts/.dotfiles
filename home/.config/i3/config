@@ -267,7 +267,7 @@ bindsym $mod+Shift+q mode "$mode_system"
 # }}}
 
 # --- Misc settings ---{{{
-new_window pixel 1
+new_window pixel 2
 
 # hide edge borders
 hide_edge_borders vertical
