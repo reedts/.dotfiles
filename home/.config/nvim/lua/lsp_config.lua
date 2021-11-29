@@ -32,58 +32,48 @@ local on_attach_cpp = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lhS', '<cmd>ClangdSwitchSourceHeaderSplit<CR>', opts)
 end
 
--- Dynamically load lspservers after installation
-local function setup_servers()
-
-	-- Register servers automatically installed with lspinstall
-	require'lspinstall'.setup()
-	local servers = require'lspinstall'.installed_servers()
-	for _, server in pairs(servers) do
-		if server == "cpp" then
-			require'lspconfig'[server].setup({on_attach = on_attach_cpp,
-				commands = {
-					ClangdSwitchSourceHeader = {
-						function() switch_source_header_splitcmd(0, "edit") end;
-						description = "Open source/header in current buffer";
-					},
-					ClangdSwitchSourceHeaderVSplit = {
-						function() switch_source_header_splitcmd(0, "vsplit") end;
-						description = "Open source/header in a new vsplit";
-					},
-					ClangdSwitchSourceHeaderSplit = {
-						function() switch_source_header_splitcmd(0, "split") end;
-						description = "Open source/header in a new split";
-					}
-				}
-			})
-		else
-			-- Use customized on_attach function
-			require'lspconfig'[server].setup({on_attach = on_attach})
-		end
-	end
-
-	-- Servers manually installed are registered here
-	require'lspconfig'.pylsp.setup({
-		on_attach = on_attach,
-		cmd = { "/home/reedts/.mamba/envs/nvim/bin/pylsp" },
-		settings = {
-			plugins = {
-				yapf = {
-					enabled = true
-				},
-				autopep8 = {
-					enabled = false
-				},
-			}
-		}
-	})
-end
-
-setup_servers()
 
 local lspconfig = require'lspconfig'
 
-require'lspinstall'.post_install_hook = function ()
-	setup_servers()
-	vim.cmd("bufdo e")
-end
+require'nvim-lsp-installer'.on_server_ready(function(server)
+	local opts = {on_attach = on_attach}
+
+	if server.name == "cpp" then
+		opts.on_attachs = on_attach_cpp
+		opts.commands = {
+			ClangdSwitchSourceHeader = {
+				function() switch_source_header_splitcmd(0, "edit") end;
+				description = "Open source/header in current buffer";
+			},
+			ClangdSwitchSourceHeaderVSplit = {
+				function() switch_source_header_splitcmd(0, "vsplit") end;
+				description = "Open source/header in a new vsplit";
+			},
+			ClangdSwitchSourceHeaderSplit = {
+				function() switch_source_header_splitcmd(0, "split") end;
+				description = "Open source/header in a new split";
+			}
+		}
+	end
+
+	server:setup(opts)
+end)
+
+-- Servers manually installed are registered here
+require'lspconfig'.pylsp.setup({
+	on_attach = on_attach,
+	cmd = { "/home/reedts/.mamba/envs/nvim/bin/pylsp" },
+	settings = {
+		plugins = {
+			yapf = {
+				enabled = true
+			},
+			autopep8 = {
+				enabled = false
+			},
+			pydocstyle = {
+				enabled = true
+			}
+		}
+	}
+})

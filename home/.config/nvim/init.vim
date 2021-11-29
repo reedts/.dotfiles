@@ -55,7 +55,7 @@ Plug 'majutsushi/tagbar'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall', {'branch': 'main'}
+Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
 Plug 'hrsh7th/nvim-compe'
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
