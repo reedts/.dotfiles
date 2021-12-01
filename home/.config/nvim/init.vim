@@ -207,32 +207,31 @@ nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <Leader>lf <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> <Leader>ld <cmd>lua vim.lsp.diagnostic.get_all()<CR>
 nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> <Leader>lx <cmd>lua toggle_diagnostics()<CR>
 
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
 " Colour
-hi! link LspDiagnosticsDefaultError       ErrorMsg
-hi       LspDiagnosticsDefaultWarning     gui=NONE   guifg=#f99157
-hi       LspDiagnosticsDefaultInformation gui=italic guifg=#ffcc66
-hi       LspdiagnosticsDefaultHint        gui=italic guifg=#999999
+hi DiagnosticError gui=bold   guifg=#f2777a
+hi DiagnosticWarn  gui=NONE   guifg=#f99157
+hi DiagnosticInfo  gui=italic guifg=#ffcc66
+hi DiagnosticHint  gui=italic guifg=#999999
 
-hi! link LspReferenceText	Visual
-hi! link LspReferenceRead	Visual
-hi! link LspReferenceWrite	Visual
+hi DiagnosticUnderlineError guifg=#f2777a guibg=#653c3d
+hi DiagnosticUnderlineWarn cterm=NONE gui=NONE
+hi DiagnosticUnderlineInfo cterm=NONE gui=NONE
+hi DiagnosticUnderlineHint cterm=NONE gui=NONE
 
-hi LspDiagnosticsUnderlineInformation cterm=NONE gui=NONE
-hi LspDiagnosticsUnderlineHint        cterm=NONE gui=NONE
+hi DiagnosticSignError gui=bold guifg=#f2777a guibg=#393939
+hi DiagnosticSignWarn  gui=NONE guifg=#f99157 guibg=#393939
+hi DiagnosticSignInfo  gui=NONE guifg=#ffcc66 guibg=#393939
+hi DiagnosticSignHint  gui=NONE guifg=#999999 guibg=#393939
 
-hi LspDiagnosticsSignWarning     gui=NONE guifg=#f99157 guibg=#393939
-hi LspDiagnosticsSignError       gui=bold guifg=#f2777a guibg=#393939
-hi LspDiagnosticsSignInformation gui=NONE guifg=#ffcc66 guibg=#393939
-hi LspDiagnosticsSignHint        gui=NONE guifg=#999999 guibg=#393939
-
-sign define LspDiagnosticsSignError       text=✗ texthl=LspDiagnosticsSignError       linehl= numhl=
-sign define LspDiagnosticsSignWarning     text= texthl=LspDiagnosticsSignWarning     linehl= numhl=
-sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint        text= texthl=LspDiagnosticsSignHint        linehl= numhl=
+sign define DiagnosticSignError text=✗ texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn  linehl= numhl=
+sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo  linehl= numhl=
+sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint  linehl= numhl=
 " }}}
 
 " Completion {{{

@@ -32,48 +32,65 @@ local on_attach_cpp = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lhS', '<cmd>ClangdSwitchSourceHeaderSplit<CR>', opts)
 end
 
+vim.g.diagnostics_enabled = true
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_enabled then
+    vim.g.diagnostics_enabled = false
+    vim.diagnostic.disable()
+    print('Diagnostics are disabled')
+  else
+    vim.g.diagnostics_enabled = true
+    vim.diagnostic.enable()
+    print('Diagnostics are enabled')
+  end
+end
 
 local lspconfig = require'lspconfig'
 
 require'nvim-lsp-installer'.on_server_ready(function(server)
-	local opts = {on_attach = on_attach}
+	local default_opts = {on_attach = on_attach}
 
-	if server.name == "cpp" then
-		opts.on_attachs = on_attach_cpp
-		opts.commands = {
-			ClangdSwitchSourceHeader = {
-				function() switch_source_header_splitcmd(0, "edit") end;
-				description = "Open source/header in current buffer";
-			},
-			ClangdSwitchSourceHeaderVSplit = {
-				function() switch_source_header_splitcmd(0, "vsplit") end;
-				description = "Open source/header in a new vsplit";
-			},
-			ClangdSwitchSourceHeaderSplit = {
-				function() switch_source_header_splitcmd(0, "split") end;
-				description = "Open source/header in a new split";
-			}
-		}
-	end
-
-	server:setup(opts)
-end)
-
--- Servers manually installed are registered here
-require'lspconfig'.pylsp.setup({
-	on_attach = on_attach,
-	cmd = { "/home/reedts/.mamba/envs/nvim/bin/pylsp" },
-	settings = {
-		plugins = {
-			yapf = {
-				enabled = true
-			},
-			autopep8 = {
-				enabled = false
-			},
-			pydocstyle = {
-				enabled = true
-			}
-		}
+	local server_opts = {
+		["pylsp"] = function()
+            default_opts.settings = {
+                pylsp = {
+                    plugins = {
+                        yapf = {
+                            enabled = true
+                        },
+                        mypy = {
+                            enabled = true
+                        },
+                        autopep8 = {
+                            enabled = false
+                        },
+	                    pydocstyle = {
+                            enabled = true
+                        }
+                    }
+                }
+            }
+            return default_opts
+        end,
+		["clangd"] = function()
+			default_opts.on_attach = on_attach_cpp
+            default_opts.commands = {
+                ClangdSwitchSourceHeader = {
+                    function() switch_source_header_splitcmd(0, "edit") end;
+                    description = "Open source/header in current buffer";
+                },
+                ClangdSwitchSourceHeaderVSplit = {
+                    function() switch_source_header_splitcmd(0, "vsplit") end;
+                    description = "Open source/header in a new vsplit";
+                },
+                ClangdSwitchSourceHeaderSplit = {
+                    function() switch_source_header_splitcmd(0, "split") end;
+                    description = "Open source/header in a new split";
+                }
+            }
+			return default_opts
+		end,
 	}
-})
+
+	server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
+end)
