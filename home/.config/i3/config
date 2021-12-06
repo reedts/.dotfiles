@@ -46,9 +46,9 @@ set_from_resource $white		i3wm.color15	#F8F8F2
 
 # class			    	border		backgr.		text	indicator
 client.focused		    $green		$green		$bg		$purple
-client.focused_inactive $light_grey	$light_grey	$bg
+client.focused_inactive $light_red  $light_red  $bg
 client.unfocused	    $dark_grey	$dark_grey	$bg		$light_purple
-client.urgent		    $red		$red	   	$bg		#000000
+client.urgent		    $red		$red	   	$bg		$bg
 # }}}
 
 # --- Keybindings ---{{{

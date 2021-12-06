@@ -141,8 +141,8 @@ label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = "%index%  %icon%"
-label-visible-background = ${colors.background}
-label-visible-foreground = ${colors.green}
+label-visible-background = ${colors.light-red}
+label-visible-foreground = ${colors.background}
 label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
