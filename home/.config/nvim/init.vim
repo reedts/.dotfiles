@@ -95,7 +95,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'machakann/vim-highlightedyank'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tommcdo/vim-lion'
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'RRethy/vim-illuminate'
 
 " Initialize plugin system
@@ -293,9 +293,14 @@ lua require'colorizer'.setup()
 
 " {{{ IndentLines
 
-let g:indentLine_color_gui = '#515151'
+" let g:indentLine_color_gui = '#515151'
+hi IndentBlanklineChar guifg=#515151 gui=nocombine
+hi IndentBlanklineContextChar guifg=#ffcc66 gui=nocombine
+hi IndentBlanklineContextStart guisp=#2d2d2d gui=bold
 
-let g:indentLine_char_list = ['┆']
+let g:indent_blankline_char = '│'
+
+lua require("indent_config")
 " }}}
 
 " Illuminate {{{
