@@ -5,16 +5,16 @@
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
-    
+
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
     #   keyboard: follow window with keyboard focus
     #   none: don't follow anything
-    # 
+    #
     # "keyboard" needs a windowmanager that exports the
     # _NET_ACTIVE_WINDOW property.
     # This should be the case for almost all modern windowmanagers.
-    # 
+    #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
     follow = none
@@ -74,10 +74,10 @@
     # notifications.
     # Set to 0 to disable.
     separator_height = 2
-    
+
     # Padding between text and separator.
     padding = 8
-    
+
     # Horizontal padding.
     horizontal_padding = 8
 
@@ -86,10 +86,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#8"
+    frame_color = "#444444"
 
     # Define a color for the separator.
     # possible values are:
@@ -211,7 +211,7 @@
 
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
-    
+
     # Browser for opening urls in context menu.
     browser = /usr/bin/firefox -new-tab
 
@@ -299,8 +299,6 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    # background = "#285577"
-    # foreground = "#ffffff"
     background = "#478061"
     foreground = "#FAFAFA"
     timeout = 10
@@ -360,7 +358,7 @@
 # The script will be called as follows:
 #   script appname summary body icon urgency
 # where urgency can be "LOW", "NORMAL" or "CRITICAL".
-# 
+#
 # NOTE: if you don't want a notification to be displayed, set the format
 # to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
