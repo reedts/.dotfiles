@@ -56,13 +56,14 @@ Plug 'majutsushi/tagbar'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
-Plug 'hrsh7th/nvim-compe'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
 
 " Treesitter
 Plug 'nvim-treesitter/completion-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -97,6 +98,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tommcdo/vim-lion'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'RRethy/vim-illuminate'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 " Initialize plugin system
 call plug#end()
@@ -187,6 +189,33 @@ nnoremap <silent> <esc> :noh<CR>
 
 "}}}
 
+" Completion {{{
+set completeopt=menuone,noselect
+
+let g:coq_settings = {
+	\ 'auto_start': 'shut-up',
+	\ 'clients.snippets.warn': [],
+	\ 'display.preview.border': [
+	\ 	["", "NormalFloat"],
+	\ 	["", "NormalFloat"],
+	\ 	["", "NormalFloat"],
+	\ 	[" ", "NormalFloat"],
+	\ 	["", "NormalFloat"],
+	\ 	["", "NormalFloat"],
+	\ 	["", "NormalFloat"],
+	\ 	[" ", "NormalFloat"]
+	\ ]
+	\}
+lua require("coq")
+
+" lua require("completion_config")
+
+" inoremap <silent><expr> <C-Space> compe#complete()
+" inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+
+" }}}
+
 " LSP Settings {{{
 
 lua require("lsp_config")
@@ -234,14 +263,9 @@ sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo  linehl= numh
 sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint  linehl= numhl=
 " }}}
 
-" Completion {{{
-set completeopt=menuone,noselect
-lua require("completion_config")
+" CHADTree {{{
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-
+nnoremap <leader>nn <cmd>CHADopen<cr>
 " }}}
 
 " {{{ Treesitter

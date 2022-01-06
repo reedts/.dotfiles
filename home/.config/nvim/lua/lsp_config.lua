@@ -46,6 +46,7 @@ function _G.toggle_diagnostics()
 end
 
 local lspconfig = require'lspconfig'
+local coq = require'coq'
 
 require'nvim-lsp-installer'.on_server_ready(function(server)
 	local default_opts = {on_attach = on_attach}
@@ -92,5 +93,5 @@ require'nvim-lsp-installer'.on_server_ready(function(server)
 		end,
 	}
 
-	server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
+	server:setup(coq.lsp_ensure_capabilities(server_opts[server.name] and server_opts[server.name]() or default_opts))
 end)
