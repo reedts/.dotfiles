@@ -141,7 +141,7 @@ label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = "%index%  %icon%"
-label-visible-background = ${colors.light-red}
+label-visible-background = ${colors.yellow}
 label-visible-foreground = ${colors.background}
 label-visible-padding = 2
 
