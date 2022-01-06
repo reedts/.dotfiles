@@ -21,11 +21,9 @@ let g:python3_host_prog = '/usr/bin/python3'
 set encoding=utf-8
 set autoindent
 set copyindent
-set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=0
-set smarttab
 "}}}
 
 " Functions {{{
@@ -70,7 +68,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'kyazdani42/nvim-web-devicons'				" for symbols
+Plug 'kyazdani42/nvim-web-devicons'             " for symbols
 
 " Languages
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -132,7 +130,7 @@ let g:airline_powerline_fonts = 1
 
 " overwriting some symbols
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 let g:airline_symbols.branch = ''
@@ -159,8 +157,8 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : './build'
-	\}
+    \   'build_dir': './build'
+    \}
 "}}}
 
 " Key bindings {{{
@@ -171,7 +169,7 @@ let mapleader = " "
 
 nmap     <leader>nn <cmd>NERDTreeToggle<cr>
 nmap     <leader>tg <cmd>TagbarToggle<cr>
-nmap 	 <leader>ee <plug>(esearch)
+nmap     <leader>ee <plug>(esearch)
 noremap  <leader>w  <cmd>call TrimWhitespace()<cr>
 " fucking word sorting!
 vnoremap <leader>s  d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
@@ -193,19 +191,19 @@ nnoremap <silent> <esc> :noh<CR>
 set completeopt=menuone,noselect
 
 let g:coq_settings = {
-	\ 'auto_start': 'shut-up',
-	\ 'clients.snippets.warn': [],
-	\ 'display.preview.border': [
-	\ 	["", "NormalFloat"],
-	\ 	["", "NormalFloat"],
-	\ 	["", "NormalFloat"],
-	\ 	[" ", "NormalFloat"],
-	\ 	["", "NormalFloat"],
-	\ 	["", "NormalFloat"],
-	\ 	["", "NormalFloat"],
-	\ 	[" ", "NormalFloat"]
-	\ ]
-	\}
+    \ 'auto_start': 'shut-up',
+    \ 'clients.snippets.warn': [],
+    \ 'display.preview.border': [
+    \   ["", "NormalFloat"],
+    \   ["", "NormalFloat"],
+    \   ["", "NormalFloat"],
+    \   [" ", "NormalFloat"],
+    \   ["", "NormalFloat"],
+    \   ["", "NormalFloat"],
+    \   ["", "NormalFloat"],
+    \   [" ", "NormalFloat"]
+    \ ]
+    \}
 lua require("coq")
 
 " lua require("completion_config")
