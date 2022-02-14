@@ -301,4 +301,8 @@ set virtual_spoolfile = no
 set nm_query_window_duration = 0
 # }}}
 
+## Miscellaneous ##---------------------------------------------------------{{{
+set rfc2047_parameters  # for ugly filenames thanks to fucking outlook
+# }}}
+#
 # vim: foldmethod=marker
