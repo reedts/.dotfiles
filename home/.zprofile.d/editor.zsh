@@ -111,7 +111,7 @@ function _history_substring_search_config() {
 
 
 # Reset to default key bindings.
-bindkey -d
+#bindkey -d
 
 #
 # Vi Key Bindings
