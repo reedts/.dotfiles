@@ -46,10 +46,11 @@ function _G.toggle_diagnostics()
 end
 
 local lspconfig = require'lspconfig'
-local coq = require'coq'
+local cmp = require'cmp'
 
 require'nvim-lsp-installer'.on_server_ready(function(server)
-	local default_opts = {on_attach = on_attach}
+	local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+	local default_opts = {on_attach = on_attach, capabilities = capabilitites}
 
 	local server_opts = {
 		["pylsp"] = function()
@@ -92,6 +93,6 @@ require'nvim-lsp-installer'.on_server_ready(function(server)
 			return default_opts
 		end,
 	}
-
-	server:setup(coq.lsp_ensure_capabilities(server_opts[server.name] and server_opts[server.name]() or default_opts))
+	
+	server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
 end)

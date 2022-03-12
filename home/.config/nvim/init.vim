@@ -54,12 +54,18 @@ Plug 'majutsushi/tagbar'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help', {'branch': 'main'}
+Plug 'onsails/lspkind-nvim'
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
 
 " Treesitter
-Plug 'nvim-treesitter/completion-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
@@ -188,29 +194,16 @@ nnoremap <silent> <esc> :noh<CR>
 "}}}
 
 " Completion {{{
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 
-let g:coq_settings = {
-    \ 'auto_start': 'shut-up',
-    \ 'clients.snippets.warn': [],
-    \ 'display.preview.border': [
-    \   ["", "NormalFloat"],
-    \   ["", "NormalFloat"],
-    \   ["", "NormalFloat"],
-    \   [" ", "NormalFloat"],
-    \   ["", "NormalFloat"],
-    \   ["", "NormalFloat"],
-    \   ["", "NormalFloat"],
-    \   [" ", "NormalFloat"]
-    \ ]
-    \}
-lua require("coq")
+lua require("cmp_config")
 
-" lua require("completion_config")
+hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#999999
 
-" inoremap <silent><expr> <C-Space> compe#complete()
-" inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+hi! CmpItemAbbrMatch guibg=NONE guifg=#6699cc
+hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#66cccc
+
+hi! CmpItemKind guibg=NONE guifg=#ffcc66
 
 " }}}
 
@@ -232,11 +225,11 @@ nnoremap <silent> <Leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>lh <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <Leader>lf <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> <Leader>ls <cmd>lua vim.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent> <Leader>lx <cmd>lua toggle_diagnostics()<CR>
 
-nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<CR>
 
 " Colour
 hi DiagnosticError gui=bold   guifg=#f2777a
