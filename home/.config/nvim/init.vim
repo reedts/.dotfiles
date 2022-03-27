@@ -225,7 +225,7 @@ nnoremap <silent> <Leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>lh <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <Leader>lf <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> <Leader>ls <cmd>lua vim.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> <Leader>ls <cmd>lua vim.diagnostic.open_float({scope="line"})<CR>
 nnoremap <silent> <Leader>lx <cmd>lua toggle_diagnostics()<CR>
 
 nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>

@@ -60,9 +60,6 @@ require'nvim-lsp-installer'.on_server_ready(function(server)
                         yapf = {
                             enabled = true
                         },
-                        mypy = {
-                            enabled = true
-                        },
                         autopep8 = {
                             enabled = false
                         },
