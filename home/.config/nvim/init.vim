@@ -13,17 +13,17 @@ set undofile
 
 set fillchars+=vert:\│
 
+let g:python3_host_prog = '/usr/bin/python3'
+
 "}}}
 
 " Indenting {{{
 set encoding=utf-8
 set autoindent
 set copyindent
-set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=0
-set smarttab
 "}}}
 
 " Functions {{{
@@ -47,121 +47,102 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
-" Use release branch
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'pboettch/vim-cmake-syntax'
+" Navigation
 Plug 'eugen0329/vim-esearch'
-Plug 'frazrepo/vim-rainbow'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'lervag/vimtex'
-Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
-Plug 'norcalli/nvim-colorizer.lua'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help', {'branch': 'main'}
+Plug 'onsails/lspkind-nvim'
+Plug 'lervag/vimtex'
+Plug 'ftilde/vim-ugdb'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'kyazdani42/nvim-web-devicons'             " for symbols
+
+" Languages
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'posva/vim-vue'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'pboettch/vim-cmake-syntax'
 Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tommcdo/vim-lion'
+Plug 'tridactyl/vim-tridactyl'
+
+" Pope
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tridactyl/vim-tridactyl'
+
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-python/python-syntax'
+
+" Utils
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'kshenoy/vim-signature'
+Plug 'machakann/vim-highlightedyank'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'tommcdo/vim-lion'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'RRethy/vim-illuminate'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 " Initialize plugin system
 call plug#end()
+" }}}
+
+" Colorscheme {{{
+let base16colorspace=256
+set termguicolors
+colorscheme base16-tomorrow-night-eighties
 "}}}
 
 " Statusline {{{
 set statusline+=%{fugitive#statusline()}
-"set statusline^=${coc#status()}
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#alt_sep = 1
-let g:airline#extensions#lsp#enabled = 1
+let g:airline#extensions#nvimlsp#enabled = 1
+let g:airline#extensions#scrollbar#enabled = 0
+
 "lsp show_line_numbers
-let airline#extensions#lsp#show_line_numbers = 1
+let airline#extensions#nvimlsp#show_line_numbers = 1
 " lsp error_symbol
-let airline#extensions#lsp#error_symbol = 'E:'
+let airline#extensions#nvimlsp#error_symbol = '✗:'
 " lsp warning
-let airline#extensions#lsp#warning_symbol = 'W:'
+let airline#extensions#nvimlsp#warning_symbol = ':'
+
 let g:airline_theme = 'base16'
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
+" overwriting some symbols
 if !exists('g:airline_symbols')
-let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.dirty = ' '
 
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰ '
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-"}}}
-
-" C syntax plugin {{{
-let c_c_vim_compatible = 1
-let c_gnu = 1
-let c_cpp_comments = 1
-let c_comment_strings = 1
-let c_comment_numbers = 1
-let c_comment_types = 1
-let c_ansi_typedefs = 1
-let c_ansi_constants = 1
-let c_posix = 1
-let c_C99 = 1
-"}}}
-
-" C++ syntax plugin {{{
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let c_no_curly_error = 1
-"}}}
+" }}}
 
 " Python semantic plugin {{{
 let g:semshi#error_sign = v:false
@@ -186,20 +167,21 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : './build'
-	\}
+    \   'build_dir': './build'
+    \}
 "}}}
 
 " Key bindings {{{
-nmap <leader>cl :set cursorline!<cr>
-nnoremap <leader>m :w<cr> :silent make\|redraw!\|cw<cr>
-nmap <leader>nn :NERDTreeToggle<cr>
-nmap <leader>lb :set colorcolumn=80<cr>
-nmap <leader>ig :set list!<cr>
-nmap <leader>tg :TagbarToggle<cr>
-noremap <leader>w :call TrimWhitespace()<cr>
+" map space to mapleader
+nnoremap <space> <nop>
+let mapleader = " "
+
+nmap     <leader>nn <cmd>NERDTreeToggle<cr>
+nmap     <leader>tg <cmd>TagbarToggle<cr>
+nmap     <leader>ee <plug>(esearch)
+noremap  <leader>w  <cmd>call TrimWhitespace()<cr>
 " fucking word sorting!
-vnoremap <leader>s d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+vnoremap <leader>s  d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 nmap <C-u> :redo<CR>
 
@@ -209,150 +191,110 @@ nmap <leader>gg :GitGutterToggle<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-" Show buffer menu
-nnoremap <C-z> :FZF<CR>
-nnoremap <C-p> :Buffer<CR>
 
-nnoremap <esc> :noh<CR>
-
-nn <silent> <M-d> :LspDefinition<cr>
-nn <silent> <M-r> :LspReferences<cr>
-nn <silent> <M-=> :LspDocumentFormat<cr>
-nn <f2> :LspRename<cr>
-
-" Enable ag search
-nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
+nnoremap <silent> <esc> :noh<CR>
 
 "}}}
 
-" FZF {{{
-let g:fzf_layout = {'down': '~20%'}
-let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit' }
-"}}}
+" Completion {{{
+set completeopt=menu,menuone,noselect
 
-" LSP Settings {{{
-let g:lsp_highlight_references_enabled = 1
-let g:lsp_diagnostics_signs_enabled = 1
-let g:lsp_text_edit_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_diagnostics_virtual_text_prefix = " ‣ "
+lua require("cmp_config")
 
-let g:lsp_diagnostics_echo_delay = 1500
-let g:lsp_diagnostics_float_delay = 1500
-let g:lsp_diagnostics_highlights_delay = 1500
-let g:lsp_diagnostics_signs_delay = 1500
-let g:lsp_diagnostics_virtual_text_delay = 1500
+hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#999999
 
-let g:lsp_document_highlight_enabled = 1
-let g:lsp_document_highlight_delay = 1000
+hi! CmpItemAbbrMatch guibg=NONE guifg=#6699cc
+hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#66cccc
 
-let g:lsp_diagnostics_signs_error = {'text': '✗'}
-let g:lsp_diagnostics_signs_warning = {'text': ' '}
-let g:lsp_diagnostics_signs_hint = {'text': ''}
+hi! CmpItemKind guibg=NONE guifg=#ffcc66
 
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> <Leader>gd <plug>(lsp-definition)
-    nmap <buffer> <Leader>gD :leftabove LspDefinition<CR>
-    nmap <buffer> <Leader>gi <plug>(lsp-implementation)
-    nmap <buffer> <Leader>gI :leftabove LspImplementation<CR>
-    nmap <buffer> <Leader>gc <plug>(lsp-declaration)
-    nmap <buffer> <Leader>gC :leftabove LspDeclaration<CR>
-    nmap <buffer> <Leader>gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>gT :leftabove LspTypeDefinition<CR>
-    nmap <buffer> <Leader>gr <plug>(lsp-references)
-    nmap <buffer> <Leader>gt <plug>(lsp-type-definition)
-    nmap <buffer> <Leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
-    nmap <buffer> <Leader>lh <plug>(lsp-hover)
-    nmap <buffer> <Leader>lf <plug>(lsp-document-format)
-    nmap <buffer> <Leader>ld <plug>(lsp-document-diagnostics)
-    nmap <buffer> <Leader>lq :LspCodeAction quickfix<CR>
-    nmap <buffer> <Leader>lC <plug>(lsp-peek-declaration)
-    nmap <buffer> <Leader>lD <plug>(lsp-peek-definition)
-    nmap <buffer> <Leader>lI <plug>(lsp-peek-implementation)
-    nmap <buffer> <Leader>lT <plug>(lsp-peek-type-definition)
-
-    " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-"call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-"    \ 'name': 'buffer',
-"    \ 'whitelist': ['*'],
-"    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-"    \ 'priority': -1,
-"    \ }))
-" File & directory names
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 0,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
-
-" C/C++ LSP
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-		\ 'priority' : 10
-        \ })
-endif
-
-" Rust
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-" CMake
-if executable('cmake-language-server')
-	au User lsp_setup call lsp#register_server({
-		\ 'name': 'cmake',
-		\ 'cmd': {server_info->['cmake-language-server']},
-		\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'build/'))},
-		\ 'whitelist': ['cmake'],
-		\ 'initialization_options': {
-		\   'buildDirectory': 'build',
-		\ }
-	\})
-endif
-
-" Python
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
 " }}}
 
-" CoC Settings {{{
-" clangd {{{
+" LSP Settings {{{
+
+lua require("lsp_config")
+
+" Keymaps
+nnoremap <silent> <Leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <Leader>gD <cmd>leftabove lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <Leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <Leader>gI <cmd>leftabove lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <Leader>gc <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <Leader>gC <cmd>leftabove lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <Leader>gt <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <leader>gT <cmd>leftabove lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <Leader>gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <Leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <Leader>lh <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <Leader>lf <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> <Leader>ls <cmd>lua vim.diagnostic.open_float({scope="line"})<CR>
+nnoremap <silent> <Leader>lx <cmd>lua toggle_diagnostics()<CR>
+
+nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<CR>
+
+" Colour
+hi DiagnosticError gui=bold   guifg=#f2777a
+hi DiagnosticWarn  gui=NONE   guifg=#f99157
+hi DiagnosticInfo  gui=italic guifg=#ffcc66
+hi DiagnosticHint  gui=italic guifg=#999999
+
+hi DiagnosticUnderlineError guifg=#f2777a guibg=#653c3d
+hi DiagnosticUnderlineWarn cterm=NONE gui=NONE
+hi DiagnosticUnderlineInfo cterm=NONE gui=NONE
+hi DiagnosticUnderlineHint cterm=NONE gui=NONE
+
+hi DiagnosticSignError gui=bold guifg=#f2777a guibg=#393939
+hi DiagnosticSignWarn  gui=NONE guifg=#f99157 guibg=#393939
+hi DiagnosticSignInfo  gui=NONE guifg=#ffcc66 guibg=#393939
+hi DiagnosticSignHint  gui=NONE guifg=#999999 guibg=#393939
+
+sign define DiagnosticSignError text=✗ texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn  linehl= numhl=
+sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo  linehl= numhl=
+sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint  linehl= numhl=
+" }}}
+
+" CHADTree {{{
+
+nnoremap <leader>nn <cmd>CHADopen<cr>
+" }}}
+
+" {{{ Treesitter
+
+lua require("treesitter_config")
+
+" }}}
+
+" {{{ Telescope
+
+lua require("telescope_config")
+
+nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <silent> <leader>fi <cmd>lua require('telescope.builtin').git_files()<CR>
+nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').grep_string()<CR>
+nnoremap <silent> <leader>fl <cmd>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers({ show_all_buffers = true })<CR>
+
+" lsp specific
+nnoremap <silent> <leader>flr <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <silent> <leader>fls <cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
+nnoremap <silent> <leader>flS <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
+nnoremap <silent> <leader>fla <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
+nnoremap <silent> <leader>flA <cmd>lua require('telescope.builtin').lsp_range_code_actions()<CR>
+nnoremap <silent> <leader>fle <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>
+nnoremap <silent> <leader>flE <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
+nnoremap <silent> <leader>fld <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
+
+" custom searches
+nnoremap <silent> <leader>fhs <cmd>lua require('telescope_config').search_dotfiles()<CR>
+nnoremap <silent> <leader>fcf <cmd>lua require('telescope_config').search_config()<CR>
+
 " }}}
 
 " VIM rainbow {{{
 let g:rainbow_active = 1
-"let g:rainbow_ctermfgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#ffcc66']
 let g:rainbow_guifgs = ['#66cccc', '#6699cc', '#f99157', '#cc99cc', '#99cc99', '#ffcc66']
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
@@ -362,14 +304,24 @@ let g:rainbow_load_separately = [
     \ ]
 " }}}
 
-" Colorscheme {{{
-let base16colorspace=256
-set termguicolors
-colorscheme base16-tomorrow-night-eighties
-"}}}
-
 " Colorizer LUA {{{
 lua require'colorizer'.setup()
+" }}}
+
+" {{{ IndentLines
+
+" let g:indentLine_color_gui = '#515151'
+hi IndentBlanklineChar guifg=#515151 gui=nocombine
+hi IndentBlanklineContextChar guifg=#ffcc66 gui=nocombine
+hi IndentBlanklineContextStart guisp=#2d2d2d gui=bold
+
+let g:indent_blankline_char = '│'
+
+lua require("indent_config")
+" }}}
+
+" Illuminate {{{
+let g:Illuminate_delay = 1000
 " }}}
 
 " Directory specific settings {{{

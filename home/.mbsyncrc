@@ -1,0 +1,87 @@
+# WWU
+IMAPAccount wwu
+Host imap.uni-muenster.de
+User j_bigg01
+PassCmd "pass uni/mail/julian.bigge | head -n1"
+SSLType IMAPS
+SystemCertificates yes
+
+IMAPStore wwu-remote
+Account wwu
+
+MaildirStore wwu-local
+Path ~/.mail/private/wwu/
+Inbox ~/.mail/private/wwu/INBOX
+Subfolders Verbatim
+
+Channel wwu
+Far :wwu-remote:
+Near :wwu-local:
+Create Both # Automatically create missing mailboxes, both locally and on the server
+Expunge Both
+SyncState *
+Patterns * !Kontakte !Notizen !Aufgaben !Journal !Entw*rfe !Junk-E-Mail !Kalender !Gel*schte* !Gesendete* !Postausgang
+
+# GMail
+IMAPAccount gmail
+Host imap.gmail.com
+user j.reedts@gmail.com
+PassCmd "pass email/gmail/earlrussell/neomutt | head -n1"
+SSLType IMAPS
+SystemCertificates yes
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/.mail/private/gmail/
+Inbox ~/.mail/private/gmail/INBOX
+
+Channel sync-gmail-archive
+Far ":gmail-remote:[Gmail]/Alle Nachrichten"
+Near :gmail-local:Archive
+Create Near
+SyncState *
+Sync All
+MaxMessages 300
+
+Channel sync-gmail-trash
+Far ":gmail-remote:[Gmail]/Papierkorb"
+Near :gmail-local:Trash
+Create Near
+SyncState *
+Sync All
+
+Channel sync-gmail-drafts
+Far ":gmail-remote:[Gmail]/Entw&APw-rfe"
+Near :gmail-local:Drafts
+Create Near
+SyncState *
+Sync All
+Expunge Both
+
+Channel sync-gmail-sent
+Far ":gmail-remote:[Gmail]/Gesendet"
+Near :gmail-local:Sent
+Create Near
+SyncState *
+Sync All
+Expunge Both
+MaxMessages 300
+
+Channel sync-gmail-inbox
+Far ":gmail-remote:INBOX"
+Near ":gmail-local:INBOX"
+SyncState *
+Create Near
+Sync All
+Expunge Both
+MaxMessages 2000
+
+Group gmail
+Channel sync-gmail-archive
+Channel sync-gmail-trash
+Channel sync-gmail-inbox
+Channel sync-gmail-drafts
+Channel sync-gmail-sent
+

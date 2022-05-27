@@ -12,10 +12,12 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 export EDITOR=nvim
+export GIT_PAGER=delta
 
 source ~/.cargo/env
 
-export HOMESHICK_DIR="$HOME/.zinit/plugins/andsens---homeshick/"
+export HOMESHICK_DIR="$HOME/.local/share/zinit/plugins/andsens---homeshick/"
+export TASKRC=~/.config/tasks/.taskrc
 
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$HOME/.local/bin:$PATH
@@ -24,3 +26,5 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
+
+export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"

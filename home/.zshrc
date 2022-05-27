@@ -120,9 +120,17 @@ alias z='zathura'
 # nvim
 alias v='nvim'
 alias vd='nvim -d'
+<<<<<<< HEAD
 
 # xdg-open
 alias xo='xdg-open'
+=======
+# xdg-open
+alias xo='xdg-open'
+
+# handlr (xdg-open deprecated)
+alias xo='handlr open'
+>>>>>>> calanx
 
 # rsync
 alias copy='rsync -az --info=progress2'
@@ -138,6 +146,14 @@ alias nm='neomutt'
 # matterhorn
 alias mh='matterhorn'
 
+<<<<<<< HEAD
+=======
+alias mm='micromamba'
+alias t='task'
+alias tw='task project:work'
+alias tq='task project:qubeto'
+
+>>>>>>> calanx
 # }}}           END  Aliases
 
 # {{{           Key Mappings
@@ -164,26 +180,55 @@ alias mh='matterhorn'
 
 # }}}           END  Virtualenv
 
+# {{{			Micromamba
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/home/reedts/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/reedts/.mamba";
+__mamba_setup="$('/home/reedts/.local/bin/micromamba' shell hook --shell zsh --prefix '/home/reedts/.mamba' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/reedts/.mamba/etc/profile.d/mamba.sh" ]; then
+        . "/home/reedts/.mamba/etc/profile.d/mamba.sh"
+    else
+        export PATH="/home/reedts/.mamba/bin:$PATH"
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+# }}}			END Micromamba
+
 # {{{           FZF
 export FZF_COMPLETION_TRIGGER='~~'
-source /usr/share/doc/fzf/completion.zsh
-source /usr/share/doc/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 # }}}           END FZF
 
 # {{{           zinit
 ### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-	print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-	command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-	command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-		print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
-		print -P "%F{160}▓▒░ The clone has failed.%f"
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
-source "$HOME/.zinit/bin/zinit.zsh"
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-### End of Zinit installer's chunk
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
 
 # Compatibility for Oh-My-Zsh plugins
 zinit snippet OMZ::lib/git.zsh
@@ -211,6 +256,7 @@ zinit light zpm-zsh/ssh
 
 zinit snippet OMZ::plugins/rsync/rsync.plugin.zsh
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
@@ -223,6 +269,12 @@ zinit ice pick'you-should-use.plugin.zsh'
 zinit light MichaelAquilina/zsh-you-should-use
 
 zinit light andsens/homeshick
+
+# for dircolors
+zinit ice atclone"dircolors -b ~/.dircolors > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light zdharma-continuum/null
 
 # Prompt
 zinit ice pick"async.zsh" src"pure.zsh"
@@ -238,6 +290,7 @@ if [ -d $HOME/.zprofile.d/ ]; then
 			[ -r "$f" ] && . "$f"
 		done
 		unset f
+<<<<<<< HEAD
 	fi
 fi
 
@@ -256,10 +309,14 @@ function use_conda() {
 		else
 			export PATH="/home/julian/miniconda3/bin:$PATH"
 		fi
+=======
+>>>>>>> calanx
 	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
-}
+fi
+
+# }}}
+
+# {{{          functions
 
 _fzf_complete_pass() {
 	_fzf_complete --multi --reverse --prompt="pass> " -- "$@" < <(
@@ -277,11 +334,19 @@ function svg() {
 # {{{       Prompt
 
 # load LS_COLORS
+<<<<<<< HEAD
 if [[ -f ~/.dircolors ]]; then
 	eval $(dircolors -b ~/.dircolors)
 elif [[ -f /etc/DIR_COLORS ]] ; then
 	eval $(dircolors -b /etc/DIR_COLORS)
 fi
+=======
+# if [[ -f ~/.dircolors ]]; then
+# 	eval $(dircolors -b ~/.dircolors)
+# elif [[ -f /etc/DIR_COLORS ]] ; then
+# 	eval $(dircolors -b /etc/DIR_COLORS)
+# fi
+>>>>>>> calanx
 
 precmd_pipestatus() {
 	RPROMPT="${(j.|.)pipestatus}"
@@ -304,7 +369,7 @@ PURE_PROMPT_VICMD_SYMBOL=" "
 PURE_PREPEND_NEW_LINE=0
 
 zstyle ':completion:*' menu select yes
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 autoload -Uz compinit && compinit
 

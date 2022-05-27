@@ -1,0 +1,308 @@
+#
+# Starter neomuttrc file, with just a few suggestions and settings.
+#
+# This file purposely doesn't include hooks, keybinding, macros, colors, etc.
+# Read the manual, explore, and have fun!
+#
+
+## Sidebar ##----------------------------------------------------------------{{{
+#
+set sidebar_visible = yes
+set sidebar_divider_char = '│'
+set sidebar_visible
+set sidebar_component_depth = 4 #strip / (1) home (2) $USER (3) .mail (4)
+set sidebar_delim_chars = '/'
+set sidebar_folder_indent
+set sidebar_width = 25
+set sidebar_indent_string = '  ''
+set sidebar_format = "%D %* [%?N?%N / ?%S]"
+set sidebar_sort_method = 'path'
+# }}}
+
+## Accounts ##---------------------------------------------------------------{{{
+#
+set folder = "~/.mail/private/wwu"
+
+source "~/.config/neomutt/wwu"
+folder-hook 'wwu/*' 'source ~/.config/neomutt/wwu'
+folder-hook 'gmail/*' 'source ~/.config/neomutt/gmail'
+folder-hook 'qubeto/*' 'source ~/.config/neomutt/qubeto'
+
+named-mailboxes "WWU--------------------------------" +../../private/wwu/INBOX \
+				" ├ Archive" +../../private/wwu/Archive \
+				" ├ Drafts" +../../private/wwu/Drafts \
+				" ├ Junk" +../../private/wwu/Junk \
+				" ├ Sent" +../../private/wwu/Sent \
+				" └ Trash" +../../private/wwu/Trash
+
+named-mailboxes "QuBeto--------------------------------" +../../qubeto/qubeto/INBOX \
+				" ├ Archive" +../../qubeto/qubeto/Archive \
+				" ├ Drafts" +../../qubeto/qubeto/Drafts \
+				" ├ Junk" +../../qubeto/qubeto/Spam \
+				" ├ Sent" +../../qubeto/qubeto/Sent \
+				" └ Trash" +../../qubeto/qubeto/Trash
+
+named-mailboxes "GMail------------------------------" +../../private/gmail/INBOX \
+                " ├ Archive" +../../private/gmail/Archive \
+                " ├ Drafts" +../../private/gmail/Drafts \
+                " ├ Sent" +../../private/gmail/Sent \
+                " └ Trash" +../../private/gmail/Trash
+
+# disable sorting in mailbox list view
+set sort_browser = "unsorted"
+
+# }}}
+
+## Lists ##------------------------------------------------------------------{{{
+#
+lists notifications@github.com
+# }}}
+
+## Formats ##----------------------------------------------------------------{{{
+#
+set query_format = "%4c %t %-25.45a %-25.25n %?e?(%e)?"
+# }}}
+
+## Colors ##-----------------------------------------------------------------{{{
+#
+color normal	default		default
+color error		color1		color236
+color hdrdefault	color14	default
+color indicator	color236	color4
+color markers	color244	default
+color search	color236	color6
+color signature	color10		default
+color tilde		color244	default
+color tree		color5		default
+color underline	color5		default
+color warning	color11		default
+color status  	color7		color240
+# Index
+color index_date	color61		default
+color index_number	color244	default
+color index_size	color4		default
+color index_flags	color11		default		~g				# Signed
+color index_flags	color10		default		~G				# Encrypted
+color index_flags	bold		color2		default	~N		# New mails
+color index_subject	bold		color2		default	~N
+color index_subject	bold		default		default	~O		# Unread mails
+color index_flags	bold		color9		default ~D		# Deleted mails
+color index_subject	bold		color9		default ~D
+# Sidebar
+color sidebar_highlight	color236	color4
+color sidebar_indicator color236	color2
+color sidebar_new		color13		default
+color sidebar_unread	color226	default
+# Composer
+color compose header			color67		default
+color compose security_encrypt	bold	color10		default
+color compose security_sign		bold	color10		default
+color compose security_both		bold	color46		default
+color compose security_none		bold	color3		default
+color quoted					color244	default
+color quoted1					color13		default
+color quoted2					color1		default
+color quoted3					color14		default
+
+# For urls in mail body
+color body underline		color3		default		"(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]"
+color body 					color0		color2		"Good signature"
+color body 					color0		color1		"Bad signature"
+# }}}
+
+## Keybindings ##------------------------------------------------------------{{{
+# like VI
+#
+# Vi-like keybindings
+# Index
+unset wait_key
+set abort_key = "<ESC>"
+bind  generic        l select-entry
+bind  index          B bounce-message
+bind  index			 j next-entry
+bind  index			 k previous-entry
+bind  index,pager    g noop
+bind  index,pager    \CB sidebar-prev
+bind  index,pager    \CN sidebar-next
+bind  index,pager    \CO sidebar-open
+bind  index,pager    H display-toggle-weed
+bind  index,pager    r group-reply
+bind  index,pager    R reply
+# open a different virtual folder
+bind  index,pager    X change-vfolder
+# read entire thread of the current message
+bind  index,pager    + entire-thread
+# generate virtual folder from query
+bind  index,pager    \CP vfolder-from-query
+# generate virtual folder from query with time window
+bind  index          < vfolder-window-backward
+bind  index          > vfolder-window-forward
+# shortcuts for various inboxes
+macro index,pager    gw <change-folder>=../../private/wwu/INBOX<enter>
+macro index,pager    gq <change-folder>=../../qubeto/qubeto/INBOX<enter>
+macro index,pager    gm <change-folder>=../../private/gmail/INBOX<enter>
+macro index,pager    ga <change-folder>=Archive<enter>
+macro index,pager    gd <change-folder>=Drafts<enter>
+macro index,pager    gs <change-folder>=Sent<enter>
+macro index,pager    gt <change-folder>=Trash<enter>
+macro index,pager	 gi <change-folder>=INBOX<enter>
+macro index,pager	 h '<change-folder>?'
+macro index,pager	 \CI "<shell-escape>mail_refresh<enter>" "Refresh from IMAP"
+macro index,pager    b   '<enter-command>toggle sidebar_visible<enter>'
+macro index          L "<limit>all<enter><last-entry>"
+macro index,pager    A "<save-message>+Archive<enter>"
+# Pager
+bind  pager          h exit
+bind  pager          j next-line
+bind  pager          k previous-line
+bind  pager          l view-attachments
+bind  pager          G bottom
+
+macro index,pager    U "| urlscan\n"
+# Editor
+bind  editor         <delete>  delete-char
+bind  editor         <Tab>     complete-query
+# Compose
+bind  compose        l view-attach
+# Attach
+bind  attach,compose l view-attach
+bind  attach         h exit
+bind  attach         H display-toggle-weed
+
+#other
+bind alias,index,browser,query G last-entry
+bind alias,index,browser,query gg first-entry
+bind pager gg top
+bind alias,index,browser,query,pager \CD next-page
+bind alias,index,browser,query,pager \CU previous-page
+
+# for completion of addresses
+bind editor <tab> complete-query
+# }}}
+
+## Pager settings ##---------------------------------------------------------{{{
+#
+ignore *
+unignore From Message-ID Date To Cc Bcc Subject
+
+set pager_stop
+unset markers
+set pager_index_lines = 20
+set pager_context = 5
+
+# Prefer plain text to html.
+# However, for brain dead clients that bundle attachments inside a
+# multipart/alternative, prefer that alternative.
+alternative_order multipart/mixed multipart/related text/plain
+
+# Consult mime.types for determining types of these attachments
+mime_lookup application/octet-stream
+
+# This requires a ~/.mailcap entry with the copiousoutput flag, such as:
+# text/html; lynx -dump -width ${COLUMNS:-80} %s; nametemplate=%s.html; copiousoutput
+auto_view text/html
+# }}}
+
+## Index settings ##---------------------------------------------------------{{{
+#
+# Print number if messages if new messages in current mailbox,
+# otherwise print number of mailboxes with new mails
+#set new_mail_command = "notify-send '  New E-Mail' '%?n?%n new messages&New messages in %b mailboxes?' &"
+set check_new = yes
+set mail_check = 120
+set quit = ask-yes
+set sort = threads
+set menu_context = 5
+
+set index_format = "[%Z] %{%F %H:%M} %-30.30L (%?l?%4l&%4c?) %s"
+
+set header_cache= "~/.cache/neomutt"
+set message_cachedir = "~/.cache/neomutt"
+
+ignore          *
+unignore from date subject to cc
+# }}}
+
+## Composition settings ##---------------------------------------------------{{{
+#
+set edit_headers
+
+# set editor = "emacsclient -a emacs -t"
+# set editor = "vim"
+
+set mime_type_query_command = "xdg-mime query filetype"
+
+# lbdb is a versatile contact query tool.
+# Invoke via ctrl-t in an address prompt
+#set query_command = "/usr/bin/lbdbq"
+# }}}
+
+## GnuPG ##------------------------------------------------------------------{{{
+#
+set crypt_use_gpgme = yes
+set pgp_default_key = "0xBE34AB83BEA2EF28C8D04353DD73B5CF122FECBF"
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted = yes
+set crypt_verify_sig = yes
+
+#set crypt_opportunistic_encrypt = yes TODO: does disallowing pgp work with this, too?
+set crypt_autoencrypt = no # Always try to encrypt outgoing messages
+set crypt_autosmime = no   # ... for smime
+set crypt_autopgp = no      # ... but not for pgp
+set fcc_clear = yes			# Save sent message in plain text
+# }}}
+
+## notmuch ##----------------------------------------------------------------{{{
+#
+# This variable specifies notmuch query limit.
+set nm_db_limit = 0
+# This variable specifies the default Notmuch database in format:
+# notmuch://<absolute path>
+#set nm_default_uri = "notmuch:///home/julian/.mail"
+# The messages tagged with these tags are excluded and not loaded
+# from notmuch DB to NeoMutt unless specified explicitly.
+#set nm_exclude_tags = ""
+# This option specifies timeout for Notmuch database. Default is 5 seconds.
+set nm_open_timeout = 5
+# This variable specifies notmuch query type, supported types: 'threads' and
+# 'messages'.
+set nm_query_type = messages
+# Add messages stored to the NeoMutt record (see $record in the NeoMutt docs)
+# also to notmuch DB. If you reply to an email then the new email inherits
+# tags from the original email.
+set nm_record = no
+# Tags that should be removed or added to the to the messages stored in the NeoMutt record.
+# example:
+#   set record = "~/sent-mails"
+#   set nm_record = yes
+#   set nm_record_tags = "-inbox,archive,me"
+#set nm_record_tags = ""
+# This variable specifies notmuch tag which is used for unread messages.
+set nm_unread_tag = unread
+# This variable allows you to customize the file browser display for virtual
+# folders to your personal taste.
+# %C   current folder number
+# %f   folder name (description)
+# %m   number of messages in the mailbox *
+# %n   number of unread messages in the mailbox *
+# %N   N if mailbox has new mail, blank otherwise
+# %>X  right justify the rest of the string and pad with character ``X''
+# %|X  pad to the end of the line with character ``X''
+# %*X  soft-fill with character ``X'' as pad
+set vfolder_format = "%6n(%6N) %f"
+# When set, NeoMutt will use the first virtual mailbox (see virtual-mailboxes)
+# as a spoolfile.
+set virtual_spoolfile = no
+# setup time window preferences
+# first setup the duration, and then the time unit of that duration
+# when set to 0 (the default) the search window feature is disabled
+set nm_query_window_duration = 0
+# }}}
+
+## Miscellaneous ##---------------------------------------------------------{{{
+set rfc2047_parameters  # for ugly filenames thanks to fucking outlook
+# }}}
+#
+# vim: foldmethod=marker

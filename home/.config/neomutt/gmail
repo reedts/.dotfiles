@@ -1,0 +1,27 @@
+##############
+# Configuration for GMail account
+#
+#
+set mbox_type = Maildir
+set folder = "~/.mail/private/gmail"
+set spoolfile = +INBOX
+unset record
+set postponed = +Drafts
+set trash = +Trash
+
+set realname = "Julian Bigge"
+set from = "j.reedts@gmail.com"
+set my_user = "j.reedts@gmail.com"
+unset signature
+
+# SMTP
+set ssl_force_tls = yes
+set smtp_pass = `pass email/gmail/earlrussell/neomutt | head -n1`
+set smtp_url=smtps://$my_user@smtp.gmail.com
+
+# This variable specifies the default Notmuch database in format:
+# notmuch://<absolute path>
+set nm_default_uri = "notmuch:///home/reedts/.mail/private//gmail"
+set query_command = "neomutt-address-nm --config /home/reedts/.mail/private/gmail/.notmuch-config '%s'"
+
+set pgp_default_key = "0xBE34AB83BEA2EF28C8D04353DD73B5CF122FECBF"
