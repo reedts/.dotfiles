@@ -120,17 +120,9 @@ alias z='zathura'
 # nvim
 alias v='nvim'
 alias vd='nvim -d'
-<<<<<<< HEAD
-
-# xdg-open
-alias xo='xdg-open'
-=======
-# xdg-open
-alias xo='xdg-open'
 
 # handlr (xdg-open deprecated)
 alias xo='handlr open'
->>>>>>> calanx
 
 # rsync
 alias copy='rsync -az --info=progress2'
@@ -146,14 +138,11 @@ alias nm='neomutt'
 # matterhorn
 alias mh='matterhorn'
 
-<<<<<<< HEAD
-=======
 alias mm='micromamba'
 alias t='task'
 alias tw='task project:work'
 alias tq='task project:qubeto'
 
->>>>>>> calanx
 # }}}           END  Aliases
 
 # {{{           Key Mappings
@@ -290,27 +279,6 @@ if [ -d $HOME/.zprofile.d/ ]; then
 			[ -r "$f" ] && . "$f"
 		done
 		unset f
-<<<<<<< HEAD
-	fi
-fi
-
-# }}}
-
-# {{{          functions
-function use_conda() {
-	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/home/julian/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq -1 ]; then
-		eval "$__conda_setup"
-	else
-		if [ -f "/home/julian/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/julian/miniconda3/etc/profile.d/conda.sh"
-		else
-			export PATH="/home/julian/miniconda3/bin:$PATH"
-		fi
-=======
->>>>>>> calanx
 	fi
 fi
 
@@ -332,21 +300,6 @@ function svg() {
 # }}}       END functions
 
 # {{{       Prompt
-
-# load LS_COLORS
-<<<<<<< HEAD
-if [[ -f ~/.dircolors ]]; then
-	eval $(dircolors -b ~/.dircolors)
-elif [[ -f /etc/DIR_COLORS ]] ; then
-	eval $(dircolors -b /etc/DIR_COLORS)
-fi
-=======
-# if [[ -f ~/.dircolors ]]; then
-# 	eval $(dircolors -b ~/.dircolors)
-# elif [[ -f /etc/DIR_COLORS ]] ; then
-# 	eval $(dircolors -b /etc/DIR_COLORS)
-# fi
->>>>>>> calanx
 
 precmd_pipestatus() {
 	RPROMPT="${(j.|.)pipestatus}"
