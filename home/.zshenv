@@ -17,7 +17,6 @@ export GIT_PAGER=delta
 source ~/.cargo/env
 
 export HOMESHICK_DIR="$HOME/.local/share/zinit/plugins/andsens---homeshick/"
-export TASKRC=~/.config/tasks/.taskrc
 
 # Local variables:
 export PATH=/usr/local/games:$HOME/bin:$HOME/.local/bin:$PATH
