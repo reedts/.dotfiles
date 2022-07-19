@@ -25,11 +25,11 @@ _image_viewer () {
 
 # If for some reason, you cannot do this, you can set the command here.
 # and set fix_layout to true
-# fix_layout=true
+fix_layout=true
 
-# layout_cmd () {
-#   setxkbmap de nodeadkeys
-# }
+layout_cmd () {
+  setxkbmap de nodeadkeys
+}
 
 # fields to be used
 URL_field='url'
