@@ -30,9 +30,9 @@ hooks.location=$HOME/.config/task/hooks/
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
 
-taskd.certificate=\/home\/reedts\/.local\/share\/task\/reedts.cert.pem
-taskd.key=\/home\/reedts\/.local\/share\/task\/reedts.key.pem
-taskd.ca=\/home\/reedts\/.local\/share\/task\/ca.cert.pem
+taskd.certificate=\/home\/julian\/.local\/share\/task\/reedts.cert.pem
+taskd.key=\/home\/julian\/.local\/share\/task\/reedts.key.pem
+taskd.ca=\/home\/julian\/.local\/share\/task\/ca.cert.pem
 taskd.server=intxeighty.de:53589
 taskd.credentials=Private\/reedts\/1413da2e-5b36-4569-bb79-6c795dbc5ea2
 news.version=2.6.0
