@@ -1,6 +1,7 @@
 configuration {
 	m: "-1";
 	matching: "fuzzy";
+	modi: [run,window,ssh,emoji];
 }
 
 * {
