@@ -37,3 +37,4 @@ taskd.server=intxeighty.de:53589
 taskd.credentials=Private\/reedts\/1413da2e-5b36-4569-bb79-6c795dbc5ea2
 news.version=2.6.0
 
+context.work.read=+work or +uni or +wwu
