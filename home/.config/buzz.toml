@@ -11,11 +11,3 @@ port = 993
 username = "j_bigg01"
 pwcmd = "pass uni/mail/julian.bigge"
 notificationcmd = "mail_refresh private/wwu"
-
-[qubeto]
-server = "w019c0bc.kasserver.com"
-port = 993
-username = "m052cc73"
-pwcmd = "pass qubeto/mail/bigge@qubeto.de | head -n 1"
-notificationcmd = "mail_refresh qubeto/qubeto /home/reedts/.mbsyncrc_qubeto"
-

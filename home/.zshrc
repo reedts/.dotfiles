@@ -141,7 +141,6 @@ alias mh='matterhorn'
 alias mm='micromamba'
 alias t='task'
 alias tw='task project:work'
-alias tq='task project:qubeto'
 
 # }}}           END  Aliases
 
