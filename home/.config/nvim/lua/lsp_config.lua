@@ -47,8 +47,10 @@ end
 
 local lspconfig = require'lspconfig'
 local cmp = require'cmp'
+local lsp_installer = require'nvim-lsp-installer'
+lsp_installer.setup({automatic_installation = true})
 
-require'nvim-lsp-installer'.on_server_ready(function(server)
+for _, server in pairs(lsp_installer:get_installed_servers()) do
 	local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 	local default_opts = {on_attach = on_attach, capabilities = capabilitites}
 
@@ -91,5 +93,5 @@ require'nvim-lsp-installer'.on_server_ready(function(server)
 		end,
 	}
 	
-	server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
-end)
+	lspconfig[server.name].setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
+end
