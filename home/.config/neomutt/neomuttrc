@@ -240,7 +240,7 @@ set crypt_verify_sig = yes
 
 #set crypt_opportunistic_encrypt = yes TODO: does disallowing pgp work with this, too?
 set crypt_autoencrypt = no # Always try to encrypt outgoing messages
-set crypt_autosmime = no   # ... for smime
+set crypt_autosmime = yes   # ... for smime
 set crypt_autopgp = no      # ... but not for pgp
 set fcc_clear = yes			# Save sent message in plain text
 # }}}
