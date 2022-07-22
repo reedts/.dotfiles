@@ -62,6 +62,7 @@ bindsym $mod+Shift+c kill
 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+n exec rofi -show window
+bindsym $mod+i exec rofi -show emoji
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
