@@ -251,6 +251,10 @@ bindsym $mod+Shift+q mode "$mode_system"
 default_border normal
 default_floating_border normal
 
+for_window [all] title_window_icon yes
+# Don't show icon on alacritty windows
+for_window [class="Alacritty"] title_window_icon no
+
 # hide edge borders
 hide_edge_borders vertical
 # }}}
