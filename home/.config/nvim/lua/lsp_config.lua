@@ -45,53 +45,63 @@ function _G.toggle_diagnostics()
   end
 end
 
-local lspconfig = require'lspconfig'
-local cmp = require'cmp'
-local lsp_installer = require'nvim-lsp-installer'
-lsp_installer.setup({automatic_installation = true})
+local lspconfig = require('lspconfig')
+local cmp = require('cmp')
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local mason = require('mason').setup()
+local meson_lspconfig = require('mason-lspconfig')
+meson_lspconfig.setup({
+	ensure_installed = { "clangd", "rust_analyzer", "pylsp" },
+	automatic_installation = true
+})
 
-for _, server in pairs(lsp_installer:get_installed_servers()) do
-	local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-	local default_opts = {on_attach = on_attach, capabilities = capabilitites}
-
-	local server_opts = {
-		["pylsp"] = function()
-            default_opts.settings = {
-                pylsp = {
-                    plugins = {
-                        yapf = {
-                            enabled = true
-                        },
-                        autopep8 = {
-                            enabled = false
-                        },
-	                    pydocstyle = {
-                            enabled = true
-                        }
-                    }
-                }
-            }
-            return default_opts
-        end,
-		["clangd"] = function()
-			default_opts.on_attach = on_attach_cpp
-            default_opts.commands = {
-                ClangdSwitchSourceHeader = {
-                    function() switch_source_header_splitcmd(0, "edit") end;
-                    description = "Open source/header in current buffer";
-                },
-                ClangdSwitchSourceHeaderVSplit = {
-                    function() switch_source_header_splitcmd(0, "vsplit") end;
-                    description = "Open source/header in a new vsplit";
-                },
-                ClangdSwitchSourceHeaderSplit = {
-                    function() switch_source_header_splitcmd(0, "split") end;
-                    description = "Open source/header in a new split";
-                }
-            }
-			return default_opts
-		end,
-	}
-	
-	lspconfig[server.name].setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
-end
+meson_lspconfig.setup_handlers({
+	function (server_name) -- (default handler)
+		local default_opts = {}
+		lspconfig[server_name].setup({
+			on_attach = on_attach,
+			capabilities = capabilitites
+		})
+	end,
+	["pylsp"] = function()
+		lspconfig.pylsp.setup({
+			on_attach = on_attach,
+			capabilitites = capabilitites,
+			settings = {
+				pylsp = {
+					plugins = {
+						yapf = {
+							enabled = true
+						},
+						autopep8 = {
+							enabled = false
+						},
+						pydocstyle = {
+							enabled = true
+						}
+					}
+				}
+			}
+		})
+	end,
+	["clangd"] = function()
+		lspconfig.clangd.setup({
+			on_attach = on_attach_cpp,
+			capabilitites = capabilitites,
+			commands = {
+				ClangdSwitchSourceHeader = {
+					function() switch_source_header_splitcmd(0, "edit") end;
+					description = "Open source/header in current buffer";
+				},
+				ClangdSwitchSourceHeaderVSplit = {
+					function() switch_source_header_splitcmd(0, "vsplit") end;
+					description = "Open source/header in a new vsplit";
+				},
+				ClangdSwitchSourceHeaderSplit = {
+					function() switch_source_header_splitcmd(0, "split") end;
+					description = "Open source/header in a new split";
+				}
+			}
+		})
+	end,
+})
