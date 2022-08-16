@@ -1,3 +1,6 @@
+user("reedts")
+host("https://matrix.intxeighty.de")
+
 bind('e', 'visual', run_all(start_edit, deselect_message, switch_mode("insert-line")))
 
 bind('a', 'visual', function(c)
