@@ -33,7 +33,17 @@ local on_attach_cpp = function(client, bufnr)
 end
 
 vim.g.diagnostics_enabled = true
-vim.diagnostic.config({ virtual_text = false })
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_enabled then
+    vim.g.diagnostics_enabled = false
+    vim.diagnostic.disable()
+    print('Diagnostics are disabled')
+  else
+    vim.g.diagnostics_enabled = true
+    vim.diagnostic.enable()
+    print('Diagnostics are enabled')
+  end
+end
 
 local lspconfig = require('lspconfig')
 local cmp = require('cmp')

@@ -61,7 +61,6 @@ Plug 'hrsh7th/cmp-path', {'branch': 'main'}
 Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help', {'branch': 'main'}
-Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim', {'branch': 'main'}
 Plug 'onsails/lspkind-nvim'
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
@@ -255,8 +254,6 @@ sign define DiagnosticSignError text=✗ texthl=DiagnosticSignError linehl= numh
 sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn  linehl= numhl=
 sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo  linehl= numhl=
 sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint  linehl= numhl=
-
-lua require("lsp_lines").setup()
 " }}}
 
 " CHADTree {{{
