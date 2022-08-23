@@ -149,16 +149,16 @@ alias tw='task project:work'
 # {{{			Micromamba
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/home/reedts/.local/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/home/reedts/.mamba";
-__mamba_setup="$('/home/reedts/.local/bin/micromamba' shell hook --shell zsh --prefix '/home/reedts/.mamba' 2> /dev/null)"
+export MAMBA_EXE="/home/julian/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/julian/.mamba";
+__mamba_setup="$('/home/julian/.local/bin/micromamba' shell hook --shell zsh --prefix '/home/julian/.mamba' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    if [ -f "/home/reedts/.mamba/etc/profile.d/mamba.sh" ]; then
-        . "/home/reedts/.mamba/etc/profile.d/mamba.sh"
+    if [ -f "/home/julian/.mamba/etc/profile.d/mamba.sh" ]; then
+        . "/home/julian/.mamba/etc/profile.d/mamba.sh"
     else
-        export PATH="/home/reedts/.mamba/bin:$PATH"
+        export PATH="/home/julian/.mamba/bin:$PATH"
     fi
 fi
 unset __mamba_setup
