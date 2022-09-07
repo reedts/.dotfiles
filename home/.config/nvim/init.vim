@@ -78,7 +78,6 @@ Plug 'kyazdani42/nvim-web-devicons'             " for symbols
 
 " Languages
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'pboettch/vim-cmake-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'tridactyl/vim-tridactyl'
 
