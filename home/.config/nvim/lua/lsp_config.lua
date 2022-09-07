@@ -77,7 +77,7 @@ meson_lspconfig.setup_handlers({
 							enabled = false
 						},
 						pydocstyle = {
-							enabled = true
+							enabled = false
 						}
 					}
 				}
