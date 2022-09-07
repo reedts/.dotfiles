@@ -64,6 +64,7 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help', {'branch': 'main'}
 Plug 'onsails/lspkind-nvim'
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
+Plug 'folke/trouble.nvim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -253,6 +254,14 @@ sign define DiagnosticSignError text=✗ texthl=DiagnosticSignError linehl= numh
 sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn  linehl= numhl=
 sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo  linehl= numhl=
 sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint  linehl= numhl=
+
+lua require("trouble").setup()
+nnoremap <leader>tt <cmd>TroubleToggle<cr>
+nnoremap <leader>tw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>td <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>tq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>tl <cmd>TroubleToggle loclist<cr>
+nnoremap <leader>tlr<cmd>TroubleToggle lsp_references<cr>
 " }}}
 
 " CHADTree {{{
