@@ -64,7 +64,7 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help', {'branch': 'main'}
 Plug 'onsails/lspkind-nvim'
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
-Plug 'folke/trouble.nvim'
+Plug 'folke/trouble.nvim', {'branch': 'main'}
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
