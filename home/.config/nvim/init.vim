@@ -88,9 +88,10 @@ Plug 'tpope/vim-unimpaired'
 
 " Airline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline-themes'
 
 " Utils
+Plug 'LarsHaalck/vim-hybrid'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'frazrepo/vim-rainbow'
@@ -109,7 +110,9 @@ call plug#end()
 " Colorscheme {{{
 let base16colorspace=256
 set termguicolors
-colorscheme base16-tomorrow-night-eighties
+" colorscheme base16-tomorrow-night-eighties
+set background=dark
+colorscheme hybrid
 "}}}
 
 " Statusline {{{
@@ -128,9 +131,9 @@ let airline#extensions#nvimlsp#error_symbol = '✗:'
 " lsp warning
 let airline#extensions#nvimlsp#warning_symbol = ':'
 
-let g:airline_theme = 'base16'
+let g:airline_theme = 'hybrid'
 
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 " overwriting some symbols
 if !exists('g:airline_symbols')
@@ -199,12 +202,12 @@ set completeopt=menu,menuone,noselect
 
 lua require("cmp_config")
 
-hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#999999
+" hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#999999
 
-hi! CmpItemAbbrMatch guibg=NONE guifg=#6699cc
-hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#66cccc
+" hi! CmpItemAbbrMatch guibg=NONE guifg=#6699cc
+" hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#66cccc
 
-hi! CmpItemKind guibg=NONE guifg=#ffcc66
+" hi! CmpItemKind guibg=NONE guifg=#ffcc66
 
 " }}}
 
@@ -243,10 +246,10 @@ hi DiagnosticUnderlineWarn cterm=NONE gui=NONE
 hi DiagnosticUnderlineInfo cterm=NONE gui=NONE
 hi DiagnosticUnderlineHint cterm=NONE gui=NONE
 
-hi DiagnosticSignError gui=bold guifg=#f2777a guibg=#393939
-hi DiagnosticSignWarn  gui=NONE guifg=#f99157 guibg=#393939
-hi DiagnosticSignInfo  gui=NONE guifg=#ffcc66 guibg=#393939
-hi DiagnosticSignHint  gui=NONE guifg=#999999 guibg=#393939
+hi DiagnosticSignError gui=bold guifg=#f2777a guibg=NONE
+hi DiagnosticSignWarn  gui=NONE guifg=#f99157 guibg=NONE
+hi DiagnosticSignInfo  gui=NONE guifg=#ffcc66 guibg=NONE
+hi DiagnosticSignHint  gui=NONE guifg=#999999 guibg=NONE
 
 sign define DiagnosticSignError text=✗ texthl=DiagnosticSignError linehl= numhl=
 sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn  linehl= numhl=
