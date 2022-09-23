@@ -91,7 +91,7 @@ Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
 " Utils
-Plug 'LarsHaalck/vim-hybrid'
+Plug 'reedts/vim-hybrid'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'frazrepo/vim-rainbow'
@@ -142,6 +142,12 @@ endif
 
 let g:airline_symbols.branch = ''
 let g:airline_symbols.dirty = ' '
+
+" hi! AirlineError guifg=#5f0000 guibg=#cc6666
+" hi! AirlineWarning guifg=#704b00 guibg=#de935f
+" hi! AirlineInsert guifg=#445479 guibg=#84b0eb
+" hi! AirlineVisual guifg=#8abeb7 guibg=#005f5f
+" hi! link AirlineReplace DiffChange
 
 " }}}
 
