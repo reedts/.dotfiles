@@ -1,12 +1,12 @@
 -- For clangd swith header vsplit/hsplit support
 local function switch_source_header_splitcmd(bufnr, splitcmd)
-    bufnr = require'lspconfig'.util.validate_bufnr(bufnr)
-    local params = { uri = vim.uri_from_bufnr(bufnr) }
-    vim.lsp.buf_request(bufnr, 'textDocument/switchSourceHeader', params, function(err, _, result)
-        if err then error(tostring(err)) end
-        if not result then print ("Corresponding file can’t be determined") return end
-        vim.api.nvim_command(splitcmd..' '..vim.uri_to_fname(result))
-    end)
+	bufnr = require 'lspconfig'.util.validate_bufnr(bufnr)
+	local params = { uri = vim.uri_from_bufnr(bufnr) }
+	vim.lsp.buf_request(bufnr, 'textDocument/switchSourceHeader', params, function(err, _, result)
+		if err then error(tostring(err)) end
+		if not result then print("Corresponding file can’t be determined") return end
+		vim.api.nvim_command(splitcmd .. ' ' .. vim.uri_to_fname(result))
+	end)
 end
 
 -- Customized on_attach function for lspconfig setup
@@ -26,7 +26,7 @@ local on_attach_cpp = function(client, bufnr)
 	on_attach(client, bufnr)
 
 	-- Register keymaps for clangd
-	local opts = { noremap=true, silent=true}
+	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lS', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lvS', '<cmd>ClangdSwitchSourceHeaderVSplit<CR>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lhS', '<cmd>ClangdSwitchSourceHeaderSplit<CR>', opts)
@@ -34,29 +34,43 @@ end
 
 vim.g.diagnostics_enabled = true
 function _G.toggle_diagnostics()
-  if vim.g.diagnostics_enabled then
-    vim.g.diagnostics_enabled = false
-    vim.diagnostic.disable()
-    print('Diagnostics are disabled')
-  else
-    vim.g.diagnostics_enabled = true
-    vim.diagnostic.enable()
-    print('Diagnostics are enabled')
-  end
+	if vim.g.diagnostics_enabled then
+		vim.g.diagnostics_enabled = false
+		vim.diagnostic.disable()
+		print('Diagnostics are disabled')
+	else
+		vim.g.diagnostics_enabled = true
+		vim.diagnostic.enable()
+		print('Diagnostics are enabled')
+	end
 end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- delay update diagnostics
+    update_in_insert = false,
+  }
+)
 
 local lspconfig = require('lspconfig')
 local cmp = require('cmp')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local mason = require('mason').setup()
-local meson_lspconfig = require('mason-lspconfig')
-meson_lspconfig.setup({
-	ensure_installed = { "clangd", "rust_analyzer", "pylsp" },
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup({
+	ensure_installed = { "clangd", "rust_analyzer" },
 	automatic_installation = true
 })
+local null_ls = require('null-ls')
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.yapf,
+		null_ls.builtins.diagnostics.flake8
+	}
+})
 
-meson_lspconfig.setup_handlers({
-	function (server_name) -- (default handler)
+mason_lspconfig.setup_handlers({
+	function(server_name) -- (default handler)
 		local default_opts = {}
 		lspconfig[server_name].setup({
 			on_attach = on_attach,

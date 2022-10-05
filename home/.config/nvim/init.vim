@@ -55,6 +55,7 @@ Plug 'majutsushi/tagbar'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim', {'branch': 'main'}
 Plug 'williamboman/mason-lspconfig.nvim', {'branch': 'main'}
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
 Plug 'hrsh7th/cmp-path', {'branch': 'main'}
