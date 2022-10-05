@@ -13,11 +13,6 @@ end
 local on_attach = function(client, bufnr)
 	-- Enable access to needed functions from vim api
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-    -- Enable highlighting for text groups
-    if client.resolved_capabilities.document_highlight then
-    	require 'illuminate'.on_attach(client)
-	end
 end
 
 -- Customized on_attach for cpp language-server to enable
