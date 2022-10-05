@@ -124,7 +124,7 @@ set hintfiltermode vimperator-reflow
 " Defaults to 300ms but I'm a 'move fast and close the wrong tabs' kinda chap
 set hintdelay 100
 
-set searchengine duckduckgo 
+set searchengine startpage
 
 set searchurls.g  https://www.google.com/search?q=
 set searchurls.sc https://scholar.google.com/scholar?q=
