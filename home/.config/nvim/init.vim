@@ -8,6 +8,7 @@ set foldmethod=syntax
 set number relativenumber
 set scrolloff=10
 set cursorline
+set cmdheight=0
 
 set undofile
 
