@@ -291,8 +291,8 @@ lua require("telescope_config")
 nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <silent> <leader>fi <cmd>lua require('telescope.builtin').git_files()<CR>
 nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').grep_string()<CR>
-nnoremap <silent> <leader>fl <cmd>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers({ show_all_buffers = true })<CR>
+nnoremap <silent> <leader>flg <cmd>lua require('telescope.builtin').live_grep()<CR>
 
 " lsp specific
 nnoremap <silent> <leader>flr <cmd>lua require('telescope.builtin').lsp_references()<CR>
