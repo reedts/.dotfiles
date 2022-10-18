@@ -222,6 +222,8 @@ zinit light zpm-zsh/ssh
 
 zinit snippet OMZ::plugins/rsync/rsync.plugin.zsh
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+
+zinit ice silent
 zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 
 zinit light zsh-users/zsh-syntax-highlighting
