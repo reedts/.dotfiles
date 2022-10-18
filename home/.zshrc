@@ -60,16 +60,6 @@ setopt noshwordsplit
 # don't error out when unset parameters are used
 setopt unset
 
-# enable shared dirstack
-DIRSTACKSIZE=15
-DIRSTACKFILE=~/.zdirs
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-	dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-	[[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
-fi
-chpwd() {
-	print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
 # }}}              END  Options
 
 # {{{              Aliases
@@ -282,6 +272,17 @@ _fzf_complete_pass() {
 # Runit related user functions
 function svg() {
 	sv "$1" $HOME/graphical/"$2"
+}
+
+# enable shared dirstack
+DIRSTACKSIZE=15
+DIRSTACKFILE=~/.zdirs
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+	dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+	[[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+fi
+chpwd() {
+	print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
 
 # }}}       END functions
