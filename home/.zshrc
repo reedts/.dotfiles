@@ -104,7 +104,7 @@ alias svl='sudo sv status /var/service/*'
 alias svgl='sv status ~/graphical/*'
 
 # feh
-alias f='feh -. -d --keep-zoom-vp --auto-rotate'
+alias f='feh -. -d --keep-zoom-vp'
 # zathura
 alias z='zathura'
 # nvim
