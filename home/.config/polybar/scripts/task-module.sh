@@ -20,15 +20,15 @@ if [[ $NUM_OVERDUE -eq 0 && $NUM_TODAY -eq 0 && $NUM_WEEK -eq 0 ]]; then
 fi
 
 if [ $NUM_OVERDUE -gt 0 ]; then
-	echo -n "%{F$COLOR_OVERDUE}$CHAR_OVERDUE %{$NUMBER_FONT}$NUM_OVERDUE%{T-}%{F-} "
+	echo -n "%{F$COLOR_OVERDUE}[ $CHAR_OVERDUE %{$NUMBER_FONT}$NUM_OVERDUE%{T-} ]%{F-} "
 fi
 
 if [ $NUM_TODAY -gt 0 ]; then
-	echo -n "%{F$COLOR_TODAY}$CHAR_TODAY %{$NUMBER_FONT}$NUM_TODAY%{T-}%{F-} "
+	echo -n "%{F$COLOR_TODAY}[ $CHAR_TODAY %{$NUMBER_FONT}$NUM_TODAY%{T-} ]%{F-} "
 fi
 
 if [ $NUM_WEEK -gt 0 ]; then
-	echo -n "%{F$COLOR_WEEK}$CHAR_WEEK %{$NUMBER_FONT}$NUM_WEEK%{T-}%{F-}"
+	echo -n "%{F$COLOR_WEEK}[ $CHAR_WEEK %{$NUMBER_FONT}$NUM_WEEK%{T-} ]%{F-}"
 fi
 
 echo ""
