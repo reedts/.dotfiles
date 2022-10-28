@@ -197,6 +197,13 @@ zinit wait lucid light-mode for \
       zsh-users/zsh-completions \
   zsh-users/zsh-history-substring-search
 
+# Prompt
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh" # pull behavior same as clone, source init.zsh
+zinit light starship/starship
+
+
 # Compatibility for Oh-My-Zsh plugins
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
@@ -242,10 +249,6 @@ zinit ice atclone"dircolors -b ~/.dircolors > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light zdharma-continuum/null
-
-# Prompt
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit light sindresorhus/pure
 
 # }}}          END  zinit
 
