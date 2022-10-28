@@ -186,15 +186,16 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
 ### End of Zinit's installer chunk
+
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+      zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions \
+  zsh-users/zsh-history-substring-search
 
 # Compatibility for Oh-My-Zsh plugins
 zinit snippet OMZ::lib/git.zsh
@@ -223,12 +224,7 @@ zinit light zpm-zsh/ssh
 zinit snippet OMZ::plugins/rsync/rsync.plugin.zsh
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 
-zinit ice silent
-zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-history-substring-search
-zinit light zsh-users/zsh-autosuggestions
 
 zinit ice pick'bd.zsh'
 zinit light Tarrasch/zsh-bd
@@ -301,20 +297,7 @@ add-zsh-hook precmd precmd_pipestatus
 
 setopt no_list_ambiguous
 
-zstyle :prompt:pure:git:branch color '#b777e0'
-zstyle :prompt:pure:git:action color '#54ced6'
-zstyle :prompt:pure:host color blue
-zstyle :prompt:pure:prompt:success color green
-zstyle :prompt:pure:prompt:continuation color magenta
-zstyle :prompt:pure:user color default
-zstyle :prompt:pure:virtualenv color yellow
-PURE_PROMPT_VICMD_SYMBOL=" "
-PURE_PREPEND_NEW_LINE=0
-
 zstyle ':completion:*' menu select yes
-#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
-
-autoload -Uz compinit && compinit
 
 # }}}             END  Prompt
 
