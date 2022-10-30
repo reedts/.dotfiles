@@ -306,7 +306,6 @@ precmd_jumpmarker() {
 }
 add-zsh-hook precmd precmd_jumpmarker
 
-
 setopt no_list_ambiguous
 
 zstyle ':completion:*' menu select yes
