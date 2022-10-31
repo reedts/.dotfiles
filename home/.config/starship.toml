@@ -1,0 +1,84 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$hostname\
+$singularity\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$conda\
+$fill\
+$package\
+$c\
+$cmake\
+$python\
+$rust\
+$status
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[c]
+detect_extensions = ["c", "cpp", "cxx", "h", "hpp", "hxx"]
+symbol = " "
+format = "[](green) [$symbol($version(-$name))]($style) "
+
+[character]
+vimcmd_symbol = "[](bold green)"
+
+[cmake]
+symbol = " "
+format = "[](blue) [$symbol($version)]($style) "
+
+[cmd_duration]
+format = "~ [$duration](bold yellow)"
+
+[directory]
+style = "blue"
+repo_root_style = "bold cyan"
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[git_branch]
+format = "[](purple) [$symbol](bold purple) "
+symbol = " "
+
+[hostname]
+ssh_only = true
+ssh_symbol = " "
+style = "green"
+
+[username]
+style_user = "bold green"
+format = "[$user]($style)@"
+
+[package]
+symbol = " "
+format = "[](208) [$symbol$version]($style) "
+
+[python]
+symbol = " "
+format = "[](yellow) [${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\))]($style) "
+
+[rust]
+symbol = " "
+format = "[](red) [$symbol($version)]($style) "
+
+[status]
+disabled = false
+pipestatus = true
+map_symbol = true
+sigint_symbol = ""
+signal_symbol = "ﲍ"
+not_found_symbol = ""
+pipestatus_separator = "[|]($style)"
+style = "bg:red bold fg:black"
+format = "[](red)[$symbol $common_meaning $signal_name $maybe_int]($style)"
+pipestatus_format = "[](red)[$pipestatus  $symbol $common_meaning $signal_name $maybe_int]($style)"
+pipestatus_segment_format = "[$symbol $common_meaning $signal_name $maybe_int]($style)"
