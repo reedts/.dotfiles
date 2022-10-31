@@ -50,7 +50,7 @@ truncation_symbol = "…/"
 truncate_to_repo = false
 
 [git_branch]
-format = "[](purple) [$symbol](bold purple) "
+format = "[](purple) [$symbol$branch(:$remote_branch)](bold purple) "
 symbol = " "
 
 [hostname]
