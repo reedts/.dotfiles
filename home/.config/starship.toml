@@ -12,6 +12,7 @@ $git_state\
 $git_metrics\
 $git_status\
 $fill\
+[](bg:#474b51 fg:#383a3e)\
 $package\
 $c\
 $cmake\
@@ -29,7 +30,7 @@ add_newline = false
 [c]
 detect_extensions = ["c", "cpp", "cxx", "h", "hpp", "hxx"]
 symbol = " "
-style = "bg:#474b51 fg:cyan"
+style = "bg:#383a3e fg:cyan"
 format = "[]($style)[ $symbol($version(-$name)) ](bold $style)"
 
 [character]
@@ -37,15 +38,15 @@ vimcmd_symbol = "[](bold green)"
 
 [cmake]
 symbol = " "
-style = "bg:#474b51 fg:blue"
+style = "bg:#383a3e fg:blue"
 format = "[]($style)[ $symbol($version) ](bold $style)"
 
 [cmd_duration]
-style = "bg:#474b51 fg:bright-purple"
-format = "[ ~ $duration ](bold $style)"
+style = "fg:#474b51 bg:yellow"
+format = "[\\[~ $duration\\]](bold $style)"
 
 [conda]
-style = "bg:#474b51 fg:green"
+style = "bg:#383a3e fg:green"
 ignore_base = false
 format = "[]($style)[ $symbol$environment ](bold $style)"
 
@@ -53,7 +54,7 @@ format = "[]($style)[ $symbol$environment ](bold $style)"
 style = "bg:#5f875f fg:#d7ffaf"
 read_only_style = "bg:red fg:black"
 repo_root_style = "bg:blue fg:bold black"
-repo_root_format = "[$before_root_path](bg:blue fg:black)[$repo_root]($repo_root_style)[$path ](bg:blue fg:black)([ $read_only ]($read_only_style))[](fg:blue bg:#474b51)"
+repo_root_format = "[$before_root_path](bg:blue fg:black)[$repo_root]($repo_root_style)[$path ](bg:blue fg:black)([ $read_only ]($read_only_style))[](fg:blue bg:purple)"
 format = "[$path ]($style)([ $read_only ]($read_only_style))[](fg:#5f875f bg:#474b51)"
 truncation_symbol = "…/"
 truncate_to_repo = false
@@ -63,8 +64,8 @@ symbol = " "
 style = "bg:#474b51"
 
 [git_branch]
-style = "bg:#474b51 fg:purple"
-format = "[]($style)[ $symbol$branch(:$remote_branch) ](bold $style)"
+style = "fg:#474b51 bg:purple"
+format = "[ $symbol$branch(:$remote_branch) ](bold $style)[](fg:purple bg:#474b51)"
 symbol = " "
 
 [git_status]
@@ -81,17 +82,17 @@ style_user = "bold green"
 format = "[$user]($style)@"
 
 [package]
-style = "bg:#474b51 fg:208"
+style = "bg:#383a3e fg:208"
 symbol = " "
 format = "[]($style)[ $symbol$version ](bold $style)"
 
 [python]
-style = "bg:#474b51 fg:yellow"
+style = "bg:#383a3e fg:yellow"
 symbol = " "
 format = "[]($style)[ ${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\))](bold $style)"
 
 [rust]
-style = "bg:#474b51 fg:red"
+style = "bg:#383a3e fg:red"
 symbol = " "
 format = "[]($style)[ $symbol($version) ](bold $style)"
 
@@ -104,11 +105,11 @@ signal_symbol = "ﲍ"
 not_found_symbol = ""
 pipestatus_separator = "[|]($style)"
 style = "bg:red bold fg:black"
-format = "[](bg:#474b51 fg:red)[$symbol ($common_meaning )($signal_name )($maybe_int)]($style)"
+format = "[](bg:yellow fg:red)[$symbol ($common_meaning )($signal_name )($maybe_int)]($style)"
 pipestatus_format = "[](bg:#474b51 fg:red)[$pipestatus  $symbol $common_meaning $signal_name $maybe_int]($style)"
 pipestatus_segment_format = "[$symbol$common_meaning$signal_name $maybe_int]($style)"
 
 [time]
-style = "bg:#474b51 fg:yellow"
+style = "fg:#474b51 bg:yellow"
 disabled = false
-format = "[]($style)[  $time ]($style)"
+format = "[](bg:#383a3e fg:yellow)[  $time ]($style)"
