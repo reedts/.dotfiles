@@ -103,7 +103,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tommcdo/vim-lion'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'RRethy/vim-illuminate'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'nvim-tree/nvim-tree.lua'
 
 " Initialize plugin system
 call plug#end()
@@ -273,9 +273,9 @@ nnoremap <leader>tl <cmd>TroubleToggle loclist<cr>
 nnoremap <leader>tlr<cmd>TroubleToggle lsp_references<cr>
 " }}}
 
-" CHADTree {{{
-
-nnoremap <leader>nn <cmd>CHADopen<cr>
+" NvimTree {{{
+lua require("nvimtree_config")
+nnoremap <leader>nn <cmd>NvimTreeToggle<cr>
 " }}}
 
 " {{{ Treesitter
