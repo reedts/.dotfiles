@@ -229,7 +229,6 @@ zinit ice blockf
 zinit light zpm-zsh/ssh
 
 zinit snippet OMZ::plugins/rsync/rsync.plugin.zsh
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 
 zstyle ':plugin:zinit:ssh-agent-pass' add-all yes
 zinit ice silent wait lucid
