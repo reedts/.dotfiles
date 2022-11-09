@@ -19,9 +19,9 @@
 ; {{{ Colors
 [colors]
 background = ${xrdb:background:2d2d2d}
-background-alt = #cccccc
+background-alt = ${xrdb:color18:393939}
 foreground = ${xrdb:foreground:cccccc}
-foreground-alt = #555
+foreground-alt = ${xrdb:color20:b4b7b4}
 
 black = ${xrdb:color0:000000}
 red = ${xrdb:color1:f2777a}
@@ -39,6 +39,9 @@ light-blue = ${xrdb:color12:6699cc}
 light-magenta = ${xrdb:color13:b777e0}
 light-cyan = ${xrdb:color14:54ced6}
 white = ${xrdb:color15:1d1f21}
+
+diff_add_fg = #d7ffaf
+diff_add_bg = #5f875f
 
 orange = ${xrdb:color16:f99157}
 
@@ -70,10 +73,11 @@ border-color = ${colors.dark-grey}
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Roboto:style=Regular:size=8;1"
-font-1 = "Symbols Nerd Font:size=10;2"
-font-2 = "unifont:size=8;1"
-font-3 = "DejaVuSansMono Nerd Font:size=8;1"
+font-0 = "Roboto:style=Regular:size=8;2"
+font-1 = "Symbols Nerd Font:size=10;3"
+font-2 = "unifont:size=8;2"
+font-3 = "DejaVuSansMono Nerd Font:size=8;2"
+font-4 = "DejaVuSansMono Nerd Font:size=12;3"
 
 modules-left = i3
 modules-center = date
@@ -128,25 +132,23 @@ label-mode-background = ${colors.magenta}
 
 ; focused = Active workspace on focused monitor
 label-focused = "%index%  %icon%"
-label-focused-foreground = ${colors.background}
-label-focused-background = ${colors.primary}
+label-focused-foreground = ${colors.diff_add_fg}
+label-focused-background = ${colors.diff_add_bg}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = "%index%  %icon%"
-label-unfocused-foreground = ${colors.secondary}
-label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground-alt}
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = "%index%  %icon%"
-label-visible-background = ${colors.blue}
-label-visible-foreground = ${colors.background}
+label-visible-foreground = ${colors.diff_add_fg}
 label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
 label-urgent = "%index%  %icon%"
-label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.alert}
 label-urgent-padding = 2
 ; }}}
 
@@ -155,9 +157,8 @@ label-urgent-padding = 2
 type = internal/cpu
 interval = 2
 format = <label> <ramp-coreload>
-format-prefix = ""
+format-prefix = "%{F#666666}%{T5}%{T-}%{F-} %{F#d7ffaf}%{F-}"
 format-foreground = ${colors.foreground}
-format-underline = ${colors.blue}
 label = "%percentage:3%% "
 label-font = 1
 format-padding = 1
@@ -187,10 +188,9 @@ ramp-coreload-7-foreground = ${colors.red}
 type = internal/memory
 interval = 2
 format = <label> <bar-used>
-format-underline = ${colors.blue}
 format-foreground = ${colors.foreground}
 format-padding = 1
-format-prefix = ""
+format-prefix = "%{F#666666}%{T5}%{T-}%{F-} %{F#d7ffaf}%{F-}"
 label = "%percentage_used:3%% "
 label-font = 1
 
@@ -225,13 +225,12 @@ interval = 3.0
 
 format-connected-padding = 1
 format-connected-foreground = ${colors.foreground}
-format-connected-underline = ${colors.blue}
-format-connected-prefix = ""
+format-connected-prefix = "%{F#666666}%{T5}%{T-}%{F-} %{F#d7ffaf}%{F-}"
 label-connected = "%local_ip%  %{T4}%upspeed:10%%{T-}  %{T4}%downspeed:10%%{T-}"
 
-label-disconnected = ""
+label-disconnected = "%{F#666666}%{T5}%{T-}%{F-} %{F#f2777a}%{F-}"
 format-disconnected-padding = 1
-format-disconnected-background = ${colors.alert}
+format-disconnected-foreground = ${colors.alert}
 ; }}}
 
 ; {{{ Module date
@@ -239,9 +238,8 @@ format-disconnected-background = ${colors.alert}
 type = internal/date
 interval = 5
 format-foreground = ${colors.foreground}
-format-underline = ${colors.blue}
 format-padding = 1
-format-prefix = ""
+format-prefix = " "
 
 date = " %Y-%m-%d"
 date-alt = " %Y-%m-%d"
@@ -256,12 +254,16 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
+format-volume-prefix = "%{F#666666}%{T5}%{T-}%{F-} "
 format-volume = <ramp-volume> <label-volume>
 format-padding = 2
 format-foreground = ${colors.foreground}
 
 label-muted = ﱝ
+format-muted-prefix = "%{F#666666}%{T5}%{T-}%{F-} "
+label-muted-foreground = ${colors.red}
 
+ramp-volume-foreground = ${colors.diff_add_fg}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -320,8 +322,8 @@ ramp-2 = 
 type = custom/script
 exec = buzz
 tail = true
-format-prefix = "  "
-format-suffix = "  "
+format-prefix = "%{F#666666}%{T5}%{T-}%{F-}  "
+format-suffix = " %{F#666666}%{T5}%{T-}%{F-} "
 format-foreground = ${colors.foreground}
 
 ; {{{ Module pomodoro
@@ -333,8 +335,7 @@ tail = true
 label = %output%
 
 format = " <label> "
-format-foreground = ${colors.background}
-format-background = ${colors.orange}
+format-foreground = ${colors.orange}
 
 click-left = ~/.config/polybar/scripts/polypomo toggle
 click-right = ~/.config/polybar/scripts/polypomo end
