@@ -11,18 +11,21 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$fill\
-[](bg:#474b51 fg:#383a3e)\
 $package\
 $c\
 $cmake\
 $conda\
 $python\
 $rust\
+$fill
 $time\
+$character\
+"""
+
+right_format = """
 $cmd_duration\
-$status
-$character"""
+$status\
+"""
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -34,43 +37,45 @@ style = "bg:#383a3e fg:cyan"
 format = "[]($style)[ $symbol($version(-$name)) ](bold $style)"
 
 [character]
-vimcmd_symbol = "[](bold green)"
+success_symbol = "[/](bold green)"
+error_symbol = '[\\](bold red)'
+vimcmd_symbol = "[-](yellow)[](bold yellow)"
 
 [cmake]
 symbol = " "
-style = "bg:#383a3e fg:blue"
-format = "[]($style)[ $symbol($version) ](bold $style)"
+style = "bg:18 fg:blue"
+format = "[](bg:18 fg:green)[ $symbol($version) ](bold $style)"
 
 [cmd_duration]
-style = "fg:#474b51 bg:yellow"
-format = "[\\[~ $duration\\]](bold $style)"
+style = "bold yellow"
+format = "[\\[~ $duration\\]]($style) "
 
 [conda]
-style = "bg:#383a3e fg:green"
+style = "bg:18 bold green"
 ignore_base = false
-format = "[]($style)[ $symbol$environment ](bold $style)"
+format = "[](bg:18 green)[ $symbol$environment ]($style)"
 
 [directory]
-style = "bg:#5f875f fg:#d7ffaf"
-read_only_style = "bg:red fg:black"
-repo_root_style = "bg:blue fg:bold black"
-repo_root_format = "[$before_root_path](bg:blue fg:black)[$repo_root]($repo_root_style)[$path ](bg:blue fg:black)([ $read_only ]($read_only_style))[](fg:blue bg:purple)"
-format = "[$path ]($style)([ $read_only ]($read_only_style))[](fg:#5f875f bg:#474b51)"
-truncation_symbol = "…/"
+style = "bg:18 bold blue"
+read_only_style = "bg:18 fg:red"
+repo_root_style = "bg:18 bold cyan"
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)([ $read_only ]($read_only_style))"
+format = "[$path]($style)([ $read_only ]($read_only_style))"
+truncation_symbol = "⋯/"
 truncate_to_repo = false
 
 [fill]
 symbol = " "
-style = "bg:#474b51"
+style = "bg:18"
 
 [git_branch]
-style = "fg:#474b51 bg:purple"
-format = "[ $symbol$branch(:$remote_branch) ](bold $style)[](fg:purple bg:#474b51)"
+style = "bg:18 bold purple"
+format = "[ $symbol$branch(:$remote_branch) ](bold $style)"
 symbol = " "
 
 [git_status]
-style = "bg:#474b51 fg:bold red"
-format = "([\\[$all_status$ahead_behind\\]]($style))"
+style = "bg:18 bold red"
+format = "([\\[$all_status$ahead_behind\\] ]($style))"
 
 [hostname]
 ssh_only = true
@@ -78,23 +83,25 @@ ssh_symbol = " "
 style = "green"
 
 [username]
-style_user = "bold green"
-format = "[$user]($style)@"
+show_always = true
+style_user = "bg:18 green"
+style_root = "bg:18 bold red"
+format = "[$user]($style)[@ ](bg:18 cyan)"
 
 [package]
-style = "bg:#383a3e fg:208"
+style = "bg:18 bold 208"
 symbol = " "
-format = "[]($style)[ $symbol$version ](bold $style)"
+format = "[](bg:18 green)[ $symbol$version ]($style)"
 
 [python]
-style = "bg:#383a3e fg:yellow"
+style = "bg:18 bold yellow"
 symbol = " "
-format = "[]($style)[ ${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\))](bold $style)"
+format = "[](bg:18 green)[ ${symbol}${pyenv_prefix}(${version})(\\($virtualenv\\)) ]($style)"
 
 [rust]
-style = "bg:#383a3e fg:red"
+style = "bg:18 bold red"
 symbol = " "
-format = "[]($style)[ $symbol($version) ](bold $style)"
+format = "[](bg:18 green)[ $symbol($version) ](bold $style)"
 
 [status]
 disabled = false
@@ -103,13 +110,12 @@ map_symbol = true
 sigint_symbol = ""
 signal_symbol = "ﲍ"
 not_found_symbol = ""
-pipestatus_separator = "[|]($style)"
-style = "bg:red bold fg:black"
-format = "[](bg:yellow fg:red)[$symbol ($common_meaning )($signal_name )($maybe_int)]($style)"
-pipestatus_format = "[](bg:#474b51 fg:red)[$pipestatus  $symbol $common_meaning $signal_name $maybe_int]($style)"
-pipestatus_segment_format = "[$symbol$common_meaning$signal_name $maybe_int]($style)"
+pipestatus_separator = "[│]($style)"
+style = "bold red"
+format = "[$symbol ($common_meaning )($signal_name )($maybe_int)]($style)"
+pipestatus_format = "[$pipestatus  $symbol$common_meaning$signal_name$maybe_int]($style)"
 
 [time]
-style = "fg:#474b51 bg:yellow"
+style = "242"
 disabled = false
-format = "[](bg:#383a3e fg:yellow)[  $time ]($style)"
+format = "[\\(](246)[$time]($style)[\\)](246) "
