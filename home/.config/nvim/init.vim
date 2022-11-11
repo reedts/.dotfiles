@@ -88,9 +88,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
-" Airline
-Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+" Statusline
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'arkav/lualine-lsp-progress'
 
 " Utils
 Plug 'reedts/vim-hybrid'
@@ -115,42 +115,23 @@ set termguicolors
 " colorscheme base16-tomorrow-night-eighties
 set background=dark
 colorscheme hybrid
+
+lua << EOF
+require'nvim-web-devicons'.setup {
+	override = {
+		rs = {
+			icon = '',
+			color = "#dea584",
+			name = "Rs"
+		}
+	}
+}
+EOF
 "}}}
 
 " Statusline {{{
-set statusline+=%{fugitive#statusline()}
 
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#alt_sep = 1
-let g:airline#extensions#nvimlsp#enabled = 1
-let g:airline#extensions#scrollbar#enabled = 0
-
-"lsp show_line_numbers
-let airline#extensions#nvimlsp#show_line_numbers = 1
-" lsp error_symbol
-let airline#extensions#nvimlsp#error_symbol = '✗:'
-" lsp warning
-let airline#extensions#nvimlsp#warning_symbol = ':'
-
-let g:airline_theme = 'hybrid'
-
-let g:airline_powerline_fonts = 1
-
-" overwriting some symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.branch = ''
-let g:airline_symbols.dirty = ' '
-
-" hi! AirlineError guifg=#5f0000 guibg=#cc6666
-" hi! AirlineWarning guifg=#704b00 guibg=#de935f
-" hi! AirlineInsert guifg=#445479 guibg=#84b0eb
-" hi! AirlineVisual guifg=#8abeb7 guibg=#005f5f
-" hi! link AirlineReplace DiffChange
-
+lua require("lualine_config")
 " }}}
 
 " Python semantic plugin {{{
