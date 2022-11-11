@@ -53,7 +53,7 @@ format = "[\\[~ $duration\\]]($style) "
 [conda]
 style = "bg:18 bold green"
 ignore_base = false
-format = "[](bg:18 green)[ $symbol$environment ]($style)"
+format = "[](bg:18 fg:242)[ $symbol$environment ]($style)"
 
 [directory]
 style = "bg:18 bold blue"
@@ -91,17 +91,17 @@ format = "[$user]($style)[@ ](bg:18 cyan)"
 [package]
 style = "bg:18 bold 208"
 symbol = " "
-format = "[](bg:18 green)[ $symbol$version ]($style)"
+format = "[](bg:18 fg:242)[ $symbol$version ]($style)"
 
 [python]
 style = "bg:18 bold yellow"
 symbol = " "
-format = "[](bg:18 green)[ ${symbol}${pyenv_prefix}(${version})(\\($virtualenv\\)) ]($style)"
+format = "[](bg:18 fg:242)[ ${symbol}${pyenv_prefix}(${version})(\\($virtualenv\\)) ]($style)"
 
 [rust]
 style = "bg:18 bold red"
-symbol = " "
-format = "[](bg:18 green)[ $symbol($version) ](bold $style)"
+symbol = " "
+format = "[](bg:18 fg:242)[ $symbol($version) ](bold $style)"
 
 [status]
 disabled = false
