@@ -9,10 +9,12 @@ local function switch_source_header_splitcmd(bufnr, splitcmd)
 	end)
 end
 
+local navic = require('nvim-navic')
 -- Customized on_attach function for lspconfig setup
 local on_attach = function(client, bufnr)
 	-- Enable access to needed functions from vim api
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+	navic.attach(client, bufnr)
 end
 
 -- Customized on_attach for cpp language-server to enable

@@ -91,6 +91,7 @@ Plug 'tpope/vim-unimpaired'
 " Statusline
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'arkav/lualine-lsp-progress'
+Plug 'SmiteshP/nvim-navic'
 
 " Utils
 Plug 'reedts/vim-hybrid'

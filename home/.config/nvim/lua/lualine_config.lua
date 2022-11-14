@@ -1,4 +1,8 @@
 local lualine = require('lualine')
+local navic = require('nvim-navic')
+navic.setup({
+	separator = "  "
+})
 local theme = 'tomorrow_night_eighties'
 local colors = require('lualine.themes.colors').colors
 
@@ -40,6 +44,7 @@ lualine.setup({
 				'filename',
 				file_status = true,
 				newfile_status = true,
+				path = 1,
 
 				symbols = {
 					modified = '[*]',
@@ -69,7 +74,7 @@ lualine.setup({
 				},
 				display_components = { 'lsp_client_name', { 'title', 'percentage' } },
 				timer = { progress_enddelay = 500, spinner = 100, lsp_client_name_enddelay = 1000 },
-			}
+			},
 		},
 		lualine_y = {
 			{
@@ -102,6 +107,33 @@ lualine.setup({
 		lualine_x = { 'location' },
 		lualine_y = {},
 		lualine_z = {}
+	},
+	winbar = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = {
+			{
+				'buffers',
+				mode = 2,
+				filetype_names = {
+					TelescopePrompt = 'Telescope',
+				},
+				buffers_color = {
+					active = { fg = colors.green, bg = colors.gray},
+					inactive = { fg = colors.white, bg = colors.line },
+				},
+			}
+		},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {
+			{
+				navic.get_location,
+				cond = navic.is_available,
+				separator = { right = '', left = '' },
+				color = {gui = 'None'},
+			}
+		}
 	},
 	extensions = { 'fugitive', 'nvim-tree' }
 })
