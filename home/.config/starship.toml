@@ -44,7 +44,7 @@ vimcmd_symbol = "[-](yellow)[](bold yellow)"
 [cmake]
 symbol = " "
 style = "bg:18 fg:blue"
-format = "[](bg:18 fg:green)[ $symbol($version) ](bold $style)"
+format = "[](bg:18 fg:242)[ $symbol($version) ](bold $style)"
 
 [cmd_duration]
 style = "bold yellow"
