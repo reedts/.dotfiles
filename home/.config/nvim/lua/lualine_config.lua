@@ -22,6 +22,12 @@ lualine.setup({
 		theme = theme,
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
+		disabled_filetypes = {
+			'Trouble',
+			winbar = {
+				'NvimTree'
+			}
+		}
 	},
 	sections = {
 		lualine_a = {
@@ -117,9 +123,10 @@ lualine.setup({
 				mode = 2,
 				filetype_names = {
 					TelescopePrompt = 'Telescope',
+					Trouble = 'Trouble',
 				},
 				buffers_color = {
-					active = { fg = colors.green, bg = colors.gray},
+					active = { fg = colors.green, bg = colors.gray },
 					inactive = { fg = colors.white, bg = colors.line },
 				},
 			}
@@ -131,7 +138,7 @@ lualine.setup({
 				navic.get_location,
 				cond = navic.is_available,
 				separator = { right = '', left = '' },
-				color = {gui = 'None'},
+				color = { gui = 'None' },
 			}
 		}
 	},
