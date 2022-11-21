@@ -165,13 +165,6 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 # }}}			END Micromamba
 
-# {{{           FZF
-export FZF_COMPLETION_TRIGGER='~~'
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-
-# }}}           END FZF
-
 # {{{           zinit
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
