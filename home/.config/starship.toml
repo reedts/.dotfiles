@@ -34,7 +34,7 @@ add_newline = false
 detect_extensions = ["c", "cpp", "cxx", "h", "hpp", "hxx"]
 symbol = " "
 style = "bg:#383a3e fg:cyan"
-format = "[]($style)[ $symbol($version(-$name)) ](bold $style)"
+format = "[](bg:18 fg:242)[ $symbol($version(-$name)) ](bold $style)"
 
 [character]
 success_symbol = "[/](bold green)"
@@ -59,8 +59,8 @@ format = "[](bg:18 fg:242)[ $symbol$environment ]($style)"
 style = "bg:18 bold blue"
 read_only_style = "bg:18 fg:red"
 repo_root_style = "bg:18 bold cyan"
-repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)([ $read_only ]($read_only_style))"
-format = "[$path]($style)([ $read_only ]($read_only_style))"
+repo_root_format = "[ $before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)([ $read_only ]($read_only_style))"
+format = "[ $path]($style)([ $read_only ]($read_only_style))"
 truncation_symbol = "⋯/"
 truncate_to_repo = false
 
@@ -80,13 +80,14 @@ format = "([\\[$all_status$ahead_behind\\] ]($style))"
 [hostname]
 ssh_only = true
 ssh_symbol = " "
-style = "green"
+style = "purple bg:18"
+format = "[$hostname $ssh_symbol]($style)"
 
 [username]
 show_always = true
 style_user = "bg:18 green"
 style_root = "bg:18 bold red"
-format = "[$user]($style)[@ ](bg:18 cyan)"
+format = "[$user]($style)[@](bg:18 cyan)"
 
 [package]
 style = "bg:18 bold 208"
