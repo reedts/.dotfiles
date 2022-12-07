@@ -231,6 +231,7 @@ zinit light zpm-zsh/ssh
 zinit snippet OMZ::plugins/rsync/rsync.plugin.zsh
 
 zstyle ':plugin:zinit:ssh-agent-pass' add-all yes
+zstyle ':plugin:zinit:ssh-agent-pass' agent-forwarding yes
 zinit ice silent wait lucid
 zinit light reedts/ssh-agent-pass
 
