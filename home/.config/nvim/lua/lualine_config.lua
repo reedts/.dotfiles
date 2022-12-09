@@ -17,6 +17,15 @@ local function lsp_clients()
 	return table.concat(names, ',')
 end
 
+local function mamba_env()
+	local env_name = os.getenv("CONDA_DEFAULT_ENV")
+	if env_name ~= nil then
+		return env_name
+	else
+		return ''
+	end
+end
+
 lualine.setup({
 	options = {
 		theme = theme,
@@ -43,7 +52,12 @@ lualine.setup({
 				icon = { '', align = 'left' },
 				color = { fg = colors.purple },
 				separator = { left = '', right = '' },
-			}
+			},
+			{
+				'diff',
+				symbols = { added = ' ', modified = ' ', removed = ' ' },
+				separator = { left = '', right = '' },
+			},
 		},
 		lualine_c = {
 			{
@@ -83,12 +97,12 @@ lualine.setup({
 			},
 		},
 		lualine_y = {
-			{
-				'diff',
-				symbols = { added = ' ', modified = ' ', removed = ' ' },
-			},
 			'encoding',
 			'filetype',
+			{
+				mamba_env,
+				icon = { '🅒 ', align = 'left', color = { fg = colors.green } }
+			},
 			{
 				lsp_clients,
 				icon = { '勞', align = 'left', color = { fg = colors.orange } }
@@ -114,10 +128,8 @@ lualine.setup({
 		lualine_y = {},
 		lualine_z = {}
 	},
-	winbar = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {
+	tabline = {
+		lualine_a = {
 			{
 				'buffers',
 				mode = 2,
@@ -130,7 +142,10 @@ lualine.setup({
 					inactive = { fg = colors.white, bg = colors.line },
 				},
 			}
+
 		},
+		lualine_b = {},
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {
