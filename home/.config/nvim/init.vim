@@ -33,6 +33,8 @@ fun! TrimWhitespace()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
+
+match DiagnosticUnderlineError /\s\+$/
 " }}}
 
 " Commands {{{
