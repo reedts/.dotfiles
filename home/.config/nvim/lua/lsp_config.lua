@@ -1,19 +1,9 @@
--- For clangd swith header vsplit/hsplit support
-local function switch_source_header_splitcmd(bufnr, splitcmd)
-	bufnr = require 'lspconfig'.util.validate_bufnr(bufnr)
-	local params = { uri = vim.uri_from_bufnr(bufnr) }
-	vim.lsp.buf_request(bufnr, 'textDocument/switchSourceHeader', params, function(err, _, result)
-		if err then error(tostring(err)) end
-		if not result then print("Corresponding file can’t be determined") return end
-		vim.api.nvim_command(splitcmd .. ' ' .. vim.uri_to_fname(result))
-	end)
-end
-
 local navic = require('nvim-navic')
 -- Customized on_attach function for lspconfig setup
 local on_attach = function(client, bufnr)
 	-- Enable access to needed functions from vim api
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
 	navic.attach(client, bufnr)
 end
 
@@ -25,8 +15,6 @@ local on_attach_cpp = function(client, bufnr)
 	-- Register keymaps for clangd
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lS', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lvS', '<cmd>ClangdSwitchSourceHeaderVSplit<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lhS', '<cmd>ClangdSwitchSourceHeaderSplit<CR>', opts)
 end
 
 vim.g.diagnostics_enabled = true
@@ -43,10 +31,10 @@ function _G.toggle_diagnostics()
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- delay update diagnostics
-    update_in_insert = false,
-  }
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+	-- delay update diagnostics
+	update_in_insert = false,
+}
 )
 local lspconfig = require('lspconfig')
 local cmp = require('cmp')
@@ -62,7 +50,8 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.yapf,
 		null_ls.builtins.diagnostics.flake8,
-		null_ls.builtins.formatting.isort
+		null_ls.builtins.formatting.isort,
+		null_ls.builtins.formatting.cmake_format,
 	}
 })
 
@@ -99,20 +88,6 @@ mason_lspconfig.setup_handlers({
 		lspconfig.clangd.setup({
 			on_attach = on_attach_cpp,
 			capabilitites = capabilitites,
-			commands = {
-				ClangdSwitchSourceHeader = {
-					function() switch_source_header_splitcmd(0, "edit") end;
-					description = "Open source/header in current buffer";
-				},
-				ClangdSwitchSourceHeaderVSplit = {
-					function() switch_source_header_splitcmd(0, "vsplit") end;
-					description = "Open source/header in a new vsplit";
-				},
-				ClangdSwitchSourceHeaderSplit = {
-					function() switch_source_header_splitcmd(0, "split") end;
-					description = "Open source/header in a new split";
-				}
-			}
 		})
 	end,
 })

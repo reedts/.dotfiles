@@ -27,18 +27,10 @@ set shiftwidth=4
 set softtabstop=0
 "}}}
 
-" Functions {{{
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-match DiagnosticUnderlineError /\s\+$/
-" }}}
-
 " Commands {{{
-command! TrimWhitespace call TrimWhitespace()
+
+"Jump to first non-empty line for mails
+au FileType mail execute "normal }"
 " }}}
 
 " Plug {{{
@@ -107,6 +99,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Initialize plugin system
 call plug#end()
@@ -139,18 +132,6 @@ lua require("lualine_config")
 
 " Python semantic plugin {{{
 let g:semshi#error_sign = v:false
-"}}}
-
-"Language supports {{{
-
-"CUDA support
-au BufNewFile,BufRead *.cu set ft=cpp
-
-"OpenCL support
-au BufNewFile,BufRead *.cl set ft=opencl
-
-"Jump to first non-empty line for mails
-au FileType mail execute "normal }"
 "}}}
 
 "LaTeX-Suite {{{
@@ -325,9 +306,14 @@ lua require("indent_config")
 let g:Illuminate_delay = 1000
 " }}}
 
+" Better Whitespaces {{{
+hi! link ExtraWhitespace DiagnosticUnderlineError
+
+let g:strip_whitespace_on_save = 0
+let g:better_whitespace_filetypes_blacklist = ['Troube', 'NvimTree', 'Telescope', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive']
+
+" }}}
 " Directory specific settings {{{
-" if a .vimlocal is found in dir, load it
-" else ignore
-silent! so .vimlocal
+set exrc secure
 "}}}
 " vim: fdm=marker
