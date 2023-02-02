@@ -264,7 +264,8 @@ exec_always feh --no-startup-id --bg-fill /home/reedts/Pictures/background.png
 
 # --- Floats ---{{{
 for_window [class="^pinentry$"] floating enable
-for_window [class="^Zeal$'"] floating enable
+for_window [class="^Zeal$"] floating enable
+for_window [class="^matplotlib$"] floating enable
 # }}}
 
 
