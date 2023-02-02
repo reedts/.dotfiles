@@ -126,14 +126,20 @@ set hintdelay 100
 
 set searchengine startpage
 
-set searchurls.g  https://www.google.com/search?q=
-set searchurls.sc https://scholar.google.com/scholar?q=
-set searchurls.dd https://duckduckgo.com/?q=
-set searchurls.wk https://en.wikipedia.org/wiki/Special:Search/
-set searchurls.y  https://www.youtube.com/results?search_query=
-set searchurls.am https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=
-set searchurls.sp https://startpage.com/do/search?language=english&cat=web&query=
-set searchurls.gi https://github.com/search?utf8=%E2%9C%93&q=
+set searchurls.g   https://www.google.com/search?q=
+set searchurls.sc  https://scholar.google.com/scholar?q=
+set searchurls.dd  https://duckduckgo.com/?q=
+set searchurls.wk  https://en.wikipedia.org/wiki/Special:Search/
+set searchurls.y   https://www.youtube.com/results?search_query=
+set searchurls.sp  https://startpage.com/do/search?language=english&cat=web&query=
+set searchurls.gi  https://github.com/search?utf8=%E2%9C%93&q=
+set searchurls.py  https://docs.python.org/3/search.html?q=
+set searchurls.pyt https://pytorch.org/docs/stable/search.html?q=
+set searchurls.cc  https://duckduckgo.com/?sites=cppreference.com&q=
+set searchurls.rs  https://doc.rust-lang.org/std/index.html?search=
+set searchurls.drs https://docs.rs/releases/search?query=
+set searchurls.crs https://crates.io/search?q=
+set searchurls.man https://www.die.net/search/?q=
 
 " Add helper commands that Mozillians think make Firefox irredeemably
 " insecure. For details, read the comment at the top of this file.
