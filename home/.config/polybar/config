@@ -225,7 +225,7 @@ interval = 3.0
 
 format-connected-padding = 1
 format-connected-foreground = ${colors.foreground}
-format-connected-prefix = "%{F#666666}%{T5}%{T-}%{F-} %{F#d7ffaf}%{F-}"
+format-connected-prefix = "%{F#666666}%{T5}%{T-}%{F-} %{F#d7ffaf} %{F-}"
 label-connected = "%local_ip%  %{T4}%upspeed:10%%{T-}  %{T4}%downspeed:10%%{T-}"
 
 label-disconnected = "%{F#666666}%{T5}%{T-}%{F-} %{F#f2777a}%{F-}"
