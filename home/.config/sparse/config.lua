@@ -2,6 +2,7 @@ user("reedts")
 host("https://matrix.intxeighty.de")
 
 bind('e', 'visual', run_all(start_edit, deselect_message, switch_mode("insert-line")))
+bind('d', 'visual', delete_message)
 
 bind('a', 'visual', function(c)
 	local pipe = io.popen("rofi -mode emoji -show emoji -emoji-mode stdout", "r")
