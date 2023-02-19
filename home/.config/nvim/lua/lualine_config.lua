@@ -26,6 +26,14 @@ local function mamba_env()
 	end
 end
 
+
+local function spell()
+  if vim.wo.spell == true then -- Note that 'spell' is a window option, so: wo
+    return '[' .. vim.bo.spelllang .. ']'
+  end
+  return ''
+end
+
 lualine.setup({
 	options = {
 		theme = theme,
@@ -46,6 +54,10 @@ lualine.setup({
 			}
 		},
 		lualine_b = {
+			{
+				spell,
+				separator = { left = '', right = '' },
+			},
 			{
 				'branch',
 				icons_enabled = true,
