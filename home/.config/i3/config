@@ -248,15 +248,18 @@ bindsym $mod+Shift+q mode "$mode_system"
 # }}}
 
 # --- Misc settings ---{{{
-default_border normal
+default_border pixel 1
 default_floating_border normal
 
-for_window [all] title_window_icon yes
-# Don't show icon on alacritty windows
-for_window [class="Alacritty"] title_window_icon no
+smart_borders on
 
 # hide edge borders
-hide_edge_borders vertical
+hide_edge_borders none
+
+# for_window [all] title_window_icon yes
+# Don't show icon on alacritty windows
+# for_window [class="Alacritty"] title_window_icon no
+
 # }}}
 
 # Set Wallpaper
