@@ -28,16 +28,16 @@ end
 
 
 local function spell()
-  if vim.wo.spell == true then -- Note that 'spell' is a window option, so: wo
-    return '[' .. vim.bo.spelllang .. ']'
-  end
-  return ''
+	if vim.wo.spell == true then -- Note that 'spell' is a window option, so: wo
+		return '[' .. vim.bo.spelllang .. ']'
+	end
+	return ''
 end
 
 lualine.setup({
 	options = {
 		theme = theme,
-		component_separators = { left = '', right = '' },
+		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
 		disabled_filetypes = {
 			'Trouble',
@@ -50,25 +50,23 @@ lualine.setup({
 		lualine_a = {
 			{
 				'mode',
-				separator = { left = '', right = '' }
+				-- Only show first letter of mode
+				fmt = function(str) return str:sub(1, 1) end,
 			}
 		},
 		lualine_b = {
 			{
 				spell,
-				separator = { left = '', right = '' },
 			},
 			{
 				'branch',
 				icons_enabled = true,
 				icon = { '', align = 'left' },
 				color = { fg = colors.purple },
-				separator = { left = '', right = '' },
 			},
 			{
 				'diff',
 				symbols = { added = ' ', modified = ' ', removed = ' ' },
-				separator = { left = '', right = '' },
 			},
 		},
 		lualine_c = {
@@ -77,7 +75,6 @@ lualine.setup({
 				file_status = true,
 				newfile_status = true,
 				path = 1,
-
 				symbols = {
 					modified = '[*]',
 					readonly = '',
@@ -123,7 +120,6 @@ lualine.setup({
 		lualine_z = {
 			{
 				'location',
-				separator = { right = '', left = '' },
 				icons_enables = true,
 				icon = { '', align = 'right' },
 				fmt = function(str)
@@ -165,7 +161,6 @@ lualine.setup({
 			{
 				navic.get_location,
 				cond = navic.is_available,
-				separator = { right = '', left = '' },
 				color = { gui = 'None' },
 			}
 		}
