@@ -1,7 +1,6 @@
 // vim: ft=json
 [{
     // "layer": "top", // Waybar at top layer
-    "output": "DP-2",
     "position": "bottom",
     "height": 16,
     "include": [
@@ -17,15 +16,4 @@
     	"wireplumber",
     	"tray"
     ],
-}, {
-    // "layer": "top", // Waybar at top layer
-    "output": "!DP-2",
-    "position": "bottom",
-    "height": 16,
-    "include": [
-    	"~/.config/waybar/modules-config.json"
-	],
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["clock"],
-    "modules-right": [],
 }]
