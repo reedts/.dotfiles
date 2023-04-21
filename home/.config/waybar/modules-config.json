@@ -1,0 +1,71 @@
+{
+    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true,
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "mpris": {
+
+	},
+    "clock": {
+        "format": "<span color=\"#99cc99\" size=\"x-large\">󰃰 </span> {:(KW %OW) %a %Y-%m-%d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "temperature": {
+        "critical-threshold": 70,
+        "format-critical": "<span color=\"#de935f\" size=\"x-large\"> </span> {temperatureC}°C",
+        "format": "<span color=\"#99cc99\" size=\"x-large\">{icon}</span> {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "cpu": {
+    	"interval": 2,
+    	"format": "<span color=\"#99cc99\" size=\"x-large\">󰘚</span> <span font-family=\"monospace\">{usage:3}% </span> <span size=\"small\" font-family=\"Unifont\">{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}</span>",
+    	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    	"states": {
+    		"warning": 60,
+    		"critical": 99
+		},
+    	"format-warning": "<span color=\"#de935f\" size=\"x-large\">󰘚</span> <span font-family=\"monospace\">{usage:3}% </span> <span size=\"small\" font-family=\"Unifont\">{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}</span>",
+    	"format-critical": "<span color=\"#cc6666\" size=\"x-large\">󰘚</span> <span font-family=\"monospace\">{usage:3}% </span> <span size=\"small\" font-family=\"Unifont\">{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}</span>",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "<span color=\"#99cc99\" size=\"x-large\">󰍛 </span>{percentage:2}%",
+        "format-warning": "<span color=\"#de935f\" size=\"x-large\">󰍛 </span>{percentage:2}%",
+        "format-critical": "<span color=\"#cc6666\" size=\"x-large\">󰍛 </span>{percentage:2}%",
+    	"states": {
+    		"warning": 75,
+    		"critical": 90,
+		},
+    },
+    "network": {
+        "format": "<span color=\"#99cc99\" size=\"x-large\">󰈀 </span>{bandwidthUpBytes} <span color=\"#99cc99\"size=\"x-large\">󰓢</span> {bandwidthDownBytes}",
+        "format-disconnected": " ",
+        "tooltip": false,
+    },
+	"wireplumber": {
+		"format": "{volume}%",
+		"format-muted": "",
+	},
+}

@@ -1,0 +1,191 @@
+@define-color bg #2d2d2d;
+@define-color fg #cccccc;
+@define-color alt-bg #383a3e;
+@define-color tray-bg #474b51;
+@define-color critical #cc6666;
+@define-color warning #de935f;
+@define-color workspace-focused-bg #5f875f;
+@define-color mode-bg #81a2be;
+
+* {
+    font-family: DejaVuSansMono Nerd Font, Symbold Nerd Font Mono;
+    font-size: 10px;
+}
+
+window#waybar {
+    background-color: #2d2d2d;
+    border-top: 1px solid #393939;
+    color: #cccccc;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @fg;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+	background-color: @workspace-focused-bg;
+}
+
+#workspaces button.urgent {
+    background-color: @critical;
+    color: @bg;
+}
+
+#workspaces button.visible {
+    color: @primary;
+}
+
+#mode {
+	padding: 0 10px;
+	color: @bg;
+    background-color: @mode-bg;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+    padding: 0 10px;
+    background-color: @alt-bg;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+/* "Warning-like" */
+#cpu.warning,
+#memory.warning,
+#wireplumber.muted {
+	color: @warning;
+}
+
+/* "Error-like" */
+#cpu.critical,
+#memory.critical,
+#network.disconnected,
+#temperature.critical {
+	color: @critical;
+	border-bottom: 1px solid @critical;
+}
+
+#clock {
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+	font-family: Unifont;
+}
+
+#memory {
+}
+
+#disk {
+}
+
+#backlight {
+}
+
+#network {
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#temperature {
+}
+
+#tray {
+    background-color: @tray-bg;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @critical;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
