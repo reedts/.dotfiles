@@ -287,6 +287,11 @@ zstyle ':chpwd:*' recent-dirs-file ${XDG_CACHE_HOME:-$HOME/.cache}/.chpwd-recent
 # }}}       END functions
 
 # {{{       Prompt
+# Add prompt marker OSC-133 for prompt jumping
+precmd_jumpmarker() {
+	print -Pn "\e]133;A\e\\"
+}
+add-zsh-hook precmd precmd_jumpmarker
 
 setopt no_list_ambiguous
 
