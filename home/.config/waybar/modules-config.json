@@ -91,5 +91,13 @@
 		"return-type": "json",
 		"interval": 60,
 		"tooltip": false,
+	},
+	"custom/pomodoro": {
+		"exec": "~/.config/waybar/waypomo",
+		"return-type": "json",
+		"tooltip": false,
+		"on-click": "~/.config/waybar/waypomo toggle",
+		"on-click-right": "~/.config/waybar/waypomo end",
+		"on-click-middle": "~/.config/waybar/waypomo lock"
 	}
 }

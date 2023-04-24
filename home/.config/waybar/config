@@ -8,7 +8,7 @@
     	"~/.config/waybar/modules-config.json"
 	],
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "mpris"],
-    "modules-center": ["custom/task", "clock"],
+    "modules-center": ["custom/task", "clock", "custom/pomodoro"],
     "modules-right": [
     	"temperature",
     	"cpu",

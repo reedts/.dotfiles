@@ -75,6 +75,7 @@ button {
 #idle_inhibitor,
 #scratchpad,
 #mpd,
+#custom-pomodoro,
 #custom-task {
     padding: 0 10px;
     background-color: @alt-bg;
@@ -202,4 +203,12 @@ label:focus {
 
 #custom-task.overdue {
 	color: #f2777a;
+}
+
+#custom-pomodoro.break {
+	color: #81a2be;
+}
+
+#custom-pomodoro.work {
+	color: #f99157;
 }
