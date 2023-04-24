@@ -8,7 +8,7 @@
 pass_backend="pass"
 
 # the default dmenu backend program to use - rofi, fuzzel, bemenu, rofi, or dmenu
-dmenu_backend="wofi"
+dmenu_backend="bemenu"
 
 # leave it commented if you want the default behavior - the choice to either
 # autotype or copy should be presented in the menu
