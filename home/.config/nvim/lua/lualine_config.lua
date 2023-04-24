@@ -1,7 +1,6 @@
 local lualine = require('lualine')
 local navic = require('nvim-navic')
 navic.setup({
-	separator = "  "
 })
 local theme = 'tomorrow_night_eighties'
 local colors = require('lualine.themes.colors').colors
@@ -123,7 +122,7 @@ lualine.setup({
 				icons_enables = true,
 				icon = { '', align = 'right' },
 				fmt = function(str)
-					return str .. ' 﫦' .. vim.api.nvim_buf_line_count(0)
+					return str .. '/ ' .. vim.api.nvim_buf_line_count(0)
 				end
 			}
 		}
@@ -145,7 +144,6 @@ lualine.setup({
 					TelescopePrompt = 'Telescope',
 					Trouble = 'Trouble',
 				},
-				separator = '│',
 				buffers_color = {
 					active = { fg = colors.green, bg = colors.gray },
 					inactive = { fg = colors.white, bg = colors.line },
