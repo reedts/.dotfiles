@@ -279,16 +279,11 @@ function svg() {
 }
 
 # enable shared dirstack
-DIRSTACKSIZE=15
-DIRSTACKFILE=~/.zdirs
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-	dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-	[[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
-fi
-chpwd() {
-	print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
+zstyle ':completion:*:*:cdr:*:*' menu selection
+zstyle ':chpwd:*' recent-dirs-file ${XDG_CACHE_HOME:-$HOME/.cache}/.chpwd-recent-dirs
 # }}}       END functions
 
 # {{{       Prompt
