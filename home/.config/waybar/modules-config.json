@@ -53,7 +53,7 @@
     },
     "cpu": {
     	"interval": 2,
-    	"format": "<span color=\"#99cc99\" size=\"x-large\">󰘚</span> <span font-family=\"monospace\">{usage:3}% </span> <span size=\"small\" font-family=\"Unifont\">{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}</span>",
+    	"format": "<span color=\"#99cc99\" size=\"x-large\">󰘚</span> <span font-family=\"monospace\">{usage:3}% </span> <span size=\"small\" font-family=\"Unifont\">{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11} {icon12} {icon13} {icon14} {icon15}</span>",
     	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     	"states": {
     		"warning": 60,
@@ -86,4 +86,10 @@
 		"on-scroll-up": "pactl set-sink-volume 0 +2%",
 		"on-scroll-down": "pactl set-sink-volume 0 -2%"
 	},
+	"custom/task": {
+		"exec": "~/.config/waybar/task-module.sh",
+		"return-type": "json",
+		"interval": 60,
+		"tooltip": false,
+	}
 }

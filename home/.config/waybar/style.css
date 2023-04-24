@@ -74,7 +74,8 @@ button {
 #tray,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
+#mpd,
+#custom-task {
     padding: 0 10px;
     background-color: @alt-bg;
 }
@@ -185,4 +186,20 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+#custom-task.ok {
+	color: #99cc99;
+}
+
+#custom-task.today {
+	color: #f99157;
+}
+
+#custom-task.week {
+	color: #ffcc66;
+}
+
+#custom-task.overdue {
+	color: #f2777a;
 }
