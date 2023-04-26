@@ -284,6 +284,19 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 zstyle ':completion:*:*:cdr:*:*' menu selection
 zstyle ':chpwd:*' recent-dirs-file ${XDG_CACHE_HOME:-$HOME/.cache}/.chpwd-recent-dirs
+
+# Report directory changes OSC-7 to foot
+function osc7 {
+    local LC_ALL=C
+    export LC_ALL
+
+    setopt localoptions extendedglob
+    input=( ${(s::)PWD} )
+    uri=${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-\/])/%${(l:2::0:)$(([##16]#match))}}
+    print -n "\e]7;file://${HOSTNAME}${uri}\e\\"
+}
+add-zsh-hook -Uz chpwd osc7
+
 # }}}       END functions
 
 # {{{       Prompt
@@ -292,6 +305,7 @@ precmd_jumpmarker() {
 	print -Pn "\e]133;A\e\\"
 }
 add-zsh-hook precmd precmd_jumpmarker
+
 
 setopt no_list_ambiguous
 
