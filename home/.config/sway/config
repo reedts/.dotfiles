@@ -105,6 +105,7 @@ exec swayidle -w \
 
     bindsym $mod+p exec tessen
 	bindsym $mod+o exec mountmenu
+	bindsym $mod+i exec BEMOJI_PICKER_CMD="fuzzel --dmenu" bemoji -P -t
 
     # Kill focused window
     bindsym $mod+Shift+c kill
