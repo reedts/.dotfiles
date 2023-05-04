@@ -104,6 +104,7 @@ exec swayidle -w \
     for_window [app_id="floot"] floating enable
 
     bindsym $mod+p exec tessen
+	bindsym $mod+o exec mountmenu
 
     # Kill focused window
     bindsym $mod+Shift+c kill
