@@ -44,7 +44,7 @@ font pango:monospace 8
 	# class						border			backgr.			text		indicator
 	client.focused				$green			$green			$bg			$light_green
 	client.focused_inactive		$midgrey		$midgrey		$light_grey	$lighter_grey
-	client.unfocused			#333333			#333333			$dark_grey	$light_grey
+	client.unfocused			$dark_grey		$dark_grey		$dark_grey	$light_grey
 	client.urgent				$red			$light_red		$fg			$red
 
 ### Output configuration
