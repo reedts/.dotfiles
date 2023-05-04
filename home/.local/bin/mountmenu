@@ -1,14 +1,14 @@
 #!/usr/bin/zsh
 
-mountable="$(lsblk -npro NAME,SIZE,TYPE,MOUNTPOINTS | sed '/part $/!d;s/\s\+part $//')"
+mountable="$(lsblk -npro NAME,SIZE,LABEL,TYPE,MOUNTPOINTS | sed '/part $/!d;s/\s\+part $//')"
 [[ "$mountable" == "" ]] && exit 1
 
-device="$(echo $mountable | rofi -dmenu -i -p 'Select device  ' | sed 's/\s.*$//')"
+device="$(echo $mountable | fuzzel --dmenu 'Select device  ' | sed 's/\s.*$//')"
 [[ "$device" == "" ]] && exit 2
 
 target="$(udisksctl mount -b "$device" | sed 's/^.*at \//\//')"
 [[ "$target" == "" ]] && exit 3
 
-viewer="$(echo -e "Alacritty\nFile Browser" | rofi -dmenu -i -p 'Open target in')"
-[[ "$viewer" == "Alacritty" ]] && alacritty --working-directory "$target"
-[[ "$viewer" == "File Browser" ]] && xdg-open "$target"
+viewer="$(echo -e "Foot\nFile Browser" | fuzzel --dmenu 'Open target in')"
+[[ "$viewer" == "Foot" ]] && foot -D "$target"
+[[ "$viewer" == "File Browser" ]] && handlr open "$target"
