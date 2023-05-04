@@ -14,7 +14,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu j4-dmenu-desktop --dmenu='bemenu -i'
+set $menu fuzzel --log-no-syslog
 
 font pango:monospace 8
 
