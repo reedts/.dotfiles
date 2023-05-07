@@ -6,6 +6,9 @@
 @define-color warning #de935f;
 @define-color workspace-focused-bg #5f875f;
 @define-color mode-bg #81a2be;
+@define-color spotify #66cc99;
+@define-color firefox @warning;
+@define-color mpris #f0c674;
 
 * {
     font-family: DejaVuSansMono Nerd Font, Symbold Nerd Font Mono;
@@ -21,15 +24,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 button {
     border: none;
@@ -137,20 +131,21 @@ label:focus {
 #network {
 }
 
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+#mpris {
+	border-bottom: 1px solid;
 }
 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
+#mpris.default {
+	color: @mpris;
 }
 
-#custom-media.custom-vlc {
-    background-color: #ffa000;
+#mpris.firefox {
+	color: @firefox;
 }
 
-#temperature {
+#mpris.spotify,
+#mpris.spotifyd {
+	color: @spotify;
 }
 
 #tray {

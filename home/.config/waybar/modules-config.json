@@ -26,7 +26,18 @@
         "spacing": 10
     },
     "mpris": {
-
+    	"format": "<span size=\"x-large\">{player_icon}{status_icon} </span> {dynamic}",
+		"player-icons": {
+			"default": "󰝚 ",
+			"firefox": "󰈹 ",
+			"spotify": "󰓇 ",
+			"spotifyd": "󰓇 "
+		},
+		"status-icons": {
+			"paused": "󰏤",
+			"playing": "󰐊",
+			"stopped": "󰓛",
+		}
 	},
     "clock": {
         "format": "<span color=\"#99cc99\" size=\"x-large\">󰃰 </span> {:(KW %OW) %a %Y-%m-%d %H:%M}",
@@ -35,7 +46,7 @@
     "temperature": {
         "critical-threshold": 70,
         "format-critical": "<span color=\"#de935f\" size=\"x-large\"> </span> {temperatureC}°C",
-        "format": "<span color=\"#99cc99\" size=\"x-large\">{icon}</span> {temperatureC}°C",
+        "format": "<span color=\"#99cc99\" size=\"x-large\">{icon} </span> {temperatureC}°C",
         "format-icons": ["", "", ""]
     },
     "cpu": {
@@ -60,12 +71,17 @@
 		},
     },
     "network": {
-        "format": "<span color=\"#99cc99\" size=\"x-large\">󰈀 </span>{bandwidthUpBytes} <span color=\"#99cc99\"size=\"x-large\">󰓢</span> {bandwidthDownBytes}",
+        "format": "<span color=\"#99cc99\" size=\"x-large\">󰈀 </span> {bandwidthUpBytes} <span color=\"#99cc99\"size=\"x-large\"> 󰓢 </span> {bandwidthDownBytes}",
         "format-disconnected": " ",
         "tooltip": false,
     },
 	"wireplumber": {
-		"format": "{volume}%",
+		"format": "<span color=\"#99cc99\" size=\"x-large\">{icon} </span> {volume}%",
 		"format-muted": "",
+		"format-icons": ["", "", ""],
+		"on-click": "pactl set-sink-mute 0 toggle",
+		"on-click-right": "pavucontrol",
+		"on-scroll-up": "pactl set-sink-volume 0 +2%",
+		"on-scroll-down": "pactl set-sink-volume 0 -2%"
 	},
 }
