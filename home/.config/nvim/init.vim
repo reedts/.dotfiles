@@ -14,8 +14,6 @@ set undofile
 
 set fillchars+=vert:\│
 
-let g:python3_host_prog = '/usr/bin/python3'
-
 "}}}
 
 " Indenting {{{
@@ -130,9 +128,6 @@ EOF
 lua require("lualine_config")
 " }}}
 
-" Python semantic plugin {{{
-let g:semshi#error_sign = v:false
-"}}}
 
 "LaTeX-Suite {{{
 filetype plugin on
