@@ -113,7 +113,7 @@ lualine.setup({
 			},
 			{
 				lsp_clients,
-				icon = { '勞', align = 'left', color = { fg = colors.orange } }
+				icon = { '󰓆 ', align = 'left', color = { fg = colors.orange } }
 			}
 		},
 		lualine_z = {

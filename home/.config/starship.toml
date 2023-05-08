@@ -62,6 +62,7 @@ repo_root_style = "bg:18 bold cyan"
 repo_root_format = "[ $before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)([ $read_only ]($read_only_style))"
 format = "[ $path]($style)([ $read_only ]($read_only_style))"
 truncation_symbol = "⋯/"
+read_only = " "
 truncate_to_repo = false
 
 [fill]
@@ -79,7 +80,7 @@ format = "([\\[$all_status$ahead_behind\\] ]($style))"
 
 [hostname]
 ssh_only = true
-ssh_symbol = " "
+ssh_symbol = " "
 style = "purple bg:18"
 format = "[$hostname $ssh_symbol]($style)"
 
@@ -91,7 +92,7 @@ format = "[$user]($style)[@](bg:18 cyan)"
 
 [package]
 style = "bg:18 bold 208"
-symbol = " "
+symbol = " "
 format = "[](bg:18 fg:242)[ $symbol$version ]($style)"
 
 [python]
@@ -108,11 +109,11 @@ format = "[](bg:18 fg:242)[ $symbol($version) ](bold $style)"
 disabled = false
 pipestatus = true
 map_symbol = true
-symbol = ""
-not_executable_symbol = ""
+symbol = " "
+not_executable_symbol = " "
 sigint_symbol = ""
-signal_symbol = "ﲍ"
-not_found_symbol = ""
+signal_symbol = "󰌬 "
+not_found_symbol = "󰍉 "
 pipestatus_separator = "[│]($style)"
 style = "bold red"
 format = "[$symbol ($common_meaning )($signal_name )($maybe_int)]($style)"
