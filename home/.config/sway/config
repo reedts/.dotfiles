@@ -125,6 +125,8 @@ exec swayidle -w \
     titlebar_padding 1
     hide_edge_borders smart_no_gaps
 
+    bindsym $mod+Shift+q exec swaylock -f -c 000000
+
     # Reload the configuration file
     bindsym $mod+Shift+r reload
 
