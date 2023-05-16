@@ -41,11 +41,11 @@ font pango:monospace 8
 	set $lighter_grey #707880
 	set $midgrey      #474b51
 
-	# class						border			backgr.			text		indicator
-	client.focused				$green			$green			$bg			$light_green
-	client.focused_inactive		$midgrey		$midgrey		$light_grey	$lighter_grey
-	client.unfocused			$dark_grey		$dark_grey		$dark_grey	$light_grey
-	client.urgent				$red			$light_red		$fg			$red
+	# class                     border          backgr.         text        indicator
+	client.focused              $green          $green          $bg         $light_green
+	client.focused_inactive     $midgrey        $midgrey        $dark_grey  $dark_grey
+	client.unfocused            $darker_grey    $darker_grey    $light_grey $light_grey
+	client.urgent               $red            $light_red      $fg         $red
 
 ### Output configuration
 #
