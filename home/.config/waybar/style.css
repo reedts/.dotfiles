@@ -2,6 +2,7 @@
 @define-color fg #cccccc;
 @define-color alt-bg #383a3e;
 @define-color tray-bg #474b51;
+@define-color scratchpad #cc99cc;
 @define-color critical #cc6666;
 @define-color warning #de935f;
 @define-color workspace-focused-bg #5f875f;
@@ -178,7 +179,7 @@ label:focus {
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+    color: @scratchpad;
 }
 
 #scratchpad.empty {
