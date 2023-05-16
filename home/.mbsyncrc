@@ -19,6 +19,7 @@ Far :wwu-remote:
 Near :wwu-local:
 Create Both # Automatically create missing mailboxes, both locally and on the server
 Expunge Both
+ExpireUnread no
 SyncState *
 Patterns * !.briefkasten !Kontakte !Notizen !Aufgaben !Journal !Entw*rfe !Junk-E-Mail !Kalender !Gel*schte* !Gesendete* !Postausgang
 
@@ -43,6 +44,7 @@ Near :gmail-local:Archive
 Create Near
 SyncState *
 Sync All
+ExpireUnread yes
 MaxMessages 300
 
 Channel sync-gmail-trash
