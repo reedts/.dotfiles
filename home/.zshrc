@@ -120,7 +120,7 @@ alias copy='rsync -az --info=progress2'
 #xbps aliases
 alias xin='sudo xbps-install'
 alias xrm='sudo xbps-remove'
-alias xq='sudo xbps-query'
+alias xq='xbps-query'
 
 # neomutt
 alias nm='neomutt'
