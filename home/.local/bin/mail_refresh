@@ -1,19 +1,17 @@
 #!/bin/zsh
 
-
 MAILDIRS=("$HOME/.mail/private")
 
 MAILDIR="$1"
 MB_CONFIG=${2:-$HOME/.mbsyncrc}
 
-mbsync -c "$MB_CONFIG" -a `basename "$MAILDIR"`
-
 if [ -n "$MAILDIR" ]; then
-	dir=$HOME/.mail/"$MAILDIR"
+	mbsync -c "$MB_CONFIG" -a `basename "$MAILDIR"`
+	dir="${MAILDIRS[1]}/$MAILDIR"
 	notmuch --config="$dir/.notmuch-config" new
 else
 	for dir in `fd -t d -d 1 . ${MAILDIRS[1]}`; do
-		mbsync -a `basename "$dir"`
+		mbsync -c "$MB_CONFIG" -a `basename "$dir"`
 		notmuch --config="$dir/.notmuch-config" new
 	done
 fi
