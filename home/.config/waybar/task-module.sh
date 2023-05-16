@@ -5,9 +5,9 @@ COLOR_TODAY='#f99157'
 COLOR_WEEK='#ffcc66'
 COLOR_OK='#99cc99'
 
-CHAR_OVERDUE=''
-CHAR_TODAY=''
-CHAR_WEEK='ﭷ'
+CHAR_OVERDUE=' '
+CHAR_TODAY='󰃶 '
+CHAR_WEEK='󰨳 '
 
 NUM_OVERDUE=$(task +OVERDUE count 2> /dev/null)
 NUM_TODAY=$(task +PENDING +DUETODAY -OVERDUE count 2> /dev/null)
