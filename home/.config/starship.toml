@@ -42,7 +42,7 @@ error_symbol = '[\\](bold red)'
 vimcmd_symbol = "[-](yellow)[](bold yellow)"
 
 [cmake]
-symbol = " "
+symbol = "󰇂 "
 style = "bg:18 fg:blue"
 format = "[](bg:18 fg:242)[ $symbol($version) ](bold $style)"
 
