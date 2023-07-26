@@ -145,6 +145,7 @@ label:focus {
 }
 
 #mpris.spotify,
+#mpris.spotify_player,
 #mpris.spotifyd {
 	color: @spotify;
 }

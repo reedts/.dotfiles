@@ -31,13 +31,15 @@
 			"default": "󰝚 ",
 			"firefox": "󰈹 ",
 			"spotify": "󰓇 ",
+			"spotify_player": "󰓇 ",
 			"spotifyd": "󰓇 "
 		},
 		"status-icons": {
 			"paused": "󰏤",
 			"playing": "󰐊",
 			"stopped": "󰓛",
-		}
+		},
+    	"interval": 1,
 	},
     "clock": {
         "format": "<span color=\"#99cc99\" size=\"x-large\">󰃰 </span> {:(KW %OW) %a %Y-%m-%d %H:%M}",
