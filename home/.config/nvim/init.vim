@@ -58,6 +58,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'lervag/vimtex'
 Plug 'ftilde/vim-ugdb'
 Plug 'folke/trouble.nvim', {'branch': 'main'}
+Plug 'kaarmu/typst.vim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
