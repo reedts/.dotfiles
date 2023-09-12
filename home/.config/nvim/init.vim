@@ -43,6 +43,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Navigation
 Plug 'eugen0329/vim-esearch'
 Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -150,6 +151,8 @@ nmap     <leader>nn <cmd>NERDTreeToggle<cr>
 nmap     <leader>tg <cmd>TagbarToggle<cr>
 nmap     <leader>ee <plug>(esearch)
 noremap  <leader>w  <cmd>call TrimWhitespace()<cr>
+nnoremap <leader>u :UndotreeToggle<cr>
+
 " fucking word sorting!
 vnoremap <leader>s  d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
